@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>SPU Lidar | 05 May 2020</title>
+  <style type="text/css">
+    /* Compact Light Theme matching Google Sites */
+    html, body { 
+        background: #f0f2f5; 
+        color: #333; 
+        font-family: 'Segoe UI', Roboto, Helvetica, sans-serif; 
+        margin: 0; 
+        padding: 0; 
+        height: 100vh;
+        overflow: hidden; /* Remove scroll da pagina inteira */
+    }
+    
+    /* Top Menu Bar */
+    .top-bar { 
+        background: #1a1a1a; 
+        color: #fff; 
+        padding: 10px 25px; 
+        display: flex; 
+        justify-content: space-between; 
+        align-items: center; 
+        box-shadow: 0 2px 4px rgba(0,0,0,0.2); 
+        height: 40px;
+    }
+    .top-bar h2 { margin: 0; font-size: 18px; font-weight: 500; letter-spacing: 1px; }
+    .top-bar .date { font-weight: 700; color: #4fc3f7; margin-left: 5px; }
+    .metadata { font-size: 12px; color: #aaa; font-family: monospace; display: flex; gap: 15px; }
+    
+    /* Toolbar (Mode + Controls) */
+    .toolbar { 
+        background: #ffffff; 
+        border-bottom: 1px solid #ddd; 
+        padding: 8px 25px; 
+        display: flex; 
+        justify-content: center; 
+        align-items: center; 
+        flex-wrap: wrap; 
+        gap: 30px; 
+        box-shadow: 0 2px 8px rgba(0,0,0,0.05); 
+        height: 45px;
+    }
+    
+    .control-group { display: flex; align-items: center; gap: 8px; }
+    .control-group h3 { margin: 0; font-size: 11px; color: #777; text-transform: uppercase; letter-spacing: 1px; margin-right: 5px; }
+    
+    /* Toolbar Buttons */
+    .main-mode-btn { background: transparent; border: none; font-size: 14px; font-weight: 600; color: #777; cursor: pointer; padding: 6px 12px; border-bottom: 3px solid transparent; transition: 0.2s; }
+    .main-mode-btn:hover { color: #111; }
+    .main-mode-btn.active { color: #0056b3; border-bottom: 3px solid #0056b3; }
+    
+    .tab-btn { background: #f8f9fa; border: 1px solid #ccc; padding: 5px 12px; border-radius: 4px; cursor: pointer; font-size: 12px; font-weight: 600; color: #555; transition: all 0.2s ease; font-family: monospace; }
+    .tab-btn:hover { background: #e2e6ea; color: #111; }
+    
+    /* Active Physics Colors */
+    .btn-ir.active { background: #d32f2f; color: #fff; border-color: #b71c1c; box-shadow: 0 2px 4px rgba(211,47,47,0.3); }
+    .btn-vis.active { background: #2e7d32; color: #fff; border-color: #1b5e20; box-shadow: 0 2px 4px rgba(46,125,50,0.3); }
+    .btn-uv.active { background: #6a1b9a; color: #fff; border-color: #4a148c; box-shadow: 0 2px 4px rgba(106,27,154,0.3); }
+    .btn-default.active { background: #0056b3; color: #fff; border-color: #004085; }
+    .alt-btn.active { background: #546e7a; color: #fff; border-color: #37474f; }
+
+    /* Image Display Area (Fills remaining height perfectly) */
+    .image-container { 
+        padding: 15px; 
+        text-align: center; 
+        /* 100vh (tela inteira) menos o topo (~135px) = Imagem perfeita sem scroll */
+        height: calc(100vh - 145px); 
+        display: flex; 
+        justify-content: center; 
+        align-items: center; 
+    }
+    
+    #main-display { 
+        max-height: 100%; 
+        max-width: 100%; 
+        object-fit: contain; 
+        box-shadow: 0 6px 16px rgba(0,0,0,0.15); 
+        background: #fff; 
+        cursor: zoom-in; 
+        transition: opacity 0.2s ease-in-out; 
+    }
+    
+    /* Fullscreen Modal */
+    #myModal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.9); backdrop-filter: blur(5px); }
+    .modal-close { position: absolute; top: 15px; right: 30px; color: #bbb; font-size: 40px; font-weight: 300; cursor: pointer; }
+    .modal-close:hover { color: #fff; }
+    .modal-content { margin: auto; display: block; max-width: 98%; max-height: 95vh; margin-top: 1%; animation: zoom 0.2s ease-out; }
+    @keyframes zoom { from {transform:scale(0.95); opacity:0} to {transform:scale(1); opacity:1} }
+  </style>
+</head>
+<body>
+
+  <div class="top-bar">
+      <h2>SPU LIDAR STATION | <span class="date">05 May 2020</span></h2>
+      <div class="metadata">
+          <span>LAT: 23.56°S</span>
+          <span>LON: 46.73°W</span>
+          <span>ELEV: 744m</span>
+      </div>
+  </div>
+  
+  <div class="toolbar">
+      <div class="control-group">
+          <button class="main-mode-btn active" id="tab-quicklooks" onclick="setMode('quicklooks')">RCS Maps</button>
+          <button class="main-mode-btn" id="tab-resumo" style="display: flex;" onclick="setMode('resumo')">Atmospheric Profiles</button>
+      </div>
+      
+      <div class="control-group" id="controls-panel">
+          <h3 style="margin-left: 15px; border-left: 2px solid #ddd; padding-left: 15px;">Wavelength</h3>
+          <button class="tab-btn ch-btn btn-ir" onclick="setChannel('1064nm_AN', this)">1064nm AN</button>
+<button class="tab-btn ch-btn btn-uv" onclick="setChannel('355nm_AN', this)">355nm AN</button>
+<button class="tab-btn ch-btn btn-uv" onclick="setChannel('355nm_PC', this)">355nm PC</button>
+<button class="tab-btn ch-btn btn-vis" onclick="setChannel('532nm_AN', this)">532nm AN</button>
+<button class="tab-btn ch-btn btn-vis" onclick="setChannel('532nm_PC', this)">532nm PC</button>
+
+          <h3 style="margin-left: 10px;">Range</h3>
+          <button class="tab-btn alt-btn" onclick="setAltitude('5', this)">5 km</button>
+<button class="tab-btn alt-btn" onclick="setAltitude('15', this)">15 km</button>
+<button class="tab-btn alt-btn" onclick="setAltitude('30', this)">30 km</button>
+
+      </div>
+  </div>
+  
+  <div class="image-container">
+      <img id="main-display" src="https://pub-2dc2005030bb4ee796dd63fd528879fa.r2.dev/2020/Quicklook_20200505saam_1064nm_AN_15km.webp" onclick="openModal(this.src)" alt="Lidar Data Image">
+  </div>
+  
+  <div id="myModal">
+    <span class="modal-close" onclick="closeModal()">&times;</span>
+    <img class="modal-content" id="img01">
+  </div>
+
+  <script>
+    var currentChannel = "1064nm_AN";
+    var currentAltitude = "15";
+    var prefix = "20200505saam";
+    var currentMode = "quicklooks";
+    var cloudBaseUrl = "https://pub-2dc2005030bb4ee796dd63fd528879fa.r2.dev/2020";
+    var imgElement = document.getElementById("main-display");
+
+    document.addEventListener("DOMContentLoaded", function() {
+        var firstCh = document.querySelector(".ch-btn");
+        var firstAlt = document.querySelector(".alt-btn");
+        if(firstCh) firstCh.classList.add("active");
+        if(firstAlt) firstAlt.classList.add("active");
+    });
+
+    function updateImage() {
+        imgElement.style.opacity = 0.4;
+        setTimeout(() => {
+            if (currentMode === "quicklooks") {
+                imgElement.src = cloudBaseUrl + "/Quicklook_" + prefix + "_" + currentChannel + "_" + currentAltitude + "km.webp";
+            } else {
+                imgElement.src = cloudBaseUrl + "/GlobalMeanRCS_20200505saam.webp";
+            }
+        }, 100);
+    }
+
+    imgElement.onload = function() { imgElement.style.opacity = 1; };
+
+    function setMode(mode) {
+        currentMode = mode;
+        document.getElementById("tab-quicklooks").classList.remove("active");
+        document.getElementById("tab-resumo").classList.remove("active");
+        
+        if (mode === "quicklooks") {
+            document.getElementById("tab-quicklooks").classList.add("active");
+            document.getElementById("controls-panel").style.display = "flex"; 
+        } else {
+            document.getElementById("tab-resumo").classList.add("active");
+            document.getElementById("controls-panel").style.display = "none"; 
+        }
+        updateImage();
+    }
+
+    function setChannel(ch, btnElement) {
+        if(currentChannel === ch && currentMode === "quicklooks") return; 
+        currentChannel = ch;
+        document.querySelectorAll(".ch-btn").forEach(btn => btn.classList.remove("active"));
+        btnElement.classList.add("active");
+        updateImage();
+    }
+
+    function setAltitude(alt, btnElement) {
+        if(currentAltitude === alt && currentMode === "quicklooks") return;
+        currentAltitude = alt;
+        document.querySelectorAll(".alt-btn").forEach(btn => btn.classList.remove("active"));
+        btnElement.classList.add("active");
+        updateImage();
+    }
+
+    var modal = document.getElementById("myModal");
+    var modalImg = document.getElementById("img01");
+    
+    function openModal(src) { modal.style.display = "block"; modalImg.src = src; }
+    function closeModal() { modal.style.display = "none"; }
+    window.onclick = function(event) { if (event.target == modal) closeModal(); }
+    document.addEventListener('keydown', function(event) { if (event.key === "Escape") closeModal(); });
+  </script>
+</body>
+</html>
