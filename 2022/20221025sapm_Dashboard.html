@@ -12,7 +12,7 @@
         margin: 0; 
         padding: 0; 
         height: 100vh;
-        overflow: hidden; /* Remove scroll da pagina inteira */
+        overflow: hidden; 
     }
     
     /* Top Menu Bar */
@@ -62,11 +62,10 @@
     .btn-default.active { background: #0056b3; color: #fff; border-color: #004085; }
     .alt-btn.active { background: #546e7a; color: #fff; border-color: #37474f; }
 
-    /* Image Display Area (Fills remaining height perfectly) */
+    /* Image Display Area */
     .image-container { 
         padding: 15px; 
         text-align: center; 
-        /* 100vh (tela inteira) menos o topo (~135px) = Imagem perfeita sem scroll */
         height: calc(100vh - 145px); 
         display: flex; 
         justify-content: center; 
@@ -113,19 +112,19 @@
           <button class="tab-btn ch-btn btn-ir" onclick="setChannel('1064nm_AN', this)">1064nm AN</button>
 <button class="tab-btn ch-btn btn-uv" onclick="setChannel('355nm_AN', this)">355nm AN</button>
 <button class="tab-btn ch-btn btn-uv" onclick="setChannel('355nm_PC', this)">355nm PC</button>
-<button class="tab-btn ch-btn btn-vis" onclick="setChannel('532nm_AN', this)">532nm AN</button>
+<button class="tab-btn ch-btn btn-vis active" onclick="setChannel('532nm_AN', this)">532nm AN</button>
 <button class="tab-btn ch-btn btn-vis" onclick="setChannel('532nm_PC', this)">532nm PC</button>
 
           <h3 style="margin-left: 10px;">Range</h3>
           <button class="tab-btn alt-btn" onclick="setAltitude('5', this)">5 km</button>
-<button class="tab-btn alt-btn" onclick="setAltitude('15', this)">15 km</button>
+<button class="tab-btn alt-btn active" onclick="setAltitude('15', this)">15 km</button>
 <button class="tab-btn alt-btn" onclick="setAltitude('30', this)">30 km</button>
 
       </div>
   </div>
   
   <div class="image-container">
-      <img id="main-display" src="https://pub-2dc2005030bb4ee796dd63fd528879fa.r2.dev/2022/Quicklook_20221025sapm_1064nm_AN_15km.webp" onclick="openModal(this.src)" alt="Lidar Data Image">
+      <img id="main-display" src="https://pub-2dc2005030bb4ee796dd63fd528879fa.r2.dev/2022/Quicklook_20221025sapm_532nm_AN_15km.webp" onclick="openModal(this.src)" alt="Lidar Data Image">
   </div>
   
   <div id="myModal">
@@ -134,19 +133,15 @@
   </div>
 
   <script>
-    var currentChannel = "1064nm_AN";
+    var currentChannel = "532nm_AN";
     var currentAltitude = "15";
     var prefix = "20221025sapm";
     var currentMode = "quicklooks";
     var cloudBaseUrl = "https://pub-2dc2005030bb4ee796dd63fd528879fa.r2.dev/2022";
     var imgElement = document.getElementById("main-display");
 
-    document.addEventListener("DOMContentLoaded", function() {
-        var firstCh = document.querySelector(".ch-btn");
-        var firstAlt = document.querySelector(".alt-btn");
-        if(firstCh) firstCh.classList.add("active");
-        if(firstAlt) firstAlt.classList.add("active");
-    });
+    // REMOVIDO: O Javascript burro que selecionava os primeiros botões cegamente
+    // document.addEventListener("DOMContentLoaded", function() { ... });
 
     function updateImage() {
         imgElement.style.opacity = 0.4;
@@ -190,7 +185,7 @@
         document.querySelectorAll(".alt-btn").forEach(btn => btn.classList.remove("active"));
         btnElement.classList.add("active");
         updateImage();
-    }
+    } 
 
     var modal = document.getElementById("myModal");
     var modalImg = document.getElementById("img01");
