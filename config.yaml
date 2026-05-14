@@ -1,0 +1,7 @@
+processing:
+  incremental: true
+
+directories:
+  processed_data: "02-processed_data"
+  site_output: "measurements"
+  log_dir: "logs"

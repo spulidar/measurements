@@ -1,0 +1,15 @@
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+env/
+.env
+test.py
+logs/
+
+# ==========================================
+# Security
+# ==========================================
+credentials.py
+
