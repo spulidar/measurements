@@ -12,6 +12,25 @@ import re
 import boto3
 from datetime import datetime
 from pathlib import Path
+import yaml
+import logging
+
+
+def _validate_config_minimum(config: dict) -> None:
+    """
+    Performs a lightweight schema check for the YAML configuration.
+
+    This is intentionally minimal: it catches missing top-level sections early
+    without forcing a rigid schema that would make experimental development hard.
+    """
+    required_sections = ("directories", "processing")
+    missing = [section for section in required_sections if section not in config]
+
+    if missing:
+        raise KeyError(
+            "Configuration file is missing required section(s): "
+            + ", ".join(missing)
+        )
 
 def load_config(config_path: str = "config.yaml") -> dict:
     """
