@@ -966,7 +966,7 @@ def push_site_updates(
         return
 
     try:
-        import credentials
+        import credentials as credentials
 
         gh_user = getattr(credentials, "GITHUB_USER", "spulidar")
         gh_token = credentials.GITHUB_TOKEN
