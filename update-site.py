@@ -256,7 +256,7 @@ def make_channel_buttons(valid_channels: list[str], default_ch: str) -> str:
 
         buttons.append(
             f'<button class="tab-btn ch-btn {color_class}{active_class}" '
-            f'onclick="setChannel({js_string(ch)}, this)">{label}</button>'
+            f"onclick='setChannel({js_string(ch)}, this)'>{label}</button>"
         )
 
     return "\n          ".join(buttons)
@@ -271,7 +271,7 @@ def make_altitude_buttons(valid_alts: list[str], default_alt: str) -> str:
 
         buttons.append(
             f'<button class="tab-btn alt-btn{active_class}" '
-            f'onclick="setAltitude({js_string(alt)}, this)">{label}</button>'
+            f"onclick='setAltitude({js_string(alt)}, this)'>{label}</button>"
         )
 
     return "\n          ".join(buttons)

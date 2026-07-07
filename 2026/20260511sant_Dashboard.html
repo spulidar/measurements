@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>SPU Lidar | 11 May 2026</title>
-    <style type="text/css">
 
+  <style type="text/css">
     :root {
         --topbar-bg: #1a1a1a;
         --page-bg: #f0f2f5;
@@ -371,11 +371,10 @@
             font-size: 12px;
         }
     }
-
   </style>
 </head>
-<body>
 
+<body>
   <div class="top-bar">
       <h2>SPU LIDAR STATION | <span class="date">11 May 2026</span></h2>
       <div class="metadata">
@@ -384,37 +383,41 @@
           <span>ELEV: 760m</span>
       </div>
   </div>
-  
+
   <div class="toolbar">
       <div class="control-group">
           <button class="main-mode-btn active" id="tab-quicklooks" onclick="setMode('quicklooks')">RCS Maps</button>
-          <button class="main-mode-btn" id="tab-resumo" style="display: flex;" onclick="setMode('resumo')">Atmospheric Profiles</button>
+          <button class="main-mode-btn" id="tab-resumo" style="display: inline-flex;" onclick="setMode('resumo')">Atmospheric Profiles</button>
       </div>
-      
+
       <div class="control-group" id="controls-panel">
           <h3 class="control-label-left">Wavelength</h3>
-          <button class="tab-btn ch-btn btn-ir" onclick="setChannel('1064nm_AN', this)">1064nm AN</button>
-<button class="tab-btn ch-btn btn-uv" onclick="setChannel('355nm_AN', this)">355nm AN</button>
-<button class="tab-btn ch-btn btn-uv" onclick="setChannel('355nm_PC', this)">355nm PC</button>
-<button class="tab-btn ch-btn btn-vis active" onclick="setChannel('532nm_AN', this)">532nm AN</button>
-<button class="tab-btn ch-btn btn-vis" onclick="setChannel('532nm_PC', this)">532nm PC</button>
+          <button class="tab-btn ch-btn btn-ir" onclick='setChannel("1064nm_AN", this)'>1064nm AN</button>
+          <button class="tab-btn ch-btn btn-uv" onclick='setChannel("355nm_AN", this)'>355nm AN</button>
+          <button class="tab-btn ch-btn btn-uv" onclick='setChannel("355nm_PC", this)'>355nm PC</button>
+          <button class="tab-btn ch-btn btn-vis active" onclick='setChannel("532nm_AN", this)'>532nm AN</button>
+          <button class="tab-btn ch-btn btn-vis" onclick='setChannel("532nm_PC", this)'>532nm PC</button>
 
           <h3 class="control-label-left">Range</h3>
-          <button class="tab-btn alt-btn" onclick="setAltitude('5', this)">5 km</button>
-<button class="tab-btn alt-btn active" onclick="setAltitude('15', this)">15 km</button>
-<button class="tab-btn alt-btn" onclick="setAltitude('30', this)">30 km</button>
-
+          <button class="tab-btn alt-btn" onclick='setAltitude("5", this)'>5 km</button>
+          <button class="tab-btn alt-btn active" onclick='setAltitude("15", this)'>15 km</button>
+          <button class="tab-btn alt-btn" onclick='setAltitude("30", this)'>30 km</button>
       </div>
   </div>
-  
+
   <div class="image-container">
-      <img id="main-display" src="https://pub-2dc2005030bb4ee796dd63fd528879fa.r2.dev/2026/Quicklook_20260511sant_532nm_AN_15km.webp" onclick="openModal(this.src)" alt="Lidar Data Image">
+      <img
+          id="main-display"
+          src="https://pub-2dc2005030bb4ee796dd63fd528879fa.r2.dev/2026/Quicklook_20260511sant_532nm_AN_15km.webp"
+          onclick="openModal(this.src)"
+          alt="Lidar Data Image"
+      >
       <div id="image-error" class="image-error"></div>
   </div>
-  
+
   <div id="myModal">
     <span class="modal-close" onclick="closeModal()">&times;</span>
-    <img class="modal-content" id="img01">
+    <img class="modal-content" id="img01" alt="Expanded Lidar Data Image">
   </div>
 
   <script>
@@ -423,31 +426,35 @@
     var prefix = "20260511sant";
     var currentMode = "quicklooks";
     var cloudBaseUrl = "https://pub-2dc2005030bb4ee796dd63fd528879fa.r2.dev/2026";
+    var meanRcsFile = "GlobalMeanRCS_20260511sant.webp";
+
     var imgElement = document.getElementById("main-display");
     var imageError = document.getElementById("image-error");
 
-    // REMOVIDO: O Javascript burro que selecionava os primeiros botões cegamente
-    // document.addEventListener("DOMContentLoaded", function() { ... });
+    function buildImageUrl() {
+        if (currentMode === "quicklooks") {
+            return cloudBaseUrl + "/Quicklook_" + prefix + "_" + currentChannel + "_" + currentAltitude + "km.webp";
+        }
+        return cloudBaseUrl + "/" + meanRcsFile;
+    }
 
     function updateImage() {
+        imageError.classList.remove("active");
+        imageError.textContent = "";
+
+        imgElement.style.display = "block";
         imgElement.style.opacity = 0.4;
-        setTimeout(() => {
-            if (currentMode === "quicklooks") {
-                imgElement.src = cloudBaseUrl + "/Quicklook_" + prefix + "_" + currentChannel + "_" + currentAltitude + "km.webp";
-            } else {
-                imgElement.src = cloudBaseUrl + "/GlobalMeanRCS_20260511sant.webp";
-            }
+
+        setTimeout(function() {
+            imgElement.src = buildImageUrl();
         }, 100);
     }
 
     imgElement.onload = function() {
         imgElement.style.opacity = 1;
         imgElement.style.display = "block";
-
-        if (imageError) {
-            imageError.classList.remove("active");
-            imageError.textContent = "";
-        }
+        imageError.classList.remove("active");
+        imageError.textContent = "";
     };
 
     imgElement.onerror = function() {
@@ -456,55 +463,78 @@
         imgElement.style.opacity = 1;
         imgElement.style.display = "none";
 
-        if (imageError) {
-            imageError.textContent =
-                "Imagem não encontrada ou falha ao carregar. Verifique se o arquivo existe no R2/GitHub Pages: " +
-                failedUrl;
+        imageError.textContent =
+            "Imagem não encontrada ou falha ao carregar. Verifique se o arquivo existe no R2/GitHub Pages: " +
+            failedUrl;
 
-            imageError.classList.add("active");
-        }
-
+        imageError.classList.add("active");
         console.error("Falha ao carregar:", failedUrl);
     };
 
     function setMode(mode) {
         currentMode = mode;
+
         document.getElementById("tab-quicklooks").classList.remove("active");
         document.getElementById("tab-resumo").classList.remove("active");
-        
+
         if (mode === "quicklooks") {
             document.getElementById("tab-quicklooks").classList.add("active");
-            document.getElementById("controls-panel").style.display = "flex"; 
+            document.getElementById("controls-panel").style.display = "flex";
         } else {
             document.getElementById("tab-resumo").classList.add("active");
-            document.getElementById("controls-panel").style.display = "none"; 
+            document.getElementById("controls-panel").style.display = "none";
         }
+
         updateImage();
     }
 
     function setChannel(ch, btnElement) {
-        if(currentChannel === ch && currentMode === "quicklooks") return; 
+        if (currentChannel === ch && currentMode === "quicklooks") return;
+
         currentChannel = ch;
-        document.querySelectorAll(".ch-btn").forEach(btn => btn.classList.remove("active"));
+
+        document.querySelectorAll(".ch-btn").forEach(function(btn) {
+            btn.classList.remove("active");
+        });
+
         btnElement.classList.add("active");
         updateImage();
     }
 
     function setAltitude(alt, btnElement) {
-        if(currentAltitude === alt && currentMode === "quicklooks") return;
+        if (currentAltitude === alt && currentMode === "quicklooks") return;
+
         currentAltitude = alt;
-        document.querySelectorAll(".alt-btn").forEach(btn => btn.classList.remove("active"));
+
+        document.querySelectorAll(".alt-btn").forEach(function(btn) {
+            btn.classList.remove("active");
+        });
+
         btnElement.classList.add("active");
         updateImage();
-    } 
+    }
 
     var modal = document.getElementById("myModal");
     var modalImg = document.getElementById("img01");
-    
-    function openModal(src) { if (!src || imgElement.style.display === "none") return; modal.style.display = "block"; modalImg.src = src; }
-    function closeModal() { modal.style.display = "none"; }
-    window.onclick = function(event) { if (event.target == modal) closeModal(); }
-    document.addEventListener('keydown', function(event) { if (event.key === "Escape") closeModal(); });
+
+    function openModal(src) {
+        if (!src || imgElement.style.display === "none") return;
+        modal.style.display = "block";
+        modalImg.src = src;
+    }
+
+    function closeModal() {
+        modal.style.display = "none";
+        modalImg.src = "";
+    }
+
+    window.onclick = function(event) {
+        if (event.target === modal) closeModal();
+    };
+
+    document.addEventListener("keydown", function(event) {
+        if (event.key === "Escape") closeModal();
+    });
   </script>
 </body>
 </html>
