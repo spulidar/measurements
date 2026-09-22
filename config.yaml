@@ -5,3 +5,6 @@ directories:
   processed_data: "02-processed_data"
   site_output: "measurements"
   log_dir: "logs"
+
+publication:
+  cloud_public_url: "https://pub-2dc2005030bb4ee796dd63fd528879fa.r2.dev"
