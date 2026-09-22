@@ -6,14 +6,12 @@ import logging
 import os
 from pathlib import Path
 import subprocess
-import sys
 from typing import Any
 
 
 def get_cloud_credentials(logger: logging.Logger):
     try:
         import credentials
-
         import boto3
 
         client = boto3.client(
@@ -32,11 +30,6 @@ def get_cloud_credentials(logger: logging.Logger):
         raise RuntimeError("Cloud publication credentials are incomplete.") from exc
 
 
-def cloud_key(date: str, filename: str) -> str:
-    """Return YYYY/MM/YYYYMMDD/filename for one published image."""
-    return f"{date[:4]}/{date[4:6]}/{date}/{filename}"
-
-
 def upload_to_r2(
     client: Any,
     bucket_name: str,
@@ -51,7 +44,6 @@ def upload_to_r2(
             object_key,
             ExtraArgs={
                 "ContentType": "image/webp",
-                # Quicklooks can be regenerated under the same canonical name.
                 "CacheControl": "public, max-age=3600, must-revalidate",
             },
         )
@@ -61,18 +53,48 @@ def upload_to_r2(
         return False
 
 
-def get_cloud_existing_keys(client: Any, bucket_name: str, logger: logging.Logger) -> set[str]:
-    keys: set[str] = set()
-    logger.info("SYNC MODE: building Cloudflare R2 index...")
+def get_cloud_inventory(client: Any, bucket_name: str, logger: logging.Logger) -> dict[str, int]:
+    inventory: dict[str, int] = {}
+    logger.info("Building Cloudflare R2 inventory...")
     paginator = client.get_paginator("list_objects_v2")
     try:
         for page in paginator.paginate(Bucket=bucket_name):
             for obj in page.get("Contents", []):
-                keys.add(obj["Key"])
+                inventory[str(obj["Key"])] = int(obj.get("Size", 0))
     except Exception as exc:
-        raise RuntimeError(f"Failed to fetch Cloudflare R2 index: {exc}") from exc
-    logger.info("Cloud index contains %d objects.", len(keys))
-    return keys
+        raise RuntimeError(f"Failed to fetch Cloudflare R2 inventory: {exc}") from exc
+    logger.info("R2 inventory contains %d objects.", len(inventory))
+    return inventory
+
+
+def delete_r2_keys(
+    client: Any,
+    bucket_name: str,
+    keys: list[str],
+    logger: logging.Logger,
+) -> set[str]:
+    """Delete keys in batches and return the set that was successfully submitted."""
+    deleted: set[str] = set()
+    for start in range(0, len(keys), 1000):
+        batch = keys[start:start + 1000]
+        if not batch:
+            continue
+        try:
+            response = client.delete_objects(
+                Bucket=bucket_name,
+                Delete={"Objects": [{"Key": key} for key in batch], "Quiet": False},
+            )
+        except Exception as exc:
+            logger.error("R2 delete batch failed: %s", exc)
+            continue
+
+        errors = {item.get("Key") for item in response.get("Errors", [])}
+        for key in batch:
+            if key not in errors:
+                deleted.add(key)
+        for item in response.get("Errors", []):
+            logger.error("R2 delete failed for %s: %s", item.get("Key"), item.get("Message"))
+    return deleted
 
 
 def push_site_updates(
@@ -90,7 +112,6 @@ def push_site_updates(
 
     try:
         import credentials
-
         gh_user = getattr(credentials, "GITHUB_USER", "spulidar")
         gh_token = credentials.GITHUB_TOKEN
     except (ImportError, AttributeError):
@@ -102,7 +123,7 @@ def push_site_updates(
         os.chdir(site_dir)
         subprocess.run(["git", "add", "."], check=True)
         commit = subprocess.run(
-            ["git", "commit", "-m", "Update daily lidar dashboards and calendar manifest"],
+            ["git", "commit", "-m", "Update lidar publication state and dashboards"],
             capture_output=True,
             text=True,
         )

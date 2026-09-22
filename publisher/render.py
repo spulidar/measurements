@@ -1,121 +1,123 @@
-"""Static manifest and daily-dashboard rendering."""
+"""Static manifest, redirects, and daily dashboard rendering."""
 
 from __future__ import annotations
 
 from datetime import datetime
+from hashlib import sha256
 import html
 import json
 from pathlib import Path
 import re
-from typing import Any
 
-from .catalog import CANONICAL_PERIODS, PERIOD_LABELS, Catalog, DayData, sort_altitudes
+from .state import all_dates, coverage_for_day, get_day, resolved_periods
 
 _FINGERPRINT_RE = re.compile(r'<meta name="publisher-fingerprint" content="([0-9a-f]+)">')
 
 
-def day_output_path(base_site_folder: str | Path, day: DayData) -> Path:
-    return Path(base_site_folder) / day.year / day.month / day.date / "index.html"
+def day_output_path(site_root: str | Path, date: str) -> Path:
+    root = Path(site_root)
+    return root / date[:4] / date[4:6] / date / "index.html"
 
 
 def read_dashboard_fingerprint(path: str | Path) -> str | None:
     target = Path(path)
     if not target.exists():
         return None
-    match = _FINGERPRINT_RE.search(target.read_text(encoding="utf-8"))
+    match = _FINGERPRINT_RE.search(target.read_text(encoding="utf-8", errors="ignore"))
     return match.group(1) if match else None
 
 
-def _legacy_options(day: DayData) -> list[dict[str, str]]:
-    order = ("legacy_am", "legacy_pm", "legacy_nt")
-    return [
-        {"key": key, "label": day.legacy[key].label, "url": day.legacy[key].url}
-        for key in order
-        if key in day.legacy
-    ]
+def _renderer_fingerprint() -> str:
+    digest = sha256()
+    for path in (Path(__file__), Path(__file__).with_name("state.py")):
+        digest.update(path.read_bytes())
+    return digest.hexdigest()
 
 
-def build_manifest(catalog: Catalog) -> dict[str, Any]:
-    """Build the compact JSON consumed by the calendar."""
-    days: dict[str, Any] = {}
-    for date, day in sorted(catalog.days.items()):
-        slots: dict[str, Any] = {}
-        for slot in CANONICAL_PERIODS:
-            source = day.slot_source(slot)
-            if source is None:
-                slots[slot] = {"available": False}
-                continue
-            item: dict[str, Any] = {"available": True, "source": source}
-            fallback = day.fallback_for_slot(slot)
-            if fallback is not None:
-                item["legacy_url"] = fallback.url
-            slots[slot] = item
+def dashboard_fingerprint(date: str, day: dict) -> str:
+    digest = sha256()
+    digest.update(_renderer_fingerprint().encode("ascii"))
+    digest.update(date.encode("ascii"))
+    digest.update(
+        json.dumps(day, ensure_ascii=False, sort_keys=True, separators=(",", ":")).encode("utf-8")
+    )
+    return digest.hexdigest()
+
+
+def build_manifest(states: dict[str, dict]) -> dict:
+    days: dict[str, dict] = {}
+    for date in all_dates(states):
+        day = get_day(states, date, create=False)
+        assert day is not None
+        coverage = coverage_for_day(day)
         days[date] = {
-            "day_url": day.day_url,
-            "coverage": day.coverage(),
-            "slots": slots,
-            "legacy_options": _legacy_options(day),
+            "day_url": f"{date[:4]}/{date[4:6]}/{date}/index.html",
+            "coverage": coverage,
+            "slots": {
+                period: {"available": available}
+                for period, available in coverage.items()
+            },
         }
     return {
-        "schema_version": 2,
-        "period_labels": PERIOD_LABELS,
+        "schema_version": 3,
+        "period_labels": {
+            "00": "00–06",
+            "06": "06–12",
+            "12": "12–18",
+            "18": "18–24",
+        },
         "days": days,
     }
 
 
-def write_manifest(catalog: Catalog, base_site_folder: str | Path, dry_run: bool = False) -> Path:
-    path = Path(base_site_folder) / "measurements.json"
+def write_manifest(states: dict[str, dict], site_root: str | Path, dry_run: bool = False) -> Path:
+    path = Path(site_root) / "measurements.json"
     if not dry_run:
-        path.parent.mkdir(parents=True, exist_ok=True)
         path.write_text(
-            json.dumps(build_manifest(catalog), indent=2, ensure_ascii=False, sort_keys=True) + "\n",
+            json.dumps(build_manifest(states), indent=2, ensure_ascii=False, sort_keys=True) + "\n",
             encoding="utf-8",
         )
     return path
 
 
-def _day_payload(day: DayData) -> dict[str, Any]:
-    slots: dict[str, Any] = {}
-    for slot in CANONICAL_PERIODS:
-        period = day.canonical.get(slot)
-        if period is not None:
-            channels = {
-                channel: {alt: filename for alt, filename in sorted(alts.items(), key=lambda item: float(item[0]))}
-                for channel, alts in sorted(period.channels.items())
+def _public_url(base: str, key: str | None) -> str | None:
+    if not key:
+        return None
+    return f"{base.rstrip('/')}/{key.lstrip('/')}"
+
+
+def _payload(date: str, day: dict, public_url: str) -> dict:
+    periods: list[dict] = []
+    for period in resolved_periods(day):
+        channels = {
+            channel: {
+                altitude: _public_url(public_url, key)
+                for altitude, key in sorted(altitudes.items(), key=lambda item: float(item[0]))
             }
-            slots[slot] = {
-                "available": True,
-                "source": "canonical",
+            for channel, altitudes in sorted(period.get("channels", {}).items())
+        }
+        periods.append(
+            {
+                "id": period["id"],
+                "label": period["label"],
                 "channels": channels,
-                "mean": period.mean_filename,
+                "mean": _public_url(public_url, period.get("mean")),
             }
-            continue
-        fallback = day.fallback_for_slot(slot)
-        if fallback is not None:
-            slots[slot] = {
-                "available": True,
-                "source": fallback.key,
-                "legacy_url": "../../../" + fallback.url,
-                "legacy_label": fallback.label,
-            }
-        else:
-            slots[slot] = {"available": False}
-    return {"date": day.date, "slots": slots, "period_labels": PERIOD_LABELS}
+        )
+    return {"date": date, "periods": periods}
 
 
 def render_day_dashboard(
-    day: DayData,
-    base_site_folder: str | Path,
-    cloud_public_url: str,
+    date: str,
+    day: dict,
+    site_root: str | Path,
+    public_url: str,
     dry_run: bool = False,
 ) -> Path:
-    """Render one canonical daily dashboard with fixed six-hour period tabs."""
-    output_path = day_output_path(base_site_folder, day)
-    payload = _day_payload(day)
-    fingerprint = day.fingerprint()
-    date_title = datetime.strptime(day.date, "%Y%m%d").strftime("%d %b %Y")
-    cloud_base = f"{cloud_public_url.rstrip('/')}/{day.year}/{day.month}/{day.date}"
-    payload_json = json.dumps(payload, ensure_ascii=False).replace("</", "<\\/")
+    output_path = day_output_path(site_root, date)
+    fingerprint = dashboard_fingerprint(date, day)
+    payload_json = json.dumps(_payload(date, day, public_url), ensure_ascii=False).replace("</", "<\\/")
+    date_title = datetime.strptime(date, "%Y%m%d").strftime("%d %b %Y")
 
     page = f'''<!doctype html>
 <html lang="en">
@@ -139,17 +141,14 @@ def render_day_dashboard(
     .main-mode-btn {{ border:0; border-bottom:3px solid transparent; background:transparent; padding:7px 10px; color:var(--muted); font-weight:650; cursor:pointer; }}
     .main-mode-btn.active {{ color:var(--blue); border-bottom-color:var(--blue); }}
     .tab-btn {{ border:1px solid #ccc; border-radius:4px; background:#f8f9fa; color:#555; padding:6px 10px; min-height:31px; font:600 12px monospace; cursor:pointer; }}
-    .tab-btn:hover:not(:disabled) {{ background:#e2e6ea; color:#111; }}
+    .tab-btn:hover {{ background:#e2e6ea; color:#111; }}
     .tab-btn.active {{ background:#546e7a; border-color:#37474f; color:#fff; }}
     .period-btn.active {{ background:var(--blue); border-color:#004085; }}
-    .period-btn.legacy {{ border-style:dashed; }}
-    .tab-btn:disabled {{ cursor:not-allowed; opacity:.38; background:#e5e7e9; }}
     .ch-btn.active {{ background:#2e7d32; border-color:#1b5e20; }}
     .image-container {{ padding:15px; text-align:center; min-height:calc(100vh - 150px); flex:1; display:flex; justify-content:center; align-items:center; }}
     #main-display {{ max-width:100%; max-height:calc(100vh - 180px); object-fit:contain; background:#fff; box-shadow:0 6px 16px rgba(0,0,0,.15); cursor:zoom-in; }}
     .message {{ display:none; max-width:720px; background:#fff; border:1px solid #ddd; border-radius:8px; padding:20px; line-height:1.5; box-shadow:0 4px 12px rgba(0,0,0,.08); }}
     .message.active {{ display:block; }}
-    .message a {{ display:inline-block; margin-top:10px; color:#fff; background:var(--blue); border-radius:4px; padding:8px 12px; text-decoration:none; font-weight:650; }}
     #myModal {{ display:none; position:fixed; z-index:1000; inset:0; background:rgba(0,0,0,.9); }}
     .modal-close {{ position:absolute; top:15px; right:30px; color:#bbb; font-size:40px; cursor:pointer; }}
     .modal-content {{ display:block; margin:2vh auto 0; max-width:98%; max-height:95vh; }}
@@ -190,9 +189,7 @@ def render_day_dashboard(
 
 <script>
 const dayData = {payload_json};
-const cloudBaseUrl = {json.dumps(cloud_base)};
-const periodOrder = ['00','06','12','18'];
-let currentPeriod = periodOrder.find(p => dayData.slots[p].source === 'canonical') || periodOrder.find(p => dayData.slots[p].available) || '00';
+let currentPeriodId = dayData.periods.length ? dayData.periods[0].id : '';
 let currentMode = 'quicklooks';
 let currentChannel = '';
 let currentAltitude = '';
@@ -202,65 +199,62 @@ const message = document.getElementById('message');
 const channelControls = document.getElementById('channel-controls');
 const altitudeControls = document.getElementById('altitude-controls');
 
-function clearButtons(container) {{ container.querySelectorAll('button').forEach(b => b.remove()); }}
-function slot() {{ return dayData.slots[currentPeriod]; }}
-function showMessage(body, linkUrl, linkLabel) {{
-  img.style.display = 'none';
-  message.innerHTML = body;
-  if (linkUrl) {{ const a=document.createElement('a'); a.href=linkUrl; a.textContent=linkLabel || 'Open'; message.appendChild(a); }}
-  message.classList.add('active');
-}}
-function hideMessage() {{ message.classList.remove('active'); message.innerHTML=''; img.style.display='block'; }}
+function clearButtons(container) {{ container.querySelectorAll('button').forEach(button => button.remove()); }}
+function currentPeriod() {{ return dayData.periods.find(period => period.id === currentPeriodId) || null; }}
+function showMessage(text) {{ img.style.display='none'; message.textContent=text; message.classList.add('active'); }}
+function hideMessage() {{ message.classList.remove('active'); message.textContent=''; img.style.display='block'; }}
 
 function renderPeriods() {{
   const container=document.getElementById('period-controls');
   clearButtons(container);
-  periodOrder.forEach(p => {{
-    const data=dayData.slots[p];
+  dayData.periods.forEach(period => {{
     const btn=document.createElement('button');
-    btn.className='tab-btn period-btn' + (p===currentPeriod?' active':'') + (data.source && data.source!=='canonical'?' legacy':'');
-    btn.textContent=dayData.period_labels[p];
-    btn.disabled=!data.available;
-    btn.title=data.source && data.source!=='canonical' ? 'Legacy representation retained during historical migration' : '';
-    btn.onclick=()=>{{currentPeriod=p; currentChannel=''; currentAltitude=''; renderAll();}};
+    btn.className='tab-btn period-btn'+(period.id===currentPeriodId?' active':'');
+    btn.textContent=period.label;
+    btn.onclick=()=>{{ currentPeriodId=period.id; currentChannel=''; currentAltitude=''; renderAll(); }};
     container.appendChild(btn);
   }});
 }}
 
 function renderSelectors() {{
   clearButtons(channelControls); clearButtons(altitudeControls);
-  const data=slot();
-  if (!data || data.source !== 'canonical' || currentMode !== 'quicklooks') {{
-    channelControls.style.display='none'; altitudeControls.style.display='none'; return;
-  }}
-  channelControls.style.display='flex'; altitudeControls.style.display='flex';
+  const data=currentPeriod();
+  if (!data || currentMode !== 'quicklooks') {{ channelControls.style.display='none'; altitudeControls.style.display='none'; return; }}
+
   const channels=Object.keys(data.channels || {{}});
-  if (!channels.length) return;
-  if (!channels.includes(currentChannel)) currentChannel=channels.find(ch => ch.includes('532nm_AN')) || channels[0];
-  channels.forEach(ch => {{
-    const btn=document.createElement('button'); btn.className='tab-btn ch-btn'+(ch===currentChannel?' active':''); btn.textContent=ch.replace('_',' ');
-    btn.onclick=()=>{{currentChannel=ch; currentAltitude=''; renderAll();}}; channelControls.appendChild(btn);
+  if (!channels.length) {{ channelControls.style.display='none'; altitudeControls.style.display='none'; return; }}
+  channelControls.style.display='flex'; altitudeControls.style.display='flex';
+
+  if (!channels.includes(currentChannel)) currentChannel=channels.find(channel=>channel.includes('532nm_AN')) || channels[0];
+  channels.forEach(channel => {{
+    const btn=document.createElement('button');
+    btn.className='tab-btn ch-btn'+(channel===currentChannel?' active':'');
+    btn.textContent=channel.replace('_',' ');
+    btn.onclick=()=>{{ currentChannel=channel; currentAltitude=''; renderAll(); }};
+    channelControls.appendChild(btn);
   }});
-  const alts=Object.keys((data.channels || {{}})[currentChannel] || {{}}).sort((a,b)=>parseFloat(a)-parseFloat(b));
-  if (!alts.includes(currentAltitude)) currentAltitude=alts.includes('15') ? '15' : (alts[0] || '');
-  alts.forEach(alt => {{
-    const btn=document.createElement('button'); btn.className='tab-btn'+(alt===currentAltitude?' active':''); btn.textContent=alt+' km';
-    btn.onclick=()=>{{currentAltitude=alt; renderAll();}}; altitudeControls.appendChild(btn);
+
+  const altitudes=Object.keys((data.channels || {{}})[currentChannel] || {{}}).sort((a,b)=>parseFloat(a)-parseFloat(b));
+  if (!altitudes.includes(currentAltitude)) currentAltitude=altitudes.includes('15') ? '15' : (altitudes[0] || '');
+  altitudes.forEach(altitude => {{
+    const btn=document.createElement('button');
+    btn.className='tab-btn'+(altitude===currentAltitude?' active':'');
+    btn.textContent=altitude+' km';
+    btn.onclick=()=>{{ currentAltitude=altitude; renderAll(); }};
+    altitudeControls.appendChild(btn);
   }});
 }}
 
 function updateDisplay() {{
-  const data=slot(); hideMessage();
-  if (!data || !data.available) {{ showMessage('No data are available for this six-hour period.'); return; }}
-  if (data.source !== 'canonical') {{
-    showMessage('<strong>Legacy period.</strong><br>This historical product predates the fixed six-hour grouping. The original dashboard is retained until the day is reprocessed.', data.legacy_url, 'Open legacy dashboard');
-    return;
-  }}
-  let filename='';
-  if (currentMode==='mean') filename=data.mean || '';
-  else filename=(((data.channels||{{}})[currentChannel]||{{}})[currentAltitude]) || '';
-  if (!filename) {{ showMessage('This view is not available for the selected period.'); return; }}
-  img.style.opacity='.4'; img.src=cloudBaseUrl+'/'+filename;
+  const data=currentPeriod(); hideMessage();
+  if (!data) {{ showMessage('No data are available for this day.'); return; }}
+
+  let url='';
+  if (currentMode==='mean') url=data.mean || '';
+  else url=(((data.channels || {{}})[currentChannel] || {{}})[currentAltitude]) || '';
+
+  if (!url) {{ showMessage('No image is available for this view.'); return; }}
+  img.style.opacity='.4'; img.src=url;
 }}
 
 function renderAll() {{ renderPeriods(); renderSelectors(); updateDisplay(); }}
@@ -270,13 +264,14 @@ function setMode(mode) {{
   document.getElementById('tab-mean').classList.toggle('active', mode==='mean');
   renderAll();
 }}
-img.onload=()=>{{img.style.opacity='1'; img.style.display='block'; message.classList.remove('active');}};
-img.onerror=()=>{{img.style.opacity='1'; showMessage('Image not found or failed to load from the publication bucket.');}};
+
+img.onload=()=>{{ img.style.opacity='1'; img.style.display='block'; message.classList.remove('active'); }};
+img.onerror=()=>{{ img.style.opacity='1'; showMessage('Image not found or failed to load.'); }};
 const modal=document.getElementById('myModal'), modalImg=document.getElementById('img01');
 function openModal(src) {{ if (!src || img.style.display==='none') return; modal.style.display='block'; modalImg.src=src; }}
 function closeModal() {{ modal.style.display='none'; modalImg.src=''; }}
-window.onclick=e=>{{if(e.target===modal) closeModal();}};
-document.addEventListener('keydown',e=>{{if(e.key==='Escape') closeModal();}});
+window.onclick=event=>{{ if(event.target===modal) closeModal(); }};
+document.addEventListener('keydown',event=>{{ if(event.key==='Escape') closeModal(); }});
 renderAll();
 </script>
 </body>
@@ -287,3 +282,25 @@ renderAll();
         output_path.parent.mkdir(parents=True, exist_ok=True)
         output_path.write_text(page, encoding="utf-8")
     return output_path
+
+
+def render_legacy_redirect(source: str | Path, target_url: str, dry_run: bool = False) -> Path:
+    path = Path(source)
+    page = f'''<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="refresh" content="0; url={html.escape(target_url, quote=True)}">
+  <link rel="canonical" href="{html.escape(target_url, quote=True)}">
+  <title>Measurement moved</title>
+  <script>location.replace({json.dumps(target_url)});</script>
+</head>
+<body>
+  <p>This measurement has moved to the daily dashboard: <a href="{html.escape(target_url, quote=True)}">open measurement</a>.</p>
+</body>
+</html>
+'''
+    if not dry_run:
+        path.write_text(page, encoding="utf-8")
+    return path
