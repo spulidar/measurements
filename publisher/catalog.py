@@ -96,9 +96,8 @@ class DayData:
         return self.date[4:6]
 
     @property
-    def day_url(self) -> str | None:
-        if not self.canonical:
-            return None
+    def day_url(self) -> str:
+        """Return the stable daily dashboard URL for canonical or legacy-only days."""
         return f"{self.year}/{self.month}/{self.date}/index.html"
 
     def fallback_for_slot(self, slot: str) -> LegacyPeriod | None:
@@ -145,6 +144,11 @@ class Catalog:
     @property
     def canonical_days(self) -> list[DayData]:
         return [day for _, day in sorted(self.days.items()) if day.canonical]
+
+    @property
+    def site_days(self) -> list[DayData]:
+        """Return every civil day represented by canonical or retained legacy products."""
+        return [day for _, day in sorted(self.days.items())]
 
 
 def _valid_date(value: str) -> bool:
