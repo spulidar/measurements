@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="publisher-fingerprint" content="e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855">
+  <title>SPU Lidar | 24 Sep 2015</title>
+  <style>
+    :root { --top:#1a1a1a; --page:#f0f2f5; --panel:#fff; --text:#333; --muted:#777; --blue:#0056b3; }
+    * { box-sizing:border-box; }
+    html,body { margin:0; min-height:100%; background:var(--page); color:var(--text); font-family:'Segoe UI',Roboto,Helvetica,Arial,sans-serif; }
+    body { min-height:100vh; display:flex; flex-direction:column; }
+    .top-bar { background:var(--top); color:white; padding:10px 24px; display:flex; justify-content:space-between; align-items:center; gap:16px; flex-wrap:wrap; box-shadow:0 2px 4px rgba(0,0,0,.2); }
+    .top-bar h2 { margin:0; font-size:18px; font-weight:500; letter-spacing:1px; }
+    .date { color:#4fc3f7; font-weight:700; }
+    .metadata { color:#aaa; font:12px monospace; display:flex; gap:15px; flex-wrap:wrap; }
+    .toolbar { position:sticky; top:0; z-index:10; background:var(--panel); border-bottom:1px solid #ddd; padding:8px 20px; display:flex; justify-content:center; align-items:center; flex-wrap:wrap; gap:18px; box-shadow:0 2px 8px rgba(0,0,0,.05); }
+    .control-group { display:flex; align-items:center; justify-content:center; gap:7px; flex-wrap:wrap; }
+    .control-group h3 { margin:0 4px 0 0; color:var(--muted); font-size:10px; text-transform:uppercase; letter-spacing:1px; }
+    .main-mode-btn { border:0; border-bottom:3px solid transparent; background:transparent; padding:7px 10px; color:var(--muted); font-weight:650; cursor:pointer; }
+    .main-mode-btn.active { color:var(--blue); border-bottom-color:var(--blue); }
+    .tab-btn { border:1px solid #ccc; border-radius:4px; background:#f8f9fa; color:#555; padding:6px 10px; min-height:31px; font:600 12px monospace; cursor:pointer; }
+    .tab-btn:hover:not(:disabled) { background:#e2e6ea; color:#111; }
+    .tab-btn.active { background:#546e7a; border-color:#37474f; color:#fff; }
+    .period-btn.active { background:var(--blue); border-color:#004085; }
+    .period-btn.legacy { border-style:dashed; }
+    .tab-btn:disabled { cursor:not-allowed; opacity:.38; background:#e5e7e9; }
+    .ch-btn.active { background:#2e7d32; border-color:#1b5e20; }
+    .image-container { padding:15px; text-align:center; min-height:calc(100vh - 150px); flex:1; display:flex; justify-content:center; align-items:center; }
+    #main-display { max-width:100%; max-height:calc(100vh - 180px); object-fit:contain; background:#fff; box-shadow:0 6px 16px rgba(0,0,0,.15); cursor:zoom-in; }
+    .message { display:none; max-width:720px; background:#fff; border:1px solid #ddd; border-radius:8px; padding:20px; line-height:1.5; box-shadow:0 4px 12px rgba(0,0,0,.08); }
+    .message.active { display:block; }
+    .message a { display:inline-block; margin-top:10px; color:#fff; background:var(--blue); border-radius:4px; padding:8px 12px; text-decoration:none; font-weight:650; }
+    #myModal { display:none; position:fixed; z-index:1000; inset:0; background:rgba(0,0,0,.9); }
+    .modal-close { position:absolute; top:15px; right:30px; color:#bbb; font-size:40px; cursor:pointer; }
+    .modal-content { display:block; margin:2vh auto 0; max-width:98%; max-height:95vh; }
+    @media (max-width:700px) {
+      .top-bar { justify-content:center; text-align:center; padding:10px 12px; }
+      .metadata { width:100%; justify-content:center; font-size:10px; }
+      .toolbar { position:static; padding:10px 8px; gap:10px; }
+      .control-group { width:100%; }
+      .control-group h3 { width:100%; text-align:center; margin:3px 0; }
+      .tab-btn { flex:1 1 74px; min-height:38px; }
+      .image-container { align-items:flex-start; padding:10px 8px 18px; min-height:auto; }
+      #main-display { width:100%; max-height:none; height:auto; }
+    }
+  </style>
+</head>
+<body>
+  <div class="top-bar">
+    <h2>SPU LIDAR STATION | <span class="date">24 Sep 2015</span></h2>
+    <div class="metadata"><span>LAT: 23.56°S</span><span>LON: 46.73°W</span><span>ELEV: 760m</span></div>
+  </div>
+
+  <div class="toolbar">
+    <div class="control-group" id="period-controls"><h3>Period</h3></div>
+    <div class="control-group">
+      <button class="main-mode-btn active" id="tab-quicklooks" onclick="setMode('quicklooks')">RCS Maps</button>
+      <button class="main-mode-btn" id="tab-mean" onclick="setMode('mean')">Atmospheric Profiles</button>
+    </div>
+    <div class="control-group" id="channel-controls"><h3>Wavelength</h3></div>
+    <div class="control-group" id="altitude-controls"><h3>Range</h3></div>
+  </div>
+
+  <div class="image-container">
+    <img id="main-display" alt="Lidar quicklook" onclick="openModal(this.src)">
+    <div id="message" class="message"></div>
+  </div>
+
+  <div id="myModal"><span class="modal-close" onclick="closeModal()">&times;</span><img class="modal-content" id="img01" alt="Expanded lidar image"></div>
+
+<script>
+const dayData = {"date": "20150924", "slots": {"00": {"available": true, "source": "legacy_nt", "legacy_url": "../../../2015/20150924sant_Dashboard.html", "legacy_label": "00–06 + 18–24"}, "06": {"available": false}, "12": {"available": false}, "18": {"available": true, "source": "legacy_nt", "legacy_url": "../../../2015/20150924sant_Dashboard.html", "legacy_label": "00–06 + 18–24"}}, "period_labels": {"00": "00–06", "06": "06–12", "12": "12–18", "18": "18–24"}};
+const cloudBaseUrl = "https://pub-2dc2005030bb4ee796dd63fd528879fa.r2.dev/2015/09/20150924";
+const periodOrder = ['00','06','12','18'];
+let currentPeriod = periodOrder.find(p => dayData.slots[p].source === 'canonical') || periodOrder.find(p => dayData.slots[p].available) || '00';
+let currentMode = 'quicklooks';
+let currentChannel = '';
+let currentAltitude = '';
+
+const img = document.getElementById('main-display');
+const message = document.getElementById('message');
+const channelControls = document.getElementById('channel-controls');
+const altitudeControls = document.getElementById('altitude-controls');
+
+function clearButtons(container) { container.querySelectorAll('button').forEach(b => b.remove()); }
+function slot() { return dayData.slots[currentPeriod]; }
+function showMessage(body, linkUrl, linkLabel) {
+  img.style.display = 'none';
+  message.innerHTML = body;
+  if (linkUrl) { const a=document.createElement('a'); a.href=linkUrl; a.textContent=linkLabel || 'Open'; message.appendChild(a); }
+  message.classList.add('active');
+}
+function hideMessage() { message.classList.remove('active'); message.innerHTML=''; img.style.display='block'; }
+
+function renderPeriods() {
+  const container=document.getElementById('period-controls');
+  clearButtons(container);
+  periodOrder.forEach(p => {
+    const data=dayData.slots[p];
+    const btn=document.createElement('button');
+    btn.className='tab-btn period-btn' + (p===currentPeriod?' active':'') + (data.source && data.source!=='canonical'?' legacy':'');
+    btn.textContent=dayData.period_labels[p];
+    btn.disabled=!data.available;
+    btn.title=data.source && data.source!=='canonical' ? 'Legacy representation retained during historical migration' : '';
+    btn.onclick=()=>{currentPeriod=p; currentChannel=''; currentAltitude=''; renderAll();};
+    container.appendChild(btn);
+  });
+}
+
+function renderSelectors() {
+  clearButtons(channelControls); clearButtons(altitudeControls);
+  const data=slot();
+  if (!data || data.source !== 'canonical' || currentMode !== 'quicklooks') {
+    channelControls.style.display='none'; altitudeControls.style.display='none'; return;
+  }
+  channelControls.style.display='flex'; altitudeControls.style.display='flex';
+  const channels=Object.keys(data.channels || {});
+  if (!channels.length) return;
+  if (!channels.includes(currentChannel)) currentChannel=channels.find(ch => ch.includes('532nm_AN')) || channels[0];
+  channels.forEach(ch => {
+    const btn=document.createElement('button'); btn.className='tab-btn ch-btn'+(ch===currentChannel?' active':''); btn.textContent=ch.replace('_',' ');
+    btn.onclick=()=>{currentChannel=ch; currentAltitude=''; renderAll();}; channelControls.appendChild(btn);
+  });
+  const alts=Object.keys((data.channels || {})[currentChannel] || {}).sort((a,b)=>parseFloat(a)-parseFloat(b));
+  if (!alts.includes(currentAltitude)) currentAltitude=alts.includes('15') ? '15' : (alts[0] || '');
+  alts.forEach(alt => {
+    const btn=document.createElement('button'); btn.className='tab-btn'+(alt===currentAltitude?' active':''); btn.textContent=alt+' km';
+    btn.onclick=()=>{currentAltitude=alt; renderAll();}; altitudeControls.appendChild(btn);
+  });
+}
+
+function updateDisplay() {
+  const data=slot(); hideMessage();
+  if (!data || !data.available) { showMessage('No data are available for this six-hour period.'); return; }
+  if (data.source !== 'canonical') {
+    showMessage('<strong>Legacy period.</strong><br>This historical product predates the fixed six-hour grouping. The original dashboard is retained until the day is reprocessed.', data.legacy_url, 'Open legacy dashboard');
+    return;
+  }
+  let filename='';
+  if (currentMode==='mean') filename=data.mean || '';
+  else filename=(((data.channels||{})[currentChannel]||{})[currentAltitude]) || '';
+  if (!filename) { showMessage('This view is not available for the selected period.'); return; }
+  img.style.opacity='.4'; img.src=cloudBaseUrl+'/'+filename;
+}
+
+function renderAll() { renderPeriods(); renderSelectors(); updateDisplay(); }
+function setMode(mode) {
+  currentMode=mode;
+  document.getElementById('tab-quicklooks').classList.toggle('active', mode==='quicklooks');
+  document.getElementById('tab-mean').classList.toggle('active', mode==='mean');
+  renderAll();
+}
+img.onload=()=>{img.style.opacity='1'; img.style.display='block'; message.classList.remove('active');};
+img.onerror=()=>{img.style.opacity='1'; showMessage('Image not found or failed to load from the publication bucket.');};
+const modal=document.getElementById('myModal'), modalImg=document.getElementById('img01');
+function openModal(src) { if (!src || img.style.display==='none') return; modal.style.display='block'; modalImg.src=src; }
+function closeModal() { modal.style.display='none'; modalImg.src=''; }
+window.onclick=e=>{if(e.target===modal) closeModal();};
+document.addEventListener('keydown',e=>{if(e.key==='Escape') closeModal();});
+renderAll();
+</script>
+</body>
+</html>
