@@ -103,7 +103,7 @@ def main() -> int:
     uploaded = 0
     skipped = 0
 
-    for day in catalog.canonical_days:
+    for day in catalog.site_days:
         output_path = day_output_path(site_root, day)
         current_fp = read_dashboard_fingerprint(output_path)
         new_fp = day.fingerprint()
