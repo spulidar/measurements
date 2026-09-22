@@ -1,0 +1,3555 @@
+{
+  "days": {
+    "20120104": {
+      "canonical": {},
+      "historical": {
+        "am": {
+          "channels": {
+            "532nm_AN": {
+              "15": "2012/Quicklook_20120104saam_532nm_AN_15km.webp",
+              "30": "2012/Quicklook_20120104saam_532nm_AN_30km.webp",
+              "5": "2012/Quicklook_20120104saam_532nm_AN_5km.webp"
+            },
+            "532nm_PC": {
+              "15": "2012/Quicklook_20120104saam_532nm_PC_15km.webp",
+              "30": "2012/Quicklook_20120104saam_532nm_PC_30km.webp",
+              "5": "2012/Quicklook_20120104saam_532nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "06"
+          ],
+          "label": "06–12",
+          "mean": "2012/GlobalMeanRCS_20120104saam.webp",
+          "retired": false
+        },
+        "pm": {
+          "channels": {
+            "532nm_AN": {
+              "15": "2012/Quicklook_20120104sapm_532nm_AN_15km.webp",
+              "30": "2012/Quicklook_20120104sapm_532nm_AN_30km.webp",
+              "5": "2012/Quicklook_20120104sapm_532nm_AN_5km.webp"
+            },
+            "532nm_PC": {
+              "15": "2012/Quicklook_20120104sapm_532nm_PC_15km.webp",
+              "30": "2012/Quicklook_20120104sapm_532nm_PC_30km.webp",
+              "5": "2012/Quicklook_20120104sapm_532nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "12"
+          ],
+          "label": "12–18",
+          "mean": "2012/GlobalMeanRCS_20120104sapm.webp",
+          "retired": false
+        }
+      }
+    },
+    "20120201": {
+      "canonical": {},
+      "historical": {
+        "am": {
+          "channels": {
+            "532nm_AN": {
+              "15": "2012/Quicklook_20120201saam_532nm_AN_15km.webp",
+              "30": "2012/Quicklook_20120201saam_532nm_AN_30km.webp",
+              "5": "2012/Quicklook_20120201saam_532nm_AN_5km.webp"
+            },
+            "532nm_PC": {
+              "15": "2012/Quicklook_20120201saam_532nm_PC_15km.webp",
+              "30": "2012/Quicklook_20120201saam_532nm_PC_30km.webp",
+              "5": "2012/Quicklook_20120201saam_532nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "06"
+          ],
+          "label": "06–12",
+          "mean": "2012/GlobalMeanRCS_20120201saam.webp",
+          "retired": false
+        }
+      }
+    },
+    "20120202": {
+      "canonical": {},
+      "historical": {
+        "am": {
+          "channels": {
+            "532nm_AN": {
+              "15": "2012/Quicklook_20120202saam_532nm_AN_15km.webp",
+              "30": "2012/Quicklook_20120202saam_532nm_AN_30km.webp",
+              "5": "2012/Quicklook_20120202saam_532nm_AN_5km.webp"
+            },
+            "532nm_PC": {
+              "15": "2012/Quicklook_20120202saam_532nm_PC_15km.webp",
+              "30": "2012/Quicklook_20120202saam_532nm_PC_30km.webp",
+              "5": "2012/Quicklook_20120202saam_532nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "06"
+          ],
+          "label": "06–12",
+          "mean": "2012/GlobalMeanRCS_20120202saam.webp",
+          "retired": false
+        },
+        "pm": {
+          "channels": {
+            "532nm_AN": {
+              "15": "2012/Quicklook_20120202sapm_532nm_AN_15km.webp",
+              "30": "2012/Quicklook_20120202sapm_532nm_AN_30km.webp",
+              "5": "2012/Quicklook_20120202sapm_532nm_AN_5km.webp"
+            },
+            "532nm_PC": {
+              "15": "2012/Quicklook_20120202sapm_532nm_PC_15km.webp",
+              "30": "2012/Quicklook_20120202sapm_532nm_PC_30km.webp",
+              "5": "2012/Quicklook_20120202sapm_532nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "12"
+          ],
+          "label": "12–18",
+          "mean": "2012/GlobalMeanRCS_20120202sapm.webp",
+          "retired": false
+        }
+      }
+    },
+    "20120203": {
+      "canonical": {},
+      "historical": {
+        "am": {
+          "channels": {
+            "532nm_AN": {
+              "15": "2012/Quicklook_20120203saam_532nm_AN_15km.webp",
+              "30": "2012/Quicklook_20120203saam_532nm_AN_30km.webp",
+              "5": "2012/Quicklook_20120203saam_532nm_AN_5km.webp"
+            },
+            "532nm_PC": {
+              "15": "2012/Quicklook_20120203saam_532nm_PC_15km.webp",
+              "30": "2012/Quicklook_20120203saam_532nm_PC_30km.webp",
+              "5": "2012/Quicklook_20120203saam_532nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "06"
+          ],
+          "label": "06–12",
+          "mean": "2012/GlobalMeanRCS_20120203saam.webp",
+          "retired": false
+        },
+        "pm": {
+          "channels": {
+            "532nm_AN": {
+              "15": "2012/Quicklook_20120203sapm_532nm_AN_15km.webp",
+              "30": "2012/Quicklook_20120203sapm_532nm_AN_30km.webp",
+              "5": "2012/Quicklook_20120203sapm_532nm_AN_5km.webp"
+            },
+            "532nm_PC": {
+              "15": "2012/Quicklook_20120203sapm_532nm_PC_15km.webp",
+              "30": "2012/Quicklook_20120203sapm_532nm_PC_30km.webp",
+              "5": "2012/Quicklook_20120203sapm_532nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "12"
+          ],
+          "label": "12–18",
+          "mean": "2012/GlobalMeanRCS_20120203sapm.webp",
+          "retired": false
+        }
+      }
+    },
+    "20120206": {
+      "canonical": {},
+      "historical": {
+        "am": {
+          "channels": {
+            "532nm_AN": {
+              "15": "2012/Quicklook_20120206saam_532nm_AN_15km.webp",
+              "30": "2012/Quicklook_20120206saam_532nm_AN_30km.webp",
+              "5": "2012/Quicklook_20120206saam_532nm_AN_5km.webp"
+            },
+            "532nm_PC": {
+              "15": "2012/Quicklook_20120206saam_532nm_PC_15km.webp",
+              "30": "2012/Quicklook_20120206saam_532nm_PC_30km.webp",
+              "5": "2012/Quicklook_20120206saam_532nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "06"
+          ],
+          "label": "06–12",
+          "mean": "2012/GlobalMeanRCS_20120206saam.webp",
+          "retired": false
+        },
+        "pm": {
+          "channels": {
+            "532nm_AN": {
+              "15": "2012/Quicklook_20120206sapm_532nm_AN_15km.webp",
+              "30": "2012/Quicklook_20120206sapm_532nm_AN_30km.webp",
+              "5": "2012/Quicklook_20120206sapm_532nm_AN_5km.webp"
+            },
+            "532nm_PC": {
+              "15": "2012/Quicklook_20120206sapm_532nm_PC_15km.webp",
+              "30": "2012/Quicklook_20120206sapm_532nm_PC_30km.webp",
+              "5": "2012/Quicklook_20120206sapm_532nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "12"
+          ],
+          "label": "12–18",
+          "mean": "2012/GlobalMeanRCS_20120206sapm.webp",
+          "retired": false
+        }
+      }
+    },
+    "20120207": {
+      "canonical": {},
+      "historical": {
+        "am": {
+          "channels": {
+            "532nm_AN": {
+              "15": "2012/Quicklook_20120207saam_532nm_AN_15km.webp",
+              "30": "2012/Quicklook_20120207saam_532nm_AN_30km.webp",
+              "5": "2012/Quicklook_20120207saam_532nm_AN_5km.webp"
+            },
+            "532nm_PC": {
+              "15": "2012/Quicklook_20120207saam_532nm_PC_15km.webp",
+              "30": "2012/Quicklook_20120207saam_532nm_PC_30km.webp",
+              "5": "2012/Quicklook_20120207saam_532nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "06"
+          ],
+          "label": "06–12",
+          "mean": "2012/GlobalMeanRCS_20120207saam.webp",
+          "retired": false
+        }
+      }
+    },
+    "20120208": {
+      "canonical": {},
+      "historical": {
+        "am": {
+          "channels": {
+            "532nm_AN": {
+              "15": "2012/Quicklook_20120208saam_532nm_AN_15km.webp",
+              "30": "2012/Quicklook_20120208saam_532nm_AN_30km.webp",
+              "5": "2012/Quicklook_20120208saam_532nm_AN_5km.webp"
+            },
+            "532nm_PC": {
+              "15": "2012/Quicklook_20120208saam_532nm_PC_15km.webp",
+              "30": "2012/Quicklook_20120208saam_532nm_PC_30km.webp",
+              "5": "2012/Quicklook_20120208saam_532nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "06"
+          ],
+          "label": "06–12",
+          "mean": "2012/GlobalMeanRCS_20120208saam.webp",
+          "retired": false
+        }
+      }
+    },
+    "20120214": {
+      "canonical": {},
+      "historical": {
+        "am": {
+          "channels": {
+            "532nm_AN": {
+              "15": "2012/Quicklook_20120214saam_532nm_AN_15km.webp",
+              "30": "2012/Quicklook_20120214saam_532nm_AN_30km.webp",
+              "5": "2012/Quicklook_20120214saam_532nm_AN_5km.webp"
+            },
+            "532nm_PC": {
+              "15": "2012/Quicklook_20120214saam_532nm_PC_15km.webp",
+              "30": "2012/Quicklook_20120214saam_532nm_PC_30km.webp",
+              "5": "2012/Quicklook_20120214saam_532nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "06"
+          ],
+          "label": "06–12",
+          "mean": "2012/GlobalMeanRCS_20120214saam.webp",
+          "retired": false
+        },
+        "pm": {
+          "channels": {
+            "532nm_AN": {
+              "15": "2012/Quicklook_20120214sapm_532nm_AN_15km.webp",
+              "30": "2012/Quicklook_20120214sapm_532nm_AN_30km.webp",
+              "5": "2012/Quicklook_20120214sapm_532nm_AN_5km.webp"
+            },
+            "532nm_PC": {
+              "15": "2012/Quicklook_20120214sapm_532nm_PC_15km.webp",
+              "30": "2012/Quicklook_20120214sapm_532nm_PC_30km.webp",
+              "5": "2012/Quicklook_20120214sapm_532nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "12"
+          ],
+          "label": "12–18",
+          "mean": "2012/GlobalMeanRCS_20120214sapm.webp",
+          "retired": false
+        }
+      }
+    },
+    "20120215": {
+      "canonical": {},
+      "historical": {
+        "am": {
+          "channels": {
+            "532nm_AN": {
+              "15": "2012/Quicklook_20120215saam_532nm_AN_15km.webp",
+              "30": "2012/Quicklook_20120215saam_532nm_AN_30km.webp",
+              "5": "2012/Quicklook_20120215saam_532nm_AN_5km.webp"
+            },
+            "532nm_PC": {
+              "15": "2012/Quicklook_20120215saam_532nm_PC_15km.webp",
+              "30": "2012/Quicklook_20120215saam_532nm_PC_30km.webp",
+              "5": "2012/Quicklook_20120215saam_532nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "06"
+          ],
+          "label": "06–12",
+          "mean": "2012/GlobalMeanRCS_20120215saam.webp",
+          "retired": false
+        }
+      }
+    },
+    "20120217": {
+      "canonical": {},
+      "historical": {
+        "am": {
+          "channels": {
+            "532nm_AN": {
+              "15": "2012/Quicklook_20120217saam_532nm_AN_15km.webp",
+              "30": "2012/Quicklook_20120217saam_532nm_AN_30km.webp",
+              "5": "2012/Quicklook_20120217saam_532nm_AN_5km.webp"
+            },
+            "532nm_PC": {
+              "15": "2012/Quicklook_20120217saam_532nm_PC_15km.webp",
+              "30": "2012/Quicklook_20120217saam_532nm_PC_30km.webp",
+              "5": "2012/Quicklook_20120217saam_532nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "06"
+          ],
+          "label": "06–12",
+          "mean": "2012/GlobalMeanRCS_20120217saam.webp",
+          "retired": false
+        }
+      }
+    },
+    "20120228": {
+      "canonical": {},
+      "historical": {
+        "am": {
+          "channels": {
+            "532nm_AN": {
+              "15": "2012/Quicklook_20120228saam_532nm_AN_15km.webp",
+              "30": "2012/Quicklook_20120228saam_532nm_AN_30km.webp",
+              "5": "2012/Quicklook_20120228saam_532nm_AN_5km.webp"
+            },
+            "532nm_PC": {
+              "15": "2012/Quicklook_20120228saam_532nm_PC_15km.webp",
+              "30": "2012/Quicklook_20120228saam_532nm_PC_30km.webp",
+              "5": "2012/Quicklook_20120228saam_532nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "06"
+          ],
+          "label": "06–12",
+          "mean": "2012/GlobalMeanRCS_20120228saam.webp",
+          "retired": false
+        },
+        "night": {
+          "channels": {
+            "532nm_AN": {
+              "15": "2012/Quicklook_20120228sant_532nm_AN_15km.webp",
+              "30": "2012/Quicklook_20120228sant_532nm_AN_30km.webp",
+              "5": "2012/Quicklook_20120228sant_532nm_AN_5km.webp"
+            },
+            "532nm_PC": {
+              "15": "2012/Quicklook_20120228sant_532nm_PC_15km.webp",
+              "30": "2012/Quicklook_20120228sant_532nm_PC_30km.webp",
+              "5": "2012/Quicklook_20120228sant_532nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "00",
+            "18"
+          ],
+          "label": "00–06 + 18–24",
+          "mean": "2012/GlobalMeanRCS_20120228sant.webp",
+          "retired": false
+        },
+        "pm": {
+          "channels": {
+            "532nm_AN": {
+              "15": "2012/Quicklook_20120228sapm_532nm_AN_15km.webp",
+              "30": "2012/Quicklook_20120228sapm_532nm_AN_30km.webp",
+              "5": "2012/Quicklook_20120228sapm_532nm_AN_5km.webp"
+            },
+            "532nm_PC": {
+              "15": "2012/Quicklook_20120228sapm_532nm_PC_15km.webp",
+              "30": "2012/Quicklook_20120228sapm_532nm_PC_30km.webp",
+              "5": "2012/Quicklook_20120228sapm_532nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "12"
+          ],
+          "label": "12–18",
+          "mean": "2012/GlobalMeanRCS_20120228sapm.webp",
+          "retired": false
+        }
+      }
+    },
+    "20120229": {
+      "canonical": {},
+      "historical": {
+        "am": {
+          "channels": {
+            "532nm_AN": {
+              "15": "2012/Quicklook_20120229saam_532nm_AN_15km.webp",
+              "30": "2012/Quicklook_20120229saam_532nm_AN_30km.webp",
+              "5": "2012/Quicklook_20120229saam_532nm_AN_5km.webp"
+            },
+            "532nm_PC": {
+              "15": "2012/Quicklook_20120229saam_532nm_PC_15km.webp",
+              "30": "2012/Quicklook_20120229saam_532nm_PC_30km.webp",
+              "5": "2012/Quicklook_20120229saam_532nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "06"
+          ],
+          "label": "06–12",
+          "mean": "2012/GlobalMeanRCS_20120229saam.webp",
+          "retired": false
+        },
+        "pm": {
+          "channels": {
+            "532nm_AN": {
+              "15": "2012/Quicklook_20120229sapm_532nm_AN_15km.webp",
+              "30": "2012/Quicklook_20120229sapm_532nm_AN_30km.webp",
+              "5": "2012/Quicklook_20120229sapm_532nm_AN_5km.webp"
+            },
+            "532nm_PC": {
+              "15": "2012/Quicklook_20120229sapm_532nm_PC_15km.webp",
+              "30": "2012/Quicklook_20120229sapm_532nm_PC_30km.webp",
+              "5": "2012/Quicklook_20120229sapm_532nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "12"
+          ],
+          "label": "12–18",
+          "mean": "2012/GlobalMeanRCS_20120229sapm.webp",
+          "retired": false
+        }
+      }
+    },
+    "20120301": {
+      "canonical": {},
+      "historical": {
+        "am": {
+          "channels": {
+            "532nm_AN": {
+              "15": "2012/Quicklook_20120301saam_532nm_AN_15km.webp",
+              "30": "2012/Quicklook_20120301saam_532nm_AN_30km.webp",
+              "5": "2012/Quicklook_20120301saam_532nm_AN_5km.webp"
+            },
+            "532nm_PC": {
+              "15": "2012/Quicklook_20120301saam_532nm_PC_15km.webp",
+              "30": "2012/Quicklook_20120301saam_532nm_PC_30km.webp",
+              "5": "2012/Quicklook_20120301saam_532nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "06"
+          ],
+          "label": "06–12",
+          "mean": "2012/GlobalMeanRCS_20120301saam.webp",
+          "retired": false
+        }
+      }
+    },
+    "20120306": {
+      "canonical": {},
+      "historical": {
+        "am": {
+          "channels": {
+            "532nm_AN": {
+              "15": "2012/Quicklook_20120306saam_532nm_AN_15km.webp",
+              "30": "2012/Quicklook_20120306saam_532nm_AN_30km.webp",
+              "5": "2012/Quicklook_20120306saam_532nm_AN_5km.webp"
+            },
+            "532nm_PC": {
+              "15": "2012/Quicklook_20120306saam_532nm_PC_15km.webp",
+              "30": "2012/Quicklook_20120306saam_532nm_PC_30km.webp",
+              "5": "2012/Quicklook_20120306saam_532nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "06"
+          ],
+          "label": "06–12",
+          "mean": "2012/GlobalMeanRCS_20120306saam.webp",
+          "retired": false
+        },
+        "pm": {
+          "channels": {
+            "532nm_AN": {
+              "15": "2012/Quicklook_20120306sapm_532nm_AN_15km.webp",
+              "30": "2012/Quicklook_20120306sapm_532nm_AN_30km.webp",
+              "5": "2012/Quicklook_20120306sapm_532nm_AN_5km.webp"
+            },
+            "532nm_PC": {
+              "15": "2012/Quicklook_20120306sapm_532nm_PC_15km.webp",
+              "30": "2012/Quicklook_20120306sapm_532nm_PC_30km.webp",
+              "5": "2012/Quicklook_20120306sapm_532nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "12"
+          ],
+          "label": "12–18",
+          "mean": "2012/GlobalMeanRCS_20120306sapm.webp",
+          "retired": false
+        }
+      }
+    },
+    "20120307": {
+      "canonical": {},
+      "historical": {
+        "am": {
+          "channels": {
+            "532nm_AN": {
+              "15": "2012/Quicklook_20120307saam_532nm_AN_15km.webp",
+              "30": "2012/Quicklook_20120307saam_532nm_AN_30km.webp",
+              "5": "2012/Quicklook_20120307saam_532nm_AN_5km.webp"
+            },
+            "532nm_PC": {
+              "15": "2012/Quicklook_20120307saam_532nm_PC_15km.webp",
+              "30": "2012/Quicklook_20120307saam_532nm_PC_30km.webp",
+              "5": "2012/Quicklook_20120307saam_532nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "06"
+          ],
+          "label": "06–12",
+          "mean": "2012/GlobalMeanRCS_20120307saam.webp",
+          "retired": false
+        },
+        "pm": {
+          "channels": {
+            "532nm_AN": {
+              "15": "2012/Quicklook_20120307sapm_532nm_AN_15km.webp",
+              "30": "2012/Quicklook_20120307sapm_532nm_AN_30km.webp",
+              "5": "2012/Quicklook_20120307sapm_532nm_AN_5km.webp"
+            },
+            "532nm_PC": {
+              "15": "2012/Quicklook_20120307sapm_532nm_PC_15km.webp",
+              "30": "2012/Quicklook_20120307sapm_532nm_PC_30km.webp",
+              "5": "2012/Quicklook_20120307sapm_532nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "12"
+          ],
+          "label": "12–18",
+          "mean": "2012/GlobalMeanRCS_20120307sapm.webp",
+          "retired": false
+        }
+      }
+    },
+    "20120308": {
+      "canonical": {},
+      "historical": {
+        "pm": {
+          "channels": {
+            "532nm_AN": {
+              "15": "2012/Quicklook_20120308sapm_532nm_AN_15km.webp",
+              "30": "2012/Quicklook_20120308sapm_532nm_AN_30km.webp",
+              "5": "2012/Quicklook_20120308sapm_532nm_AN_5km.webp"
+            },
+            "532nm_PC": {
+              "15": "2012/Quicklook_20120308sapm_532nm_PC_15km.webp",
+              "30": "2012/Quicklook_20120308sapm_532nm_PC_30km.webp",
+              "5": "2012/Quicklook_20120308sapm_532nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "12"
+          ],
+          "label": "12–18",
+          "mean": null,
+          "retired": false
+        }
+      }
+    },
+    "20120309": {
+      "canonical": {},
+      "historical": {
+        "am": {
+          "channels": {
+            "532nm_AN": {
+              "15": "2012/Quicklook_20120309saam_532nm_AN_15km.webp",
+              "30": "2012/Quicklook_20120309saam_532nm_AN_30km.webp",
+              "5": "2012/Quicklook_20120309saam_532nm_AN_5km.webp"
+            },
+            "532nm_PC": {
+              "15": "2012/Quicklook_20120309saam_532nm_PC_15km.webp",
+              "30": "2012/Quicklook_20120309saam_532nm_PC_30km.webp",
+              "5": "2012/Quicklook_20120309saam_532nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "06"
+          ],
+          "label": "06–12",
+          "mean": null,
+          "retired": false
+        },
+        "pm": {
+          "channels": {
+            "532nm_AN": {
+              "15": "2012/Quicklook_20120309sapm_532nm_AN_15km.webp",
+              "30": "2012/Quicklook_20120309sapm_532nm_AN_30km.webp",
+              "5": "2012/Quicklook_20120309sapm_532nm_AN_5km.webp"
+            },
+            "532nm_PC": {
+              "15": "2012/Quicklook_20120309sapm_532nm_PC_15km.webp",
+              "30": "2012/Quicklook_20120309sapm_532nm_PC_30km.webp",
+              "5": "2012/Quicklook_20120309sapm_532nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "12"
+          ],
+          "label": "12–18",
+          "mean": null,
+          "retired": false
+        }
+      }
+    },
+    "20120313": {
+      "canonical": {},
+      "historical": {
+        "am": {
+          "channels": {
+            "355nm_AN": {
+              "15": "2012/Quicklook_20120313saam_355nm_AN_15km.webp",
+              "30": "2012/Quicklook_20120313saam_355nm_AN_30km.webp",
+              "5": "2012/Quicklook_20120313saam_355nm_AN_5km.webp"
+            },
+            "355nm_PC": {
+              "15": "2012/Quicklook_20120313saam_355nm_PC_15km.webp",
+              "30": "2012/Quicklook_20120313saam_355nm_PC_30km.webp",
+              "5": "2012/Quicklook_20120313saam_355nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "06"
+          ],
+          "label": "06–12",
+          "mean": null,
+          "retired": false
+        }
+      }
+    },
+    "20120314": {
+      "canonical": {},
+      "historical": {
+        "am": {
+          "channels": {
+            "355nm_AN": {
+              "15": "2012/Quicklook_20120314saam_355nm_AN_15km.webp",
+              "30": "2012/Quicklook_20120314saam_355nm_AN_30km.webp",
+              "5": "2012/Quicklook_20120314saam_355nm_AN_5km.webp"
+            },
+            "355nm_PC": {
+              "15": "2012/Quicklook_20120314saam_355nm_PC_15km.webp",
+              "30": "2012/Quicklook_20120314saam_355nm_PC_30km.webp",
+              "5": "2012/Quicklook_20120314saam_355nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "06"
+          ],
+          "label": "06–12",
+          "mean": null,
+          "retired": false
+        },
+        "night": {
+          "channels": {
+            "355nm_AN": {
+              "15": "2012/Quicklook_20120314sant_355nm_AN_15km.webp",
+              "30": "2012/Quicklook_20120314sant_355nm_AN_30km.webp",
+              "5": "2012/Quicklook_20120314sant_355nm_AN_5km.webp"
+            },
+            "355nm_PC": {
+              "15": "2012/Quicklook_20120314sant_355nm_PC_15km.webp",
+              "30": "2012/Quicklook_20120314sant_355nm_PC_30km.webp",
+              "5": "2012/Quicklook_20120314sant_355nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "00",
+            "18"
+          ],
+          "label": "00–06 + 18–24",
+          "mean": null,
+          "retired": false
+        },
+        "pm": {
+          "channels": {
+            "355nm_AN": {
+              "15": "2012/Quicklook_20120314sapm_355nm_AN_15km.webp",
+              "30": "2012/Quicklook_20120314sapm_355nm_AN_30km.webp",
+              "5": "2012/Quicklook_20120314sapm_355nm_AN_5km.webp"
+            },
+            "355nm_PC": {
+              "15": "2012/Quicklook_20120314sapm_355nm_PC_15km.webp",
+              "30": "2012/Quicklook_20120314sapm_355nm_PC_30km.webp",
+              "5": "2012/Quicklook_20120314sapm_355nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "12"
+          ],
+          "label": "12–18",
+          "mean": null,
+          "retired": false
+        }
+      }
+    },
+    "20120319": {
+      "canonical": {},
+      "historical": {
+        "am": {
+          "channels": {
+            "355nm_AN": {
+              "15": "2012/Quicklook_20120319saam_355nm_AN_15km.webp",
+              "30": "2012/Quicklook_20120319saam_355nm_AN_30km.webp",
+              "5": "2012/Quicklook_20120319saam_355nm_AN_5km.webp"
+            },
+            "355nm_PC": {
+              "15": "2012/Quicklook_20120319saam_355nm_PC_15km.webp",
+              "30": "2012/Quicklook_20120319saam_355nm_PC_30km.webp",
+              "5": "2012/Quicklook_20120319saam_355nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "06"
+          ],
+          "label": "06–12",
+          "mean": null,
+          "retired": false
+        }
+      }
+    },
+    "20120417": {
+      "canonical": {},
+      "historical": {
+        "am": {
+          "channels": {
+            "355nm_AN": {
+              "15": "2012/Quicklook_20120417saam_355nm_AN_15km.webp",
+              "30": "2012/Quicklook_20120417saam_355nm_AN_30km.webp",
+              "5": "2012/Quicklook_20120417saam_355nm_AN_5km.webp"
+            },
+            "355nm_PC": {
+              "15": "2012/Quicklook_20120417saam_355nm_PC_15km.webp",
+              "30": "2012/Quicklook_20120417saam_355nm_PC_30km.webp",
+              "5": "2012/Quicklook_20120417saam_355nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "06"
+          ],
+          "label": "06–12",
+          "mean": null,
+          "retired": false
+        }
+      }
+    },
+    "20120507": {
+      "canonical": {},
+      "historical": {
+        "am": {
+          "channels": {
+            "355nm_AN": {
+              "15": "2012/Quicklook_20120507saam_355nm_AN_15km.webp",
+              "30": "2012/Quicklook_20120507saam_355nm_AN_30km.webp",
+              "5": "2012/Quicklook_20120507saam_355nm_AN_5km.webp"
+            },
+            "355nm_PC": {
+              "15": "2012/Quicklook_20120507saam_355nm_PC_15km.webp",
+              "30": "2012/Quicklook_20120507saam_355nm_PC_30km.webp",
+              "5": "2012/Quicklook_20120507saam_355nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "06"
+          ],
+          "label": "06–12",
+          "mean": null,
+          "retired": false
+        }
+      }
+    },
+    "20120508": {
+      "canonical": {},
+      "historical": {
+        "pm": {
+          "channels": {
+            "355nm_AN": {
+              "15": "2012/Quicklook_20120508sapm_355nm_AN_15km.webp",
+              "30": "2012/Quicklook_20120508sapm_355nm_AN_30km.webp",
+              "5": "2012/Quicklook_20120508sapm_355nm_AN_5km.webp"
+            },
+            "355nm_PC": {
+              "15": "2012/Quicklook_20120508sapm_355nm_PC_15km.webp",
+              "30": "2012/Quicklook_20120508sapm_355nm_PC_30km.webp",
+              "5": "2012/Quicklook_20120508sapm_355nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "12"
+          ],
+          "label": "12–18",
+          "mean": null,
+          "retired": false
+        }
+      }
+    },
+    "20120509": {
+      "canonical": {},
+      "historical": {
+        "am": {
+          "channels": {
+            "355nm_AN": {
+              "15": "2012/Quicklook_20120509saam_355nm_AN_15km.webp",
+              "30": "2012/Quicklook_20120509saam_355nm_AN_30km.webp",
+              "5": "2012/Quicklook_20120509saam_355nm_AN_5km.webp"
+            },
+            "355nm_PC": {
+              "15": "2012/Quicklook_20120509saam_355nm_PC_15km.webp",
+              "30": "2012/Quicklook_20120509saam_355nm_PC_30km.webp",
+              "5": "2012/Quicklook_20120509saam_355nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "06"
+          ],
+          "label": "06–12",
+          "mean": null,
+          "retired": false
+        }
+      }
+    },
+    "20120511": {
+      "canonical": {},
+      "historical": {
+        "am": {
+          "channels": {
+            "355nm_AN": {
+              "15": "2012/Quicklook_20120511saam_355nm_AN_15km.webp",
+              "30": "2012/Quicklook_20120511saam_355nm_AN_30km.webp",
+              "5": "2012/Quicklook_20120511saam_355nm_AN_5km.webp"
+            },
+            "355nm_PC": {
+              "15": "2012/Quicklook_20120511saam_355nm_PC_15km.webp",
+              "30": "2012/Quicklook_20120511saam_355nm_PC_30km.webp",
+              "5": "2012/Quicklook_20120511saam_355nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "06"
+          ],
+          "label": "06–12",
+          "mean": null,
+          "retired": false
+        },
+        "pm": {
+          "channels": {
+            "355nm_AN": {
+              "15": "2012/Quicklook_20120511sapm_355nm_AN_15km.webp",
+              "30": "2012/Quicklook_20120511sapm_355nm_AN_30km.webp",
+              "5": "2012/Quicklook_20120511sapm_355nm_AN_5km.webp"
+            },
+            "355nm_PC": {
+              "15": "2012/Quicklook_20120511sapm_355nm_PC_15km.webp",
+              "30": "2012/Quicklook_20120511sapm_355nm_PC_30km.webp",
+              "5": "2012/Quicklook_20120511sapm_355nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "12"
+          ],
+          "label": "12–18",
+          "mean": null,
+          "retired": false
+        }
+      }
+    },
+    "20120518": {
+      "canonical": {},
+      "historical": {
+        "am": {
+          "channels": {
+            "532nm_AN": {
+              "15": "2012/Quicklook_20120518saam_532nm_AN_15km.webp",
+              "30": "2012/Quicklook_20120518saam_532nm_AN_30km.webp",
+              "5": "2012/Quicklook_20120518saam_532nm_AN_5km.webp"
+            },
+            "532nm_PC": {
+              "15": "2012/Quicklook_20120518saam_532nm_PC_15km.webp",
+              "30": "2012/Quicklook_20120518saam_532nm_PC_30km.webp",
+              "5": "2012/Quicklook_20120518saam_532nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "06"
+          ],
+          "label": "06–12",
+          "mean": null,
+          "retired": false
+        },
+        "pm": {
+          "channels": {
+            "532nm_AN": {
+              "15": "2012/Quicklook_20120518sapm_532nm_AN_15km.webp",
+              "30": "2012/Quicklook_20120518sapm_532nm_AN_30km.webp",
+              "5": "2012/Quicklook_20120518sapm_532nm_AN_5km.webp"
+            },
+            "532nm_PC": {
+              "15": "2012/Quicklook_20120518sapm_532nm_PC_15km.webp",
+              "30": "2012/Quicklook_20120518sapm_532nm_PC_30km.webp",
+              "5": "2012/Quicklook_20120518sapm_532nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "12"
+          ],
+          "label": "12–18",
+          "mean": null,
+          "retired": false
+        }
+      }
+    },
+    "20120521": {
+      "canonical": {},
+      "historical": {
+        "am": {
+          "channels": {
+            "532nm_AN": {
+              "15": "2012/Quicklook_20120521saam_532nm_AN_15km.webp",
+              "30": "2012/Quicklook_20120521saam_532nm_AN_30km.webp",
+              "5": "2012/Quicklook_20120521saam_532nm_AN_5km.webp"
+            },
+            "532nm_PC": {
+              "15": "2012/Quicklook_20120521saam_532nm_PC_15km.webp",
+              "30": "2012/Quicklook_20120521saam_532nm_PC_30km.webp",
+              "5": "2012/Quicklook_20120521saam_532nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "06"
+          ],
+          "label": "06–12",
+          "mean": null,
+          "retired": false
+        }
+      }
+    },
+    "20120522": {
+      "canonical": {},
+      "historical": {
+        "am": {
+          "channels": {
+            "532nm_AN": {
+              "15": "2012/Quicklook_20120522saam_532nm_AN_15km.webp",
+              "30": "2012/Quicklook_20120522saam_532nm_AN_30km.webp",
+              "5": "2012/Quicklook_20120522saam_532nm_AN_5km.webp"
+            },
+            "532nm_PC": {
+              "15": "2012/Quicklook_20120522saam_532nm_PC_15km.webp",
+              "30": "2012/Quicklook_20120522saam_532nm_PC_30km.webp",
+              "5": "2012/Quicklook_20120522saam_532nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "06"
+          ],
+          "label": "06–12",
+          "mean": null,
+          "retired": false
+        }
+      }
+    },
+    "20120523": {
+      "canonical": {},
+      "historical": {
+        "am": {
+          "channels": {
+            "532nm_AN": {
+              "15": "2012/Quicklook_20120523saam_532nm_AN_15km.webp",
+              "30": "2012/Quicklook_20120523saam_532nm_AN_30km.webp",
+              "5": "2012/Quicklook_20120523saam_532nm_AN_5km.webp"
+            },
+            "532nm_PC": {
+              "15": "2012/Quicklook_20120523saam_532nm_PC_15km.webp",
+              "30": "2012/Quicklook_20120523saam_532nm_PC_30km.webp",
+              "5": "2012/Quicklook_20120523saam_532nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "06"
+          ],
+          "label": "06–12",
+          "mean": null,
+          "retired": false
+        }
+      }
+    },
+    "20120528": {
+      "canonical": {},
+      "historical": {
+        "am": {
+          "channels": {
+            "532nm_AN": {
+              "15": "2012/Quicklook_20120528saam_532nm_AN_15km.webp",
+              "30": "2012/Quicklook_20120528saam_532nm_AN_30km.webp",
+              "5": "2012/Quicklook_20120528saam_532nm_AN_5km.webp"
+            },
+            "532nm_PC": {
+              "15": "2012/Quicklook_20120528saam_532nm_PC_15km.webp",
+              "30": "2012/Quicklook_20120528saam_532nm_PC_30km.webp",
+              "5": "2012/Quicklook_20120528saam_532nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "06"
+          ],
+          "label": "06–12",
+          "mean": null,
+          "retired": false
+        },
+        "pm": {
+          "channels": {
+            "532nm_AN": {
+              "15": "2012/Quicklook_20120528sapm_532nm_AN_15km.webp",
+              "30": "2012/Quicklook_20120528sapm_532nm_AN_30km.webp",
+              "5": "2012/Quicklook_20120528sapm_532nm_AN_5km.webp"
+            },
+            "532nm_PC": {
+              "15": "2012/Quicklook_20120528sapm_532nm_PC_15km.webp",
+              "30": "2012/Quicklook_20120528sapm_532nm_PC_30km.webp",
+              "5": "2012/Quicklook_20120528sapm_532nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "12"
+          ],
+          "label": "12–18",
+          "mean": null,
+          "retired": false
+        }
+      }
+    },
+    "20120529": {
+      "canonical": {},
+      "historical": {
+        "am": {
+          "channels": {
+            "532nm_AN": {
+              "15": "2012/Quicklook_20120529saam_532nm_AN_15km.webp",
+              "30": "2012/Quicklook_20120529saam_532nm_AN_30km.webp",
+              "5": "2012/Quicklook_20120529saam_532nm_AN_5km.webp"
+            },
+            "532nm_PC": {
+              "15": "2012/Quicklook_20120529saam_532nm_PC_15km.webp",
+              "30": "2012/Quicklook_20120529saam_532nm_PC_30km.webp",
+              "5": "2012/Quicklook_20120529saam_532nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "06"
+          ],
+          "label": "06–12",
+          "mean": null,
+          "retired": false
+        },
+        "night": {
+          "channels": {
+            "532nm_AN": {
+              "15": "2012/Quicklook_20120529sant_532nm_AN_15km.webp",
+              "30": "2012/Quicklook_20120529sant_532nm_AN_30km.webp",
+              "5": "2012/Quicklook_20120529sant_532nm_AN_5km.webp"
+            },
+            "532nm_PC": {
+              "15": "2012/Quicklook_20120529sant_532nm_PC_15km.webp",
+              "30": "2012/Quicklook_20120529sant_532nm_PC_30km.webp",
+              "5": "2012/Quicklook_20120529sant_532nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "00",
+            "18"
+          ],
+          "label": "00–06 + 18–24",
+          "mean": null,
+          "retired": false
+        },
+        "pm": {
+          "channels": {
+            "532nm_AN": {
+              "15": "2012/Quicklook_20120529sapm_532nm_AN_15km.webp",
+              "30": "2012/Quicklook_20120529sapm_532nm_AN_30km.webp",
+              "5": "2012/Quicklook_20120529sapm_532nm_AN_5km.webp"
+            },
+            "532nm_PC": {
+              "15": "2012/Quicklook_20120529sapm_532nm_PC_15km.webp",
+              "30": "2012/Quicklook_20120529sapm_532nm_PC_30km.webp",
+              "5": "2012/Quicklook_20120529sapm_532nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "12"
+          ],
+          "label": "12–18",
+          "mean": null,
+          "retired": false
+        }
+      }
+    },
+    "20120530": {
+      "canonical": {},
+      "historical": {
+        "am": {
+          "channels": {
+            "532nm_AN": {
+              "15": "2012/Quicklook_20120530saam_532nm_AN_15km.webp",
+              "30": "2012/Quicklook_20120530saam_532nm_AN_30km.webp",
+              "5": "2012/Quicklook_20120530saam_532nm_AN_5km.webp"
+            },
+            "532nm_PC": {
+              "15": "2012/Quicklook_20120530saam_532nm_PC_15km.webp",
+              "30": "2012/Quicklook_20120530saam_532nm_PC_30km.webp",
+              "5": "2012/Quicklook_20120530saam_532nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "06"
+          ],
+          "label": "06–12",
+          "mean": null,
+          "retired": false
+        },
+        "pm": {
+          "channels": {
+            "532nm_AN": {
+              "15": "2012/Quicklook_20120530sapm_532nm_AN_15km.webp",
+              "30": "2012/Quicklook_20120530sapm_532nm_AN_30km.webp",
+              "5": "2012/Quicklook_20120530sapm_532nm_AN_5km.webp"
+            },
+            "532nm_PC": {
+              "15": "2012/Quicklook_20120530sapm_532nm_PC_15km.webp",
+              "30": "2012/Quicklook_20120530sapm_532nm_PC_30km.webp",
+              "5": "2012/Quicklook_20120530sapm_532nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "12"
+          ],
+          "label": "12–18",
+          "mean": null,
+          "retired": false
+        }
+      }
+    },
+    "20120615": {
+      "canonical": {},
+      "historical": {
+        "am": {
+          "channels": {
+            "532nm_AN": {
+              "15": "2012/Quicklook_20120615saam_532nm_AN_15km.webp",
+              "30": "2012/Quicklook_20120615saam_532nm_AN_30km.webp",
+              "5": "2012/Quicklook_20120615saam_532nm_AN_5km.webp"
+            },
+            "532nm_PC": {
+              "15": "2012/Quicklook_20120615saam_532nm_PC_15km.webp",
+              "30": "2012/Quicklook_20120615saam_532nm_PC_30km.webp",
+              "5": "2012/Quicklook_20120615saam_532nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "06"
+          ],
+          "label": "06–12",
+          "mean": null,
+          "retired": false
+        }
+      }
+    },
+    "20120702": {
+      "canonical": {},
+      "historical": {
+        "pm": {
+          "channels": {
+            "532nm_AN": {
+              "15": "2012/Quicklook_20120702sapm_532nm_AN_15km.webp",
+              "30": "2012/Quicklook_20120702sapm_532nm_AN_30km.webp",
+              "5": "2012/Quicklook_20120702sapm_532nm_AN_5km.webp"
+            },
+            "532nm_PC": {
+              "15": "2012/Quicklook_20120702sapm_532nm_PC_15km.webp",
+              "30": "2012/Quicklook_20120702sapm_532nm_PC_30km.webp",
+              "5": "2012/Quicklook_20120702sapm_532nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "12"
+          ],
+          "label": "12–18",
+          "mean": null,
+          "retired": false
+        }
+      }
+    },
+    "20120703": {
+      "canonical": {},
+      "historical": {
+        "am": {
+          "channels": {
+            "532nm_AN": {
+              "15": "2012/Quicklook_20120703saam_532nm_AN_15km.webp",
+              "30": "2012/Quicklook_20120703saam_532nm_AN_30km.webp",
+              "5": "2012/Quicklook_20120703saam_532nm_AN_5km.webp"
+            },
+            "532nm_PC": {
+              "15": "2012/Quicklook_20120703saam_532nm_PC_15km.webp",
+              "30": "2012/Quicklook_20120703saam_532nm_PC_30km.webp",
+              "5": "2012/Quicklook_20120703saam_532nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "06"
+          ],
+          "label": "06–12",
+          "mean": null,
+          "retired": false
+        },
+        "pm": {
+          "channels": {
+            "532nm_AN": {
+              "15": "2012/Quicklook_20120703sapm_532nm_AN_15km.webp",
+              "30": "2012/Quicklook_20120703sapm_532nm_AN_30km.webp",
+              "5": "2012/Quicklook_20120703sapm_532nm_AN_5km.webp"
+            },
+            "532nm_PC": {
+              "15": "2012/Quicklook_20120703sapm_532nm_PC_15km.webp",
+              "30": "2012/Quicklook_20120703sapm_532nm_PC_30km.webp",
+              "5": "2012/Quicklook_20120703sapm_532nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "12"
+          ],
+          "label": "12–18",
+          "mean": null,
+          "retired": false
+        }
+      }
+    },
+    "20120704": {
+      "canonical": {},
+      "historical": {
+        "am": {
+          "channels": {
+            "532nm_AN": {
+              "15": "2012/Quicklook_20120704saam_532nm_AN_15km.webp",
+              "30": "2012/Quicklook_20120704saam_532nm_AN_30km.webp",
+              "5": "2012/Quicklook_20120704saam_532nm_AN_5km.webp"
+            },
+            "532nm_PC": {
+              "15": "2012/Quicklook_20120704saam_532nm_PC_15km.webp",
+              "30": "2012/Quicklook_20120704saam_532nm_PC_30km.webp",
+              "5": "2012/Quicklook_20120704saam_532nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "06"
+          ],
+          "label": "06–12",
+          "mean": null,
+          "retired": false
+        },
+        "night": {
+          "channels": {
+            "532nm_AN": {
+              "15": "2012/Quicklook_20120704sant_532nm_AN_15km.webp",
+              "30": "2012/Quicklook_20120704sant_532nm_AN_30km.webp",
+              "5": "2012/Quicklook_20120704sant_532nm_AN_5km.webp"
+            },
+            "532nm_PC": {
+              "15": "2012/Quicklook_20120704sant_532nm_PC_15km.webp",
+              "30": "2012/Quicklook_20120704sant_532nm_PC_30km.webp",
+              "5": "2012/Quicklook_20120704sant_532nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "00",
+            "18"
+          ],
+          "label": "00–06 + 18–24",
+          "mean": null,
+          "retired": false
+        },
+        "pm": {
+          "channels": {
+            "532nm_AN": {
+              "15": "2012/Quicklook_20120704sapm_532nm_AN_15km.webp",
+              "30": "2012/Quicklook_20120704sapm_532nm_AN_30km.webp",
+              "5": "2012/Quicklook_20120704sapm_532nm_AN_5km.webp"
+            },
+            "532nm_PC": {
+              "15": "2012/Quicklook_20120704sapm_532nm_PC_15km.webp",
+              "30": "2012/Quicklook_20120704sapm_532nm_PC_30km.webp",
+              "5": "2012/Quicklook_20120704sapm_532nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "12"
+          ],
+          "label": "12–18",
+          "mean": null,
+          "retired": false
+        }
+      }
+    },
+    "20120705": {
+      "canonical": {},
+      "historical": {
+        "am": {
+          "channels": {
+            "532nm_AN": {
+              "15": "2012/Quicklook_20120705saam_532nm_AN_15km.webp",
+              "30": "2012/Quicklook_20120705saam_532nm_AN_30km.webp",
+              "5": "2012/Quicklook_20120705saam_532nm_AN_5km.webp"
+            },
+            "532nm_PC": {
+              "15": "2012/Quicklook_20120705saam_532nm_PC_15km.webp",
+              "30": "2012/Quicklook_20120705saam_532nm_PC_30km.webp",
+              "5": "2012/Quicklook_20120705saam_532nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "06"
+          ],
+          "label": "06–12",
+          "mean": null,
+          "retired": false
+        },
+        "pm": {
+          "channels": {
+            "532nm_AN": {
+              "15": "2012/Quicklook_20120705sapm_532nm_AN_15km.webp",
+              "30": "2012/Quicklook_20120705sapm_532nm_AN_30km.webp",
+              "5": "2012/Quicklook_20120705sapm_532nm_AN_5km.webp"
+            },
+            "532nm_PC": {
+              "15": "2012/Quicklook_20120705sapm_532nm_PC_15km.webp",
+              "30": "2012/Quicklook_20120705sapm_532nm_PC_30km.webp",
+              "5": "2012/Quicklook_20120705sapm_532nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "12"
+          ],
+          "label": "12–18",
+          "mean": null,
+          "retired": false
+        }
+      }
+    },
+    "20120710": {
+      "canonical": {},
+      "historical": {
+        "am": {
+          "channels": {
+            "532nm_AN": {
+              "15": "2012/Quicklook_20120710saam_532nm_AN_15km.webp",
+              "30": "2012/Quicklook_20120710saam_532nm_AN_30km.webp",
+              "5": "2012/Quicklook_20120710saam_532nm_AN_5km.webp"
+            },
+            "532nm_PC": {
+              "15": "2012/Quicklook_20120710saam_532nm_PC_15km.webp",
+              "30": "2012/Quicklook_20120710saam_532nm_PC_30km.webp",
+              "5": "2012/Quicklook_20120710saam_532nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "06"
+          ],
+          "label": "06–12",
+          "mean": null,
+          "retired": false
+        },
+        "pm": {
+          "channels": {
+            "532nm_AN": {
+              "15": "2012/Quicklook_20120710sapm_532nm_AN_15km.webp",
+              "30": "2012/Quicklook_20120710sapm_532nm_AN_30km.webp",
+              "5": "2012/Quicklook_20120710sapm_532nm_AN_5km.webp"
+            },
+            "532nm_PC": {
+              "15": "2012/Quicklook_20120710sapm_532nm_PC_15km.webp",
+              "30": "2012/Quicklook_20120710sapm_532nm_PC_30km.webp",
+              "5": "2012/Quicklook_20120710sapm_532nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "12"
+          ],
+          "label": "12–18",
+          "mean": null,
+          "retired": false
+        }
+      }
+    },
+    "20120711": {
+      "canonical": {},
+      "historical": {
+        "am": {
+          "channels": {
+            "532nm_AN": {
+              "15": "2012/Quicklook_20120711saam_532nm_AN_15km.webp",
+              "30": "2012/Quicklook_20120711saam_532nm_AN_30km.webp",
+              "5": "2012/Quicklook_20120711saam_532nm_AN_5km.webp"
+            },
+            "532nm_PC": {
+              "15": "2012/Quicklook_20120711saam_532nm_PC_15km.webp",
+              "30": "2012/Quicklook_20120711saam_532nm_PC_30km.webp",
+              "5": "2012/Quicklook_20120711saam_532nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "06"
+          ],
+          "label": "06–12",
+          "mean": null,
+          "retired": false
+        }
+      }
+    },
+    "20120713": {
+      "canonical": {},
+      "historical": {
+        "am": {
+          "channels": {
+            "532nm_AN": {
+              "15": "2012/Quicklook_20120713saam_532nm_AN_15km.webp",
+              "30": "2012/Quicklook_20120713saam_532nm_AN_30km.webp",
+              "5": "2012/Quicklook_20120713saam_532nm_AN_5km.webp"
+            },
+            "532nm_PC": {
+              "15": "2012/Quicklook_20120713saam_532nm_PC_15km.webp",
+              "30": "2012/Quicklook_20120713saam_532nm_PC_30km.webp",
+              "5": "2012/Quicklook_20120713saam_532nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "06"
+          ],
+          "label": "06–12",
+          "mean": null,
+          "retired": false
+        },
+        "night": {
+          "channels": {
+            "355nm_AN": {
+              "15": "2012/Quicklook_20120713sant_355nm_AN_15km.webp",
+              "30": "2012/Quicklook_20120713sant_355nm_AN_30km.webp",
+              "5": "2012/Quicklook_20120713sant_355nm_AN_5km.webp"
+            },
+            "355nm_PC": {
+              "15": "2012/Quicklook_20120713sant_355nm_PC_15km.webp",
+              "30": "2012/Quicklook_20120713sant_355nm_PC_30km.webp",
+              "5": "2012/Quicklook_20120713sant_355nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "00",
+            "18"
+          ],
+          "label": "00–06 + 18–24",
+          "mean": null,
+          "retired": false
+        },
+        "pm": {
+          "channels": {
+            "355nm_AN": {
+              "15": "2012/Quicklook_20120713sapm_355nm_AN_15km.webp",
+              "30": "2012/Quicklook_20120713sapm_355nm_AN_30km.webp",
+              "5": "2012/Quicklook_20120713sapm_355nm_AN_5km.webp"
+            },
+            "355nm_PC": {
+              "15": "2012/Quicklook_20120713sapm_355nm_PC_15km.webp",
+              "30": "2012/Quicklook_20120713sapm_355nm_PC_30km.webp",
+              "5": "2012/Quicklook_20120713sapm_355nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "12"
+          ],
+          "label": "12–18",
+          "mean": null,
+          "retired": false
+        }
+      }
+    },
+    "20120716": {
+      "canonical": {},
+      "historical": {
+        "am": {
+          "channels": {
+            "355nm_AN": {
+              "15": "2012/Quicklook_20120716saam_355nm_AN_15km.webp",
+              "30": "2012/Quicklook_20120716saam_355nm_AN_30km.webp",
+              "5": "2012/Quicklook_20120716saam_355nm_AN_5km.webp"
+            },
+            "355nm_PC": {
+              "15": "2012/Quicklook_20120716saam_355nm_PC_15km.webp",
+              "30": "2012/Quicklook_20120716saam_355nm_PC_30km.webp",
+              "5": "2012/Quicklook_20120716saam_355nm_PC_5km.webp"
+            },
+            "532nm_AN": {
+              "15": "2012/Quicklook_20120716saam_532nm_AN_15km.webp",
+              "30": "2012/Quicklook_20120716saam_532nm_AN_30km.webp",
+              "5": "2012/Quicklook_20120716saam_532nm_AN_5km.webp"
+            },
+            "532nm_PC": {
+              "15": "2012/Quicklook_20120716saam_532nm_PC_15km.webp",
+              "30": "2012/Quicklook_20120716saam_532nm_PC_30km.webp",
+              "5": "2012/Quicklook_20120716saam_532nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "06"
+          ],
+          "label": "06–12",
+          "mean": null,
+          "retired": false
+        },
+        "pm": {
+          "channels": {
+            "355nm_AN": {
+              "15": "2012/Quicklook_20120716sapm_355nm_AN_15km.webp",
+              "30": "2012/Quicklook_20120716sapm_355nm_AN_30km.webp",
+              "5": "2012/Quicklook_20120716sapm_355nm_AN_5km.webp"
+            },
+            "355nm_PC": {
+              "15": "2012/Quicklook_20120716sapm_355nm_PC_15km.webp",
+              "30": "2012/Quicklook_20120716sapm_355nm_PC_30km.webp",
+              "5": "2012/Quicklook_20120716sapm_355nm_PC_5km.webp"
+            },
+            "532nm_AN": {
+              "15": "2012/Quicklook_20120716sapm_532nm_AN_15km.webp",
+              "30": "2012/Quicklook_20120716sapm_532nm_AN_30km.webp",
+              "5": "2012/Quicklook_20120716sapm_532nm_AN_5km.webp"
+            },
+            "532nm_PC": {
+              "15": "2012/Quicklook_20120716sapm_532nm_PC_15km.webp",
+              "30": "2012/Quicklook_20120716sapm_532nm_PC_30km.webp",
+              "5": "2012/Quicklook_20120716sapm_532nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "12"
+          ],
+          "label": "12–18",
+          "mean": null,
+          "retired": false
+        }
+      }
+    },
+    "20120717": {
+      "canonical": {},
+      "historical": {
+        "am": {
+          "channels": {
+            "355nm_AN": {
+              "15": "2012/Quicklook_20120717saam_355nm_AN_15km.webp",
+              "30": "2012/Quicklook_20120717saam_355nm_AN_30km.webp",
+              "5": "2012/Quicklook_20120717saam_355nm_AN_5km.webp"
+            },
+            "355nm_PC": {
+              "15": "2012/Quicklook_20120717saam_355nm_PC_15km.webp",
+              "30": "2012/Quicklook_20120717saam_355nm_PC_30km.webp",
+              "5": "2012/Quicklook_20120717saam_355nm_PC_5km.webp"
+            },
+            "532nm_AN": {
+              "15": "2012/Quicklook_20120717saam_532nm_AN_15km.webp",
+              "30": "2012/Quicklook_20120717saam_532nm_AN_30km.webp",
+              "5": "2012/Quicklook_20120717saam_532nm_AN_5km.webp"
+            },
+            "532nm_PC": {
+              "15": "2012/Quicklook_20120717saam_532nm_PC_15km.webp",
+              "30": "2012/Quicklook_20120717saam_532nm_PC_30km.webp",
+              "5": "2012/Quicklook_20120717saam_532nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "06"
+          ],
+          "label": "06–12",
+          "mean": null,
+          "retired": false
+        }
+      }
+    },
+    "20120719": {
+      "canonical": {},
+      "historical": {
+        "am": {
+          "channels": {
+            "355nm_AN": {
+              "15": "2012/Quicklook_20120719saam_355nm_AN_15km.webp",
+              "30": "2012/Quicklook_20120719saam_355nm_AN_30km.webp",
+              "5": "2012/Quicklook_20120719saam_355nm_AN_5km.webp"
+            },
+            "355nm_PC": {
+              "15": "2012/Quicklook_20120719saam_355nm_PC_15km.webp",
+              "30": "2012/Quicklook_20120719saam_355nm_PC_30km.webp",
+              "5": "2012/Quicklook_20120719saam_355nm_PC_5km.webp"
+            },
+            "532nm_AN": {
+              "15": "2012/Quicklook_20120719saam_532nm_AN_15km.webp",
+              "30": "2012/Quicklook_20120719saam_532nm_AN_30km.webp",
+              "5": "2012/Quicklook_20120719saam_532nm_AN_5km.webp"
+            },
+            "532nm_PC": {
+              "15": "2012/Quicklook_20120719saam_532nm_PC_15km.webp",
+              "30": "2012/Quicklook_20120719saam_532nm_PC_30km.webp",
+              "5": "2012/Quicklook_20120719saam_532nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "06"
+          ],
+          "label": "06–12",
+          "mean": null,
+          "retired": false
+        },
+        "pm": {
+          "channels": {
+            "355nm_AN": {
+              "15": "2012/Quicklook_20120719sapm_355nm_AN_15km.webp",
+              "30": "2012/Quicklook_20120719sapm_355nm_AN_30km.webp",
+              "5": "2012/Quicklook_20120719sapm_355nm_AN_5km.webp"
+            },
+            "355nm_PC": {
+              "15": "2012/Quicklook_20120719sapm_355nm_PC_15km.webp",
+              "30": "2012/Quicklook_20120719sapm_355nm_PC_30km.webp",
+              "5": "2012/Quicklook_20120719sapm_355nm_PC_5km.webp"
+            },
+            "532nm_AN": {
+              "15": "2012/Quicklook_20120719sapm_532nm_AN_15km.webp",
+              "30": "2012/Quicklook_20120719sapm_532nm_AN_30km.webp",
+              "5": "2012/Quicklook_20120719sapm_532nm_AN_5km.webp"
+            },
+            "532nm_PC": {
+              "15": "2012/Quicklook_20120719sapm_532nm_PC_15km.webp",
+              "30": "2012/Quicklook_20120719sapm_532nm_PC_30km.webp",
+              "5": "2012/Quicklook_20120719sapm_532nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "12"
+          ],
+          "label": "12–18",
+          "mean": null,
+          "retired": false
+        }
+      }
+    },
+    "20120720": {
+      "canonical": {},
+      "historical": {
+        "am": {
+          "channels": {
+            "355nm_AN": {
+              "15": "2012/Quicklook_20120720saam_355nm_AN_15km.webp",
+              "30": "2012/Quicklook_20120720saam_355nm_AN_30km.webp",
+              "5": "2012/Quicklook_20120720saam_355nm_AN_5km.webp"
+            },
+            "355nm_PC": {
+              "15": "2012/Quicklook_20120720saam_355nm_PC_15km.webp",
+              "30": "2012/Quicklook_20120720saam_355nm_PC_30km.webp",
+              "5": "2012/Quicklook_20120720saam_355nm_PC_5km.webp"
+            },
+            "532nm_AN": {
+              "15": "2012/Quicklook_20120720saam_532nm_AN_15km.webp",
+              "30": "2012/Quicklook_20120720saam_532nm_AN_30km.webp",
+              "5": "2012/Quicklook_20120720saam_532nm_AN_5km.webp"
+            },
+            "532nm_PC": {
+              "15": "2012/Quicklook_20120720saam_532nm_PC_15km.webp",
+              "30": "2012/Quicklook_20120720saam_532nm_PC_30km.webp",
+              "5": "2012/Quicklook_20120720saam_532nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "06"
+          ],
+          "label": "06–12",
+          "mean": null,
+          "retired": false
+        },
+        "night": {
+          "channels": {
+            "355nm_AN": {
+              "15": "2012/Quicklook_20120720sant_355nm_AN_15km.webp",
+              "30": "2012/Quicklook_20120720sant_355nm_AN_30km.webp",
+              "5": "2012/Quicklook_20120720sant_355nm_AN_5km.webp"
+            },
+            "355nm_PC": {
+              "15": "2012/Quicklook_20120720sant_355nm_PC_15km.webp",
+              "30": "2012/Quicklook_20120720sant_355nm_PC_30km.webp",
+              "5": "2012/Quicklook_20120720sant_355nm_PC_5km.webp"
+            },
+            "532nm_AN": {
+              "15": "2012/Quicklook_20120720sant_532nm_AN_15km.webp",
+              "30": "2012/Quicklook_20120720sant_532nm_AN_30km.webp",
+              "5": "2012/Quicklook_20120720sant_532nm_AN_5km.webp"
+            },
+            "532nm_PC": {
+              "15": "2012/Quicklook_20120720sant_532nm_PC_15km.webp",
+              "30": "2012/Quicklook_20120720sant_532nm_PC_30km.webp",
+              "5": "2012/Quicklook_20120720sant_532nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "00",
+            "18"
+          ],
+          "label": "00–06 + 18–24",
+          "mean": null,
+          "retired": false
+        },
+        "pm": {
+          "channels": {
+            "355nm_AN": {
+              "15": "2012/Quicklook_20120720sapm_355nm_AN_15km.webp",
+              "30": "2012/Quicklook_20120720sapm_355nm_AN_30km.webp",
+              "5": "2012/Quicklook_20120720sapm_355nm_AN_5km.webp"
+            },
+            "355nm_PC": {
+              "15": "2012/Quicklook_20120720sapm_355nm_PC_15km.webp",
+              "30": "2012/Quicklook_20120720sapm_355nm_PC_30km.webp",
+              "5": "2012/Quicklook_20120720sapm_355nm_PC_5km.webp"
+            },
+            "532nm_AN": {
+              "15": "2012/Quicklook_20120720sapm_532nm_AN_15km.webp",
+              "30": "2012/Quicklook_20120720sapm_532nm_AN_30km.webp",
+              "5": "2012/Quicklook_20120720sapm_532nm_AN_5km.webp"
+            },
+            "532nm_PC": {
+              "15": "2012/Quicklook_20120720sapm_532nm_PC_15km.webp",
+              "30": "2012/Quicklook_20120720sapm_532nm_PC_30km.webp",
+              "5": "2012/Quicklook_20120720sapm_532nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "12"
+          ],
+          "label": "12–18",
+          "mean": null,
+          "retired": false
+        }
+      }
+    },
+    "20120724": {
+      "canonical": {},
+      "historical": {
+        "night": {
+          "channels": {
+            "355nm_AN": {
+              "15": "2012/Quicklook_20120724sant_355nm_AN_15km.webp",
+              "30": "2012/Quicklook_20120724sant_355nm_AN_30km.webp",
+              "5": "2012/Quicklook_20120724sant_355nm_AN_5km.webp"
+            },
+            "355nm_PC": {
+              "15": "2012/Quicklook_20120724sant_355nm_PC_15km.webp",
+              "30": "2012/Quicklook_20120724sant_355nm_PC_30km.webp",
+              "5": "2012/Quicklook_20120724sant_355nm_PC_5km.webp"
+            },
+            "532nm_AN": {
+              "15": "2012/Quicklook_20120724sant_532nm_AN_15km.webp",
+              "30": "2012/Quicklook_20120724sant_532nm_AN_30km.webp",
+              "5": "2012/Quicklook_20120724sant_532nm_AN_5km.webp"
+            },
+            "532nm_PC": {
+              "15": "2012/Quicklook_20120724sant_532nm_PC_15km.webp",
+              "30": "2012/Quicklook_20120724sant_532nm_PC_30km.webp",
+              "5": "2012/Quicklook_20120724sant_532nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "00",
+            "18"
+          ],
+          "label": "00–06 + 18–24",
+          "mean": null,
+          "retired": false
+        },
+        "pm": {
+          "channels": {
+            "355nm_AN": {
+              "15": "2012/Quicklook_20120724sapm_355nm_AN_15km.webp",
+              "30": "2012/Quicklook_20120724sapm_355nm_AN_30km.webp",
+              "5": "2012/Quicklook_20120724sapm_355nm_AN_5km.webp"
+            },
+            "355nm_PC": {
+              "15": "2012/Quicklook_20120724sapm_355nm_PC_15km.webp",
+              "30": "2012/Quicklook_20120724sapm_355nm_PC_30km.webp",
+              "5": "2012/Quicklook_20120724sapm_355nm_PC_5km.webp"
+            },
+            "532nm_AN": {
+              "15": "2012/Quicklook_20120724sapm_532nm_AN_15km.webp",
+              "30": "2012/Quicklook_20120724sapm_532nm_AN_30km.webp",
+              "5": "2012/Quicklook_20120724sapm_532nm_AN_5km.webp"
+            },
+            "532nm_PC": {
+              "15": "2012/Quicklook_20120724sapm_532nm_PC_15km.webp",
+              "30": "2012/Quicklook_20120724sapm_532nm_PC_30km.webp",
+              "5": "2012/Quicklook_20120724sapm_532nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "12"
+          ],
+          "label": "12–18",
+          "mean": null,
+          "retired": false
+        }
+      }
+    },
+    "20120725": {
+      "canonical": {},
+      "historical": {
+        "am": {
+          "channels": {
+            "355nm_AN": {
+              "15": "2012/Quicklook_20120725saam_355nm_AN_15km.webp",
+              "30": "2012/Quicklook_20120725saam_355nm_AN_30km.webp",
+              "5": "2012/Quicklook_20120725saam_355nm_AN_5km.webp"
+            },
+            "355nm_PC": {
+              "15": "2012/Quicklook_20120725saam_355nm_PC_15km.webp",
+              "30": "2012/Quicklook_20120725saam_355nm_PC_30km.webp",
+              "5": "2012/Quicklook_20120725saam_355nm_PC_5km.webp"
+            },
+            "532nm_AN": {
+              "15": "2012/Quicklook_20120725saam_532nm_AN_15km.webp",
+              "30": "2012/Quicklook_20120725saam_532nm_AN_30km.webp",
+              "5": "2012/Quicklook_20120725saam_532nm_AN_5km.webp"
+            },
+            "532nm_PC": {
+              "15": "2012/Quicklook_20120725saam_532nm_PC_15km.webp",
+              "30": "2012/Quicklook_20120725saam_532nm_PC_30km.webp",
+              "5": "2012/Quicklook_20120725saam_532nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "06"
+          ],
+          "label": "06–12",
+          "mean": null,
+          "retired": false
+        },
+        "pm": {
+          "channels": {
+            "355nm_AN": {
+              "15": "2012/Quicklook_20120725sapm_355nm_AN_15km.webp",
+              "30": "2012/Quicklook_20120725sapm_355nm_AN_30km.webp",
+              "5": "2012/Quicklook_20120725sapm_355nm_AN_5km.webp"
+            },
+            "355nm_PC": {
+              "15": "2012/Quicklook_20120725sapm_355nm_PC_15km.webp",
+              "30": "2012/Quicklook_20120725sapm_355nm_PC_30km.webp",
+              "5": "2012/Quicklook_20120725sapm_355nm_PC_5km.webp"
+            },
+            "532nm_AN": {
+              "15": "2012/Quicklook_20120725sapm_532nm_AN_15km.webp",
+              "30": "2012/Quicklook_20120725sapm_532nm_AN_30km.webp",
+              "5": "2012/Quicklook_20120725sapm_532nm_AN_5km.webp"
+            },
+            "532nm_PC": {
+              "15": "2012/Quicklook_20120725sapm_532nm_PC_15km.webp",
+              "30": "2012/Quicklook_20120725sapm_532nm_PC_30km.webp",
+              "5": "2012/Quicklook_20120725sapm_532nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "12"
+          ],
+          "label": "12–18",
+          "mean": null,
+          "retired": false
+        }
+      }
+    },
+    "20120726": {
+      "canonical": {},
+      "historical": {
+        "am": {
+          "channels": {
+            "355nm_AN": {
+              "15": "2012/Quicklook_20120726saam_355nm_AN_15km.webp",
+              "30": "2012/Quicklook_20120726saam_355nm_AN_30km.webp",
+              "5": "2012/Quicklook_20120726saam_355nm_AN_5km.webp"
+            },
+            "355nm_PC": {
+              "15": "2012/Quicklook_20120726saam_355nm_PC_15km.webp",
+              "30": "2012/Quicklook_20120726saam_355nm_PC_30km.webp",
+              "5": "2012/Quicklook_20120726saam_355nm_PC_5km.webp"
+            },
+            "532nm_AN": {
+              "15": "2012/Quicklook_20120726saam_532nm_AN_15km.webp",
+              "30": "2012/Quicklook_20120726saam_532nm_AN_30km.webp",
+              "5": "2012/Quicklook_20120726saam_532nm_AN_5km.webp"
+            },
+            "532nm_PC": {
+              "15": "2012/Quicklook_20120726saam_532nm_PC_15km.webp",
+              "30": "2012/Quicklook_20120726saam_532nm_PC_30km.webp",
+              "5": "2012/Quicklook_20120726saam_532nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "06"
+          ],
+          "label": "06–12",
+          "mean": null,
+          "retired": false
+        },
+        "night": {
+          "channels": {
+            "355nm_AN": {
+              "15": "2012/Quicklook_20120726sant_355nm_AN_15km.webp",
+              "30": "2012/Quicklook_20120726sant_355nm_AN_30km.webp",
+              "5": "2012/Quicklook_20120726sant_355nm_AN_5km.webp"
+            },
+            "355nm_PC": {
+              "15": "2012/Quicklook_20120726sant_355nm_PC_15km.webp",
+              "30": "2012/Quicklook_20120726sant_355nm_PC_30km.webp",
+              "5": "2012/Quicklook_20120726sant_355nm_PC_5km.webp"
+            },
+            "532nm_AN": {
+              "15": "2012/Quicklook_20120726sant_532nm_AN_15km.webp",
+              "30": "2012/Quicklook_20120726sant_532nm_AN_30km.webp",
+              "5": "2012/Quicklook_20120726sant_532nm_AN_5km.webp"
+            },
+            "532nm_PC": {
+              "15": "2012/Quicklook_20120726sant_532nm_PC_15km.webp",
+              "30": "2012/Quicklook_20120726sant_532nm_PC_30km.webp",
+              "5": "2012/Quicklook_20120726sant_532nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "00",
+            "18"
+          ],
+          "label": "00–06 + 18–24",
+          "mean": null,
+          "retired": false
+        },
+        "pm": {
+          "channels": {
+            "355nm_AN": {
+              "15": "2012/Quicklook_20120726sapm_355nm_AN_15km.webp",
+              "30": "2012/Quicklook_20120726sapm_355nm_AN_30km.webp",
+              "5": "2012/Quicklook_20120726sapm_355nm_AN_5km.webp"
+            },
+            "355nm_PC": {
+              "15": "2012/Quicklook_20120726sapm_355nm_PC_15km.webp",
+              "30": "2012/Quicklook_20120726sapm_355nm_PC_30km.webp",
+              "5": "2012/Quicklook_20120726sapm_355nm_PC_5km.webp"
+            },
+            "532nm_AN": {
+              "15": "2012/Quicklook_20120726sapm_532nm_AN_15km.webp",
+              "30": "2012/Quicklook_20120726sapm_532nm_AN_30km.webp",
+              "5": "2012/Quicklook_20120726sapm_532nm_AN_5km.webp"
+            },
+            "532nm_PC": {
+              "15": "2012/Quicklook_20120726sapm_532nm_PC_15km.webp",
+              "30": "2012/Quicklook_20120726sapm_532nm_PC_30km.webp",
+              "5": "2012/Quicklook_20120726sapm_532nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "12"
+          ],
+          "label": "12–18",
+          "mean": null,
+          "retired": false
+        }
+      }
+    },
+    "20120727": {
+      "canonical": {},
+      "historical": {
+        "am": {
+          "channels": {
+            "355nm_AN": {
+              "15": "2012/Quicklook_20120727saam_355nm_AN_15km.webp",
+              "30": "2012/Quicklook_20120727saam_355nm_AN_30km.webp",
+              "5": "2012/Quicklook_20120727saam_355nm_AN_5km.webp"
+            },
+            "355nm_PC": {
+              "15": "2012/Quicklook_20120727saam_355nm_PC_15km.webp",
+              "30": "2012/Quicklook_20120727saam_355nm_PC_30km.webp",
+              "5": "2012/Quicklook_20120727saam_355nm_PC_5km.webp"
+            },
+            "532nm_AN": {
+              "15": "2012/Quicklook_20120727saam_532nm_AN_15km.webp",
+              "30": "2012/Quicklook_20120727saam_532nm_AN_30km.webp",
+              "5": "2012/Quicklook_20120727saam_532nm_AN_5km.webp"
+            },
+            "532nm_PC": {
+              "15": "2012/Quicklook_20120727saam_532nm_PC_15km.webp",
+              "30": "2012/Quicklook_20120727saam_532nm_PC_30km.webp",
+              "5": "2012/Quicklook_20120727saam_532nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "06"
+          ],
+          "label": "06–12",
+          "mean": null,
+          "retired": false
+        },
+        "pm": {
+          "channels": {
+            "355nm_AN": {
+              "15": "2012/Quicklook_20120727sapm_355nm_AN_15km.webp",
+              "30": "2012/Quicklook_20120727sapm_355nm_AN_30km.webp",
+              "5": "2012/Quicklook_20120727sapm_355nm_AN_5km.webp"
+            },
+            "355nm_PC": {
+              "15": "2012/Quicklook_20120727sapm_355nm_PC_15km.webp",
+              "30": "2012/Quicklook_20120727sapm_355nm_PC_30km.webp",
+              "5": "2012/Quicklook_20120727sapm_355nm_PC_5km.webp"
+            },
+            "532nm_AN": {
+              "15": "2012/Quicklook_20120727sapm_532nm_AN_15km.webp",
+              "30": "2012/Quicklook_20120727sapm_532nm_AN_30km.webp",
+              "5": "2012/Quicklook_20120727sapm_532nm_AN_5km.webp"
+            },
+            "532nm_PC": {
+              "15": "2012/Quicklook_20120727sapm_532nm_PC_15km.webp",
+              "30": "2012/Quicklook_20120727sapm_532nm_PC_30km.webp",
+              "5": "2012/Quicklook_20120727sapm_532nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "12"
+          ],
+          "label": "12–18",
+          "mean": null,
+          "retired": false
+        }
+      }
+    },
+    "20120803": {
+      "canonical": {},
+      "historical": {
+        "am": {
+          "channels": {
+            "355nm_AN": {
+              "15": "2012/Quicklook_20120803saam_355nm_AN_15km.webp",
+              "30": "2012/Quicklook_20120803saam_355nm_AN_30km.webp",
+              "5": "2012/Quicklook_20120803saam_355nm_AN_5km.webp"
+            },
+            "355nm_PC": {
+              "15": "2012/Quicklook_20120803saam_355nm_PC_15km.webp",
+              "30": "2012/Quicklook_20120803saam_355nm_PC_30km.webp",
+              "5": "2012/Quicklook_20120803saam_355nm_PC_5km.webp"
+            },
+            "532nm_AN": {
+              "15": "2012/Quicklook_20120803saam_532nm_AN_15km.webp",
+              "30": "2012/Quicklook_20120803saam_532nm_AN_30km.webp",
+              "5": "2012/Quicklook_20120803saam_532nm_AN_5km.webp"
+            },
+            "532nm_PC": {
+              "15": "2012/Quicklook_20120803saam_532nm_PC_15km.webp",
+              "30": "2012/Quicklook_20120803saam_532nm_PC_30km.webp",
+              "5": "2012/Quicklook_20120803saam_532nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "06"
+          ],
+          "label": "06–12",
+          "mean": null,
+          "retired": false
+        },
+        "pm": {
+          "channels": {
+            "355nm_AN": {
+              "15": "2012/Quicklook_20120803sapm_355nm_AN_15km.webp",
+              "30": "2012/Quicklook_20120803sapm_355nm_AN_30km.webp",
+              "5": "2012/Quicklook_20120803sapm_355nm_AN_5km.webp"
+            },
+            "355nm_PC": {
+              "15": "2012/Quicklook_20120803sapm_355nm_PC_15km.webp",
+              "30": "2012/Quicklook_20120803sapm_355nm_PC_30km.webp",
+              "5": "2012/Quicklook_20120803sapm_355nm_PC_5km.webp"
+            },
+            "532nm_AN": {
+              "15": "2012/Quicklook_20120803sapm_532nm_AN_15km.webp",
+              "30": "2012/Quicklook_20120803sapm_532nm_AN_30km.webp",
+              "5": "2012/Quicklook_20120803sapm_532nm_AN_5km.webp"
+            },
+            "532nm_PC": {
+              "15": "2012/Quicklook_20120803sapm_532nm_PC_15km.webp",
+              "30": "2012/Quicklook_20120803sapm_532nm_PC_30km.webp",
+              "5": "2012/Quicklook_20120803sapm_532nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "12"
+          ],
+          "label": "12–18",
+          "mean": null,
+          "retired": false
+        }
+      }
+    },
+    "20120807": {
+      "canonical": {},
+      "historical": {
+        "am": {
+          "channels": {
+            "355nm_AN": {
+              "15": "2012/Quicklook_20120807saam_355nm_AN_15km.webp",
+              "30": "2012/Quicklook_20120807saam_355nm_AN_30km.webp",
+              "5": "2012/Quicklook_20120807saam_355nm_AN_5km.webp"
+            },
+            "355nm_PC": {
+              "15": "2012/Quicklook_20120807saam_355nm_PC_15km.webp",
+              "30": "2012/Quicklook_20120807saam_355nm_PC_30km.webp",
+              "5": "2012/Quicklook_20120807saam_355nm_PC_5km.webp"
+            },
+            "532nm_AN": {
+              "15": "2012/Quicklook_20120807saam_532nm_AN_15km.webp",
+              "30": "2012/Quicklook_20120807saam_532nm_AN_30km.webp",
+              "5": "2012/Quicklook_20120807saam_532nm_AN_5km.webp"
+            },
+            "532nm_PC": {
+              "15": "2012/Quicklook_20120807saam_532nm_PC_15km.webp",
+              "30": "2012/Quicklook_20120807saam_532nm_PC_30km.webp",
+              "5": "2012/Quicklook_20120807saam_532nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "06"
+          ],
+          "label": "06–12",
+          "mean": null,
+          "retired": false
+        },
+        "pm": {
+          "channels": {
+            "355nm_AN": {
+              "15": "2012/Quicklook_20120807sapm_355nm_AN_15km.webp",
+              "30": "2012/Quicklook_20120807sapm_355nm_AN_30km.webp",
+              "5": "2012/Quicklook_20120807sapm_355nm_AN_5km.webp"
+            },
+            "355nm_PC": {
+              "15": "2012/Quicklook_20120807sapm_355nm_PC_15km.webp",
+              "30": "2012/Quicklook_20120807sapm_355nm_PC_30km.webp",
+              "5": "2012/Quicklook_20120807sapm_355nm_PC_5km.webp"
+            },
+            "532nm_AN": {
+              "15": "2012/Quicklook_20120807sapm_532nm_AN_15km.webp",
+              "30": "2012/Quicklook_20120807sapm_532nm_AN_30km.webp",
+              "5": "2012/Quicklook_20120807sapm_532nm_AN_5km.webp"
+            },
+            "532nm_PC": {
+              "15": "2012/Quicklook_20120807sapm_532nm_PC_15km.webp",
+              "30": "2012/Quicklook_20120807sapm_532nm_PC_30km.webp",
+              "5": "2012/Quicklook_20120807sapm_532nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "12"
+          ],
+          "label": "12–18",
+          "mean": null,
+          "retired": false
+        }
+      }
+    },
+    "20120808": {
+      "canonical": {},
+      "historical": {
+        "am": {
+          "channels": {
+            "355nm_AN": {
+              "15": "2012/Quicklook_20120808saam_355nm_AN_15km.webp",
+              "30": "2012/Quicklook_20120808saam_355nm_AN_30km.webp",
+              "5": "2012/Quicklook_20120808saam_355nm_AN_5km.webp"
+            },
+            "355nm_PC": {
+              "15": "2012/Quicklook_20120808saam_355nm_PC_15km.webp",
+              "30": "2012/Quicklook_20120808saam_355nm_PC_30km.webp",
+              "5": "2012/Quicklook_20120808saam_355nm_PC_5km.webp"
+            },
+            "532nm_AN": {
+              "15": "2012/Quicklook_20120808saam_532nm_AN_15km.webp",
+              "30": "2012/Quicklook_20120808saam_532nm_AN_30km.webp",
+              "5": "2012/Quicklook_20120808saam_532nm_AN_5km.webp"
+            },
+            "532nm_PC": {
+              "15": "2012/Quicklook_20120808saam_532nm_PC_15km.webp",
+              "30": "2012/Quicklook_20120808saam_532nm_PC_30km.webp",
+              "5": "2012/Quicklook_20120808saam_532nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "06"
+          ],
+          "label": "06–12",
+          "mean": null,
+          "retired": false
+        },
+        "pm": {
+          "channels": {
+            "355nm_AN": {
+              "15": "2012/Quicklook_20120808sapm_355nm_AN_15km.webp",
+              "30": "2012/Quicklook_20120808sapm_355nm_AN_30km.webp",
+              "5": "2012/Quicklook_20120808sapm_355nm_AN_5km.webp"
+            },
+            "355nm_PC": {
+              "15": "2012/Quicklook_20120808sapm_355nm_PC_15km.webp",
+              "30": "2012/Quicklook_20120808sapm_355nm_PC_30km.webp",
+              "5": "2012/Quicklook_20120808sapm_355nm_PC_5km.webp"
+            },
+            "532nm_AN": {
+              "15": "2012/Quicklook_20120808sapm_532nm_AN_15km.webp",
+              "30": "2012/Quicklook_20120808sapm_532nm_AN_30km.webp",
+              "5": "2012/Quicklook_20120808sapm_532nm_AN_5km.webp"
+            },
+            "532nm_PC": {
+              "15": "2012/Quicklook_20120808sapm_532nm_PC_15km.webp",
+              "30": "2012/Quicklook_20120808sapm_532nm_PC_30km.webp",
+              "5": "2012/Quicklook_20120808sapm_532nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "12"
+          ],
+          "label": "12–18",
+          "mean": null,
+          "retired": false
+        }
+      }
+    },
+    "20120809": {
+      "canonical": {},
+      "historical": {
+        "am": {
+          "channels": {
+            "355nm_AN": {
+              "15": "2012/Quicklook_20120809saam_355nm_AN_15km.webp",
+              "30": "2012/Quicklook_20120809saam_355nm_AN_30km.webp",
+              "5": "2012/Quicklook_20120809saam_355nm_AN_5km.webp"
+            },
+            "355nm_PC": {
+              "15": "2012/Quicklook_20120809saam_355nm_PC_15km.webp",
+              "30": "2012/Quicklook_20120809saam_355nm_PC_30km.webp",
+              "5": "2012/Quicklook_20120809saam_355nm_PC_5km.webp"
+            },
+            "532nm_AN": {
+              "15": "2012/Quicklook_20120809saam_532nm_AN_15km.webp",
+              "30": "2012/Quicklook_20120809saam_532nm_AN_30km.webp",
+              "5": "2012/Quicklook_20120809saam_532nm_AN_5km.webp"
+            },
+            "532nm_PC": {
+              "15": "2012/Quicklook_20120809saam_532nm_PC_15km.webp",
+              "30": "2012/Quicklook_20120809saam_532nm_PC_30km.webp",
+              "5": "2012/Quicklook_20120809saam_532nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "06"
+          ],
+          "label": "06–12",
+          "mean": null,
+          "retired": false
+        },
+        "pm": {
+          "channels": {
+            "355nm_AN": {
+              "15": "2012/Quicklook_20120809sapm_355nm_AN_15km.webp",
+              "30": "2012/Quicklook_20120809sapm_355nm_AN_30km.webp",
+              "5": "2012/Quicklook_20120809sapm_355nm_AN_5km.webp"
+            },
+            "355nm_PC": {
+              "15": "2012/Quicklook_20120809sapm_355nm_PC_15km.webp",
+              "30": "2012/Quicklook_20120809sapm_355nm_PC_30km.webp",
+              "5": "2012/Quicklook_20120809sapm_355nm_PC_5km.webp"
+            },
+            "532nm_AN": {
+              "15": "2012/Quicklook_20120809sapm_532nm_AN_15km.webp",
+              "30": "2012/Quicklook_20120809sapm_532nm_AN_30km.webp",
+              "5": "2012/Quicklook_20120809sapm_532nm_AN_5km.webp"
+            },
+            "532nm_PC": {
+              "15": "2012/Quicklook_20120809sapm_532nm_PC_15km.webp",
+              "30": "2012/Quicklook_20120809sapm_532nm_PC_30km.webp",
+              "5": "2012/Quicklook_20120809sapm_532nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "12"
+          ],
+          "label": "12–18",
+          "mean": null,
+          "retired": false
+        }
+      }
+    },
+    "20120810": {
+      "canonical": {},
+      "historical": {
+        "am": {
+          "channels": {
+            "355nm_AN": {
+              "15": "2012/Quicklook_20120810saam_355nm_AN_15km.webp",
+              "30": "2012/Quicklook_20120810saam_355nm_AN_30km.webp",
+              "5": "2012/Quicklook_20120810saam_355nm_AN_5km.webp"
+            },
+            "355nm_PC": {
+              "15": "2012/Quicklook_20120810saam_355nm_PC_15km.webp",
+              "30": "2012/Quicklook_20120810saam_355nm_PC_30km.webp",
+              "5": "2012/Quicklook_20120810saam_355nm_PC_5km.webp"
+            },
+            "532nm_AN": {
+              "15": "2012/Quicklook_20120810saam_532nm_AN_15km.webp",
+              "30": "2012/Quicklook_20120810saam_532nm_AN_30km.webp",
+              "5": "2012/Quicklook_20120810saam_532nm_AN_5km.webp"
+            },
+            "532nm_PC": {
+              "15": "2012/Quicklook_20120810saam_532nm_PC_15km.webp",
+              "30": "2012/Quicklook_20120810saam_532nm_PC_30km.webp",
+              "5": "2012/Quicklook_20120810saam_532nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "06"
+          ],
+          "label": "06–12",
+          "mean": null,
+          "retired": false
+        },
+        "pm": {
+          "channels": {
+            "355nm_AN": {
+              "15": "2012/Quicklook_20120810sapm_355nm_AN_15km.webp",
+              "30": "2012/Quicklook_20120810sapm_355nm_AN_30km.webp",
+              "5": "2012/Quicklook_20120810sapm_355nm_AN_5km.webp"
+            },
+            "355nm_PC": {
+              "15": "2012/Quicklook_20120810sapm_355nm_PC_15km.webp",
+              "30": "2012/Quicklook_20120810sapm_355nm_PC_30km.webp",
+              "5": "2012/Quicklook_20120810sapm_355nm_PC_5km.webp"
+            },
+            "532nm_AN": {
+              "15": "2012/Quicklook_20120810sapm_532nm_AN_15km.webp",
+              "30": "2012/Quicklook_20120810sapm_532nm_AN_30km.webp",
+              "5": "2012/Quicklook_20120810sapm_532nm_AN_5km.webp"
+            },
+            "532nm_PC": {
+              "15": "2012/Quicklook_20120810sapm_532nm_PC_15km.webp",
+              "30": "2012/Quicklook_20120810sapm_532nm_PC_30km.webp",
+              "5": "2012/Quicklook_20120810sapm_532nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "12"
+          ],
+          "label": "12–18",
+          "mean": null,
+          "retired": false
+        }
+      }
+    },
+    "20120813": {
+      "canonical": {},
+      "historical": {
+        "am": {
+          "channels": {
+            "355nm_AN": {
+              "15": "2012/Quicklook_20120813saam_355nm_AN_15km.webp",
+              "30": "2012/Quicklook_20120813saam_355nm_AN_30km.webp",
+              "5": "2012/Quicklook_20120813saam_355nm_AN_5km.webp"
+            },
+            "355nm_PC": {
+              "15": "2012/Quicklook_20120813saam_355nm_PC_15km.webp",
+              "30": "2012/Quicklook_20120813saam_355nm_PC_30km.webp",
+              "5": "2012/Quicklook_20120813saam_355nm_PC_5km.webp"
+            },
+            "532nm_AN": {
+              "15": "2012/Quicklook_20120813saam_532nm_AN_15km.webp",
+              "30": "2012/Quicklook_20120813saam_532nm_AN_30km.webp",
+              "5": "2012/Quicklook_20120813saam_532nm_AN_5km.webp"
+            },
+            "532nm_PC": {
+              "15": "2012/Quicklook_20120813saam_532nm_PC_15km.webp",
+              "30": "2012/Quicklook_20120813saam_532nm_PC_30km.webp",
+              "5": "2012/Quicklook_20120813saam_532nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "06"
+          ],
+          "label": "06–12",
+          "mean": null,
+          "retired": false
+        },
+        "pm": {
+          "channels": {
+            "355nm_AN": {
+              "15": "2012/Quicklook_20120813sapm_355nm_AN_15km.webp",
+              "30": "2012/Quicklook_20120813sapm_355nm_AN_30km.webp",
+              "5": "2012/Quicklook_20120813sapm_355nm_AN_5km.webp"
+            },
+            "355nm_PC": {
+              "15": "2012/Quicklook_20120813sapm_355nm_PC_15km.webp",
+              "30": "2012/Quicklook_20120813sapm_355nm_PC_30km.webp",
+              "5": "2012/Quicklook_20120813sapm_355nm_PC_5km.webp"
+            },
+            "532nm_AN": {
+              "15": "2012/Quicklook_20120813sapm_532nm_AN_15km.webp",
+              "30": "2012/Quicklook_20120813sapm_532nm_AN_30km.webp",
+              "5": "2012/Quicklook_20120813sapm_532nm_AN_5km.webp"
+            },
+            "532nm_PC": {
+              "15": "2012/Quicklook_20120813sapm_532nm_PC_15km.webp",
+              "30": "2012/Quicklook_20120813sapm_532nm_PC_30km.webp",
+              "5": "2012/Quicklook_20120813sapm_532nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "12"
+          ],
+          "label": "12–18",
+          "mean": null,
+          "retired": false
+        }
+      }
+    },
+    "20120814": {
+      "canonical": {},
+      "historical": {
+        "am": {
+          "channels": {
+            "355nm_AN": {
+              "15": "2012/Quicklook_20120814saam_355nm_AN_15km.webp",
+              "30": "2012/Quicklook_20120814saam_355nm_AN_30km.webp",
+              "5": "2012/Quicklook_20120814saam_355nm_AN_5km.webp"
+            },
+            "355nm_PC": {
+              "15": "2012/Quicklook_20120814saam_355nm_PC_15km.webp",
+              "30": "2012/Quicklook_20120814saam_355nm_PC_30km.webp",
+              "5": "2012/Quicklook_20120814saam_355nm_PC_5km.webp"
+            },
+            "532nm_AN": {
+              "15": "2012/Quicklook_20120814saam_532nm_AN_15km.webp",
+              "30": "2012/Quicklook_20120814saam_532nm_AN_30km.webp",
+              "5": "2012/Quicklook_20120814saam_532nm_AN_5km.webp"
+            },
+            "532nm_PC": {
+              "15": "2012/Quicklook_20120814saam_532nm_PC_15km.webp",
+              "30": "2012/Quicklook_20120814saam_532nm_PC_30km.webp",
+              "5": "2012/Quicklook_20120814saam_532nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "06"
+          ],
+          "label": "06–12",
+          "mean": null,
+          "retired": false
+        },
+        "pm": {
+          "channels": {
+            "355nm_AN": {
+              "15": "2012/Quicklook_20120814sapm_355nm_AN_15km.webp",
+              "30": "2012/Quicklook_20120814sapm_355nm_AN_30km.webp",
+              "5": "2012/Quicklook_20120814sapm_355nm_AN_5km.webp"
+            },
+            "355nm_PC": {
+              "15": "2012/Quicklook_20120814sapm_355nm_PC_15km.webp",
+              "30": "2012/Quicklook_20120814sapm_355nm_PC_30km.webp",
+              "5": "2012/Quicklook_20120814sapm_355nm_PC_5km.webp"
+            },
+            "532nm_AN": {
+              "15": "2012/Quicklook_20120814sapm_532nm_AN_15km.webp",
+              "30": "2012/Quicklook_20120814sapm_532nm_AN_30km.webp",
+              "5": "2012/Quicklook_20120814sapm_532nm_AN_5km.webp"
+            },
+            "532nm_PC": {
+              "15": "2012/Quicklook_20120814sapm_532nm_PC_15km.webp",
+              "30": "2012/Quicklook_20120814sapm_532nm_PC_30km.webp",
+              "5": "2012/Quicklook_20120814sapm_532nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "12"
+          ],
+          "label": "12–18",
+          "mean": null,
+          "retired": false
+        }
+      }
+    },
+    "20120815": {
+      "canonical": {},
+      "historical": {
+        "am": {
+          "channels": {
+            "355nm_AN": {
+              "15": "2012/Quicklook_20120815saam_355nm_AN_15km.webp",
+              "30": "2012/Quicklook_20120815saam_355nm_AN_30km.webp",
+              "5": "2012/Quicklook_20120815saam_355nm_AN_5km.webp"
+            },
+            "355nm_PC": {
+              "15": "2012/Quicklook_20120815saam_355nm_PC_15km.webp",
+              "30": "2012/Quicklook_20120815saam_355nm_PC_30km.webp",
+              "5": "2012/Quicklook_20120815saam_355nm_PC_5km.webp"
+            },
+            "532nm_AN": {
+              "15": "2012/Quicklook_20120815saam_532nm_AN_15km.webp",
+              "30": "2012/Quicklook_20120815saam_532nm_AN_30km.webp",
+              "5": "2012/Quicklook_20120815saam_532nm_AN_5km.webp"
+            },
+            "532nm_PC": {
+              "15": "2012/Quicklook_20120815saam_532nm_PC_15km.webp",
+              "30": "2012/Quicklook_20120815saam_532nm_PC_30km.webp",
+              "5": "2012/Quicklook_20120815saam_532nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "06"
+          ],
+          "label": "06–12",
+          "mean": null,
+          "retired": false
+        },
+        "night": {
+          "channels": {
+            "355nm_AN": {
+              "15": "2012/Quicklook_20120815sant_355nm_AN_15km.webp",
+              "30": "2012/Quicklook_20120815sant_355nm_AN_30km.webp",
+              "5": "2012/Quicklook_20120815sant_355nm_AN_5km.webp"
+            },
+            "355nm_PC": {
+              "15": "2012/Quicklook_20120815sant_355nm_PC_15km.webp",
+              "30": "2012/Quicklook_20120815sant_355nm_PC_30km.webp",
+              "5": "2012/Quicklook_20120815sant_355nm_PC_5km.webp"
+            },
+            "532nm_AN": {
+              "15": "2012/Quicklook_20120815sant_532nm_AN_15km.webp",
+              "30": "2012/Quicklook_20120815sant_532nm_AN_30km.webp",
+              "5": "2012/Quicklook_20120815sant_532nm_AN_5km.webp"
+            },
+            "532nm_PC": {
+              "15": "2012/Quicklook_20120815sant_532nm_PC_15km.webp",
+              "30": "2012/Quicklook_20120815sant_532nm_PC_30km.webp",
+              "5": "2012/Quicklook_20120815sant_532nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "00",
+            "18"
+          ],
+          "label": "00–06 + 18–24",
+          "mean": null,
+          "retired": false
+        },
+        "pm": {
+          "channels": {
+            "355nm_AN": {
+              "15": "2012/Quicklook_20120815sapm_355nm_AN_15km.webp",
+              "30": "2012/Quicklook_20120815sapm_355nm_AN_30km.webp",
+              "5": "2012/Quicklook_20120815sapm_355nm_AN_5km.webp"
+            },
+            "355nm_PC": {
+              "15": "2012/Quicklook_20120815sapm_355nm_PC_15km.webp",
+              "30": "2012/Quicklook_20120815sapm_355nm_PC_30km.webp",
+              "5": "2012/Quicklook_20120815sapm_355nm_PC_5km.webp"
+            },
+            "532nm_AN": {
+              "15": "2012/Quicklook_20120815sapm_532nm_AN_15km.webp",
+              "30": "2012/Quicklook_20120815sapm_532nm_AN_30km.webp",
+              "5": "2012/Quicklook_20120815sapm_532nm_AN_5km.webp"
+            },
+            "532nm_PC": {
+              "15": "2012/Quicklook_20120815sapm_532nm_PC_15km.webp",
+              "30": "2012/Quicklook_20120815sapm_532nm_PC_30km.webp",
+              "5": "2012/Quicklook_20120815sapm_532nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "12"
+          ],
+          "label": "12–18",
+          "mean": null,
+          "retired": false
+        }
+      }
+    },
+    "20120816": {
+      "canonical": {},
+      "historical": {
+        "night": {
+          "channels": {
+            "355nm_AN": {
+              "15": "2012/Quicklook_20120816sant_355nm_AN_15km.webp",
+              "30": "2012/Quicklook_20120816sant_355nm_AN_30km.webp",
+              "5": "2012/Quicklook_20120816sant_355nm_AN_5km.webp"
+            },
+            "355nm_PC": {
+              "15": "2012/Quicklook_20120816sant_355nm_PC_15km.webp",
+              "30": "2012/Quicklook_20120816sant_355nm_PC_30km.webp",
+              "5": "2012/Quicklook_20120816sant_355nm_PC_5km.webp"
+            },
+            "532nm_AN": {
+              "15": "2012/Quicklook_20120816sant_532nm_AN_15km.webp",
+              "30": "2012/Quicklook_20120816sant_532nm_AN_30km.webp",
+              "5": "2012/Quicklook_20120816sant_532nm_AN_5km.webp"
+            },
+            "532nm_PC": {
+              "15": "2012/Quicklook_20120816sant_532nm_PC_15km.webp",
+              "30": "2012/Quicklook_20120816sant_532nm_PC_30km.webp",
+              "5": "2012/Quicklook_20120816sant_532nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "00",
+            "18"
+          ],
+          "label": "00–06 + 18–24",
+          "mean": null,
+          "retired": false
+        },
+        "pm": {
+          "channels": {
+            "355nm_AN": {
+              "15": "2012/Quicklook_20120816sapm_355nm_AN_15km.webp",
+              "30": "2012/Quicklook_20120816sapm_355nm_AN_30km.webp",
+              "5": "2012/Quicklook_20120816sapm_355nm_AN_5km.webp"
+            },
+            "355nm_PC": {
+              "15": "2012/Quicklook_20120816sapm_355nm_PC_15km.webp",
+              "30": "2012/Quicklook_20120816sapm_355nm_PC_30km.webp",
+              "5": "2012/Quicklook_20120816sapm_355nm_PC_5km.webp"
+            },
+            "532nm_AN": {
+              "15": "2012/Quicklook_20120816sapm_532nm_AN_15km.webp",
+              "30": "2012/Quicklook_20120816sapm_532nm_AN_30km.webp",
+              "5": "2012/Quicklook_20120816sapm_532nm_AN_5km.webp"
+            },
+            "532nm_PC": {
+              "15": "2012/Quicklook_20120816sapm_532nm_PC_15km.webp",
+              "30": "2012/Quicklook_20120816sapm_532nm_PC_30km.webp",
+              "5": "2012/Quicklook_20120816sapm_532nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "12"
+          ],
+          "label": "12–18",
+          "mean": null,
+          "retired": false
+        }
+      }
+    },
+    "20120817": {
+      "canonical": {},
+      "historical": {
+        "am": {
+          "channels": {
+            "355nm_AN": {
+              "15": "2012/Quicklook_20120817saam_355nm_AN_15km.webp",
+              "30": "2012/Quicklook_20120817saam_355nm_AN_30km.webp",
+              "5": "2012/Quicklook_20120817saam_355nm_AN_5km.webp"
+            },
+            "355nm_PC": {
+              "15": "2012/Quicklook_20120817saam_355nm_PC_15km.webp",
+              "30": "2012/Quicklook_20120817saam_355nm_PC_30km.webp",
+              "5": "2012/Quicklook_20120817saam_355nm_PC_5km.webp"
+            },
+            "532nm_AN": {
+              "15": "2012/Quicklook_20120817saam_532nm_AN_15km.webp",
+              "30": "2012/Quicklook_20120817saam_532nm_AN_30km.webp",
+              "5": "2012/Quicklook_20120817saam_532nm_AN_5km.webp"
+            },
+            "532nm_PC": {
+              "15": "2012/Quicklook_20120817saam_532nm_PC_15km.webp",
+              "30": "2012/Quicklook_20120817saam_532nm_PC_30km.webp",
+              "5": "2012/Quicklook_20120817saam_532nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "06"
+          ],
+          "label": "06–12",
+          "mean": null,
+          "retired": false
+        },
+        "night": {
+          "channels": {
+            "355nm_AN": {
+              "15": "2012/Quicklook_20120817sant_355nm_AN_15km.webp",
+              "30": "2012/Quicklook_20120817sant_355nm_AN_30km.webp",
+              "5": "2012/Quicklook_20120817sant_355nm_AN_5km.webp"
+            },
+            "355nm_PC": {
+              "15": "2012/Quicklook_20120817sant_355nm_PC_15km.webp",
+              "30": "2012/Quicklook_20120817sant_355nm_PC_30km.webp",
+              "5": "2012/Quicklook_20120817sant_355nm_PC_5km.webp"
+            },
+            "532nm_AN": {
+              "15": "2012/Quicklook_20120817sant_532nm_AN_15km.webp",
+              "30": "2012/Quicklook_20120817sant_532nm_AN_30km.webp",
+              "5": "2012/Quicklook_20120817sant_532nm_AN_5km.webp"
+            },
+            "532nm_PC": {
+              "15": "2012/Quicklook_20120817sant_532nm_PC_15km.webp",
+              "30": "2012/Quicklook_20120817sant_532nm_PC_30km.webp",
+              "5": "2012/Quicklook_20120817sant_532nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "00",
+            "18"
+          ],
+          "label": "00–06 + 18–24",
+          "mean": null,
+          "retired": false
+        },
+        "pm": {
+          "channels": {
+            "355nm_AN": {
+              "15": "2012/Quicklook_20120817sapm_355nm_AN_15km.webp",
+              "30": "2012/Quicklook_20120817sapm_355nm_AN_30km.webp",
+              "5": "2012/Quicklook_20120817sapm_355nm_AN_5km.webp"
+            },
+            "355nm_PC": {
+              "15": "2012/Quicklook_20120817sapm_355nm_PC_15km.webp",
+              "30": "2012/Quicklook_20120817sapm_355nm_PC_30km.webp",
+              "5": "2012/Quicklook_20120817sapm_355nm_PC_5km.webp"
+            },
+            "532nm_AN": {
+              "15": "2012/Quicklook_20120817sapm_532nm_AN_15km.webp",
+              "30": "2012/Quicklook_20120817sapm_532nm_AN_30km.webp",
+              "5": "2012/Quicklook_20120817sapm_532nm_AN_5km.webp"
+            },
+            "532nm_PC": {
+              "15": "2012/Quicklook_20120817sapm_532nm_PC_15km.webp",
+              "30": "2012/Quicklook_20120817sapm_532nm_PC_30km.webp",
+              "5": "2012/Quicklook_20120817sapm_532nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "12"
+          ],
+          "label": "12–18",
+          "mean": null,
+          "retired": false
+        }
+      }
+    },
+    "20120820": {
+      "canonical": {},
+      "historical": {
+        "am": {
+          "channels": {
+            "355nm_AN": {
+              "15": "2012/Quicklook_20120820saam_355nm_AN_15km.webp",
+              "30": "2012/Quicklook_20120820saam_355nm_AN_30km.webp",
+              "5": "2012/Quicklook_20120820saam_355nm_AN_5km.webp"
+            },
+            "355nm_PC": {
+              "15": "2012/Quicklook_20120820saam_355nm_PC_15km.webp",
+              "30": "2012/Quicklook_20120820saam_355nm_PC_30km.webp",
+              "5": "2012/Quicklook_20120820saam_355nm_PC_5km.webp"
+            },
+            "532nm_AN": {
+              "15": "2012/Quicklook_20120820saam_532nm_AN_15km.webp",
+              "30": "2012/Quicklook_20120820saam_532nm_AN_30km.webp",
+              "5": "2012/Quicklook_20120820saam_532nm_AN_5km.webp"
+            },
+            "532nm_PC": {
+              "15": "2012/Quicklook_20120820saam_532nm_PC_15km.webp",
+              "30": "2012/Quicklook_20120820saam_532nm_PC_30km.webp",
+              "5": "2012/Quicklook_20120820saam_532nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "06"
+          ],
+          "label": "06–12",
+          "mean": null,
+          "retired": false
+        },
+        "pm": {
+          "channels": {
+            "355nm_AN": {
+              "15": "2012/Quicklook_20120820sapm_355nm_AN_15km.webp",
+              "30": "2012/Quicklook_20120820sapm_355nm_AN_30km.webp",
+              "5": "2012/Quicklook_20120820sapm_355nm_AN_5km.webp"
+            },
+            "355nm_PC": {
+              "15": "2012/Quicklook_20120820sapm_355nm_PC_15km.webp",
+              "30": "2012/Quicklook_20120820sapm_355nm_PC_30km.webp",
+              "5": "2012/Quicklook_20120820sapm_355nm_PC_5km.webp"
+            },
+            "532nm_AN": {
+              "15": "2012/Quicklook_20120820sapm_532nm_AN_15km.webp",
+              "30": "2012/Quicklook_20120820sapm_532nm_AN_30km.webp",
+              "5": "2012/Quicklook_20120820sapm_532nm_AN_5km.webp"
+            },
+            "532nm_PC": {
+              "15": "2012/Quicklook_20120820sapm_532nm_PC_15km.webp",
+              "30": "2012/Quicklook_20120820sapm_532nm_PC_30km.webp",
+              "5": "2012/Quicklook_20120820sapm_532nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "12"
+          ],
+          "label": "12–18",
+          "mean": null,
+          "retired": false
+        }
+      }
+    },
+    "20120821": {
+      "canonical": {},
+      "historical": {
+        "night": {
+          "channels": {
+            "355nm_AN": {
+              "15": "2012/Quicklook_20120821sant_355nm_AN_15km.webp",
+              "30": "2012/Quicklook_20120821sant_355nm_AN_30km.webp",
+              "5": "2012/Quicklook_20120821sant_355nm_AN_5km.webp"
+            },
+            "355nm_PC": {
+              "15": "2012/Quicklook_20120821sant_355nm_PC_15km.webp",
+              "30": "2012/Quicklook_20120821sant_355nm_PC_30km.webp",
+              "5": "2012/Quicklook_20120821sant_355nm_PC_5km.webp"
+            },
+            "532nm_AN": {
+              "15": "2012/Quicklook_20120821sant_532nm_AN_15km.webp",
+              "30": "2012/Quicklook_20120821sant_532nm_AN_30km.webp",
+              "5": "2012/Quicklook_20120821sant_532nm_AN_5km.webp"
+            },
+            "532nm_PC": {
+              "15": "2012/Quicklook_20120821sant_532nm_PC_15km.webp",
+              "30": "2012/Quicklook_20120821sant_532nm_PC_30km.webp",
+              "5": "2012/Quicklook_20120821sant_532nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "00",
+            "18"
+          ],
+          "label": "00–06 + 18–24",
+          "mean": null,
+          "retired": false
+        },
+        "pm": {
+          "channels": {
+            "355nm_AN": {
+              "15": "2012/Quicklook_20120821sapm_355nm_AN_15km.webp",
+              "30": "2012/Quicklook_20120821sapm_355nm_AN_30km.webp",
+              "5": "2012/Quicklook_20120821sapm_355nm_AN_5km.webp"
+            },
+            "355nm_PC": {
+              "15": "2012/Quicklook_20120821sapm_355nm_PC_15km.webp",
+              "30": "2012/Quicklook_20120821sapm_355nm_PC_30km.webp",
+              "5": "2012/Quicklook_20120821sapm_355nm_PC_5km.webp"
+            },
+            "532nm_AN": {
+              "15": "2012/Quicklook_20120821sapm_532nm_AN_15km.webp",
+              "30": "2012/Quicklook_20120821sapm_532nm_AN_30km.webp",
+              "5": "2012/Quicklook_20120821sapm_532nm_AN_5km.webp"
+            },
+            "532nm_PC": {
+              "15": "2012/Quicklook_20120821sapm_532nm_PC_15km.webp",
+              "30": "2012/Quicklook_20120821sapm_532nm_PC_30km.webp",
+              "5": "2012/Quicklook_20120821sapm_532nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "12"
+          ],
+          "label": "12–18",
+          "mean": null,
+          "retired": false
+        }
+      }
+    },
+    "20120822": {
+      "canonical": {},
+      "historical": {
+        "night": {
+          "channels": {
+            "355nm_AN": {
+              "15": "2012/Quicklook_20120822sant_355nm_AN_15km.webp",
+              "30": "2012/Quicklook_20120822sant_355nm_AN_30km.webp",
+              "5": "2012/Quicklook_20120822sant_355nm_AN_5km.webp"
+            },
+            "355nm_PC": {
+              "15": "2012/Quicklook_20120822sant_355nm_PC_15km.webp",
+              "30": "2012/Quicklook_20120822sant_355nm_PC_30km.webp",
+              "5": "2012/Quicklook_20120822sant_355nm_PC_5km.webp"
+            },
+            "532nm_AN": {
+              "15": "2012/Quicklook_20120822sant_532nm_AN_15km.webp",
+              "30": "2012/Quicklook_20120822sant_532nm_AN_30km.webp",
+              "5": "2012/Quicklook_20120822sant_532nm_AN_5km.webp"
+            },
+            "532nm_PC": {
+              "15": "2012/Quicklook_20120822sant_532nm_PC_15km.webp",
+              "30": "2012/Quicklook_20120822sant_532nm_PC_30km.webp",
+              "5": "2012/Quicklook_20120822sant_532nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "00",
+            "18"
+          ],
+          "label": "00–06 + 18–24",
+          "mean": null,
+          "retired": false
+        }
+      }
+    },
+    "20120823": {
+      "canonical": {},
+      "historical": {
+        "am": {
+          "channels": {
+            "355nm_AN": {
+              "15": "2012/Quicklook_20120823saam_355nm_AN_15km.webp",
+              "30": "2012/Quicklook_20120823saam_355nm_AN_30km.webp",
+              "5": "2012/Quicklook_20120823saam_355nm_AN_5km.webp"
+            },
+            "355nm_PC": {
+              "15": "2012/Quicklook_20120823saam_355nm_PC_15km.webp",
+              "30": "2012/Quicklook_20120823saam_355nm_PC_30km.webp",
+              "5": "2012/Quicklook_20120823saam_355nm_PC_5km.webp"
+            },
+            "532nm_AN": {
+              "15": "2012/Quicklook_20120823saam_532nm_AN_15km.webp",
+              "30": "2012/Quicklook_20120823saam_532nm_AN_30km.webp",
+              "5": "2012/Quicklook_20120823saam_532nm_AN_5km.webp"
+            },
+            "532nm_PC": {
+              "15": "2012/Quicklook_20120823saam_532nm_PC_15km.webp",
+              "30": "2012/Quicklook_20120823saam_532nm_PC_30km.webp",
+              "5": "2012/Quicklook_20120823saam_532nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "06"
+          ],
+          "label": "06–12",
+          "mean": null,
+          "retired": false
+        },
+        "night": {
+          "channels": {
+            "355nm_AN": {
+              "15": "2012/Quicklook_20120823sant_355nm_AN_15km.webp",
+              "30": "2012/Quicklook_20120823sant_355nm_AN_30km.webp",
+              "5": "2012/Quicklook_20120823sant_355nm_AN_5km.webp"
+            },
+            "355nm_PC": {
+              "15": "2012/Quicklook_20120823sant_355nm_PC_15km.webp",
+              "30": "2012/Quicklook_20120823sant_355nm_PC_30km.webp",
+              "5": "2012/Quicklook_20120823sant_355nm_PC_5km.webp"
+            },
+            "532nm_AN": {
+              "15": "2012/Quicklook_20120823sant_532nm_AN_15km.webp",
+              "30": "2012/Quicklook_20120823sant_532nm_AN_30km.webp",
+              "5": "2012/Quicklook_20120823sant_532nm_AN_5km.webp"
+            },
+            "532nm_PC": {
+              "15": "2012/Quicklook_20120823sant_532nm_PC_15km.webp",
+              "30": "2012/Quicklook_20120823sant_532nm_PC_30km.webp",
+              "5": "2012/Quicklook_20120823sant_532nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "00",
+            "18"
+          ],
+          "label": "00–06 + 18–24",
+          "mean": null,
+          "retired": false
+        },
+        "pm": {
+          "channels": {
+            "355nm_AN": {
+              "15": "2012/Quicklook_20120823sapm_355nm_AN_15km.webp",
+              "30": "2012/Quicklook_20120823sapm_355nm_AN_30km.webp",
+              "5": "2012/Quicklook_20120823sapm_355nm_AN_5km.webp"
+            },
+            "355nm_PC": {
+              "15": "2012/Quicklook_20120823sapm_355nm_PC_15km.webp",
+              "30": "2012/Quicklook_20120823sapm_355nm_PC_30km.webp",
+              "5": "2012/Quicklook_20120823sapm_355nm_PC_5km.webp"
+            },
+            "532nm_AN": {
+              "15": "2012/Quicklook_20120823sapm_532nm_AN_15km.webp",
+              "30": "2012/Quicklook_20120823sapm_532nm_AN_30km.webp",
+              "5": "2012/Quicklook_20120823sapm_532nm_AN_5km.webp"
+            },
+            "532nm_PC": {
+              "15": "2012/Quicklook_20120823sapm_532nm_PC_15km.webp",
+              "30": "2012/Quicklook_20120823sapm_532nm_PC_30km.webp",
+              "5": "2012/Quicklook_20120823sapm_532nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "12"
+          ],
+          "label": "12–18",
+          "mean": null,
+          "retired": false
+        }
+      }
+    },
+    "20120828": {
+      "canonical": {},
+      "historical": {
+        "am": {
+          "channels": {
+            "355nm_AN": {
+              "15": "2012/Quicklook_20120828saam_355nm_AN_15km.webp",
+              "30": "2012/Quicklook_20120828saam_355nm_AN_30km.webp",
+              "5": "2012/Quicklook_20120828saam_355nm_AN_5km.webp"
+            },
+            "355nm_PC": {
+              "15": "2012/Quicklook_20120828saam_355nm_PC_15km.webp",
+              "30": "2012/Quicklook_20120828saam_355nm_PC_30km.webp",
+              "5": "2012/Quicklook_20120828saam_355nm_PC_5km.webp"
+            },
+            "532nm_AN": {
+              "15": "2012/Quicklook_20120828saam_532nm_AN_15km.webp",
+              "30": "2012/Quicklook_20120828saam_532nm_AN_30km.webp",
+              "5": "2012/Quicklook_20120828saam_532nm_AN_5km.webp"
+            },
+            "532nm_PC": {
+              "15": "2012/Quicklook_20120828saam_532nm_PC_15km.webp",
+              "30": "2012/Quicklook_20120828saam_532nm_PC_30km.webp",
+              "5": "2012/Quicklook_20120828saam_532nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "06"
+          ],
+          "label": "06–12",
+          "mean": null,
+          "retired": false
+        }
+      }
+    },
+    "20120831": {
+      "canonical": {},
+      "historical": {
+        "pm": {
+          "channels": {
+            "355nm_AN": {
+              "15": "2012/Quicklook_20120831sapm_355nm_AN_15km.webp",
+              "30": "2012/Quicklook_20120831sapm_355nm_AN_30km.webp",
+              "5": "2012/Quicklook_20120831sapm_355nm_AN_5km.webp"
+            },
+            "355nm_PC": {
+              "15": "2012/Quicklook_20120831sapm_355nm_PC_15km.webp",
+              "30": "2012/Quicklook_20120831sapm_355nm_PC_30km.webp",
+              "5": "2012/Quicklook_20120831sapm_355nm_PC_5km.webp"
+            },
+            "532nm_AN": {
+              "15": "2012/Quicklook_20120831sapm_532nm_AN_15km.webp",
+              "30": "2012/Quicklook_20120831sapm_532nm_AN_30km.webp",
+              "5": "2012/Quicklook_20120831sapm_532nm_AN_5km.webp"
+            },
+            "532nm_PC": {
+              "15": "2012/Quicklook_20120831sapm_532nm_PC_15km.webp",
+              "30": "2012/Quicklook_20120831sapm_532nm_PC_30km.webp",
+              "5": "2012/Quicklook_20120831sapm_532nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "12"
+          ],
+          "label": "12–18",
+          "mean": null,
+          "retired": false
+        }
+      }
+    },
+    "20120906": {
+      "canonical": {},
+      "historical": {
+        "am": {
+          "channels": {
+            "355nm_AN": {
+              "15": "2012/Quicklook_20120906saam_355nm_AN_15km.webp",
+              "30": "2012/Quicklook_20120906saam_355nm_AN_30km.webp",
+              "5": "2012/Quicklook_20120906saam_355nm_AN_5km.webp"
+            },
+            "355nm_PC": {
+              "15": "2012/Quicklook_20120906saam_355nm_PC_15km.webp",
+              "30": "2012/Quicklook_20120906saam_355nm_PC_30km.webp",
+              "5": "2012/Quicklook_20120906saam_355nm_PC_5km.webp"
+            },
+            "532nm_AN": {
+              "15": "2012/Quicklook_20120906saam_532nm_AN_15km.webp",
+              "30": "2012/Quicklook_20120906saam_532nm_AN_30km.webp",
+              "5": "2012/Quicklook_20120906saam_532nm_AN_5km.webp"
+            },
+            "532nm_PC": {
+              "15": "2012/Quicklook_20120906saam_532nm_PC_15km.webp",
+              "30": "2012/Quicklook_20120906saam_532nm_PC_30km.webp",
+              "5": "2012/Quicklook_20120906saam_532nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "06"
+          ],
+          "label": "06–12",
+          "mean": null,
+          "retired": false
+        },
+        "pm": {
+          "channels": {
+            "355nm_AN": {
+              "15": "2012/Quicklook_20120906sapm_355nm_AN_15km.webp",
+              "30": "2012/Quicklook_20120906sapm_355nm_AN_30km.webp",
+              "5": "2012/Quicklook_20120906sapm_355nm_AN_5km.webp"
+            },
+            "355nm_PC": {
+              "15": "2012/Quicklook_20120906sapm_355nm_PC_15km.webp",
+              "30": "2012/Quicklook_20120906sapm_355nm_PC_30km.webp",
+              "5": "2012/Quicklook_20120906sapm_355nm_PC_5km.webp"
+            },
+            "532nm_AN": {
+              "15": "2012/Quicklook_20120906sapm_532nm_AN_15km.webp",
+              "30": "2012/Quicklook_20120906sapm_532nm_AN_30km.webp",
+              "5": "2012/Quicklook_20120906sapm_532nm_AN_5km.webp"
+            },
+            "532nm_PC": {
+              "15": "2012/Quicklook_20120906sapm_532nm_PC_15km.webp",
+              "30": "2012/Quicklook_20120906sapm_532nm_PC_30km.webp",
+              "5": "2012/Quicklook_20120906sapm_532nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "12"
+          ],
+          "label": "12–18",
+          "mean": null,
+          "retired": false
+        }
+      }
+    },
+    "20120910": {
+      "canonical": {},
+      "historical": {
+        "night": {
+          "channels": {
+            "355nm_AN": {
+              "15": "2012/Quicklook_20120910sant_355nm_AN_15km.webp",
+              "30": "2012/Quicklook_20120910sant_355nm_AN_30km.webp",
+              "5": "2012/Quicklook_20120910sant_355nm_AN_5km.webp"
+            },
+            "355nm_PC": {
+              "15": "2012/Quicklook_20120910sant_355nm_PC_15km.webp",
+              "30": "2012/Quicklook_20120910sant_355nm_PC_30km.webp",
+              "5": "2012/Quicklook_20120910sant_355nm_PC_5km.webp"
+            },
+            "532nm_AN": {
+              "15": "2012/Quicklook_20120910sant_532nm_AN_15km.webp",
+              "30": "2012/Quicklook_20120910sant_532nm_AN_30km.webp",
+              "5": "2012/Quicklook_20120910sant_532nm_AN_5km.webp"
+            },
+            "532nm_PC": {
+              "15": "2012/Quicklook_20120910sant_532nm_PC_15km.webp",
+              "30": "2012/Quicklook_20120910sant_532nm_PC_30km.webp",
+              "5": "2012/Quicklook_20120910sant_532nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "00",
+            "18"
+          ],
+          "label": "00–06 + 18–24",
+          "mean": null,
+          "retired": false
+        },
+        "pm": {
+          "channels": {
+            "355nm_AN": {
+              "15": "2012/Quicklook_20120910sapm_355nm_AN_15km.webp",
+              "30": "2012/Quicklook_20120910sapm_355nm_AN_30km.webp",
+              "5": "2012/Quicklook_20120910sapm_355nm_AN_5km.webp"
+            },
+            "355nm_PC": {
+              "15": "2012/Quicklook_20120910sapm_355nm_PC_15km.webp",
+              "30": "2012/Quicklook_20120910sapm_355nm_PC_30km.webp",
+              "5": "2012/Quicklook_20120910sapm_355nm_PC_5km.webp"
+            },
+            "532nm_AN": {
+              "15": "2012/Quicklook_20120910sapm_532nm_AN_15km.webp",
+              "30": "2012/Quicklook_20120910sapm_532nm_AN_30km.webp",
+              "5": "2012/Quicklook_20120910sapm_532nm_AN_5km.webp"
+            },
+            "532nm_PC": {
+              "15": "2012/Quicklook_20120910sapm_532nm_PC_15km.webp",
+              "30": "2012/Quicklook_20120910sapm_532nm_PC_30km.webp",
+              "5": "2012/Quicklook_20120910sapm_532nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "12"
+          ],
+          "label": "12–18",
+          "mean": null,
+          "retired": false
+        }
+      }
+    },
+    "20120912": {
+      "canonical": {},
+      "historical": {
+        "night": {
+          "channels": {
+            "355nm_AN": {
+              "15": "2012/Quicklook_20120912sant_355nm_AN_15km.webp",
+              "30": "2012/Quicklook_20120912sant_355nm_AN_30km.webp",
+              "5": "2012/Quicklook_20120912sant_355nm_AN_5km.webp"
+            },
+            "355nm_PC": {
+              "15": "2012/Quicklook_20120912sant_355nm_PC_15km.webp",
+              "30": "2012/Quicklook_20120912sant_355nm_PC_30km.webp",
+              "5": "2012/Quicklook_20120912sant_355nm_PC_5km.webp"
+            },
+            "532nm_AN": {
+              "15": "2012/Quicklook_20120912sant_532nm_AN_15km.webp",
+              "30": "2012/Quicklook_20120912sant_532nm_AN_30km.webp",
+              "5": "2012/Quicklook_20120912sant_532nm_AN_5km.webp"
+            },
+            "532nm_PC": {
+              "15": "2012/Quicklook_20120912sant_532nm_PC_15km.webp",
+              "30": "2012/Quicklook_20120912sant_532nm_PC_30km.webp",
+              "5": "2012/Quicklook_20120912sant_532nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "00",
+            "18"
+          ],
+          "label": "00–06 + 18–24",
+          "mean": null,
+          "retired": false
+        },
+        "pm": {
+          "channels": {
+            "355nm_AN": {
+              "15": "2012/Quicklook_20120912sapm_355nm_AN_15km.webp",
+              "30": "2012/Quicklook_20120912sapm_355nm_AN_30km.webp",
+              "5": "2012/Quicklook_20120912sapm_355nm_AN_5km.webp"
+            },
+            "355nm_PC": {
+              "15": "2012/Quicklook_20120912sapm_355nm_PC_15km.webp",
+              "30": "2012/Quicklook_20120912sapm_355nm_PC_30km.webp",
+              "5": "2012/Quicklook_20120912sapm_355nm_PC_5km.webp"
+            },
+            "532nm_AN": {
+              "15": "2012/Quicklook_20120912sapm_532nm_AN_15km.webp",
+              "30": "2012/Quicklook_20120912sapm_532nm_AN_30km.webp",
+              "5": "2012/Quicklook_20120912sapm_532nm_AN_5km.webp"
+            },
+            "532nm_PC": {
+              "15": "2012/Quicklook_20120912sapm_532nm_PC_15km.webp",
+              "30": "2012/Quicklook_20120912sapm_532nm_PC_30km.webp",
+              "5": "2012/Quicklook_20120912sapm_532nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "12"
+          ],
+          "label": "12–18",
+          "mean": null,
+          "retired": false
+        }
+      }
+    },
+    "20120917": {
+      "canonical": {},
+      "historical": {
+        "night": {
+          "channels": {
+            "355nm_AN": {
+              "15": "2012/Quicklook_20120917sant_355nm_AN_15km.webp",
+              "30": "2012/Quicklook_20120917sant_355nm_AN_30km.webp",
+              "5": "2012/Quicklook_20120917sant_355nm_AN_5km.webp"
+            },
+            "355nm_PC": {
+              "15": "2012/Quicklook_20120917sant_355nm_PC_15km.webp",
+              "30": "2012/Quicklook_20120917sant_355nm_PC_30km.webp",
+              "5": "2012/Quicklook_20120917sant_355nm_PC_5km.webp"
+            },
+            "532nm_AN": {
+              "15": "2012/Quicklook_20120917sant_532nm_AN_15km.webp",
+              "30": "2012/Quicklook_20120917sant_532nm_AN_30km.webp",
+              "5": "2012/Quicklook_20120917sant_532nm_AN_5km.webp"
+            },
+            "532nm_PC": {
+              "15": "2012/Quicklook_20120917sant_532nm_PC_15km.webp",
+              "30": "2012/Quicklook_20120917sant_532nm_PC_30km.webp",
+              "5": "2012/Quicklook_20120917sant_532nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "00",
+            "18"
+          ],
+          "label": "00–06 + 18–24",
+          "mean": null,
+          "retired": false
+        },
+        "pm": {
+          "channels": {
+            "355nm_AN": {
+              "15": "2012/Quicklook_20120917sapm_355nm_AN_15km.webp",
+              "30": "2012/Quicklook_20120917sapm_355nm_AN_30km.webp",
+              "5": "2012/Quicklook_20120917sapm_355nm_AN_5km.webp"
+            },
+            "355nm_PC": {
+              "15": "2012/Quicklook_20120917sapm_355nm_PC_15km.webp",
+              "30": "2012/Quicklook_20120917sapm_355nm_PC_30km.webp",
+              "5": "2012/Quicklook_20120917sapm_355nm_PC_5km.webp"
+            },
+            "532nm_AN": {
+              "15": "2012/Quicklook_20120917sapm_532nm_AN_15km.webp",
+              "30": "2012/Quicklook_20120917sapm_532nm_AN_30km.webp",
+              "5": "2012/Quicklook_20120917sapm_532nm_AN_5km.webp"
+            },
+            "532nm_PC": {
+              "15": "2012/Quicklook_20120917sapm_532nm_PC_15km.webp",
+              "30": "2012/Quicklook_20120917sapm_532nm_PC_30km.webp",
+              "5": "2012/Quicklook_20120917sapm_532nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "12"
+          ],
+          "label": "12–18",
+          "mean": null,
+          "retired": false
+        }
+      }
+    },
+    "20120918": {
+      "canonical": {},
+      "historical": {
+        "am": {
+          "channels": {
+            "355nm_AN": {
+              "15": "2012/Quicklook_20120918saam_355nm_AN_15km.webp",
+              "30": "2012/Quicklook_20120918saam_355nm_AN_30km.webp",
+              "5": "2012/Quicklook_20120918saam_355nm_AN_5km.webp"
+            },
+            "355nm_PC": {
+              "15": "2012/Quicklook_20120918saam_355nm_PC_15km.webp",
+              "30": "2012/Quicklook_20120918saam_355nm_PC_30km.webp",
+              "5": "2012/Quicklook_20120918saam_355nm_PC_5km.webp"
+            },
+            "532nm_AN": {
+              "15": "2012/Quicklook_20120918saam_532nm_AN_15km.webp",
+              "30": "2012/Quicklook_20120918saam_532nm_AN_30km.webp",
+              "5": "2012/Quicklook_20120918saam_532nm_AN_5km.webp"
+            },
+            "532nm_PC": {
+              "15": "2012/Quicklook_20120918saam_532nm_PC_15km.webp",
+              "30": "2012/Quicklook_20120918saam_532nm_PC_30km.webp",
+              "5": "2012/Quicklook_20120918saam_532nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "06"
+          ],
+          "label": "06–12",
+          "mean": null,
+          "retired": false
+        },
+        "night": {
+          "channels": {
+            "355nm_AN": {
+              "15": "2012/Quicklook_20120918sant_355nm_AN_15km.webp",
+              "30": "2012/Quicklook_20120918sant_355nm_AN_30km.webp",
+              "5": "2012/Quicklook_20120918sant_355nm_AN_5km.webp"
+            },
+            "355nm_PC": {
+              "15": "2012/Quicklook_20120918sant_355nm_PC_15km.webp",
+              "30": "2012/Quicklook_20120918sant_355nm_PC_30km.webp",
+              "5": "2012/Quicklook_20120918sant_355nm_PC_5km.webp"
+            },
+            "532nm_AN": {
+              "15": "2012/Quicklook_20120918sant_532nm_AN_15km.webp",
+              "30": "2012/Quicklook_20120918sant_532nm_AN_30km.webp",
+              "5": "2012/Quicklook_20120918sant_532nm_AN_5km.webp"
+            },
+            "532nm_PC": {
+              "15": "2012/Quicklook_20120918sant_532nm_PC_15km.webp",
+              "30": "2012/Quicklook_20120918sant_532nm_PC_30km.webp",
+              "5": "2012/Quicklook_20120918sant_532nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "00",
+            "18"
+          ],
+          "label": "00–06 + 18–24",
+          "mean": null,
+          "retired": false
+        },
+        "pm": {
+          "channels": {
+            "355nm_AN": {
+              "15": "2012/Quicklook_20120918sapm_355nm_AN_15km.webp",
+              "30": "2012/Quicklook_20120918sapm_355nm_AN_30km.webp",
+              "5": "2012/Quicklook_20120918sapm_355nm_AN_5km.webp"
+            },
+            "355nm_PC": {
+              "15": "2012/Quicklook_20120918sapm_355nm_PC_15km.webp",
+              "30": "2012/Quicklook_20120918sapm_355nm_PC_30km.webp",
+              "5": "2012/Quicklook_20120918sapm_355nm_PC_5km.webp"
+            },
+            "532nm_AN": {
+              "15": "2012/Quicklook_20120918sapm_532nm_AN_15km.webp",
+              "30": "2012/Quicklook_20120918sapm_532nm_AN_30km.webp",
+              "5": "2012/Quicklook_20120918sapm_532nm_AN_5km.webp"
+            },
+            "532nm_PC": {
+              "15": "2012/Quicklook_20120918sapm_532nm_PC_15km.webp",
+              "30": "2012/Quicklook_20120918sapm_532nm_PC_30km.webp",
+              "5": "2012/Quicklook_20120918sapm_532nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "12"
+          ],
+          "label": "12–18",
+          "mean": null,
+          "retired": false
+        }
+      }
+    },
+    "20121015": {
+      "canonical": {},
+      "historical": {
+        "night": {
+          "channels": {
+            "355nm_AN": {
+              "15": "2012/Quicklook_20121015sant_355nm_AN_15km.webp",
+              "30": "2012/Quicklook_20121015sant_355nm_AN_30km.webp",
+              "5": "2012/Quicklook_20121015sant_355nm_AN_5km.webp"
+            },
+            "355nm_PC": {
+              "15": "2012/Quicklook_20121015sant_355nm_PC_15km.webp",
+              "30": "2012/Quicklook_20121015sant_355nm_PC_30km.webp",
+              "5": "2012/Quicklook_20121015sant_355nm_PC_5km.webp"
+            },
+            "532nm_AN": {
+              "15": "2012/Quicklook_20121015sant_532nm_AN_15km.webp",
+              "30": "2012/Quicklook_20121015sant_532nm_AN_30km.webp",
+              "5": "2012/Quicklook_20121015sant_532nm_AN_5km.webp"
+            },
+            "532nm_PC": {
+              "15": "2012/Quicklook_20121015sant_532nm_PC_15km.webp",
+              "30": "2012/Quicklook_20121015sant_532nm_PC_30km.webp",
+              "5": "2012/Quicklook_20121015sant_532nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "00",
+            "18"
+          ],
+          "label": "00–06 + 18–24",
+          "mean": null,
+          "retired": false
+        },
+        "pm": {
+          "channels": {
+            "355nm_AN": {
+              "15": "2012/Quicklook_20121015sapm_355nm_AN_15km.webp",
+              "30": "2012/Quicklook_20121015sapm_355nm_AN_30km.webp",
+              "5": "2012/Quicklook_20121015sapm_355nm_AN_5km.webp"
+            },
+            "355nm_PC": {
+              "15": "2012/Quicklook_20121015sapm_355nm_PC_15km.webp",
+              "30": "2012/Quicklook_20121015sapm_355nm_PC_30km.webp",
+              "5": "2012/Quicklook_20121015sapm_355nm_PC_5km.webp"
+            },
+            "532nm_AN": {
+              "15": "2012/Quicklook_20121015sapm_532nm_AN_15km.webp",
+              "30": "2012/Quicklook_20121015sapm_532nm_AN_30km.webp",
+              "5": "2012/Quicklook_20121015sapm_532nm_AN_5km.webp"
+            },
+            "532nm_PC": {
+              "15": "2012/Quicklook_20121015sapm_532nm_PC_15km.webp",
+              "30": "2012/Quicklook_20121015sapm_532nm_PC_30km.webp",
+              "5": "2012/Quicklook_20121015sapm_532nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "12"
+          ],
+          "label": "12–18",
+          "mean": null,
+          "retired": false
+        }
+      }
+    }
+  },
+  "schema_version": 1,
+  "year": "2012"
+}

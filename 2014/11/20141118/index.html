@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="publisher-fingerprint" content="e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855">
+  <meta name="publisher-fingerprint" content="4e4794b2d5ccd33c78b30d6167d16d276ccdef6695058062d81218150f435779">
   <title>SPU Lidar | 18 Nov 2014</title>
   <style>
     :root { --top:#1a1a1a; --page:#f0f2f5; --panel:#fff; --text:#333; --muted:#777; --blue:#0056b3; }
@@ -20,17 +20,14 @@
     .main-mode-btn { border:0; border-bottom:3px solid transparent; background:transparent; padding:7px 10px; color:var(--muted); font-weight:650; cursor:pointer; }
     .main-mode-btn.active { color:var(--blue); border-bottom-color:var(--blue); }
     .tab-btn { border:1px solid #ccc; border-radius:4px; background:#f8f9fa; color:#555; padding:6px 10px; min-height:31px; font:600 12px monospace; cursor:pointer; }
-    .tab-btn:hover:not(:disabled) { background:#e2e6ea; color:#111; }
+    .tab-btn:hover { background:#e2e6ea; color:#111; }
     .tab-btn.active { background:#546e7a; border-color:#37474f; color:#fff; }
     .period-btn.active { background:var(--blue); border-color:#004085; }
-    .period-btn.legacy { border-style:dashed; }
-    .tab-btn:disabled { cursor:not-allowed; opacity:.38; background:#e5e7e9; }
     .ch-btn.active { background:#2e7d32; border-color:#1b5e20; }
     .image-container { padding:15px; text-align:center; min-height:calc(100vh - 150px); flex:1; display:flex; justify-content:center; align-items:center; }
     #main-display { max-width:100%; max-height:calc(100vh - 180px); object-fit:contain; background:#fff; box-shadow:0 6px 16px rgba(0,0,0,.15); cursor:zoom-in; }
     .message { display:none; max-width:720px; background:#fff; border:1px solid #ddd; border-radius:8px; padding:20px; line-height:1.5; box-shadow:0 4px 12px rgba(0,0,0,.08); }
     .message.active { display:block; }
-    .message a { display:inline-block; margin-top:10px; color:#fff; background:var(--blue); border-radius:4px; padding:8px 12px; text-decoration:none; font-weight:650; }
     #myModal { display:none; position:fixed; z-index:1000; inset:0; background:rgba(0,0,0,.9); }
     .modal-close { position:absolute; top:15px; right:30px; color:#bbb; font-size:40px; cursor:pointer; }
     .modal-content { display:block; margin:2vh auto 0; max-width:98%; max-height:95vh; }
@@ -70,10 +67,8 @@
   <div id="myModal"><span class="modal-close" onclick="closeModal()">&times;</span><img class="modal-content" id="img01" alt="Expanded lidar image"></div>
 
 <script>
-const dayData = {"date": "20141118", "slots": {"00": {"available": true, "source": "legacy_nt", "legacy_url": "../../../2014/20141118sant_Dashboard.html", "legacy_label": "00–06 + 18–24"}, "06": {"available": true, "source": "legacy_am", "legacy_url": "../../../2014/20141118saam_Dashboard.html", "legacy_label": "06–12"}, "12": {"available": true, "source": "legacy_pm", "legacy_url": "../../../2014/20141118sapm_Dashboard.html", "legacy_label": "12–18"}, "18": {"available": true, "source": "legacy_nt", "legacy_url": "../../../2014/20141118sant_Dashboard.html", "legacy_label": "00–06 + 18–24"}}, "period_labels": {"00": "00–06", "06": "06–12", "12": "12–18", "18": "18–24"}};
-const cloudBaseUrl = "https://pub-2dc2005030bb4ee796dd63fd528879fa.r2.dev/2014/11/20141118";
-const periodOrder = ['00','06','12','18'];
-let currentPeriod = periodOrder.find(p => dayData.slots[p].source === 'canonical') || periodOrder.find(p => dayData.slots[p].available) || '00';
+const dayData = {"date": "20141118", "periods": [{"id": "night", "label": "00–06 + 18–24", "channels": {"355nm_AN": {"5": "https://pub-2dc2005030bb4ee796dd63fd528879fa.r2.dev/2014/Quicklook_20141118sant_355nm_AN_5km.webp", "15": "https://pub-2dc2005030bb4ee796dd63fd528879fa.r2.dev/2014/Quicklook_20141118sant_355nm_AN_15km.webp", "30": "https://pub-2dc2005030bb4ee796dd63fd528879fa.r2.dev/2014/Quicklook_20141118sant_355nm_AN_30km.webp"}, "355nm_PC": {"5": "https://pub-2dc2005030bb4ee796dd63fd528879fa.r2.dev/2014/Quicklook_20141118sant_355nm_PC_5km.webp", "15": "https://pub-2dc2005030bb4ee796dd63fd528879fa.r2.dev/2014/Quicklook_20141118sant_355nm_PC_15km.webp", "30": "https://pub-2dc2005030bb4ee796dd63fd528879fa.r2.dev/2014/Quicklook_20141118sant_355nm_PC_30km.webp"}, "532nm_AN": {"5": "https://pub-2dc2005030bb4ee796dd63fd528879fa.r2.dev/2014/Quicklook_20141118sant_532nm_AN_5km.webp", "15": "https://pub-2dc2005030bb4ee796dd63fd528879fa.r2.dev/2014/Quicklook_20141118sant_532nm_AN_15km.webp", "30": "https://pub-2dc2005030bb4ee796dd63fd528879fa.r2.dev/2014/Quicklook_20141118sant_532nm_AN_30km.webp"}, "532nm_PC": {"5": "https://pub-2dc2005030bb4ee796dd63fd528879fa.r2.dev/2014/Quicklook_20141118sant_532nm_PC_5km.webp", "15": "https://pub-2dc2005030bb4ee796dd63fd528879fa.r2.dev/2014/Quicklook_20141118sant_532nm_PC_15km.webp", "30": "https://pub-2dc2005030bb4ee796dd63fd528879fa.r2.dev/2014/Quicklook_20141118sant_532nm_PC_30km.webp"}}, "mean": "https://pub-2dc2005030bb4ee796dd63fd528879fa.r2.dev/2014/GlobalMeanRCS_20141118sant.webp"}, {"id": "06", "label": "06–12", "channels": {"355nm_AN": {"5": "https://pub-2dc2005030bb4ee796dd63fd528879fa.r2.dev/2014/Quicklook_20141118saam_355nm_AN_5km.webp", "15": "https://pub-2dc2005030bb4ee796dd63fd528879fa.r2.dev/2014/Quicklook_20141118saam_355nm_AN_15km.webp", "30": "https://pub-2dc2005030bb4ee796dd63fd528879fa.r2.dev/2014/Quicklook_20141118saam_355nm_AN_30km.webp"}, "355nm_PC": {"5": "https://pub-2dc2005030bb4ee796dd63fd528879fa.r2.dev/2014/Quicklook_20141118saam_355nm_PC_5km.webp", "15": "https://pub-2dc2005030bb4ee796dd63fd528879fa.r2.dev/2014/Quicklook_20141118saam_355nm_PC_15km.webp", "30": "https://pub-2dc2005030bb4ee796dd63fd528879fa.r2.dev/2014/Quicklook_20141118saam_355nm_PC_30km.webp"}, "532nm_AN": {"5": "https://pub-2dc2005030bb4ee796dd63fd528879fa.r2.dev/2014/Quicklook_20141118saam_532nm_AN_5km.webp", "15": "https://pub-2dc2005030bb4ee796dd63fd528879fa.r2.dev/2014/Quicklook_20141118saam_532nm_AN_15km.webp", "30": "https://pub-2dc2005030bb4ee796dd63fd528879fa.r2.dev/2014/Quicklook_20141118saam_532nm_AN_30km.webp"}, "532nm_PC": {"5": "https://pub-2dc2005030bb4ee796dd63fd528879fa.r2.dev/2014/Quicklook_20141118saam_532nm_PC_5km.webp", "15": "https://pub-2dc2005030bb4ee796dd63fd528879fa.r2.dev/2014/Quicklook_20141118saam_532nm_PC_15km.webp", "30": "https://pub-2dc2005030bb4ee796dd63fd528879fa.r2.dev/2014/Quicklook_20141118saam_532nm_PC_30km.webp"}}, "mean": "https://pub-2dc2005030bb4ee796dd63fd528879fa.r2.dev/2014/GlobalMeanRCS_20141118saam.webp"}, {"id": "12", "label": "12–18", "channels": {"355nm_AN": {"5": "https://pub-2dc2005030bb4ee796dd63fd528879fa.r2.dev/2014/Quicklook_20141118sapm_355nm_AN_5km.webp", "15": "https://pub-2dc2005030bb4ee796dd63fd528879fa.r2.dev/2014/Quicklook_20141118sapm_355nm_AN_15km.webp", "30": "https://pub-2dc2005030bb4ee796dd63fd528879fa.r2.dev/2014/Quicklook_20141118sapm_355nm_AN_30km.webp"}, "355nm_PC": {"5": "https://pub-2dc2005030bb4ee796dd63fd528879fa.r2.dev/2014/Quicklook_20141118sapm_355nm_PC_5km.webp", "15": "https://pub-2dc2005030bb4ee796dd63fd528879fa.r2.dev/2014/Quicklook_20141118sapm_355nm_PC_15km.webp", "30": "https://pub-2dc2005030bb4ee796dd63fd528879fa.r2.dev/2014/Quicklook_20141118sapm_355nm_PC_30km.webp"}, "532nm_AN": {"5": "https://pub-2dc2005030bb4ee796dd63fd528879fa.r2.dev/2014/Quicklook_20141118sapm_532nm_AN_5km.webp", "15": "https://pub-2dc2005030bb4ee796dd63fd528879fa.r2.dev/2014/Quicklook_20141118sapm_532nm_AN_15km.webp", "30": "https://pub-2dc2005030bb4ee796dd63fd528879fa.r2.dev/2014/Quicklook_20141118sapm_532nm_AN_30km.webp"}, "532nm_PC": {"5": "https://pub-2dc2005030bb4ee796dd63fd528879fa.r2.dev/2014/Quicklook_20141118sapm_532nm_PC_5km.webp", "15": "https://pub-2dc2005030bb4ee796dd63fd528879fa.r2.dev/2014/Quicklook_20141118sapm_532nm_PC_15km.webp", "30": "https://pub-2dc2005030bb4ee796dd63fd528879fa.r2.dev/2014/Quicklook_20141118sapm_532nm_PC_30km.webp"}}, "mean": "https://pub-2dc2005030bb4ee796dd63fd528879fa.r2.dev/2014/GlobalMeanRCS_20141118sapm.webp"}]};
+let currentPeriodId = dayData.periods.length ? dayData.periods[0].id : '';
 let currentMode = 'quicklooks';
 let currentChannel = '';
 let currentAltitude = '';
@@ -83,65 +78,62 @@ const message = document.getElementById('message');
 const channelControls = document.getElementById('channel-controls');
 const altitudeControls = document.getElementById('altitude-controls');
 
-function clearButtons(container) { container.querySelectorAll('button').forEach(b => b.remove()); }
-function slot() { return dayData.slots[currentPeriod]; }
-function showMessage(body, linkUrl, linkLabel) {
-  img.style.display = 'none';
-  message.innerHTML = body;
-  if (linkUrl) { const a=document.createElement('a'); a.href=linkUrl; a.textContent=linkLabel || 'Open'; message.appendChild(a); }
-  message.classList.add('active');
-}
-function hideMessage() { message.classList.remove('active'); message.innerHTML=''; img.style.display='block'; }
+function clearButtons(container) { container.querySelectorAll('button').forEach(button => button.remove()); }
+function currentPeriod() { return dayData.periods.find(period => period.id === currentPeriodId) || null; }
+function showMessage(text) { img.style.display='none'; message.textContent=text; message.classList.add('active'); }
+function hideMessage() { message.classList.remove('active'); message.textContent=''; img.style.display='block'; }
 
 function renderPeriods() {
   const container=document.getElementById('period-controls');
   clearButtons(container);
-  periodOrder.forEach(p => {
-    const data=dayData.slots[p];
+  dayData.periods.forEach(period => {
     const btn=document.createElement('button');
-    btn.className='tab-btn period-btn' + (p===currentPeriod?' active':'') + (data.source && data.source!=='canonical'?' legacy':'');
-    btn.textContent=dayData.period_labels[p];
-    btn.disabled=!data.available;
-    btn.title=data.source && data.source!=='canonical' ? 'Legacy representation retained during historical migration' : '';
-    btn.onclick=()=>{currentPeriod=p; currentChannel=''; currentAltitude=''; renderAll();};
+    btn.className='tab-btn period-btn'+(period.id===currentPeriodId?' active':'');
+    btn.textContent=period.label;
+    btn.onclick=()=>{ currentPeriodId=period.id; currentChannel=''; currentAltitude=''; renderAll(); };
     container.appendChild(btn);
   });
 }
 
 function renderSelectors() {
   clearButtons(channelControls); clearButtons(altitudeControls);
-  const data=slot();
-  if (!data || data.source !== 'canonical' || currentMode !== 'quicklooks') {
-    channelControls.style.display='none'; altitudeControls.style.display='none'; return;
-  }
-  channelControls.style.display='flex'; altitudeControls.style.display='flex';
+  const data=currentPeriod();
+  if (!data || currentMode !== 'quicklooks') { channelControls.style.display='none'; altitudeControls.style.display='none'; return; }
+
   const channels=Object.keys(data.channels || {});
-  if (!channels.length) return;
-  if (!channels.includes(currentChannel)) currentChannel=channels.find(ch => ch.includes('532nm_AN')) || channels[0];
-  channels.forEach(ch => {
-    const btn=document.createElement('button'); btn.className='tab-btn ch-btn'+(ch===currentChannel?' active':''); btn.textContent=ch.replace('_',' ');
-    btn.onclick=()=>{currentChannel=ch; currentAltitude=''; renderAll();}; channelControls.appendChild(btn);
+  if (!channels.length) { channelControls.style.display='none'; altitudeControls.style.display='none'; return; }
+  channelControls.style.display='flex'; altitudeControls.style.display='flex';
+
+  if (!channels.includes(currentChannel)) currentChannel=channels.find(channel=>channel.includes('532nm_AN')) || channels[0];
+  channels.forEach(channel => {
+    const btn=document.createElement('button');
+    btn.className='tab-btn ch-btn'+(channel===currentChannel?' active':'');
+    btn.textContent=channel.replace('_',' ');
+    btn.onclick=()=>{ currentChannel=channel; currentAltitude=''; renderAll(); };
+    channelControls.appendChild(btn);
   });
-  const alts=Object.keys((data.channels || {})[currentChannel] || {}).sort((a,b)=>parseFloat(a)-parseFloat(b));
-  if (!alts.includes(currentAltitude)) currentAltitude=alts.includes('15') ? '15' : (alts[0] || '');
-  alts.forEach(alt => {
-    const btn=document.createElement('button'); btn.className='tab-btn'+(alt===currentAltitude?' active':''); btn.textContent=alt+' km';
-    btn.onclick=()=>{currentAltitude=alt; renderAll();}; altitudeControls.appendChild(btn);
+
+  const altitudes=Object.keys((data.channels || {})[currentChannel] || {}).sort((a,b)=>parseFloat(a)-parseFloat(b));
+  if (!altitudes.includes(currentAltitude)) currentAltitude=altitudes.includes('15') ? '15' : (altitudes[0] || '');
+  altitudes.forEach(altitude => {
+    const btn=document.createElement('button');
+    btn.className='tab-btn'+(altitude===currentAltitude?' active':'');
+    btn.textContent=altitude+' km';
+    btn.onclick=()=>{ currentAltitude=altitude; renderAll(); };
+    altitudeControls.appendChild(btn);
   });
 }
 
 function updateDisplay() {
-  const data=slot(); hideMessage();
-  if (!data || !data.available) { showMessage('No data are available for this six-hour period.'); return; }
-  if (data.source !== 'canonical') {
-    showMessage('<strong>Legacy period.</strong><br>This historical product predates the fixed six-hour grouping. The original dashboard is retained until the day is reprocessed.', data.legacy_url, 'Open legacy dashboard');
-    return;
-  }
-  let filename='';
-  if (currentMode==='mean') filename=data.mean || '';
-  else filename=(((data.channels||{})[currentChannel]||{})[currentAltitude]) || '';
-  if (!filename) { showMessage('This view is not available for the selected period.'); return; }
-  img.style.opacity='.4'; img.src=cloudBaseUrl+'/'+filename;
+  const data=currentPeriod(); hideMessage();
+  if (!data) { showMessage('No data are available for this day.'); return; }
+
+  let url='';
+  if (currentMode==='mean') url=data.mean || '';
+  else url=(((data.channels || {})[currentChannel] || {})[currentAltitude]) || '';
+
+  if (!url) { showMessage('No image is available for this view.'); return; }
+  img.style.opacity='.4'; img.src=url;
 }
 
 function renderAll() { renderPeriods(); renderSelectors(); updateDisplay(); }
@@ -151,13 +143,14 @@ function setMode(mode) {
   document.getElementById('tab-mean').classList.toggle('active', mode==='mean');
   renderAll();
 }
-img.onload=()=>{img.style.opacity='1'; img.style.display='block'; message.classList.remove('active');};
-img.onerror=()=>{img.style.opacity='1'; showMessage('Image not found or failed to load from the publication bucket.');};
+
+img.onload=()=>{ img.style.opacity='1'; img.style.display='block'; message.classList.remove('active'); };
+img.onerror=()=>{ img.style.opacity='1'; showMessage('Image not found or failed to load.'); };
 const modal=document.getElementById('myModal'), modalImg=document.getElementById('img01');
 function openModal(src) { if (!src || img.style.display==='none') return; modal.style.display='block'; modalImg.src=src; }
 function closeModal() { modal.style.display='none'; modalImg.src=''; }
-window.onclick=e=>{if(e.target===modal) closeModal();};
-document.addEventListener('keydown',e=>{if(e.key==='Escape') closeModal();});
+window.onclick=event=>{ if(event.target===modal) closeModal(); };
+document.addEventListener('keydown',event=>{ if(event.key==='Escape') closeModal(); });
 renderAll();
 </script>
 </body>

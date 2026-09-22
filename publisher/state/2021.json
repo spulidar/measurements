@@ -1,0 +1,3343 @@
+{
+  "days": {
+    "20210225": {
+      "canonical": {},
+      "historical": {
+        "am": {
+          "channels": {
+            "1064nm_AN": {
+              "15": "2021/Quicklook_20210225saam_1064nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210225saam_1064nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210225saam_1064nm_AN_5km.webp"
+            },
+            "355nm_AN": {
+              "15": "2021/Quicklook_20210225saam_355nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210225saam_355nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210225saam_355nm_AN_5km.webp"
+            },
+            "355nm_PC": {
+              "15": "2021/Quicklook_20210225saam_355nm_PC_15km.webp",
+              "30": "2021/Quicklook_20210225saam_355nm_PC_30km.webp",
+              "5": "2021/Quicklook_20210225saam_355nm_PC_5km.webp"
+            },
+            "532nm_AN": {
+              "15": "2021/Quicklook_20210225saam_532nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210225saam_532nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210225saam_532nm_AN_5km.webp"
+            },
+            "532nm_PC": {
+              "15": "2021/Quicklook_20210225saam_532nm_PC_15km.webp",
+              "30": "2021/Quicklook_20210225saam_532nm_PC_30km.webp",
+              "5": "2021/Quicklook_20210225saam_532nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "06"
+          ],
+          "label": "06–12",
+          "mean": "2021/GlobalMeanRCS_20210225saam.webp",
+          "retired": false
+        }
+      }
+    },
+    "20210409": {
+      "canonical": {},
+      "historical": {
+        "am": {
+          "channels": {
+            "1064nm_AN": {
+              "15": "2021/Quicklook_20210409saam_1064nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210409saam_1064nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210409saam_1064nm_AN_5km.webp"
+            },
+            "355nm_AN": {
+              "15": "2021/Quicklook_20210409saam_355nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210409saam_355nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210409saam_355nm_AN_5km.webp"
+            },
+            "355nm_PC": {
+              "15": "2021/Quicklook_20210409saam_355nm_PC_15km.webp",
+              "30": "2021/Quicklook_20210409saam_355nm_PC_30km.webp",
+              "5": "2021/Quicklook_20210409saam_355nm_PC_5km.webp"
+            },
+            "532nm_AN": {
+              "15": "2021/Quicklook_20210409saam_532nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210409saam_532nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210409saam_532nm_AN_5km.webp"
+            },
+            "532nm_PC": {
+              "15": "2021/Quicklook_20210409saam_532nm_PC_15km.webp",
+              "30": "2021/Quicklook_20210409saam_532nm_PC_30km.webp",
+              "5": "2021/Quicklook_20210409saam_532nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "06"
+          ],
+          "label": "06–12",
+          "mean": "2021/GlobalMeanRCS_20210409saam.webp",
+          "retired": false
+        },
+        "night": {
+          "channels": {
+            "1064nm_AN": {
+              "15": "2021/Quicklook_20210409sant_1064nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210409sant_1064nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210409sant_1064nm_AN_5km.webp"
+            },
+            "355nm_AN": {
+              "15": "2021/Quicklook_20210409sant_355nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210409sant_355nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210409sant_355nm_AN_5km.webp"
+            },
+            "355nm_PC": {
+              "15": "2021/Quicklook_20210409sant_355nm_PC_15km.webp",
+              "30": "2021/Quicklook_20210409sant_355nm_PC_30km.webp",
+              "5": "2021/Quicklook_20210409sant_355nm_PC_5km.webp"
+            },
+            "532nm_AN": {
+              "15": "2021/Quicklook_20210409sant_532nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210409sant_532nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210409sant_532nm_AN_5km.webp"
+            },
+            "532nm_PC": {
+              "15": "2021/Quicklook_20210409sant_532nm_PC_15km.webp",
+              "30": "2021/Quicklook_20210409sant_532nm_PC_30km.webp",
+              "5": "2021/Quicklook_20210409sant_532nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "00",
+            "18"
+          ],
+          "label": "00–06 + 18–24",
+          "mean": "2021/GlobalMeanRCS_20210409sant.webp",
+          "retired": false
+        },
+        "pm": {
+          "channels": {
+            "1064nm_AN": {
+              "15": "2021/Quicklook_20210409sapm_1064nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210409sapm_1064nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210409sapm_1064nm_AN_5km.webp"
+            },
+            "355nm_AN": {
+              "15": "2021/Quicklook_20210409sapm_355nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210409sapm_355nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210409sapm_355nm_AN_5km.webp"
+            },
+            "355nm_PC": {
+              "15": "2021/Quicklook_20210409sapm_355nm_PC_15km.webp",
+              "30": "2021/Quicklook_20210409sapm_355nm_PC_30km.webp",
+              "5": "2021/Quicklook_20210409sapm_355nm_PC_5km.webp"
+            },
+            "532nm_AN": {
+              "15": "2021/Quicklook_20210409sapm_532nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210409sapm_532nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210409sapm_532nm_AN_5km.webp"
+            },
+            "532nm_PC": {
+              "15": "2021/Quicklook_20210409sapm_532nm_PC_15km.webp",
+              "30": "2021/Quicklook_20210409sapm_532nm_PC_30km.webp",
+              "5": "2021/Quicklook_20210409sapm_532nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "12"
+          ],
+          "label": "12–18",
+          "mean": "2021/GlobalMeanRCS_20210409sapm.webp",
+          "retired": false
+        }
+      }
+    },
+    "20210503": {
+      "canonical": {},
+      "historical": {
+        "night": {
+          "channels": {
+            "1064nm_AN": {
+              "15": "2021/Quicklook_20210503sant_1064nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210503sant_1064nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210503sant_1064nm_AN_5km.webp"
+            },
+            "355nm_AN": {
+              "15": "2021/Quicklook_20210503sant_355nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210503sant_355nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210503sant_355nm_AN_5km.webp"
+            },
+            "355nm_PC": {
+              "15": "2021/Quicklook_20210503sant_355nm_PC_15km.webp",
+              "30": "2021/Quicklook_20210503sant_355nm_PC_30km.webp",
+              "5": "2021/Quicklook_20210503sant_355nm_PC_5km.webp"
+            },
+            "532nm_AN": {
+              "15": "2021/Quicklook_20210503sant_532nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210503sant_532nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210503sant_532nm_AN_5km.webp"
+            },
+            "532nm_PC": {
+              "15": "2021/Quicklook_20210503sant_532nm_PC_15km.webp",
+              "30": "2021/Quicklook_20210503sant_532nm_PC_30km.webp",
+              "5": "2021/Quicklook_20210503sant_532nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "00",
+            "18"
+          ],
+          "label": "00–06 + 18–24",
+          "mean": "2021/GlobalMeanRCS_20210503sant.webp",
+          "retired": false
+        },
+        "pm": {
+          "channels": {
+            "1064nm_AN": {
+              "15": "2021/Quicklook_20210503sapm_1064nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210503sapm_1064nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210503sapm_1064nm_AN_5km.webp"
+            },
+            "355nm_AN": {
+              "15": "2021/Quicklook_20210503sapm_355nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210503sapm_355nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210503sapm_355nm_AN_5km.webp"
+            },
+            "355nm_PC": {
+              "15": "2021/Quicklook_20210503sapm_355nm_PC_15km.webp",
+              "30": "2021/Quicklook_20210503sapm_355nm_PC_30km.webp",
+              "5": "2021/Quicklook_20210503sapm_355nm_PC_5km.webp"
+            },
+            "532nm_AN": {
+              "15": "2021/Quicklook_20210503sapm_532nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210503sapm_532nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210503sapm_532nm_AN_5km.webp"
+            },
+            "532nm_PC": {
+              "15": "2021/Quicklook_20210503sapm_532nm_PC_15km.webp",
+              "30": "2021/Quicklook_20210503sapm_532nm_PC_30km.webp",
+              "5": "2021/Quicklook_20210503sapm_532nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "12"
+          ],
+          "label": "12–18",
+          "mean": "2021/GlobalMeanRCS_20210503sapm.webp",
+          "retired": false
+        }
+      }
+    },
+    "20210504": {
+      "canonical": {},
+      "historical": {
+        "pm": {
+          "channels": {
+            "1064nm_AN": {
+              "15": "2021/Quicklook_20210504sapm_1064nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210504sapm_1064nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210504sapm_1064nm_AN_5km.webp"
+            },
+            "355nm_AN": {
+              "15": "2021/Quicklook_20210504sapm_355nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210504sapm_355nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210504sapm_355nm_AN_5km.webp"
+            },
+            "355nm_PC": {
+              "15": "2021/Quicklook_20210504sapm_355nm_PC_15km.webp",
+              "30": "2021/Quicklook_20210504sapm_355nm_PC_30km.webp",
+              "5": "2021/Quicklook_20210504sapm_355nm_PC_5km.webp"
+            },
+            "532nm_AN": {
+              "15": "2021/Quicklook_20210504sapm_532nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210504sapm_532nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210504sapm_532nm_AN_5km.webp"
+            },
+            "532nm_PC": {
+              "15": "2021/Quicklook_20210504sapm_532nm_PC_15km.webp",
+              "30": "2021/Quicklook_20210504sapm_532nm_PC_30km.webp",
+              "5": "2021/Quicklook_20210504sapm_532nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "12"
+          ],
+          "label": "12–18",
+          "mean": "2021/GlobalMeanRCS_20210504sapm.webp",
+          "retired": false
+        }
+      }
+    },
+    "20210505": {
+      "canonical": {},
+      "historical": {
+        "am": {
+          "channels": {
+            "1064nm_AN": {
+              "15": "2021/Quicklook_20210505saam_1064nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210505saam_1064nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210505saam_1064nm_AN_5km.webp"
+            },
+            "355nm_AN": {
+              "15": "2021/Quicklook_20210505saam_355nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210505saam_355nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210505saam_355nm_AN_5km.webp"
+            },
+            "355nm_PC": {
+              "15": "2021/Quicklook_20210505saam_355nm_PC_15km.webp",
+              "30": "2021/Quicklook_20210505saam_355nm_PC_30km.webp",
+              "5": "2021/Quicklook_20210505saam_355nm_PC_5km.webp"
+            },
+            "532nm_AN": {
+              "15": "2021/Quicklook_20210505saam_532nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210505saam_532nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210505saam_532nm_AN_5km.webp"
+            },
+            "532nm_PC": {
+              "15": "2021/Quicklook_20210505saam_532nm_PC_15km.webp",
+              "30": "2021/Quicklook_20210505saam_532nm_PC_30km.webp",
+              "5": "2021/Quicklook_20210505saam_532nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "06"
+          ],
+          "label": "06–12",
+          "mean": "2021/GlobalMeanRCS_20210505saam.webp",
+          "retired": false
+        },
+        "pm": {
+          "channels": {
+            "1064nm_AN": {
+              "15": "2021/Quicklook_20210505sapm_1064nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210505sapm_1064nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210505sapm_1064nm_AN_5km.webp"
+            },
+            "355nm_AN": {
+              "15": "2021/Quicklook_20210505sapm_355nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210505sapm_355nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210505sapm_355nm_AN_5km.webp"
+            },
+            "355nm_PC": {
+              "15": "2021/Quicklook_20210505sapm_355nm_PC_15km.webp",
+              "30": "2021/Quicklook_20210505sapm_355nm_PC_30km.webp",
+              "5": "2021/Quicklook_20210505sapm_355nm_PC_5km.webp"
+            },
+            "532nm_AN": {
+              "15": "2021/Quicklook_20210505sapm_532nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210505sapm_532nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210505sapm_532nm_AN_5km.webp"
+            },
+            "532nm_PC": {
+              "15": "2021/Quicklook_20210505sapm_532nm_PC_15km.webp",
+              "30": "2021/Quicklook_20210505sapm_532nm_PC_30km.webp",
+              "5": "2021/Quicklook_20210505sapm_532nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "12"
+          ],
+          "label": "12–18",
+          "mean": "2021/GlobalMeanRCS_20210505sapm.webp",
+          "retired": false
+        }
+      }
+    },
+    "20210517": {
+      "canonical": {},
+      "historical": {
+        "night": {
+          "channels": {
+            "1064nm_AN": {
+              "15": "2021/Quicklook_20210517sant_1064nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210517sant_1064nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210517sant_1064nm_AN_5km.webp"
+            },
+            "355nm_AN": {
+              "15": "2021/Quicklook_20210517sant_355nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210517sant_355nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210517sant_355nm_AN_5km.webp"
+            },
+            "355nm_PC": {
+              "15": "2021/Quicklook_20210517sant_355nm_PC_15km.webp",
+              "30": "2021/Quicklook_20210517sant_355nm_PC_30km.webp",
+              "5": "2021/Quicklook_20210517sant_355nm_PC_5km.webp"
+            },
+            "532nm_AN": {
+              "15": "2021/Quicklook_20210517sant_532nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210517sant_532nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210517sant_532nm_AN_5km.webp"
+            },
+            "532nm_PC": {
+              "15": "2021/Quicklook_20210517sant_532nm_PC_15km.webp",
+              "30": "2021/Quicklook_20210517sant_532nm_PC_30km.webp",
+              "5": "2021/Quicklook_20210517sant_532nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "00",
+            "18"
+          ],
+          "label": "00–06 + 18–24",
+          "mean": "2021/GlobalMeanRCS_20210517sant.webp",
+          "retired": false
+        }
+      }
+    },
+    "20210519": {
+      "canonical": {},
+      "historical": {
+        "am": {
+          "channels": {
+            "1064nm_AN": {
+              "15": "2021/Quicklook_20210519saam_1064nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210519saam_1064nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210519saam_1064nm_AN_5km.webp"
+            },
+            "355nm_AN": {
+              "15": "2021/Quicklook_20210519saam_355nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210519saam_355nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210519saam_355nm_AN_5km.webp"
+            },
+            "355nm_PC": {
+              "15": "2021/Quicklook_20210519saam_355nm_PC_15km.webp",
+              "30": "2021/Quicklook_20210519saam_355nm_PC_30km.webp",
+              "5": "2021/Quicklook_20210519saam_355nm_PC_5km.webp"
+            },
+            "532nm_AN": {
+              "15": "2021/Quicklook_20210519saam_532nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210519saam_532nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210519saam_532nm_AN_5km.webp"
+            },
+            "532nm_PC": {
+              "15": "2021/Quicklook_20210519saam_532nm_PC_15km.webp",
+              "30": "2021/Quicklook_20210519saam_532nm_PC_30km.webp",
+              "5": "2021/Quicklook_20210519saam_532nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "06"
+          ],
+          "label": "06–12",
+          "mean": "2021/GlobalMeanRCS_20210519saam.webp",
+          "retired": false
+        },
+        "night": {
+          "channels": {
+            "1064nm_AN": {
+              "15": "2021/Quicklook_20210519sant_1064nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210519sant_1064nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210519sant_1064nm_AN_5km.webp"
+            },
+            "355nm_AN": {
+              "15": "2021/Quicklook_20210519sant_355nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210519sant_355nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210519sant_355nm_AN_5km.webp"
+            },
+            "355nm_PC": {
+              "15": "2021/Quicklook_20210519sant_355nm_PC_15km.webp",
+              "30": "2021/Quicklook_20210519sant_355nm_PC_30km.webp",
+              "5": "2021/Quicklook_20210519sant_355nm_PC_5km.webp"
+            },
+            "532nm_AN": {
+              "15": "2021/Quicklook_20210519sant_532nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210519sant_532nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210519sant_532nm_AN_5km.webp"
+            },
+            "532nm_PC": {
+              "15": "2021/Quicklook_20210519sant_532nm_PC_15km.webp",
+              "30": "2021/Quicklook_20210519sant_532nm_PC_30km.webp",
+              "5": "2021/Quicklook_20210519sant_532nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "00",
+            "18"
+          ],
+          "label": "00–06 + 18–24",
+          "mean": "2021/GlobalMeanRCS_20210519sant.webp",
+          "retired": false
+        },
+        "pm": {
+          "channels": {
+            "1064nm_AN": {
+              "15": "2021/Quicklook_20210519sapm_1064nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210519sapm_1064nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210519sapm_1064nm_AN_5km.webp"
+            },
+            "355nm_AN": {
+              "15": "2021/Quicklook_20210519sapm_355nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210519sapm_355nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210519sapm_355nm_AN_5km.webp"
+            },
+            "355nm_PC": {
+              "15": "2021/Quicklook_20210519sapm_355nm_PC_15km.webp",
+              "30": "2021/Quicklook_20210519sapm_355nm_PC_30km.webp",
+              "5": "2021/Quicklook_20210519sapm_355nm_PC_5km.webp"
+            },
+            "532nm_AN": {
+              "15": "2021/Quicklook_20210519sapm_532nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210519sapm_532nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210519sapm_532nm_AN_5km.webp"
+            },
+            "532nm_PC": {
+              "15": "2021/Quicklook_20210519sapm_532nm_PC_15km.webp",
+              "30": "2021/Quicklook_20210519sapm_532nm_PC_30km.webp",
+              "5": "2021/Quicklook_20210519sapm_532nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "12"
+          ],
+          "label": "12–18",
+          "mean": "2021/GlobalMeanRCS_20210519sapm.webp",
+          "retired": false
+        }
+      }
+    },
+    "20210521": {
+      "canonical": {},
+      "historical": {
+        "am": {
+          "channels": {
+            "1064nm_AN": {
+              "15": "2021/Quicklook_20210521saam_1064nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210521saam_1064nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210521saam_1064nm_AN_5km.webp"
+            },
+            "355nm_AN": {
+              "15": "2021/Quicklook_20210521saam_355nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210521saam_355nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210521saam_355nm_AN_5km.webp"
+            },
+            "355nm_PC": {
+              "15": "2021/Quicklook_20210521saam_355nm_PC_15km.webp",
+              "30": "2021/Quicklook_20210521saam_355nm_PC_30km.webp",
+              "5": "2021/Quicklook_20210521saam_355nm_PC_5km.webp"
+            },
+            "532nm_AN": {
+              "15": "2021/Quicklook_20210521saam_532nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210521saam_532nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210521saam_532nm_AN_5km.webp"
+            },
+            "532nm_PC": {
+              "15": "2021/Quicklook_20210521saam_532nm_PC_15km.webp",
+              "30": "2021/Quicklook_20210521saam_532nm_PC_30km.webp",
+              "5": "2021/Quicklook_20210521saam_532nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "06"
+          ],
+          "label": "06–12",
+          "mean": "2021/GlobalMeanRCS_20210521saam.webp",
+          "retired": false
+        },
+        "night": {
+          "channels": {
+            "1064nm_AN": {
+              "15": "2021/Quicklook_20210521sant_1064nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210521sant_1064nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210521sant_1064nm_AN_5km.webp"
+            },
+            "355nm_AN": {
+              "15": "2021/Quicklook_20210521sant_355nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210521sant_355nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210521sant_355nm_AN_5km.webp"
+            },
+            "355nm_PC": {
+              "15": "2021/Quicklook_20210521sant_355nm_PC_15km.webp",
+              "30": "2021/Quicklook_20210521sant_355nm_PC_30km.webp",
+              "5": "2021/Quicklook_20210521sant_355nm_PC_5km.webp"
+            },
+            "532nm_AN": {
+              "15": "2021/Quicklook_20210521sant_532nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210521sant_532nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210521sant_532nm_AN_5km.webp"
+            },
+            "532nm_PC": {
+              "15": "2021/Quicklook_20210521sant_532nm_PC_15km.webp",
+              "30": "2021/Quicklook_20210521sant_532nm_PC_30km.webp",
+              "5": "2021/Quicklook_20210521sant_532nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "00",
+            "18"
+          ],
+          "label": "00–06 + 18–24",
+          "mean": "2021/GlobalMeanRCS_20210521sant.webp",
+          "retired": false
+        },
+        "pm": {
+          "channels": {
+            "1064nm_AN": {
+              "15": "2021/Quicklook_20210521sapm_1064nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210521sapm_1064nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210521sapm_1064nm_AN_5km.webp"
+            },
+            "355nm_AN": {
+              "15": "2021/Quicklook_20210521sapm_355nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210521sapm_355nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210521sapm_355nm_AN_5km.webp"
+            },
+            "355nm_PC": {
+              "15": "2021/Quicklook_20210521sapm_355nm_PC_15km.webp",
+              "30": "2021/Quicklook_20210521sapm_355nm_PC_30km.webp",
+              "5": "2021/Quicklook_20210521sapm_355nm_PC_5km.webp"
+            },
+            "532nm_AN": {
+              "15": "2021/Quicklook_20210521sapm_532nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210521sapm_532nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210521sapm_532nm_AN_5km.webp"
+            },
+            "532nm_PC": {
+              "15": "2021/Quicklook_20210521sapm_532nm_PC_15km.webp",
+              "30": "2021/Quicklook_20210521sapm_532nm_PC_30km.webp",
+              "5": "2021/Quicklook_20210521sapm_532nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "12"
+          ],
+          "label": "12–18",
+          "mean": "2021/GlobalMeanRCS_20210521sapm.webp",
+          "retired": false
+        }
+      }
+    },
+    "20210524": {
+      "canonical": {},
+      "historical": {
+        "am": {
+          "channels": {
+            "1064nm_AN": {
+              "15": "2021/Quicklook_20210524saam_1064nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210524saam_1064nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210524saam_1064nm_AN_5km.webp"
+            },
+            "355nm_AN": {
+              "15": "2021/Quicklook_20210524saam_355nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210524saam_355nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210524saam_355nm_AN_5km.webp"
+            },
+            "355nm_PC": {
+              "15": "2021/Quicklook_20210524saam_355nm_PC_15km.webp",
+              "30": "2021/Quicklook_20210524saam_355nm_PC_30km.webp",
+              "5": "2021/Quicklook_20210524saam_355nm_PC_5km.webp"
+            },
+            "532nm_AN": {
+              "15": "2021/Quicklook_20210524saam_532nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210524saam_532nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210524saam_532nm_AN_5km.webp"
+            },
+            "532nm_PC": {
+              "15": "2021/Quicklook_20210524saam_532nm_PC_15km.webp",
+              "30": "2021/Quicklook_20210524saam_532nm_PC_30km.webp",
+              "5": "2021/Quicklook_20210524saam_532nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "06"
+          ],
+          "label": "06–12",
+          "mean": "2021/GlobalMeanRCS_20210524saam.webp",
+          "retired": false
+        },
+        "pm": {
+          "channels": {
+            "1064nm_AN": {
+              "15": "2021/Quicklook_20210524sapm_1064nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210524sapm_1064nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210524sapm_1064nm_AN_5km.webp"
+            },
+            "355nm_AN": {
+              "15": "2021/Quicklook_20210524sapm_355nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210524sapm_355nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210524sapm_355nm_AN_5km.webp"
+            },
+            "355nm_PC": {
+              "15": "2021/Quicklook_20210524sapm_355nm_PC_15km.webp",
+              "30": "2021/Quicklook_20210524sapm_355nm_PC_30km.webp",
+              "5": "2021/Quicklook_20210524sapm_355nm_PC_5km.webp"
+            },
+            "532nm_AN": {
+              "15": "2021/Quicklook_20210524sapm_532nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210524sapm_532nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210524sapm_532nm_AN_5km.webp"
+            },
+            "532nm_PC": {
+              "15": "2021/Quicklook_20210524sapm_532nm_PC_15km.webp",
+              "30": "2021/Quicklook_20210524sapm_532nm_PC_30km.webp",
+              "5": "2021/Quicklook_20210524sapm_532nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "12"
+          ],
+          "label": "12–18",
+          "mean": "2021/GlobalMeanRCS_20210524sapm.webp",
+          "retired": false
+        }
+      }
+    },
+    "20210526": {
+      "canonical": {},
+      "historical": {
+        "am": {
+          "channels": {
+            "1064nm_AN": {
+              "15": "2021/Quicklook_20210526saam_1064nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210526saam_1064nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210526saam_1064nm_AN_5km.webp"
+            },
+            "355nm_AN": {
+              "15": "2021/Quicklook_20210526saam_355nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210526saam_355nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210526saam_355nm_AN_5km.webp"
+            },
+            "355nm_PC": {
+              "15": "2021/Quicklook_20210526saam_355nm_PC_15km.webp",
+              "30": "2021/Quicklook_20210526saam_355nm_PC_30km.webp",
+              "5": "2021/Quicklook_20210526saam_355nm_PC_5km.webp"
+            },
+            "532nm_AN": {
+              "15": "2021/Quicklook_20210526saam_532nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210526saam_532nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210526saam_532nm_AN_5km.webp"
+            },
+            "532nm_PC": {
+              "15": "2021/Quicklook_20210526saam_532nm_PC_15km.webp",
+              "30": "2021/Quicklook_20210526saam_532nm_PC_30km.webp",
+              "5": "2021/Quicklook_20210526saam_532nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "06"
+          ],
+          "label": "06–12",
+          "mean": "2021/GlobalMeanRCS_20210526saam.webp",
+          "retired": false
+        },
+        "night": {
+          "channels": {
+            "1064nm_AN": {
+              "15": "2021/Quicklook_20210526sant_1064nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210526sant_1064nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210526sant_1064nm_AN_5km.webp"
+            },
+            "355nm_AN": {
+              "15": "2021/Quicklook_20210526sant_355nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210526sant_355nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210526sant_355nm_AN_5km.webp"
+            },
+            "355nm_PC": {
+              "15": "2021/Quicklook_20210526sant_355nm_PC_15km.webp",
+              "30": "2021/Quicklook_20210526sant_355nm_PC_30km.webp",
+              "5": "2021/Quicklook_20210526sant_355nm_PC_5km.webp"
+            },
+            "532nm_AN": {
+              "15": "2021/Quicklook_20210526sant_532nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210526sant_532nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210526sant_532nm_AN_5km.webp"
+            },
+            "532nm_PC": {
+              "15": "2021/Quicklook_20210526sant_532nm_PC_15km.webp",
+              "30": "2021/Quicklook_20210526sant_532nm_PC_30km.webp",
+              "5": "2021/Quicklook_20210526sant_532nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "00",
+            "18"
+          ],
+          "label": "00–06 + 18–24",
+          "mean": "2021/GlobalMeanRCS_20210526sant.webp",
+          "retired": false
+        },
+        "pm": {
+          "channels": {
+            "1064nm_AN": {
+              "15": "2021/Quicklook_20210526sapm_1064nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210526sapm_1064nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210526sapm_1064nm_AN_5km.webp"
+            },
+            "355nm_AN": {
+              "15": "2021/Quicklook_20210526sapm_355nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210526sapm_355nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210526sapm_355nm_AN_5km.webp"
+            },
+            "355nm_PC": {
+              "15": "2021/Quicklook_20210526sapm_355nm_PC_15km.webp",
+              "30": "2021/Quicklook_20210526sapm_355nm_PC_30km.webp",
+              "5": "2021/Quicklook_20210526sapm_355nm_PC_5km.webp"
+            },
+            "532nm_AN": {
+              "15": "2021/Quicklook_20210526sapm_532nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210526sapm_532nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210526sapm_532nm_AN_5km.webp"
+            },
+            "532nm_PC": {
+              "15": "2021/Quicklook_20210526sapm_532nm_PC_15km.webp",
+              "30": "2021/Quicklook_20210526sapm_532nm_PC_30km.webp",
+              "5": "2021/Quicklook_20210526sapm_532nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "12"
+          ],
+          "label": "12–18",
+          "mean": "2021/GlobalMeanRCS_20210526sapm.webp",
+          "retired": false
+        }
+      }
+    },
+    "20210602": {
+      "canonical": {},
+      "historical": {
+        "am": {
+          "channels": {
+            "1064nm_AN": {
+              "15": "2021/Quicklook_20210602saam_1064nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210602saam_1064nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210602saam_1064nm_AN_5km.webp"
+            },
+            "355nm_AN": {
+              "15": "2021/Quicklook_20210602saam_355nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210602saam_355nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210602saam_355nm_AN_5km.webp"
+            },
+            "355nm_PC": {
+              "15": "2021/Quicklook_20210602saam_355nm_PC_15km.webp",
+              "30": "2021/Quicklook_20210602saam_355nm_PC_30km.webp",
+              "5": "2021/Quicklook_20210602saam_355nm_PC_5km.webp"
+            },
+            "532nm_AN": {
+              "15": "2021/Quicklook_20210602saam_532nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210602saam_532nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210602saam_532nm_AN_5km.webp"
+            },
+            "532nm_PC": {
+              "15": "2021/Quicklook_20210602saam_532nm_PC_15km.webp",
+              "30": "2021/Quicklook_20210602saam_532nm_PC_30km.webp",
+              "5": "2021/Quicklook_20210602saam_532nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "06"
+          ],
+          "label": "06–12",
+          "mean": "2021/GlobalMeanRCS_20210602saam.webp",
+          "retired": false
+        },
+        "night": {
+          "channels": {
+            "1064nm_AN": {
+              "15": "2021/Quicklook_20210602sant_1064nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210602sant_1064nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210602sant_1064nm_AN_5km.webp"
+            },
+            "355nm_AN": {
+              "15": "2021/Quicklook_20210602sant_355nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210602sant_355nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210602sant_355nm_AN_5km.webp"
+            },
+            "355nm_PC": {
+              "15": "2021/Quicklook_20210602sant_355nm_PC_15km.webp",
+              "30": "2021/Quicklook_20210602sant_355nm_PC_30km.webp",
+              "5": "2021/Quicklook_20210602sant_355nm_PC_5km.webp"
+            },
+            "532nm_AN": {
+              "15": "2021/Quicklook_20210602sant_532nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210602sant_532nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210602sant_532nm_AN_5km.webp"
+            },
+            "532nm_PC": {
+              "15": "2021/Quicklook_20210602sant_532nm_PC_15km.webp",
+              "30": "2021/Quicklook_20210602sant_532nm_PC_30km.webp",
+              "5": "2021/Quicklook_20210602sant_532nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "00",
+            "18"
+          ],
+          "label": "00–06 + 18–24",
+          "mean": "2021/GlobalMeanRCS_20210602sant.webp",
+          "retired": false
+        },
+        "pm": {
+          "channels": {
+            "1064nm_AN": {
+              "15": "2021/Quicklook_20210602sapm_1064nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210602sapm_1064nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210602sapm_1064nm_AN_5km.webp"
+            },
+            "355nm_AN": {
+              "15": "2021/Quicklook_20210602sapm_355nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210602sapm_355nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210602sapm_355nm_AN_5km.webp"
+            },
+            "355nm_PC": {
+              "15": "2021/Quicklook_20210602sapm_355nm_PC_15km.webp",
+              "30": "2021/Quicklook_20210602sapm_355nm_PC_30km.webp",
+              "5": "2021/Quicklook_20210602sapm_355nm_PC_5km.webp"
+            },
+            "532nm_AN": {
+              "15": "2021/Quicklook_20210602sapm_532nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210602sapm_532nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210602sapm_532nm_AN_5km.webp"
+            },
+            "532nm_PC": {
+              "15": "2021/Quicklook_20210602sapm_532nm_PC_15km.webp",
+              "30": "2021/Quicklook_20210602sapm_532nm_PC_30km.webp",
+              "5": "2021/Quicklook_20210602sapm_532nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "12"
+          ],
+          "label": "12–18",
+          "mean": "2021/GlobalMeanRCS_20210602sapm.webp",
+          "retired": false
+        }
+      }
+    },
+    "20210605": {
+      "canonical": {},
+      "historical": {
+        "am": {
+          "channels": {
+            "1064nm_AN": {
+              "15": "2021/Quicklook_20210605saam_1064nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210605saam_1064nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210605saam_1064nm_AN_5km.webp"
+            },
+            "355nm_AN": {
+              "15": "2021/Quicklook_20210605saam_355nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210605saam_355nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210605saam_355nm_AN_5km.webp"
+            },
+            "355nm_PC": {
+              "15": "2021/Quicklook_20210605saam_355nm_PC_15km.webp",
+              "30": "2021/Quicklook_20210605saam_355nm_PC_30km.webp",
+              "5": "2021/Quicklook_20210605saam_355nm_PC_5km.webp"
+            },
+            "532nm_AN": {
+              "15": "2021/Quicklook_20210605saam_532nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210605saam_532nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210605saam_532nm_AN_5km.webp"
+            },
+            "532nm_PC": {
+              "15": "2021/Quicklook_20210605saam_532nm_PC_15km.webp",
+              "30": "2021/Quicklook_20210605saam_532nm_PC_30km.webp",
+              "5": "2021/Quicklook_20210605saam_532nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "06"
+          ],
+          "label": "06–12",
+          "mean": "2021/GlobalMeanRCS_20210605saam.webp",
+          "retired": false
+        },
+        "night": {
+          "channels": {
+            "1064nm_AN": {
+              "15": "2021/Quicklook_20210605sant_1064nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210605sant_1064nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210605sant_1064nm_AN_5km.webp"
+            },
+            "355nm_AN": {
+              "15": "2021/Quicklook_20210605sant_355nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210605sant_355nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210605sant_355nm_AN_5km.webp"
+            },
+            "355nm_PC": {
+              "15": "2021/Quicklook_20210605sant_355nm_PC_15km.webp",
+              "30": "2021/Quicklook_20210605sant_355nm_PC_30km.webp",
+              "5": "2021/Quicklook_20210605sant_355nm_PC_5km.webp"
+            },
+            "532nm_AN": {
+              "15": "2021/Quicklook_20210605sant_532nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210605sant_532nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210605sant_532nm_AN_5km.webp"
+            },
+            "532nm_PC": {
+              "15": "2021/Quicklook_20210605sant_532nm_PC_15km.webp",
+              "30": "2021/Quicklook_20210605sant_532nm_PC_30km.webp",
+              "5": "2021/Quicklook_20210605sant_532nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "00",
+            "18"
+          ],
+          "label": "00–06 + 18–24",
+          "mean": "2021/GlobalMeanRCS_20210605sant.webp",
+          "retired": false
+        },
+        "pm": {
+          "channels": {
+            "1064nm_AN": {
+              "15": "2021/Quicklook_20210605sapm_1064nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210605sapm_1064nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210605sapm_1064nm_AN_5km.webp"
+            },
+            "355nm_AN": {
+              "15": "2021/Quicklook_20210605sapm_355nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210605sapm_355nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210605sapm_355nm_AN_5km.webp"
+            },
+            "355nm_PC": {
+              "15": "2021/Quicklook_20210605sapm_355nm_PC_15km.webp",
+              "30": "2021/Quicklook_20210605sapm_355nm_PC_30km.webp",
+              "5": "2021/Quicklook_20210605sapm_355nm_PC_5km.webp"
+            },
+            "532nm_AN": {
+              "15": "2021/Quicklook_20210605sapm_532nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210605sapm_532nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210605sapm_532nm_AN_5km.webp"
+            },
+            "532nm_PC": {
+              "15": "2021/Quicklook_20210605sapm_532nm_PC_15km.webp",
+              "30": "2021/Quicklook_20210605sapm_532nm_PC_30km.webp",
+              "5": "2021/Quicklook_20210605sapm_532nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "12"
+          ],
+          "label": "12–18",
+          "mean": "2021/GlobalMeanRCS_20210605sapm.webp",
+          "retired": false
+        }
+      }
+    },
+    "20210606": {
+      "canonical": {},
+      "historical": {
+        "am": {
+          "channels": {
+            "1064nm_AN": {
+              "15": "2021/Quicklook_20210606saam_1064nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210606saam_1064nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210606saam_1064nm_AN_5km.webp"
+            },
+            "355nm_AN": {
+              "15": "2021/Quicklook_20210606saam_355nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210606saam_355nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210606saam_355nm_AN_5km.webp"
+            },
+            "355nm_PC": {
+              "15": "2021/Quicklook_20210606saam_355nm_PC_15km.webp",
+              "30": "2021/Quicklook_20210606saam_355nm_PC_30km.webp",
+              "5": "2021/Quicklook_20210606saam_355nm_PC_5km.webp"
+            },
+            "532nm_AN": {
+              "15": "2021/Quicklook_20210606saam_532nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210606saam_532nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210606saam_532nm_AN_5km.webp"
+            },
+            "532nm_PC": {
+              "15": "2021/Quicklook_20210606saam_532nm_PC_15km.webp",
+              "30": "2021/Quicklook_20210606saam_532nm_PC_30km.webp",
+              "5": "2021/Quicklook_20210606saam_532nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "06"
+          ],
+          "label": "06–12",
+          "mean": "2021/GlobalMeanRCS_20210606saam.webp",
+          "retired": false
+        }
+      }
+    },
+    "20210616": {
+      "canonical": {},
+      "historical": {
+        "am": {
+          "channels": {
+            "1064nm_AN": {
+              "15": "2021/Quicklook_20210616saam_1064nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210616saam_1064nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210616saam_1064nm_AN_5km.webp"
+            },
+            "355nm_AN": {
+              "15": "2021/Quicklook_20210616saam_355nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210616saam_355nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210616saam_355nm_AN_5km.webp"
+            },
+            "355nm_PC": {
+              "15": "2021/Quicklook_20210616saam_355nm_PC_15km.webp",
+              "30": "2021/Quicklook_20210616saam_355nm_PC_30km.webp",
+              "5": "2021/Quicklook_20210616saam_355nm_PC_5km.webp"
+            },
+            "532nm_AN": {
+              "15": "2021/Quicklook_20210616saam_532nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210616saam_532nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210616saam_532nm_AN_5km.webp"
+            },
+            "532nm_PC": {
+              "15": "2021/Quicklook_20210616saam_532nm_PC_15km.webp",
+              "30": "2021/Quicklook_20210616saam_532nm_PC_30km.webp",
+              "5": "2021/Quicklook_20210616saam_532nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "06"
+          ],
+          "label": "06–12",
+          "mean": "2021/GlobalMeanRCS_20210616saam.webp",
+          "retired": false
+        },
+        "night": {
+          "channels": {
+            "1064nm_AN": {
+              "15": "2021/Quicklook_20210616sant_1064nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210616sant_1064nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210616sant_1064nm_AN_5km.webp"
+            },
+            "355nm_AN": {
+              "15": "2021/Quicklook_20210616sant_355nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210616sant_355nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210616sant_355nm_AN_5km.webp"
+            },
+            "355nm_PC": {
+              "15": "2021/Quicklook_20210616sant_355nm_PC_15km.webp",
+              "30": "2021/Quicklook_20210616sant_355nm_PC_30km.webp",
+              "5": "2021/Quicklook_20210616sant_355nm_PC_5km.webp"
+            },
+            "532nm_AN": {
+              "15": "2021/Quicklook_20210616sant_532nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210616sant_532nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210616sant_532nm_AN_5km.webp"
+            },
+            "532nm_PC": {
+              "15": "2021/Quicklook_20210616sant_532nm_PC_15km.webp",
+              "30": "2021/Quicklook_20210616sant_532nm_PC_30km.webp",
+              "5": "2021/Quicklook_20210616sant_532nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "00",
+            "18"
+          ],
+          "label": "00–06 + 18–24",
+          "mean": "2021/GlobalMeanRCS_20210616sant.webp",
+          "retired": false
+        },
+        "pm": {
+          "channels": {
+            "1064nm_AN": {
+              "15": "2021/Quicklook_20210616sapm_1064nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210616sapm_1064nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210616sapm_1064nm_AN_5km.webp"
+            },
+            "355nm_AN": {
+              "15": "2021/Quicklook_20210616sapm_355nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210616sapm_355nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210616sapm_355nm_AN_5km.webp"
+            },
+            "355nm_PC": {
+              "15": "2021/Quicklook_20210616sapm_355nm_PC_15km.webp",
+              "30": "2021/Quicklook_20210616sapm_355nm_PC_30km.webp",
+              "5": "2021/Quicklook_20210616sapm_355nm_PC_5km.webp"
+            },
+            "532nm_AN": {
+              "15": "2021/Quicklook_20210616sapm_532nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210616sapm_532nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210616sapm_532nm_AN_5km.webp"
+            },
+            "532nm_PC": {
+              "15": "2021/Quicklook_20210616sapm_532nm_PC_15km.webp",
+              "30": "2021/Quicklook_20210616sapm_532nm_PC_30km.webp",
+              "5": "2021/Quicklook_20210616sapm_532nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "12"
+          ],
+          "label": "12–18",
+          "mean": "2021/GlobalMeanRCS_20210616sapm.webp",
+          "retired": false
+        }
+      }
+    },
+    "20210625": {
+      "canonical": {},
+      "historical": {
+        "am": {
+          "channels": {
+            "1064nm_AN": {
+              "15": "2021/Quicklook_20210625saam_1064nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210625saam_1064nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210625saam_1064nm_AN_5km.webp"
+            },
+            "355nm_AN": {
+              "15": "2021/Quicklook_20210625saam_355nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210625saam_355nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210625saam_355nm_AN_5km.webp"
+            },
+            "355nm_PC": {
+              "15": "2021/Quicklook_20210625saam_355nm_PC_15km.webp",
+              "30": "2021/Quicklook_20210625saam_355nm_PC_30km.webp",
+              "5": "2021/Quicklook_20210625saam_355nm_PC_5km.webp"
+            },
+            "532nm_AN": {
+              "15": "2021/Quicklook_20210625saam_532nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210625saam_532nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210625saam_532nm_AN_5km.webp"
+            },
+            "532nm_PC": {
+              "15": "2021/Quicklook_20210625saam_532nm_PC_15km.webp",
+              "30": "2021/Quicklook_20210625saam_532nm_PC_30km.webp",
+              "5": "2021/Quicklook_20210625saam_532nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "06"
+          ],
+          "label": "06–12",
+          "mean": "2021/GlobalMeanRCS_20210625saam.webp",
+          "retired": false
+        },
+        "pm": {
+          "channels": {
+            "1064nm_AN": {
+              "15": "2021/Quicklook_20210625sapm_1064nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210625sapm_1064nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210625sapm_1064nm_AN_5km.webp"
+            },
+            "355nm_AN": {
+              "15": "2021/Quicklook_20210625sapm_355nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210625sapm_355nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210625sapm_355nm_AN_5km.webp"
+            },
+            "355nm_PC": {
+              "15": "2021/Quicklook_20210625sapm_355nm_PC_15km.webp",
+              "30": "2021/Quicklook_20210625sapm_355nm_PC_30km.webp",
+              "5": "2021/Quicklook_20210625sapm_355nm_PC_5km.webp"
+            },
+            "532nm_AN": {
+              "15": "2021/Quicklook_20210625sapm_532nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210625sapm_532nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210625sapm_532nm_AN_5km.webp"
+            },
+            "532nm_PC": {
+              "15": "2021/Quicklook_20210625sapm_532nm_PC_15km.webp",
+              "30": "2021/Quicklook_20210625sapm_532nm_PC_30km.webp",
+              "5": "2021/Quicklook_20210625sapm_532nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "12"
+          ],
+          "label": "12–18",
+          "mean": "2021/GlobalMeanRCS_20210625sapm.webp",
+          "retired": false
+        }
+      }
+    },
+    "20210628": {
+      "canonical": {},
+      "historical": {
+        "am": {
+          "channels": {
+            "1064nm_AN": {
+              "15": "2021/Quicklook_20210628saam_1064nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210628saam_1064nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210628saam_1064nm_AN_5km.webp"
+            },
+            "355nm_AN": {
+              "15": "2021/Quicklook_20210628saam_355nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210628saam_355nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210628saam_355nm_AN_5km.webp"
+            },
+            "355nm_PC": {
+              "15": "2021/Quicklook_20210628saam_355nm_PC_15km.webp",
+              "30": "2021/Quicklook_20210628saam_355nm_PC_30km.webp",
+              "5": "2021/Quicklook_20210628saam_355nm_PC_5km.webp"
+            },
+            "532nm_AN": {
+              "15": "2021/Quicklook_20210628saam_532nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210628saam_532nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210628saam_532nm_AN_5km.webp"
+            },
+            "532nm_PC": {
+              "15": "2021/Quicklook_20210628saam_532nm_PC_15km.webp",
+              "30": "2021/Quicklook_20210628saam_532nm_PC_30km.webp",
+              "5": "2021/Quicklook_20210628saam_532nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "06"
+          ],
+          "label": "06–12",
+          "mean": "2021/GlobalMeanRCS_20210628saam.webp",
+          "retired": false
+        },
+        "pm": {
+          "channels": {
+            "1064nm_AN": {
+              "15": "2021/Quicklook_20210628sapm_1064nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210628sapm_1064nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210628sapm_1064nm_AN_5km.webp"
+            },
+            "355nm_AN": {
+              "15": "2021/Quicklook_20210628sapm_355nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210628sapm_355nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210628sapm_355nm_AN_5km.webp"
+            },
+            "355nm_PC": {
+              "15": "2021/Quicklook_20210628sapm_355nm_PC_15km.webp",
+              "30": "2021/Quicklook_20210628sapm_355nm_PC_30km.webp",
+              "5": "2021/Quicklook_20210628sapm_355nm_PC_5km.webp"
+            },
+            "532nm_AN": {
+              "15": "2021/Quicklook_20210628sapm_532nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210628sapm_532nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210628sapm_532nm_AN_5km.webp"
+            },
+            "532nm_PC": {
+              "15": "2021/Quicklook_20210628sapm_532nm_PC_15km.webp",
+              "30": "2021/Quicklook_20210628sapm_532nm_PC_30km.webp",
+              "5": "2021/Quicklook_20210628sapm_532nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "12"
+          ],
+          "label": "12–18",
+          "mean": "2021/GlobalMeanRCS_20210628sapm.webp",
+          "retired": false
+        }
+      }
+    },
+    "20210702": {
+      "canonical": {},
+      "historical": {
+        "am": {
+          "channels": {
+            "1064nm_AN": {
+              "15": "2021/Quicklook_20210702saam_1064nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210702saam_1064nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210702saam_1064nm_AN_5km.webp"
+            },
+            "355nm_AN": {
+              "15": "2021/Quicklook_20210702saam_355nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210702saam_355nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210702saam_355nm_AN_5km.webp"
+            },
+            "355nm_PC": {
+              "15": "2021/Quicklook_20210702saam_355nm_PC_15km.webp",
+              "30": "2021/Quicklook_20210702saam_355nm_PC_30km.webp",
+              "5": "2021/Quicklook_20210702saam_355nm_PC_5km.webp"
+            },
+            "532nm_AN": {
+              "15": "2021/Quicklook_20210702saam_532nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210702saam_532nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210702saam_532nm_AN_5km.webp"
+            },
+            "532nm_PC": {
+              "15": "2021/Quicklook_20210702saam_532nm_PC_15km.webp",
+              "30": "2021/Quicklook_20210702saam_532nm_PC_30km.webp",
+              "5": "2021/Quicklook_20210702saam_532nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "06"
+          ],
+          "label": "06–12",
+          "mean": "2021/GlobalMeanRCS_20210702saam.webp",
+          "retired": false
+        },
+        "night": {
+          "channels": {
+            "1064nm_AN": {
+              "15": "2021/Quicklook_20210702sant_1064nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210702sant_1064nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210702sant_1064nm_AN_5km.webp"
+            },
+            "355nm_AN": {
+              "15": "2021/Quicklook_20210702sant_355nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210702sant_355nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210702sant_355nm_AN_5km.webp"
+            },
+            "355nm_PC": {
+              "15": "2021/Quicklook_20210702sant_355nm_PC_15km.webp",
+              "30": "2021/Quicklook_20210702sant_355nm_PC_30km.webp",
+              "5": "2021/Quicklook_20210702sant_355nm_PC_5km.webp"
+            },
+            "532nm_AN": {
+              "15": "2021/Quicklook_20210702sant_532nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210702sant_532nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210702sant_532nm_AN_5km.webp"
+            },
+            "532nm_PC": {
+              "15": "2021/Quicklook_20210702sant_532nm_PC_15km.webp",
+              "30": "2021/Quicklook_20210702sant_532nm_PC_30km.webp",
+              "5": "2021/Quicklook_20210702sant_532nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "00",
+            "18"
+          ],
+          "label": "00–06 + 18–24",
+          "mean": "2021/GlobalMeanRCS_20210702sant.webp",
+          "retired": false
+        },
+        "pm": {
+          "channels": {
+            "1064nm_AN": {
+              "15": "2021/Quicklook_20210702sapm_1064nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210702sapm_1064nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210702sapm_1064nm_AN_5km.webp"
+            },
+            "355nm_AN": {
+              "15": "2021/Quicklook_20210702sapm_355nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210702sapm_355nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210702sapm_355nm_AN_5km.webp"
+            },
+            "355nm_PC": {
+              "15": "2021/Quicklook_20210702sapm_355nm_PC_15km.webp",
+              "30": "2021/Quicklook_20210702sapm_355nm_PC_30km.webp",
+              "5": "2021/Quicklook_20210702sapm_355nm_PC_5km.webp"
+            },
+            "532nm_AN": {
+              "15": "2021/Quicklook_20210702sapm_532nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210702sapm_532nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210702sapm_532nm_AN_5km.webp"
+            },
+            "532nm_PC": {
+              "15": "2021/Quicklook_20210702sapm_532nm_PC_15km.webp",
+              "30": "2021/Quicklook_20210702sapm_532nm_PC_30km.webp",
+              "5": "2021/Quicklook_20210702sapm_532nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "12"
+          ],
+          "label": "12–18",
+          "mean": "2021/GlobalMeanRCS_20210702sapm.webp",
+          "retired": false
+        }
+      }
+    },
+    "20210707": {
+      "canonical": {},
+      "historical": {
+        "am": {
+          "channels": {
+            "1064nm_AN": {
+              "15": "2021/Quicklook_20210707saam_1064nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210707saam_1064nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210707saam_1064nm_AN_5km.webp"
+            },
+            "355nm_AN": {
+              "15": "2021/Quicklook_20210707saam_355nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210707saam_355nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210707saam_355nm_AN_5km.webp"
+            },
+            "355nm_PC": {
+              "15": "2021/Quicklook_20210707saam_355nm_PC_15km.webp",
+              "30": "2021/Quicklook_20210707saam_355nm_PC_30km.webp",
+              "5": "2021/Quicklook_20210707saam_355nm_PC_5km.webp"
+            },
+            "532nm_AN": {
+              "15": "2021/Quicklook_20210707saam_532nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210707saam_532nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210707saam_532nm_AN_5km.webp"
+            },
+            "532nm_PC": {
+              "15": "2021/Quicklook_20210707saam_532nm_PC_15km.webp",
+              "30": "2021/Quicklook_20210707saam_532nm_PC_30km.webp",
+              "5": "2021/Quicklook_20210707saam_532nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "06"
+          ],
+          "label": "06–12",
+          "mean": "2021/GlobalMeanRCS_20210707saam.webp",
+          "retired": false
+        },
+        "night": {
+          "channels": {
+            "1064nm_AN": {
+              "15": "2021/Quicklook_20210707sant_1064nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210707sant_1064nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210707sant_1064nm_AN_5km.webp"
+            },
+            "355nm_AN": {
+              "15": "2021/Quicklook_20210707sant_355nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210707sant_355nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210707sant_355nm_AN_5km.webp"
+            },
+            "355nm_PC": {
+              "15": "2021/Quicklook_20210707sant_355nm_PC_15km.webp",
+              "30": "2021/Quicklook_20210707sant_355nm_PC_30km.webp",
+              "5": "2021/Quicklook_20210707sant_355nm_PC_5km.webp"
+            },
+            "532nm_AN": {
+              "15": "2021/Quicklook_20210707sant_532nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210707sant_532nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210707sant_532nm_AN_5km.webp"
+            },
+            "532nm_PC": {
+              "15": "2021/Quicklook_20210707sant_532nm_PC_15km.webp",
+              "30": "2021/Quicklook_20210707sant_532nm_PC_30km.webp",
+              "5": "2021/Quicklook_20210707sant_532nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "00",
+            "18"
+          ],
+          "label": "00–06 + 18–24",
+          "mean": "2021/GlobalMeanRCS_20210707sant.webp",
+          "retired": false
+        },
+        "pm": {
+          "channels": {
+            "1064nm_AN": {
+              "15": "2021/Quicklook_20210707sapm_1064nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210707sapm_1064nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210707sapm_1064nm_AN_5km.webp"
+            },
+            "355nm_AN": {
+              "15": "2021/Quicklook_20210707sapm_355nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210707sapm_355nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210707sapm_355nm_AN_5km.webp"
+            },
+            "355nm_PC": {
+              "15": "2021/Quicklook_20210707sapm_355nm_PC_15km.webp",
+              "30": "2021/Quicklook_20210707sapm_355nm_PC_30km.webp",
+              "5": "2021/Quicklook_20210707sapm_355nm_PC_5km.webp"
+            },
+            "532nm_AN": {
+              "15": "2021/Quicklook_20210707sapm_532nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210707sapm_532nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210707sapm_532nm_AN_5km.webp"
+            },
+            "532nm_PC": {
+              "15": "2021/Quicklook_20210707sapm_532nm_PC_15km.webp",
+              "30": "2021/Quicklook_20210707sapm_532nm_PC_30km.webp",
+              "5": "2021/Quicklook_20210707sapm_532nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "12"
+          ],
+          "label": "12–18",
+          "mean": "2021/GlobalMeanRCS_20210707sapm.webp",
+          "retired": false
+        }
+      }
+    },
+    "20210712": {
+      "canonical": {},
+      "historical": {
+        "am": {
+          "channels": {
+            "1064nm_AN": {
+              "15": "2021/Quicklook_20210712saam_1064nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210712saam_1064nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210712saam_1064nm_AN_5km.webp"
+            },
+            "355nm_AN": {
+              "15": "2021/Quicklook_20210712saam_355nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210712saam_355nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210712saam_355nm_AN_5km.webp"
+            },
+            "355nm_PC": {
+              "15": "2021/Quicklook_20210712saam_355nm_PC_15km.webp",
+              "30": "2021/Quicklook_20210712saam_355nm_PC_30km.webp",
+              "5": "2021/Quicklook_20210712saam_355nm_PC_5km.webp"
+            },
+            "532nm_AN": {
+              "15": "2021/Quicklook_20210712saam_532nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210712saam_532nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210712saam_532nm_AN_5km.webp"
+            },
+            "532nm_PC": {
+              "15": "2021/Quicklook_20210712saam_532nm_PC_15km.webp",
+              "30": "2021/Quicklook_20210712saam_532nm_PC_30km.webp",
+              "5": "2021/Quicklook_20210712saam_532nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "06"
+          ],
+          "label": "06–12",
+          "mean": "2021/GlobalMeanRCS_20210712saam.webp",
+          "retired": false
+        },
+        "night": {
+          "channels": {
+            "1064nm_AN": {
+              "15": "2021/Quicklook_20210712sant_1064nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210712sant_1064nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210712sant_1064nm_AN_5km.webp"
+            },
+            "355nm_AN": {
+              "15": "2021/Quicklook_20210712sant_355nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210712sant_355nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210712sant_355nm_AN_5km.webp"
+            },
+            "355nm_PC": {
+              "15": "2021/Quicklook_20210712sant_355nm_PC_15km.webp",
+              "30": "2021/Quicklook_20210712sant_355nm_PC_30km.webp",
+              "5": "2021/Quicklook_20210712sant_355nm_PC_5km.webp"
+            },
+            "532nm_AN": {
+              "15": "2021/Quicklook_20210712sant_532nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210712sant_532nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210712sant_532nm_AN_5km.webp"
+            },
+            "532nm_PC": {
+              "15": "2021/Quicklook_20210712sant_532nm_PC_15km.webp",
+              "30": "2021/Quicklook_20210712sant_532nm_PC_30km.webp",
+              "5": "2021/Quicklook_20210712sant_532nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "00",
+            "18"
+          ],
+          "label": "00–06 + 18–24",
+          "mean": "2021/GlobalMeanRCS_20210712sant.webp",
+          "retired": false
+        },
+        "pm": {
+          "channels": {
+            "1064nm_AN": {
+              "15": "2021/Quicklook_20210712sapm_1064nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210712sapm_1064nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210712sapm_1064nm_AN_5km.webp"
+            },
+            "355nm_AN": {
+              "15": "2021/Quicklook_20210712sapm_355nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210712sapm_355nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210712sapm_355nm_AN_5km.webp"
+            },
+            "355nm_PC": {
+              "15": "2021/Quicklook_20210712sapm_355nm_PC_15km.webp",
+              "30": "2021/Quicklook_20210712sapm_355nm_PC_30km.webp",
+              "5": "2021/Quicklook_20210712sapm_355nm_PC_5km.webp"
+            },
+            "532nm_AN": {
+              "15": "2021/Quicklook_20210712sapm_532nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210712sapm_532nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210712sapm_532nm_AN_5km.webp"
+            },
+            "532nm_PC": {
+              "15": "2021/Quicklook_20210712sapm_532nm_PC_15km.webp",
+              "30": "2021/Quicklook_20210712sapm_532nm_PC_30km.webp",
+              "5": "2021/Quicklook_20210712sapm_532nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "12"
+          ],
+          "label": "12–18",
+          "mean": "2021/GlobalMeanRCS_20210712sapm.webp",
+          "retired": false
+        }
+      }
+    },
+    "20210714": {
+      "canonical": {},
+      "historical": {
+        "am": {
+          "channels": {
+            "1064nm_AN": {
+              "15": "2021/Quicklook_20210714saam_1064nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210714saam_1064nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210714saam_1064nm_AN_5km.webp"
+            },
+            "355nm_AN": {
+              "15": "2021/Quicklook_20210714saam_355nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210714saam_355nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210714saam_355nm_AN_5km.webp"
+            },
+            "355nm_PC": {
+              "15": "2021/Quicklook_20210714saam_355nm_PC_15km.webp",
+              "30": "2021/Quicklook_20210714saam_355nm_PC_30km.webp",
+              "5": "2021/Quicklook_20210714saam_355nm_PC_5km.webp"
+            },
+            "532nm_AN": {
+              "15": "2021/Quicklook_20210714saam_532nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210714saam_532nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210714saam_532nm_AN_5km.webp"
+            },
+            "532nm_PC": {
+              "15": "2021/Quicklook_20210714saam_532nm_PC_15km.webp",
+              "30": "2021/Quicklook_20210714saam_532nm_PC_30km.webp",
+              "5": "2021/Quicklook_20210714saam_532nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "06"
+          ],
+          "label": "06–12",
+          "mean": "2021/GlobalMeanRCS_20210714saam.webp",
+          "retired": false
+        },
+        "pm": {
+          "channels": {
+            "1064nm_AN": {
+              "15": "2021/Quicklook_20210714sapm_1064nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210714sapm_1064nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210714sapm_1064nm_AN_5km.webp"
+            },
+            "355nm_AN": {
+              "15": "2021/Quicklook_20210714sapm_355nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210714sapm_355nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210714sapm_355nm_AN_5km.webp"
+            },
+            "355nm_PC": {
+              "15": "2021/Quicklook_20210714sapm_355nm_PC_15km.webp",
+              "30": "2021/Quicklook_20210714sapm_355nm_PC_30km.webp",
+              "5": "2021/Quicklook_20210714sapm_355nm_PC_5km.webp"
+            },
+            "532nm_AN": {
+              "15": "2021/Quicklook_20210714sapm_532nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210714sapm_532nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210714sapm_532nm_AN_5km.webp"
+            },
+            "532nm_PC": {
+              "15": "2021/Quicklook_20210714sapm_532nm_PC_15km.webp",
+              "30": "2021/Quicklook_20210714sapm_532nm_PC_30km.webp",
+              "5": "2021/Quicklook_20210714sapm_532nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "12"
+          ],
+          "label": "12–18",
+          "mean": "2021/GlobalMeanRCS_20210714sapm.webp",
+          "retired": false
+        }
+      }
+    },
+    "20210723": {
+      "canonical": {},
+      "historical": {
+        "am": {
+          "channels": {
+            "1064nm_AN": {
+              "15": "2021/Quicklook_20210723saam_1064nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210723saam_1064nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210723saam_1064nm_AN_5km.webp"
+            },
+            "355nm_AN": {
+              "15": "2021/Quicklook_20210723saam_355nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210723saam_355nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210723saam_355nm_AN_5km.webp"
+            },
+            "355nm_PC": {
+              "15": "2021/Quicklook_20210723saam_355nm_PC_15km.webp",
+              "30": "2021/Quicklook_20210723saam_355nm_PC_30km.webp",
+              "5": "2021/Quicklook_20210723saam_355nm_PC_5km.webp"
+            },
+            "532nm_AN": {
+              "15": "2021/Quicklook_20210723saam_532nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210723saam_532nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210723saam_532nm_AN_5km.webp"
+            },
+            "532nm_PC": {
+              "15": "2021/Quicklook_20210723saam_532nm_PC_15km.webp",
+              "30": "2021/Quicklook_20210723saam_532nm_PC_30km.webp",
+              "5": "2021/Quicklook_20210723saam_532nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "06"
+          ],
+          "label": "06–12",
+          "mean": "2021/GlobalMeanRCS_20210723saam.webp",
+          "retired": false
+        },
+        "pm": {
+          "channels": {
+            "1064nm_AN": {
+              "15": "2021/Quicklook_20210723sapm_1064nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210723sapm_1064nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210723sapm_1064nm_AN_5km.webp"
+            },
+            "355nm_AN": {
+              "15": "2021/Quicklook_20210723sapm_355nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210723sapm_355nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210723sapm_355nm_AN_5km.webp"
+            },
+            "355nm_PC": {
+              "15": "2021/Quicklook_20210723sapm_355nm_PC_15km.webp",
+              "30": "2021/Quicklook_20210723sapm_355nm_PC_30km.webp",
+              "5": "2021/Quicklook_20210723sapm_355nm_PC_5km.webp"
+            },
+            "532nm_AN": {
+              "15": "2021/Quicklook_20210723sapm_532nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210723sapm_532nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210723sapm_532nm_AN_5km.webp"
+            },
+            "532nm_PC": {
+              "15": "2021/Quicklook_20210723sapm_532nm_PC_15km.webp",
+              "30": "2021/Quicklook_20210723sapm_532nm_PC_30km.webp",
+              "5": "2021/Quicklook_20210723sapm_532nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "12"
+          ],
+          "label": "12–18",
+          "mean": "2021/GlobalMeanRCS_20210723sapm.webp",
+          "retired": false
+        }
+      }
+    },
+    "20210726": {
+      "canonical": {},
+      "historical": {
+        "am": {
+          "channels": {
+            "1064nm_AN": {
+              "15": "2021/Quicklook_20210726saam_1064nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210726saam_1064nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210726saam_1064nm_AN_5km.webp"
+            },
+            "355nm_AN": {
+              "15": "2021/Quicklook_20210726saam_355nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210726saam_355nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210726saam_355nm_AN_5km.webp"
+            },
+            "355nm_PC": {
+              "15": "2021/Quicklook_20210726saam_355nm_PC_15km.webp",
+              "30": "2021/Quicklook_20210726saam_355nm_PC_30km.webp",
+              "5": "2021/Quicklook_20210726saam_355nm_PC_5km.webp"
+            },
+            "532nm_AN": {
+              "15": "2021/Quicklook_20210726saam_532nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210726saam_532nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210726saam_532nm_AN_5km.webp"
+            },
+            "532nm_PC": {
+              "15": "2021/Quicklook_20210726saam_532nm_PC_15km.webp",
+              "30": "2021/Quicklook_20210726saam_532nm_PC_30km.webp",
+              "5": "2021/Quicklook_20210726saam_532nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "06"
+          ],
+          "label": "06–12",
+          "mean": "2021/GlobalMeanRCS_20210726saam.webp",
+          "retired": false
+        },
+        "night": {
+          "channels": {
+            "1064nm_AN": {
+              "15": "2021/Quicklook_20210726sant_1064nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210726sant_1064nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210726sant_1064nm_AN_5km.webp"
+            },
+            "355nm_AN": {
+              "15": "2021/Quicklook_20210726sant_355nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210726sant_355nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210726sant_355nm_AN_5km.webp"
+            },
+            "355nm_PC": {
+              "15": "2021/Quicklook_20210726sant_355nm_PC_15km.webp",
+              "30": "2021/Quicklook_20210726sant_355nm_PC_30km.webp",
+              "5": "2021/Quicklook_20210726sant_355nm_PC_5km.webp"
+            },
+            "532nm_AN": {
+              "15": "2021/Quicklook_20210726sant_532nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210726sant_532nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210726sant_532nm_AN_5km.webp"
+            },
+            "532nm_PC": {
+              "15": "2021/Quicklook_20210726sant_532nm_PC_15km.webp",
+              "30": "2021/Quicklook_20210726sant_532nm_PC_30km.webp",
+              "5": "2021/Quicklook_20210726sant_532nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "00",
+            "18"
+          ],
+          "label": "00–06 + 18–24",
+          "mean": "2021/GlobalMeanRCS_20210726sant.webp",
+          "retired": false
+        },
+        "pm": {
+          "channels": {
+            "1064nm_AN": {
+              "15": "2021/Quicklook_20210726sapm_1064nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210726sapm_1064nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210726sapm_1064nm_AN_5km.webp"
+            },
+            "355nm_AN": {
+              "15": "2021/Quicklook_20210726sapm_355nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210726sapm_355nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210726sapm_355nm_AN_5km.webp"
+            },
+            "355nm_PC": {
+              "15": "2021/Quicklook_20210726sapm_355nm_PC_15km.webp",
+              "30": "2021/Quicklook_20210726sapm_355nm_PC_30km.webp",
+              "5": "2021/Quicklook_20210726sapm_355nm_PC_5km.webp"
+            },
+            "532nm_AN": {
+              "15": "2021/Quicklook_20210726sapm_532nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210726sapm_532nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210726sapm_532nm_AN_5km.webp"
+            },
+            "532nm_PC": {
+              "15": "2021/Quicklook_20210726sapm_532nm_PC_15km.webp",
+              "30": "2021/Quicklook_20210726sapm_532nm_PC_30km.webp",
+              "5": "2021/Quicklook_20210726sapm_532nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "12"
+          ],
+          "label": "12–18",
+          "mean": "2021/GlobalMeanRCS_20210726sapm.webp",
+          "retired": false
+        }
+      }
+    },
+    "20210809": {
+      "canonical": {},
+      "historical": {
+        "am": {
+          "channels": {
+            "1064nm_AN": {
+              "15": "2021/Quicklook_20210809saam_1064nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210809saam_1064nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210809saam_1064nm_AN_5km.webp"
+            },
+            "355nm_AN": {
+              "15": "2021/Quicklook_20210809saam_355nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210809saam_355nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210809saam_355nm_AN_5km.webp"
+            },
+            "355nm_PC": {
+              "15": "2021/Quicklook_20210809saam_355nm_PC_15km.webp",
+              "30": "2021/Quicklook_20210809saam_355nm_PC_30km.webp",
+              "5": "2021/Quicklook_20210809saam_355nm_PC_5km.webp"
+            },
+            "532nm_AN": {
+              "15": "2021/Quicklook_20210809saam_532nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210809saam_532nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210809saam_532nm_AN_5km.webp"
+            },
+            "532nm_PC": {
+              "15": "2021/Quicklook_20210809saam_532nm_PC_15km.webp",
+              "30": "2021/Quicklook_20210809saam_532nm_PC_30km.webp",
+              "5": "2021/Quicklook_20210809saam_532nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "06"
+          ],
+          "label": "06–12",
+          "mean": "2021/GlobalMeanRCS_20210809saam.webp",
+          "retired": false
+        },
+        "night": {
+          "channels": {
+            "1064nm_AN": {
+              "15": "2021/Quicklook_20210809sant_1064nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210809sant_1064nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210809sant_1064nm_AN_5km.webp"
+            },
+            "355nm_AN": {
+              "15": "2021/Quicklook_20210809sant_355nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210809sant_355nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210809sant_355nm_AN_5km.webp"
+            },
+            "355nm_PC": {
+              "15": "2021/Quicklook_20210809sant_355nm_PC_15km.webp",
+              "30": "2021/Quicklook_20210809sant_355nm_PC_30km.webp",
+              "5": "2021/Quicklook_20210809sant_355nm_PC_5km.webp"
+            },
+            "532nm_AN": {
+              "15": "2021/Quicklook_20210809sant_532nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210809sant_532nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210809sant_532nm_AN_5km.webp"
+            },
+            "532nm_PC": {
+              "15": "2021/Quicklook_20210809sant_532nm_PC_15km.webp",
+              "30": "2021/Quicklook_20210809sant_532nm_PC_30km.webp",
+              "5": "2021/Quicklook_20210809sant_532nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "00",
+            "18"
+          ],
+          "label": "00–06 + 18–24",
+          "mean": "2021/GlobalMeanRCS_20210809sant.webp",
+          "retired": false
+        },
+        "pm": {
+          "channels": {
+            "1064nm_AN": {
+              "15": "2021/Quicklook_20210809sapm_1064nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210809sapm_1064nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210809sapm_1064nm_AN_5km.webp"
+            },
+            "355nm_AN": {
+              "15": "2021/Quicklook_20210809sapm_355nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210809sapm_355nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210809sapm_355nm_AN_5km.webp"
+            },
+            "355nm_PC": {
+              "15": "2021/Quicklook_20210809sapm_355nm_PC_15km.webp",
+              "30": "2021/Quicklook_20210809sapm_355nm_PC_30km.webp",
+              "5": "2021/Quicklook_20210809sapm_355nm_PC_5km.webp"
+            },
+            "532nm_AN": {
+              "15": "2021/Quicklook_20210809sapm_532nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210809sapm_532nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210809sapm_532nm_AN_5km.webp"
+            },
+            "532nm_PC": {
+              "15": "2021/Quicklook_20210809sapm_532nm_PC_15km.webp",
+              "30": "2021/Quicklook_20210809sapm_532nm_PC_30km.webp",
+              "5": "2021/Quicklook_20210809sapm_532nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "12"
+          ],
+          "label": "12–18",
+          "mean": "2021/GlobalMeanRCS_20210809sapm.webp",
+          "retired": false
+        }
+      }
+    },
+    "20210811": {
+      "canonical": {},
+      "historical": {
+        "am": {
+          "channels": {
+            "1064nm_AN": {
+              "15": "2021/Quicklook_20210811saam_1064nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210811saam_1064nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210811saam_1064nm_AN_5km.webp"
+            },
+            "355nm_AN": {
+              "15": "2021/Quicklook_20210811saam_355nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210811saam_355nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210811saam_355nm_AN_5km.webp"
+            },
+            "355nm_PC": {
+              "15": "2021/Quicklook_20210811saam_355nm_PC_15km.webp",
+              "30": "2021/Quicklook_20210811saam_355nm_PC_30km.webp",
+              "5": "2021/Quicklook_20210811saam_355nm_PC_5km.webp"
+            },
+            "532nm_AN": {
+              "15": "2021/Quicklook_20210811saam_532nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210811saam_532nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210811saam_532nm_AN_5km.webp"
+            },
+            "532nm_PC": {
+              "15": "2021/Quicklook_20210811saam_532nm_PC_15km.webp",
+              "30": "2021/Quicklook_20210811saam_532nm_PC_30km.webp",
+              "5": "2021/Quicklook_20210811saam_532nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "06"
+          ],
+          "label": "06–12",
+          "mean": "2021/GlobalMeanRCS_20210811saam.webp",
+          "retired": false
+        },
+        "pm": {
+          "channels": {
+            "1064nm_AN": {
+              "15": "2021/Quicklook_20210811sapm_1064nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210811sapm_1064nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210811sapm_1064nm_AN_5km.webp"
+            },
+            "355nm_AN": {
+              "15": "2021/Quicklook_20210811sapm_355nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210811sapm_355nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210811sapm_355nm_AN_5km.webp"
+            },
+            "355nm_PC": {
+              "15": "2021/Quicklook_20210811sapm_355nm_PC_15km.webp",
+              "30": "2021/Quicklook_20210811sapm_355nm_PC_30km.webp",
+              "5": "2021/Quicklook_20210811sapm_355nm_PC_5km.webp"
+            },
+            "532nm_AN": {
+              "15": "2021/Quicklook_20210811sapm_532nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210811sapm_532nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210811sapm_532nm_AN_5km.webp"
+            },
+            "532nm_PC": {
+              "15": "2021/Quicklook_20210811sapm_532nm_PC_15km.webp",
+              "30": "2021/Quicklook_20210811sapm_532nm_PC_30km.webp",
+              "5": "2021/Quicklook_20210811sapm_532nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "12"
+          ],
+          "label": "12–18",
+          "mean": "2021/GlobalMeanRCS_20210811sapm.webp",
+          "retired": false
+        }
+      }
+    },
+    "20210820": {
+      "canonical": {},
+      "historical": {
+        "am": {
+          "channels": {
+            "1064nm_AN": {
+              "15": "2021/Quicklook_20210820saam_1064nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210820saam_1064nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210820saam_1064nm_AN_5km.webp"
+            },
+            "355nm_AN": {
+              "15": "2021/Quicklook_20210820saam_355nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210820saam_355nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210820saam_355nm_AN_5km.webp"
+            },
+            "355nm_PC": {
+              "15": "2021/Quicklook_20210820saam_355nm_PC_15km.webp",
+              "30": "2021/Quicklook_20210820saam_355nm_PC_30km.webp",
+              "5": "2021/Quicklook_20210820saam_355nm_PC_5km.webp"
+            },
+            "532nm_AN": {
+              "15": "2021/Quicklook_20210820saam_532nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210820saam_532nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210820saam_532nm_AN_5km.webp"
+            },
+            "532nm_PC": {
+              "15": "2021/Quicklook_20210820saam_532nm_PC_15km.webp",
+              "30": "2021/Quicklook_20210820saam_532nm_PC_30km.webp",
+              "5": "2021/Quicklook_20210820saam_532nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "06"
+          ],
+          "label": "06–12",
+          "mean": "2021/GlobalMeanRCS_20210820saam.webp",
+          "retired": false
+        },
+        "night": {
+          "channels": {
+            "1064nm_AN": {
+              "15": "2021/Quicklook_20210820sant_1064nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210820sant_1064nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210820sant_1064nm_AN_5km.webp"
+            },
+            "355nm_AN": {
+              "15": "2021/Quicklook_20210820sant_355nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210820sant_355nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210820sant_355nm_AN_5km.webp"
+            },
+            "355nm_PC": {
+              "15": "2021/Quicklook_20210820sant_355nm_PC_15km.webp",
+              "30": "2021/Quicklook_20210820sant_355nm_PC_30km.webp",
+              "5": "2021/Quicklook_20210820sant_355nm_PC_5km.webp"
+            },
+            "532nm_AN": {
+              "15": "2021/Quicklook_20210820sant_532nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210820sant_532nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210820sant_532nm_AN_5km.webp"
+            },
+            "532nm_PC": {
+              "15": "2021/Quicklook_20210820sant_532nm_PC_15km.webp",
+              "30": "2021/Quicklook_20210820sant_532nm_PC_30km.webp",
+              "5": "2021/Quicklook_20210820sant_532nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "00",
+            "18"
+          ],
+          "label": "00–06 + 18–24",
+          "mean": "2021/GlobalMeanRCS_20210820sant.webp",
+          "retired": false
+        },
+        "pm": {
+          "channels": {
+            "1064nm_AN": {
+              "15": "2021/Quicklook_20210820sapm_1064nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210820sapm_1064nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210820sapm_1064nm_AN_5km.webp"
+            },
+            "355nm_AN": {
+              "15": "2021/Quicklook_20210820sapm_355nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210820sapm_355nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210820sapm_355nm_AN_5km.webp"
+            },
+            "355nm_PC": {
+              "15": "2021/Quicklook_20210820sapm_355nm_PC_15km.webp",
+              "30": "2021/Quicklook_20210820sapm_355nm_PC_30km.webp",
+              "5": "2021/Quicklook_20210820sapm_355nm_PC_5km.webp"
+            },
+            "532nm_AN": {
+              "15": "2021/Quicklook_20210820sapm_532nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210820sapm_532nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210820sapm_532nm_AN_5km.webp"
+            },
+            "532nm_PC": {
+              "15": "2021/Quicklook_20210820sapm_532nm_PC_15km.webp",
+              "30": "2021/Quicklook_20210820sapm_532nm_PC_30km.webp",
+              "5": "2021/Quicklook_20210820sapm_532nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "12"
+          ],
+          "label": "12–18",
+          "mean": "2021/GlobalMeanRCS_20210820sapm.webp",
+          "retired": false
+        }
+      }
+    },
+    "20210901": {
+      "canonical": {},
+      "historical": {
+        "am": {
+          "channels": {
+            "1064nm_AN": {
+              "15": "2021/Quicklook_20210901saam_1064nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210901saam_1064nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210901saam_1064nm_AN_5km.webp"
+            },
+            "355nm_AN": {
+              "15": "2021/Quicklook_20210901saam_355nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210901saam_355nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210901saam_355nm_AN_5km.webp"
+            },
+            "355nm_PC": {
+              "15": "2021/Quicklook_20210901saam_355nm_PC_15km.webp",
+              "30": "2021/Quicklook_20210901saam_355nm_PC_30km.webp",
+              "5": "2021/Quicklook_20210901saam_355nm_PC_5km.webp"
+            },
+            "532nm_AN": {
+              "15": "2021/Quicklook_20210901saam_532nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210901saam_532nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210901saam_532nm_AN_5km.webp"
+            },
+            "532nm_PC": {
+              "15": "2021/Quicklook_20210901saam_532nm_PC_15km.webp",
+              "30": "2021/Quicklook_20210901saam_532nm_PC_30km.webp",
+              "5": "2021/Quicklook_20210901saam_532nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "06"
+          ],
+          "label": "06–12",
+          "mean": "2021/GlobalMeanRCS_20210901saam.webp",
+          "retired": false
+        },
+        "night": {
+          "channels": {
+            "1064nm_AN": {
+              "15": "2021/Quicklook_20210901sant_1064nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210901sant_1064nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210901sant_1064nm_AN_5km.webp"
+            },
+            "355nm_AN": {
+              "15": "2021/Quicklook_20210901sant_355nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210901sant_355nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210901sant_355nm_AN_5km.webp"
+            },
+            "355nm_PC": {
+              "15": "2021/Quicklook_20210901sant_355nm_PC_15km.webp",
+              "30": "2021/Quicklook_20210901sant_355nm_PC_30km.webp",
+              "5": "2021/Quicklook_20210901sant_355nm_PC_5km.webp"
+            },
+            "532nm_AN": {
+              "15": "2021/Quicklook_20210901sant_532nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210901sant_532nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210901sant_532nm_AN_5km.webp"
+            },
+            "532nm_PC": {
+              "15": "2021/Quicklook_20210901sant_532nm_PC_15km.webp",
+              "30": "2021/Quicklook_20210901sant_532nm_PC_30km.webp",
+              "5": "2021/Quicklook_20210901sant_532nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "00",
+            "18"
+          ],
+          "label": "00–06 + 18–24",
+          "mean": "2021/GlobalMeanRCS_20210901sant.webp",
+          "retired": false
+        },
+        "pm": {
+          "channels": {
+            "1064nm_AN": {
+              "15": "2021/Quicklook_20210901sapm_1064nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210901sapm_1064nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210901sapm_1064nm_AN_5km.webp"
+            },
+            "355nm_AN": {
+              "15": "2021/Quicklook_20210901sapm_355nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210901sapm_355nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210901sapm_355nm_AN_5km.webp"
+            },
+            "355nm_PC": {
+              "15": "2021/Quicklook_20210901sapm_355nm_PC_15km.webp",
+              "30": "2021/Quicklook_20210901sapm_355nm_PC_30km.webp",
+              "5": "2021/Quicklook_20210901sapm_355nm_PC_5km.webp"
+            },
+            "532nm_AN": {
+              "15": "2021/Quicklook_20210901sapm_532nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210901sapm_532nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210901sapm_532nm_AN_5km.webp"
+            },
+            "532nm_PC": {
+              "15": "2021/Quicklook_20210901sapm_532nm_PC_15km.webp",
+              "30": "2021/Quicklook_20210901sapm_532nm_PC_30km.webp",
+              "5": "2021/Quicklook_20210901sapm_532nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "12"
+          ],
+          "label": "12–18",
+          "mean": "2021/GlobalMeanRCS_20210901sapm.webp",
+          "retired": false
+        }
+      }
+    },
+    "20210903": {
+      "canonical": {},
+      "historical": {
+        "am": {
+          "channels": {
+            "1064nm_AN": {
+              "15": "2021/Quicklook_20210903saam_1064nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210903saam_1064nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210903saam_1064nm_AN_5km.webp"
+            },
+            "355nm_AN": {
+              "15": "2021/Quicklook_20210903saam_355nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210903saam_355nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210903saam_355nm_AN_5km.webp"
+            },
+            "355nm_PC": {
+              "15": "2021/Quicklook_20210903saam_355nm_PC_15km.webp",
+              "30": "2021/Quicklook_20210903saam_355nm_PC_30km.webp",
+              "5": "2021/Quicklook_20210903saam_355nm_PC_5km.webp"
+            },
+            "532nm_AN": {
+              "15": "2021/Quicklook_20210903saam_532nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210903saam_532nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210903saam_532nm_AN_5km.webp"
+            },
+            "532nm_PC": {
+              "15": "2021/Quicklook_20210903saam_532nm_PC_15km.webp",
+              "30": "2021/Quicklook_20210903saam_532nm_PC_30km.webp",
+              "5": "2021/Quicklook_20210903saam_532nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "06"
+          ],
+          "label": "06–12",
+          "mean": "2021/GlobalMeanRCS_20210903saam.webp",
+          "retired": false
+        },
+        "pm": {
+          "channels": {
+            "1064nm_AN": {
+              "15": "2021/Quicklook_20210903sapm_1064nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210903sapm_1064nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210903sapm_1064nm_AN_5km.webp"
+            },
+            "355nm_AN": {
+              "15": "2021/Quicklook_20210903sapm_355nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210903sapm_355nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210903sapm_355nm_AN_5km.webp"
+            },
+            "355nm_PC": {
+              "15": "2021/Quicklook_20210903sapm_355nm_PC_15km.webp",
+              "30": "2021/Quicklook_20210903sapm_355nm_PC_30km.webp",
+              "5": "2021/Quicklook_20210903sapm_355nm_PC_5km.webp"
+            },
+            "532nm_AN": {
+              "15": "2021/Quicklook_20210903sapm_532nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210903sapm_532nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210903sapm_532nm_AN_5km.webp"
+            },
+            "532nm_PC": {
+              "15": "2021/Quicklook_20210903sapm_532nm_PC_15km.webp",
+              "30": "2021/Quicklook_20210903sapm_532nm_PC_30km.webp",
+              "5": "2021/Quicklook_20210903sapm_532nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "12"
+          ],
+          "label": "12–18",
+          "mean": "2021/GlobalMeanRCS_20210903sapm.webp",
+          "retired": false
+        }
+      }
+    },
+    "20210908": {
+      "canonical": {},
+      "historical": {
+        "am": {
+          "channels": {
+            "1064nm_AN": {
+              "15": "2021/Quicklook_20210908saam_1064nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210908saam_1064nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210908saam_1064nm_AN_5km.webp"
+            },
+            "355nm_AN": {
+              "15": "2021/Quicklook_20210908saam_355nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210908saam_355nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210908saam_355nm_AN_5km.webp"
+            },
+            "355nm_PC": {
+              "15": "2021/Quicklook_20210908saam_355nm_PC_15km.webp",
+              "30": "2021/Quicklook_20210908saam_355nm_PC_30km.webp",
+              "5": "2021/Quicklook_20210908saam_355nm_PC_5km.webp"
+            },
+            "532nm_AN": {
+              "15": "2021/Quicklook_20210908saam_532nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210908saam_532nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210908saam_532nm_AN_5km.webp"
+            },
+            "532nm_PC": {
+              "15": "2021/Quicklook_20210908saam_532nm_PC_15km.webp",
+              "30": "2021/Quicklook_20210908saam_532nm_PC_30km.webp",
+              "5": "2021/Quicklook_20210908saam_532nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "06"
+          ],
+          "label": "06–12",
+          "mean": "2021/GlobalMeanRCS_20210908saam.webp",
+          "retired": false
+        },
+        "pm": {
+          "channels": {
+            "1064nm_AN": {
+              "15": "2021/Quicklook_20210908sapm_1064nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210908sapm_1064nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210908sapm_1064nm_AN_5km.webp"
+            },
+            "355nm_AN": {
+              "15": "2021/Quicklook_20210908sapm_355nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210908sapm_355nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210908sapm_355nm_AN_5km.webp"
+            },
+            "355nm_PC": {
+              "15": "2021/Quicklook_20210908sapm_355nm_PC_15km.webp",
+              "30": "2021/Quicklook_20210908sapm_355nm_PC_30km.webp",
+              "5": "2021/Quicklook_20210908sapm_355nm_PC_5km.webp"
+            },
+            "532nm_AN": {
+              "15": "2021/Quicklook_20210908sapm_532nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210908sapm_532nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210908sapm_532nm_AN_5km.webp"
+            },
+            "532nm_PC": {
+              "15": "2021/Quicklook_20210908sapm_532nm_PC_15km.webp",
+              "30": "2021/Quicklook_20210908sapm_532nm_PC_30km.webp",
+              "5": "2021/Quicklook_20210908sapm_532nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "12"
+          ],
+          "label": "12–18",
+          "mean": "2021/GlobalMeanRCS_20210908sapm.webp",
+          "retired": false
+        }
+      }
+    },
+    "20210913": {
+      "canonical": {},
+      "historical": {
+        "am": {
+          "channels": {
+            "1064nm_AN": {
+              "15": "2021/Quicklook_20210913saam_1064nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210913saam_1064nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210913saam_1064nm_AN_5km.webp"
+            },
+            "355nm_AN": {
+              "15": "2021/Quicklook_20210913saam_355nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210913saam_355nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210913saam_355nm_AN_5km.webp"
+            },
+            "355nm_PC": {
+              "15": "2021/Quicklook_20210913saam_355nm_PC_15km.webp",
+              "30": "2021/Quicklook_20210913saam_355nm_PC_30km.webp",
+              "5": "2021/Quicklook_20210913saam_355nm_PC_5km.webp"
+            },
+            "532nm_AN": {
+              "15": "2021/Quicklook_20210913saam_532nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210913saam_532nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210913saam_532nm_AN_5km.webp"
+            },
+            "532nm_PC": {
+              "15": "2021/Quicklook_20210913saam_532nm_PC_15km.webp",
+              "30": "2021/Quicklook_20210913saam_532nm_PC_30km.webp",
+              "5": "2021/Quicklook_20210913saam_532nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "06"
+          ],
+          "label": "06–12",
+          "mean": "2021/GlobalMeanRCS_20210913saam.webp",
+          "retired": false
+        },
+        "pm": {
+          "channels": {
+            "1064nm_AN": {
+              "15": "2021/Quicklook_20210913sapm_1064nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210913sapm_1064nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210913sapm_1064nm_AN_5km.webp"
+            },
+            "355nm_AN": {
+              "15": "2021/Quicklook_20210913sapm_355nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210913sapm_355nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210913sapm_355nm_AN_5km.webp"
+            },
+            "355nm_PC": {
+              "15": "2021/Quicklook_20210913sapm_355nm_PC_15km.webp",
+              "30": "2021/Quicklook_20210913sapm_355nm_PC_30km.webp",
+              "5": "2021/Quicklook_20210913sapm_355nm_PC_5km.webp"
+            },
+            "532nm_AN": {
+              "15": "2021/Quicklook_20210913sapm_532nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210913sapm_532nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210913sapm_532nm_AN_5km.webp"
+            },
+            "532nm_PC": {
+              "15": "2021/Quicklook_20210913sapm_532nm_PC_15km.webp",
+              "30": "2021/Quicklook_20210913sapm_532nm_PC_30km.webp",
+              "5": "2021/Quicklook_20210913sapm_532nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "12"
+          ],
+          "label": "12–18",
+          "mean": "2021/GlobalMeanRCS_20210913sapm.webp",
+          "retired": false
+        }
+      }
+    },
+    "20210914": {
+      "canonical": {},
+      "historical": {
+        "am": {
+          "channels": {
+            "1064nm_AN": {
+              "15": "2021/Quicklook_20210914saam_1064nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210914saam_1064nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210914saam_1064nm_AN_5km.webp"
+            },
+            "355nm_AN": {
+              "15": "2021/Quicklook_20210914saam_355nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210914saam_355nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210914saam_355nm_AN_5km.webp"
+            },
+            "355nm_PC": {
+              "15": "2021/Quicklook_20210914saam_355nm_PC_15km.webp",
+              "30": "2021/Quicklook_20210914saam_355nm_PC_30km.webp",
+              "5": "2021/Quicklook_20210914saam_355nm_PC_5km.webp"
+            },
+            "532nm_AN": {
+              "15": "2021/Quicklook_20210914saam_532nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210914saam_532nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210914saam_532nm_AN_5km.webp"
+            },
+            "532nm_PC": {
+              "15": "2021/Quicklook_20210914saam_532nm_PC_15km.webp",
+              "30": "2021/Quicklook_20210914saam_532nm_PC_30km.webp",
+              "5": "2021/Quicklook_20210914saam_532nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "06"
+          ],
+          "label": "06–12",
+          "mean": "2021/GlobalMeanRCS_20210914saam.webp",
+          "retired": false
+        },
+        "pm": {
+          "channels": {
+            "1064nm_AN": {
+              "15": "2021/Quicklook_20210914sapm_1064nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210914sapm_1064nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210914sapm_1064nm_AN_5km.webp"
+            },
+            "355nm_AN": {
+              "15": "2021/Quicklook_20210914sapm_355nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210914sapm_355nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210914sapm_355nm_AN_5km.webp"
+            },
+            "355nm_PC": {
+              "15": "2021/Quicklook_20210914sapm_355nm_PC_15km.webp",
+              "30": "2021/Quicklook_20210914sapm_355nm_PC_30km.webp",
+              "5": "2021/Quicklook_20210914sapm_355nm_PC_5km.webp"
+            },
+            "532nm_AN": {
+              "15": "2021/Quicklook_20210914sapm_532nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210914sapm_532nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210914sapm_532nm_AN_5km.webp"
+            },
+            "532nm_PC": {
+              "15": "2021/Quicklook_20210914sapm_532nm_PC_15km.webp",
+              "30": "2021/Quicklook_20210914sapm_532nm_PC_30km.webp",
+              "5": "2021/Quicklook_20210914sapm_532nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "12"
+          ],
+          "label": "12–18",
+          "mean": "2021/GlobalMeanRCS_20210914sapm.webp",
+          "retired": false
+        }
+      }
+    },
+    "20210920": {
+      "canonical": {},
+      "historical": {
+        "am": {
+          "channels": {
+            "1064nm_AN": {
+              "15": "2021/Quicklook_20210920saam_1064nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210920saam_1064nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210920saam_1064nm_AN_5km.webp"
+            },
+            "355nm_AN": {
+              "15": "2021/Quicklook_20210920saam_355nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210920saam_355nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210920saam_355nm_AN_5km.webp"
+            },
+            "355nm_PC": {
+              "15": "2021/Quicklook_20210920saam_355nm_PC_15km.webp",
+              "30": "2021/Quicklook_20210920saam_355nm_PC_30km.webp",
+              "5": "2021/Quicklook_20210920saam_355nm_PC_5km.webp"
+            },
+            "532nm_AN": {
+              "15": "2021/Quicklook_20210920saam_532nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210920saam_532nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210920saam_532nm_AN_5km.webp"
+            },
+            "532nm_PC": {
+              "15": "2021/Quicklook_20210920saam_532nm_PC_15km.webp",
+              "30": "2021/Quicklook_20210920saam_532nm_PC_30km.webp",
+              "5": "2021/Quicklook_20210920saam_532nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "06"
+          ],
+          "label": "06–12",
+          "mean": "2021/GlobalMeanRCS_20210920saam.webp",
+          "retired": false
+        },
+        "pm": {
+          "channels": {
+            "1064nm_AN": {
+              "15": "2021/Quicklook_20210920sapm_1064nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210920sapm_1064nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210920sapm_1064nm_AN_5km.webp"
+            },
+            "355nm_AN": {
+              "15": "2021/Quicklook_20210920sapm_355nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210920sapm_355nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210920sapm_355nm_AN_5km.webp"
+            },
+            "355nm_PC": {
+              "15": "2021/Quicklook_20210920sapm_355nm_PC_15km.webp",
+              "30": "2021/Quicklook_20210920sapm_355nm_PC_30km.webp",
+              "5": "2021/Quicklook_20210920sapm_355nm_PC_5km.webp"
+            },
+            "532nm_AN": {
+              "15": "2021/Quicklook_20210920sapm_532nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210920sapm_532nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210920sapm_532nm_AN_5km.webp"
+            },
+            "532nm_PC": {
+              "15": "2021/Quicklook_20210920sapm_532nm_PC_15km.webp",
+              "30": "2021/Quicklook_20210920sapm_532nm_PC_30km.webp",
+              "5": "2021/Quicklook_20210920sapm_532nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "12"
+          ],
+          "label": "12–18",
+          "mean": "2021/GlobalMeanRCS_20210920sapm.webp",
+          "retired": false
+        }
+      }
+    },
+    "20210924": {
+      "canonical": {},
+      "historical": {
+        "am": {
+          "channels": {
+            "1064nm_AN": {
+              "15": "2021/Quicklook_20210924saam_1064nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210924saam_1064nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210924saam_1064nm_AN_5km.webp"
+            },
+            "355nm_AN": {
+              "15": "2021/Quicklook_20210924saam_355nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210924saam_355nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210924saam_355nm_AN_5km.webp"
+            },
+            "355nm_PC": {
+              "15": "2021/Quicklook_20210924saam_355nm_PC_15km.webp",
+              "30": "2021/Quicklook_20210924saam_355nm_PC_30km.webp",
+              "5": "2021/Quicklook_20210924saam_355nm_PC_5km.webp"
+            },
+            "532nm_AN": {
+              "15": "2021/Quicklook_20210924saam_532nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210924saam_532nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210924saam_532nm_AN_5km.webp"
+            },
+            "532nm_PC": {
+              "15": "2021/Quicklook_20210924saam_532nm_PC_15km.webp",
+              "30": "2021/Quicklook_20210924saam_532nm_PC_30km.webp",
+              "5": "2021/Quicklook_20210924saam_532nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "06"
+          ],
+          "label": "06–12",
+          "mean": "2021/GlobalMeanRCS_20210924saam.webp",
+          "retired": false
+        },
+        "pm": {
+          "channels": {
+            "1064nm_AN": {
+              "15": "2021/Quicklook_20210924sapm_1064nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210924sapm_1064nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210924sapm_1064nm_AN_5km.webp"
+            },
+            "355nm_AN": {
+              "15": "2021/Quicklook_20210924sapm_355nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210924sapm_355nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210924sapm_355nm_AN_5km.webp"
+            },
+            "355nm_PC": {
+              "15": "2021/Quicklook_20210924sapm_355nm_PC_15km.webp",
+              "30": "2021/Quicklook_20210924sapm_355nm_PC_30km.webp",
+              "5": "2021/Quicklook_20210924sapm_355nm_PC_5km.webp"
+            },
+            "532nm_AN": {
+              "15": "2021/Quicklook_20210924sapm_532nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210924sapm_532nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210924sapm_532nm_AN_5km.webp"
+            },
+            "532nm_PC": {
+              "15": "2021/Quicklook_20210924sapm_532nm_PC_15km.webp",
+              "30": "2021/Quicklook_20210924sapm_532nm_PC_30km.webp",
+              "5": "2021/Quicklook_20210924sapm_532nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "12"
+          ],
+          "label": "12–18",
+          "mean": "2021/GlobalMeanRCS_20210924sapm.webp",
+          "retired": false
+        }
+      }
+    },
+    "20210927": {
+      "canonical": {},
+      "historical": {
+        "am": {
+          "channels": {
+            "1064nm_AN": {
+              "15": "2021/Quicklook_20210927saam_1064nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210927saam_1064nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210927saam_1064nm_AN_5km.webp"
+            },
+            "355nm_AN": {
+              "15": "2021/Quicklook_20210927saam_355nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210927saam_355nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210927saam_355nm_AN_5km.webp"
+            },
+            "355nm_PC": {
+              "15": "2021/Quicklook_20210927saam_355nm_PC_15km.webp",
+              "30": "2021/Quicklook_20210927saam_355nm_PC_30km.webp",
+              "5": "2021/Quicklook_20210927saam_355nm_PC_5km.webp"
+            },
+            "532nm_AN": {
+              "15": "2021/Quicklook_20210927saam_532nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210927saam_532nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210927saam_532nm_AN_5km.webp"
+            },
+            "532nm_PC": {
+              "15": "2021/Quicklook_20210927saam_532nm_PC_15km.webp",
+              "30": "2021/Quicklook_20210927saam_532nm_PC_30km.webp",
+              "5": "2021/Quicklook_20210927saam_532nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "06"
+          ],
+          "label": "06–12",
+          "mean": "2021/GlobalMeanRCS_20210927saam.webp",
+          "retired": false
+        },
+        "pm": {
+          "channels": {
+            "1064nm_AN": {
+              "15": "2021/Quicklook_20210927sapm_1064nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210927sapm_1064nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210927sapm_1064nm_AN_5km.webp"
+            },
+            "355nm_AN": {
+              "15": "2021/Quicklook_20210927sapm_355nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210927sapm_355nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210927sapm_355nm_AN_5km.webp"
+            },
+            "355nm_PC": {
+              "15": "2021/Quicklook_20210927sapm_355nm_PC_15km.webp",
+              "30": "2021/Quicklook_20210927sapm_355nm_PC_30km.webp",
+              "5": "2021/Quicklook_20210927sapm_355nm_PC_5km.webp"
+            },
+            "532nm_AN": {
+              "15": "2021/Quicklook_20210927sapm_532nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210927sapm_532nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210927sapm_532nm_AN_5km.webp"
+            },
+            "532nm_PC": {
+              "15": "2021/Quicklook_20210927sapm_532nm_PC_15km.webp",
+              "30": "2021/Quicklook_20210927sapm_532nm_PC_30km.webp",
+              "5": "2021/Quicklook_20210927sapm_532nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "12"
+          ],
+          "label": "12–18",
+          "mean": "2021/GlobalMeanRCS_20210927sapm.webp",
+          "retired": false
+        }
+      }
+    },
+    "20210928": {
+      "canonical": {},
+      "historical": {
+        "night": {
+          "channels": {
+            "1064nm_AN": {
+              "15": "2021/Quicklook_20210928sant_1064nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210928sant_1064nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210928sant_1064nm_AN_5km.webp"
+            },
+            "355nm_AN": {
+              "15": "2021/Quicklook_20210928sant_355nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210928sant_355nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210928sant_355nm_AN_5km.webp"
+            },
+            "355nm_PC": {
+              "15": "2021/Quicklook_20210928sant_355nm_PC_15km.webp",
+              "30": "2021/Quicklook_20210928sant_355nm_PC_30km.webp",
+              "5": "2021/Quicklook_20210928sant_355nm_PC_5km.webp"
+            },
+            "532nm_AN": {
+              "15": "2021/Quicklook_20210928sant_532nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210928sant_532nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210928sant_532nm_AN_5km.webp"
+            },
+            "532nm_PC": {
+              "15": "2021/Quicklook_20210928sant_532nm_PC_15km.webp",
+              "30": "2021/Quicklook_20210928sant_532nm_PC_30km.webp",
+              "5": "2021/Quicklook_20210928sant_532nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "00",
+            "18"
+          ],
+          "label": "00–06 + 18–24",
+          "mean": "2021/GlobalMeanRCS_20210928sant.webp",
+          "retired": false
+        },
+        "pm": {
+          "channels": {
+            "1064nm_AN": {
+              "15": "2021/Quicklook_20210928sapm_1064nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210928sapm_1064nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210928sapm_1064nm_AN_5km.webp"
+            },
+            "355nm_AN": {
+              "15": "2021/Quicklook_20210928sapm_355nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210928sapm_355nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210928sapm_355nm_AN_5km.webp"
+            },
+            "355nm_PC": {
+              "15": "2021/Quicklook_20210928sapm_355nm_PC_15km.webp",
+              "30": "2021/Quicklook_20210928sapm_355nm_PC_30km.webp",
+              "5": "2021/Quicklook_20210928sapm_355nm_PC_5km.webp"
+            },
+            "532nm_AN": {
+              "15": "2021/Quicklook_20210928sapm_532nm_AN_15km.webp",
+              "30": "2021/Quicklook_20210928sapm_532nm_AN_30km.webp",
+              "5": "2021/Quicklook_20210928sapm_532nm_AN_5km.webp"
+            },
+            "532nm_PC": {
+              "15": "2021/Quicklook_20210928sapm_532nm_PC_15km.webp",
+              "30": "2021/Quicklook_20210928sapm_532nm_PC_30km.webp",
+              "5": "2021/Quicklook_20210928sapm_532nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "12"
+          ],
+          "label": "12–18",
+          "mean": "2021/GlobalMeanRCS_20210928sapm.webp",
+          "retired": false
+        }
+      }
+    },
+    "20211013": {
+      "canonical": {},
+      "historical": {
+        "am": {
+          "channels": {
+            "1064nm_AN": {
+              "15": "2021/Quicklook_20211013saam_1064nm_AN_15km.webp",
+              "30": "2021/Quicklook_20211013saam_1064nm_AN_30km.webp",
+              "5": "2021/Quicklook_20211013saam_1064nm_AN_5km.webp"
+            },
+            "355nm_AN": {
+              "15": "2021/Quicklook_20211013saam_355nm_AN_15km.webp",
+              "30": "2021/Quicklook_20211013saam_355nm_AN_30km.webp",
+              "5": "2021/Quicklook_20211013saam_355nm_AN_5km.webp"
+            },
+            "355nm_PC": {
+              "15": "2021/Quicklook_20211013saam_355nm_PC_15km.webp",
+              "30": "2021/Quicklook_20211013saam_355nm_PC_30km.webp",
+              "5": "2021/Quicklook_20211013saam_355nm_PC_5km.webp"
+            },
+            "532nm_AN": {
+              "15": "2021/Quicklook_20211013saam_532nm_AN_15km.webp",
+              "30": "2021/Quicklook_20211013saam_532nm_AN_30km.webp",
+              "5": "2021/Quicklook_20211013saam_532nm_AN_5km.webp"
+            },
+            "532nm_PC": {
+              "15": "2021/Quicklook_20211013saam_532nm_PC_15km.webp",
+              "30": "2021/Quicklook_20211013saam_532nm_PC_30km.webp",
+              "5": "2021/Quicklook_20211013saam_532nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "06"
+          ],
+          "label": "06–12",
+          "mean": "2021/GlobalMeanRCS_20211013saam.webp",
+          "retired": false
+        }
+      }
+    },
+    "20211015": {
+      "canonical": {},
+      "historical": {
+        "am": {
+          "channels": {
+            "1064nm_AN": {
+              "15": "2021/Quicklook_20211015saam_1064nm_AN_15km.webp",
+              "30": "2021/Quicklook_20211015saam_1064nm_AN_30km.webp",
+              "5": "2021/Quicklook_20211015saam_1064nm_AN_5km.webp"
+            },
+            "355nm_AN": {
+              "15": "2021/Quicklook_20211015saam_355nm_AN_15km.webp",
+              "30": "2021/Quicklook_20211015saam_355nm_AN_30km.webp",
+              "5": "2021/Quicklook_20211015saam_355nm_AN_5km.webp"
+            },
+            "355nm_PC": {
+              "15": "2021/Quicklook_20211015saam_355nm_PC_15km.webp",
+              "30": "2021/Quicklook_20211015saam_355nm_PC_30km.webp",
+              "5": "2021/Quicklook_20211015saam_355nm_PC_5km.webp"
+            },
+            "532nm_AN": {
+              "15": "2021/Quicklook_20211015saam_532nm_AN_15km.webp",
+              "30": "2021/Quicklook_20211015saam_532nm_AN_30km.webp",
+              "5": "2021/Quicklook_20211015saam_532nm_AN_5km.webp"
+            },
+            "532nm_PC": {
+              "15": "2021/Quicklook_20211015saam_532nm_PC_15km.webp",
+              "30": "2021/Quicklook_20211015saam_532nm_PC_30km.webp",
+              "5": "2021/Quicklook_20211015saam_532nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "06"
+          ],
+          "label": "06–12",
+          "mean": "2021/GlobalMeanRCS_20211015saam.webp",
+          "retired": false
+        },
+        "pm": {
+          "channels": {
+            "1064nm_AN": {
+              "15": "2021/Quicklook_20211015sapm_1064nm_AN_15km.webp",
+              "30": "2021/Quicklook_20211015sapm_1064nm_AN_30km.webp",
+              "5": "2021/Quicklook_20211015sapm_1064nm_AN_5km.webp"
+            },
+            "355nm_AN": {
+              "15": "2021/Quicklook_20211015sapm_355nm_AN_15km.webp",
+              "30": "2021/Quicklook_20211015sapm_355nm_AN_30km.webp",
+              "5": "2021/Quicklook_20211015sapm_355nm_AN_5km.webp"
+            },
+            "355nm_PC": {
+              "15": "2021/Quicklook_20211015sapm_355nm_PC_15km.webp",
+              "30": "2021/Quicklook_20211015sapm_355nm_PC_30km.webp",
+              "5": "2021/Quicklook_20211015sapm_355nm_PC_5km.webp"
+            },
+            "532nm_AN": {
+              "15": "2021/Quicklook_20211015sapm_532nm_AN_15km.webp",
+              "30": "2021/Quicklook_20211015sapm_532nm_AN_30km.webp",
+              "5": "2021/Quicklook_20211015sapm_532nm_AN_5km.webp"
+            },
+            "532nm_PC": {
+              "15": "2021/Quicklook_20211015sapm_532nm_PC_15km.webp",
+              "30": "2021/Quicklook_20211015sapm_532nm_PC_30km.webp",
+              "5": "2021/Quicklook_20211015sapm_532nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "12"
+          ],
+          "label": "12–18",
+          "mean": "2021/GlobalMeanRCS_20211015sapm.webp",
+          "retired": false
+        }
+      }
+    },
+    "20211104": {
+      "canonical": {},
+      "historical": {
+        "am": {
+          "channels": {
+            "1064nm_AN": {
+              "15": "2021/Quicklook_20211104saam_1064nm_AN_15km.webp",
+              "30": "2021/Quicklook_20211104saam_1064nm_AN_30km.webp",
+              "5": "2021/Quicklook_20211104saam_1064nm_AN_5km.webp"
+            },
+            "355nm_AN": {
+              "15": "2021/Quicklook_20211104saam_355nm_AN_15km.webp",
+              "30": "2021/Quicklook_20211104saam_355nm_AN_30km.webp",
+              "5": "2021/Quicklook_20211104saam_355nm_AN_5km.webp"
+            },
+            "355nm_PC": {
+              "15": "2021/Quicklook_20211104saam_355nm_PC_15km.webp",
+              "30": "2021/Quicklook_20211104saam_355nm_PC_30km.webp",
+              "5": "2021/Quicklook_20211104saam_355nm_PC_5km.webp"
+            },
+            "532nm_AN": {
+              "15": "2021/Quicklook_20211104saam_532nm_AN_15km.webp",
+              "30": "2021/Quicklook_20211104saam_532nm_AN_30km.webp",
+              "5": "2021/Quicklook_20211104saam_532nm_AN_5km.webp"
+            },
+            "532nm_PC": {
+              "15": "2021/Quicklook_20211104saam_532nm_PC_15km.webp",
+              "30": "2021/Quicklook_20211104saam_532nm_PC_30km.webp",
+              "5": "2021/Quicklook_20211104saam_532nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "06"
+          ],
+          "label": "06–12",
+          "mean": "2021/GlobalMeanRCS_20211104saam.webp",
+          "retired": false
+        },
+        "pm": {
+          "channels": {
+            "1064nm_AN": {
+              "15": "2021/Quicklook_20211104sapm_1064nm_AN_15km.webp",
+              "30": "2021/Quicklook_20211104sapm_1064nm_AN_30km.webp",
+              "5": "2021/Quicklook_20211104sapm_1064nm_AN_5km.webp"
+            },
+            "355nm_AN": {
+              "15": "2021/Quicklook_20211104sapm_355nm_AN_15km.webp",
+              "30": "2021/Quicklook_20211104sapm_355nm_AN_30km.webp",
+              "5": "2021/Quicklook_20211104sapm_355nm_AN_5km.webp"
+            },
+            "355nm_PC": {
+              "15": "2021/Quicklook_20211104sapm_355nm_PC_15km.webp",
+              "30": "2021/Quicklook_20211104sapm_355nm_PC_30km.webp",
+              "5": "2021/Quicklook_20211104sapm_355nm_PC_5km.webp"
+            },
+            "532nm_AN": {
+              "15": "2021/Quicklook_20211104sapm_532nm_AN_15km.webp",
+              "30": "2021/Quicklook_20211104sapm_532nm_AN_30km.webp",
+              "5": "2021/Quicklook_20211104sapm_532nm_AN_5km.webp"
+            },
+            "532nm_PC": {
+              "15": "2021/Quicklook_20211104sapm_532nm_PC_15km.webp",
+              "30": "2021/Quicklook_20211104sapm_532nm_PC_30km.webp",
+              "5": "2021/Quicklook_20211104sapm_532nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "12"
+          ],
+          "label": "12–18",
+          "mean": "2021/GlobalMeanRCS_20211104sapm.webp",
+          "retired": false
+        }
+      }
+    },
+    "20211116": {
+      "canonical": {},
+      "historical": {
+        "am": {
+          "channels": {
+            "1064nm_AN": {
+              "15": "2021/Quicklook_20211116saam_1064nm_AN_15km.webp",
+              "30": "2021/Quicklook_20211116saam_1064nm_AN_30km.webp",
+              "5": "2021/Quicklook_20211116saam_1064nm_AN_5km.webp"
+            },
+            "355nm_AN": {
+              "15": "2021/Quicklook_20211116saam_355nm_AN_15km.webp",
+              "30": "2021/Quicklook_20211116saam_355nm_AN_30km.webp",
+              "5": "2021/Quicklook_20211116saam_355nm_AN_5km.webp"
+            },
+            "355nm_PC": {
+              "15": "2021/Quicklook_20211116saam_355nm_PC_15km.webp",
+              "30": "2021/Quicklook_20211116saam_355nm_PC_30km.webp",
+              "5": "2021/Quicklook_20211116saam_355nm_PC_5km.webp"
+            },
+            "532nm_AN": {
+              "15": "2021/Quicklook_20211116saam_532nm_AN_15km.webp",
+              "30": "2021/Quicklook_20211116saam_532nm_AN_30km.webp",
+              "5": "2021/Quicklook_20211116saam_532nm_AN_5km.webp"
+            },
+            "532nm_PC": {
+              "15": "2021/Quicklook_20211116saam_532nm_PC_15km.webp",
+              "30": "2021/Quicklook_20211116saam_532nm_PC_30km.webp",
+              "5": "2021/Quicklook_20211116saam_532nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "06"
+          ],
+          "label": "06–12",
+          "mean": "2021/GlobalMeanRCS_20211116saam.webp",
+          "retired": false
+        },
+        "pm": {
+          "channels": {
+            "1064nm_AN": {
+              "15": "2021/Quicklook_20211116sapm_1064nm_AN_15km.webp",
+              "30": "2021/Quicklook_20211116sapm_1064nm_AN_30km.webp",
+              "5": "2021/Quicklook_20211116sapm_1064nm_AN_5km.webp"
+            },
+            "355nm_AN": {
+              "15": "2021/Quicklook_20211116sapm_355nm_AN_15km.webp",
+              "30": "2021/Quicklook_20211116sapm_355nm_AN_30km.webp",
+              "5": "2021/Quicklook_20211116sapm_355nm_AN_5km.webp"
+            },
+            "355nm_PC": {
+              "15": "2021/Quicklook_20211116sapm_355nm_PC_15km.webp",
+              "30": "2021/Quicklook_20211116sapm_355nm_PC_30km.webp",
+              "5": "2021/Quicklook_20211116sapm_355nm_PC_5km.webp"
+            },
+            "532nm_AN": {
+              "15": "2021/Quicklook_20211116sapm_532nm_AN_15km.webp",
+              "30": "2021/Quicklook_20211116sapm_532nm_AN_30km.webp",
+              "5": "2021/Quicklook_20211116sapm_532nm_AN_5km.webp"
+            },
+            "532nm_PC": {
+              "15": "2021/Quicklook_20211116sapm_532nm_PC_15km.webp",
+              "30": "2021/Quicklook_20211116sapm_532nm_PC_30km.webp",
+              "5": "2021/Quicklook_20211116sapm_532nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "12"
+          ],
+          "label": "12–18",
+          "mean": "2021/GlobalMeanRCS_20211116sapm.webp",
+          "retired": false
+        }
+      }
+    },
+    "20211123": {
+      "canonical": {},
+      "historical": {
+        "am": {
+          "channels": {
+            "1064nm_AN": {
+              "15": "2021/Quicklook_20211123saam_1064nm_AN_15km.webp",
+              "30": "2021/Quicklook_20211123saam_1064nm_AN_30km.webp",
+              "5": "2021/Quicklook_20211123saam_1064nm_AN_5km.webp"
+            },
+            "355nm_AN": {
+              "15": "2021/Quicklook_20211123saam_355nm_AN_15km.webp",
+              "30": "2021/Quicklook_20211123saam_355nm_AN_30km.webp",
+              "5": "2021/Quicklook_20211123saam_355nm_AN_5km.webp"
+            },
+            "355nm_PC": {
+              "15": "2021/Quicklook_20211123saam_355nm_PC_15km.webp",
+              "30": "2021/Quicklook_20211123saam_355nm_PC_30km.webp",
+              "5": "2021/Quicklook_20211123saam_355nm_PC_5km.webp"
+            },
+            "532nm_AN": {
+              "15": "2021/Quicklook_20211123saam_532nm_AN_15km.webp",
+              "30": "2021/Quicklook_20211123saam_532nm_AN_30km.webp",
+              "5": "2021/Quicklook_20211123saam_532nm_AN_5km.webp"
+            },
+            "532nm_PC": {
+              "15": "2021/Quicklook_20211123saam_532nm_PC_15km.webp",
+              "30": "2021/Quicklook_20211123saam_532nm_PC_30km.webp",
+              "5": "2021/Quicklook_20211123saam_532nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "06"
+          ],
+          "label": "06–12",
+          "mean": "2021/GlobalMeanRCS_20211123saam.webp",
+          "retired": false
+        },
+        "pm": {
+          "channels": {
+            "1064nm_AN": {
+              "15": "2021/Quicklook_20211123sapm_1064nm_AN_15km.webp",
+              "30": "2021/Quicklook_20211123sapm_1064nm_AN_30km.webp",
+              "5": "2021/Quicklook_20211123sapm_1064nm_AN_5km.webp"
+            },
+            "355nm_AN": {
+              "15": "2021/Quicklook_20211123sapm_355nm_AN_15km.webp",
+              "30": "2021/Quicklook_20211123sapm_355nm_AN_30km.webp",
+              "5": "2021/Quicklook_20211123sapm_355nm_AN_5km.webp"
+            },
+            "355nm_PC": {
+              "15": "2021/Quicklook_20211123sapm_355nm_PC_15km.webp",
+              "30": "2021/Quicklook_20211123sapm_355nm_PC_30km.webp",
+              "5": "2021/Quicklook_20211123sapm_355nm_PC_5km.webp"
+            },
+            "532nm_AN": {
+              "15": "2021/Quicklook_20211123sapm_532nm_AN_15km.webp",
+              "30": "2021/Quicklook_20211123sapm_532nm_AN_30km.webp",
+              "5": "2021/Quicklook_20211123sapm_532nm_AN_5km.webp"
+            },
+            "532nm_PC": {
+              "15": "2021/Quicklook_20211123sapm_532nm_PC_15km.webp",
+              "30": "2021/Quicklook_20211123sapm_532nm_PC_30km.webp",
+              "5": "2021/Quicklook_20211123sapm_532nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "12"
+          ],
+          "label": "12–18",
+          "mean": "2021/GlobalMeanRCS_20211123sapm.webp",
+          "retired": false
+        }
+      }
+    },
+    "20211210": {
+      "canonical": {},
+      "historical": {
+        "am": {
+          "channels": {
+            "1064nm_AN": {
+              "15": "2021/Quicklook_20211210saam_1064nm_AN_15km.webp",
+              "30": "2021/Quicklook_20211210saam_1064nm_AN_30km.webp",
+              "5": "2021/Quicklook_20211210saam_1064nm_AN_5km.webp"
+            },
+            "355nm_AN": {
+              "15": "2021/Quicklook_20211210saam_355nm_AN_15km.webp",
+              "30": "2021/Quicklook_20211210saam_355nm_AN_30km.webp",
+              "5": "2021/Quicklook_20211210saam_355nm_AN_5km.webp"
+            },
+            "355nm_PC": {
+              "15": "2021/Quicklook_20211210saam_355nm_PC_15km.webp",
+              "30": "2021/Quicklook_20211210saam_355nm_PC_30km.webp",
+              "5": "2021/Quicklook_20211210saam_355nm_PC_5km.webp"
+            },
+            "532nm_AN": {
+              "15": "2021/Quicklook_20211210saam_532nm_AN_15km.webp",
+              "30": "2021/Quicklook_20211210saam_532nm_AN_30km.webp",
+              "5": "2021/Quicklook_20211210saam_532nm_AN_5km.webp"
+            },
+            "532nm_PC": {
+              "15": "2021/Quicklook_20211210saam_532nm_PC_15km.webp",
+              "30": "2021/Quicklook_20211210saam_532nm_PC_30km.webp",
+              "5": "2021/Quicklook_20211210saam_532nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "06"
+          ],
+          "label": "06–12",
+          "mean": "2021/GlobalMeanRCS_20211210saam.webp",
+          "retired": false
+        }
+      }
+    },
+    "20211222": {
+      "canonical": {},
+      "historical": {
+        "am": {
+          "channels": {
+            "1064nm_AN": {
+              "15": "2021/Quicklook_20211222saam_1064nm_AN_15km.webp",
+              "30": "2021/Quicklook_20211222saam_1064nm_AN_30km.webp",
+              "5": "2021/Quicklook_20211222saam_1064nm_AN_5km.webp"
+            },
+            "355nm_AN": {
+              "15": "2021/Quicklook_20211222saam_355nm_AN_15km.webp",
+              "30": "2021/Quicklook_20211222saam_355nm_AN_30km.webp",
+              "5": "2021/Quicklook_20211222saam_355nm_AN_5km.webp"
+            },
+            "355nm_PC": {
+              "15": "2021/Quicklook_20211222saam_355nm_PC_15km.webp",
+              "30": "2021/Quicklook_20211222saam_355nm_PC_30km.webp",
+              "5": "2021/Quicklook_20211222saam_355nm_PC_5km.webp"
+            },
+            "532nm_AN": {
+              "15": "2021/Quicklook_20211222saam_532nm_AN_15km.webp",
+              "30": "2021/Quicklook_20211222saam_532nm_AN_30km.webp",
+              "5": "2021/Quicklook_20211222saam_532nm_AN_5km.webp"
+            },
+            "532nm_PC": {
+              "15": "2021/Quicklook_20211222saam_532nm_PC_15km.webp",
+              "30": "2021/Quicklook_20211222saam_532nm_PC_30km.webp",
+              "5": "2021/Quicklook_20211222saam_532nm_PC_5km.webp"
+            }
+          },
+          "coverage": [
+            "06"
+          ],
+          "label": "06–12",
+          "mean": "2021/GlobalMeanRCS_20211222saam.webp",
+          "retired": false
+        }
+      }
+    }
+  },
+  "schema_version": 1,
+  "year": "2021"
+}
