@@ -25576,6 +25576,29 @@
         }
       }
     },
+    "20240402": {
+      "coverage": {
+        "00": true,
+        "06": false,
+        "12": false,
+        "18": false
+      },
+      "day_url": "2024/04/20240402/index.html",
+      "slots": {
+        "00": {
+          "available": true
+        },
+        "06": {
+          "available": false
+        },
+        "12": {
+          "available": false
+        },
+        "18": {
+          "available": false
+        }
+      }
+    },
     "20240403": {
       "coverage": {
         "00": true,
@@ -25852,6 +25875,29 @@
         }
       }
     },
+    "20240524": {
+      "coverage": {
+        "00": true,
+        "06": false,
+        "12": false,
+        "18": false
+      },
+      "day_url": "2024/05/20240524/index.html",
+      "slots": {
+        "00": {
+          "available": true
+        },
+        "06": {
+          "available": false
+        },
+        "12": {
+          "available": false
+        },
+        "18": {
+          "available": false
+        }
+      }
+    },
     "20240606": {
       "coverage": {
         "00": true,
@@ -25921,6 +25967,29 @@
         }
       }
     },
+    "20240612": {
+      "coverage": {
+        "00": true,
+        "06": false,
+        "12": false,
+        "18": false
+      },
+      "day_url": "2024/06/20240612/index.html",
+      "slots": {
+        "00": {
+          "available": true
+        },
+        "06": {
+          "available": false
+        },
+        "12": {
+          "available": false
+        },
+        "18": {
+          "available": false
+        }
+      }
+    },
     "20240613": {
       "coverage": {
         "00": true,
@@ -25944,6 +26013,29 @@
         }
       }
     },
+    "20240614": {
+      "coverage": {
+        "00": true,
+        "06": false,
+        "12": false,
+        "18": false
+      },
+      "day_url": "2024/06/20240614/index.html",
+      "slots": {
+        "00": {
+          "available": true
+        },
+        "06": {
+          "available": false
+        },
+        "12": {
+          "available": false
+        },
+        "18": {
+          "available": false
+        }
+      }
+    },
     "20240620": {
       "coverage": {
         "00": true,
@@ -25964,6 +26056,29 @@
         },
         "18": {
           "available": true
+        }
+      }
+    },
+    "20240621": {
+      "coverage": {
+        "00": true,
+        "06": false,
+        "12": false,
+        "18": false
+      },
+      "day_url": "2024/06/20240621/index.html",
+      "slots": {
+        "00": {
+          "available": true
+        },
+        "06": {
+          "available": false
+        },
+        "12": {
+          "available": false
+        },
+        "18": {
+          "available": false
         }
       }
     },
@@ -26217,6 +26332,29 @@
         },
         "18": {
           "available": true
+        }
+      }
+    },
+    "20240817": {
+      "coverage": {
+        "00": true,
+        "06": false,
+        "12": false,
+        "18": false
+      },
+      "day_url": "2024/08/20240817/index.html",
+      "slots": {
+        "00": {
+          "available": true
+        },
+        "06": {
+          "available": false
+        },
+        "12": {
+          "available": false
+        },
+        "18": {
+          "available": false
         }
       }
     },
@@ -27165,7 +27303,7 @@
     },
     "20241127": {
       "coverage": {
-        "00": false,
+        "00": true,
         "06": false,
         "12": true,
         "18": false
@@ -27173,7 +27311,7 @@
       "day_url": "2024/11/20241127/index.html",
       "slots": {
         "00": {
-          "available": false
+          "available": true
         },
         "06": {
           "available": false
@@ -27416,6 +27554,29 @@
         }
       }
     },
+    "20241220": {
+      "coverage": {
+        "00": true,
+        "06": false,
+        "12": false,
+        "18": false
+      },
+      "day_url": "2024/12/20241220/index.html",
+      "slots": {
+        "00": {
+          "available": true
+        },
+        "06": {
+          "available": false
+        },
+        "12": {
+          "available": false
+        },
+        "18": {
+          "available": false
+        }
+      }
+    },
     "20250107": {
       "coverage": {
         "00": false,
@@ -27482,6 +27643,29 @@
         },
         "18": {
           "available": true
+        }
+      }
+    },
+    "20250114": {
+      "coverage": {
+        "00": true,
+        "06": false,
+        "12": false,
+        "18": false
+      },
+      "day_url": "2025/01/20250114/index.html",
+      "slots": {
+        "00": {
+          "available": true
+        },
+        "06": {
+          "available": false
+        },
+        "12": {
+          "available": false
+        },
+        "18": {
+          "available": false
         }
       }
     },
@@ -27600,6 +27784,29 @@
         }
       }
     },
+    "20250124": {
+      "coverage": {
+        "00": true,
+        "06": false,
+        "12": false,
+        "18": false
+      },
+      "day_url": "2025/01/20250124/index.html",
+      "slots": {
+        "00": {
+          "available": true
+        },
+        "06": {
+          "available": false
+        },
+        "12": {
+          "available": false
+        },
+        "18": {
+          "available": false
+        }
+      }
+    },
     "20250204": {
       "coverage": {
         "00": false,
@@ -27692,6 +27899,29 @@
         }
       }
     },
+    "20250208": {
+      "coverage": {
+        "00": true,
+        "06": false,
+        "12": false,
+        "18": false
+      },
+      "day_url": "2025/02/20250208/index.html",
+      "slots": {
+        "00": {
+          "available": true
+        },
+        "06": {
+          "available": false
+        },
+        "12": {
+          "available": false
+        },
+        "18": {
+          "available": false
+        }
+      }
+    },
     "20250209": {
       "coverage": {
         "00": true,
@@ -27763,7 +27993,7 @@
     },
     "20250212": {
       "coverage": {
-        "00": false,
+        "00": true,
         "06": true,
         "12": false,
         "18": false
@@ -27771,7 +28001,7 @@
       "day_url": "2025/02/20250212/index.html",
       "slots": {
         "00": {
-          "available": false
+          "available": true
         },
         "06": {
           "available": true
@@ -28175,6 +28405,29 @@
         }
       }
     },
+    "20250510": {
+      "coverage": {
+        "00": true,
+        "06": false,
+        "12": false,
+        "18": false
+      },
+      "day_url": "2025/05/20250510/index.html",
+      "slots": {
+        "00": {
+          "available": true
+        },
+        "06": {
+          "available": false
+        },
+        "12": {
+          "available": false
+        },
+        "18": {
+          "available": false
+        }
+      }
+    },
     "20250513": {
       "coverage": {
         "00": false,
@@ -28241,6 +28494,29 @@
         },
         "18": {
           "available": true
+        }
+      }
+    },
+    "20250519": {
+      "coverage": {
+        "00": true,
+        "06": false,
+        "12": false,
+        "18": false
+      },
+      "day_url": "2025/05/20250519/index.html",
+      "slots": {
+        "00": {
+          "available": true
+        },
+        "06": {
+          "available": false
+        },
+        "12": {
+          "available": false
+        },
+        "18": {
+          "available": false
         }
       }
     },
@@ -28361,7 +28637,7 @@
     },
     "20250613": {
       "coverage": {
-        "00": false,
+        "00": true,
         "06": false,
         "12": true,
         "18": false
@@ -28369,7 +28645,7 @@
       "day_url": "2025/06/20250613/index.html",
       "slots": {
         "00": {
-          "available": false
+          "available": true
         },
         "06": {
           "available": false
@@ -28448,6 +28724,29 @@
         },
         "18": {
           "available": true
+        }
+      }
+    },
+    "20250629": {
+      "coverage": {
+        "00": true,
+        "06": false,
+        "12": false,
+        "18": false
+      },
+      "day_url": "2025/06/20250629/index.html",
+      "slots": {
+        "00": {
+          "available": true
+        },
+        "06": {
+          "available": false
+        },
+        "12": {
+          "available": false
+        },
+        "18": {
+          "available": false
         }
       }
     },
@@ -28540,6 +28839,29 @@
         },
         "18": {
           "available": true
+        }
+      }
+    },
+    "20250802": {
+      "coverage": {
+        "00": true,
+        "06": false,
+        "12": false,
+        "18": false
+      },
+      "day_url": "2025/08/20250802/index.html",
+      "slots": {
+        "00": {
+          "available": true
+        },
+        "06": {
+          "available": false
+        },
+        "12": {
+          "available": false
+        },
+        "18": {
+          "available": false
         }
       }
     },
@@ -28655,6 +28977,29 @@
         },
         "18": {
           "available": true
+        }
+      }
+    },
+    "20250912": {
+      "coverage": {
+        "00": true,
+        "06": false,
+        "12": false,
+        "18": false
+      },
+      "day_url": "2025/09/20250912/index.html",
+      "slots": {
+        "00": {
+          "available": true
+        },
+        "06": {
+          "available": false
+        },
+        "12": {
+          "available": false
+        },
+        "18": {
+          "available": false
         }
       }
     },
