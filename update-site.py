@@ -14,6 +14,7 @@ from pathlib import Path
 from zoneinfo import ZoneInfo
 
 from publisher.staging import stage_publication_products
+from publisher.published import load_published_states
 from publisher.v2 import build_state_v2, collect_validated_staging, write_local_state_v2
 from publisher.windows import discover_scientific_sessions
 
@@ -119,6 +120,16 @@ def main(argv: list[str] | None = None) -> int:
     logger = logging.getLogger("publication-v2")
     visual_root = resolve_visualization_root(config, root)
     sessions = discover_scientific_sessions(scientific_root, station)
+    # Already-verified R2 windows are recorded in Git, never in the image cache.
+    # Matching scientific fingerprints need no regenerated local WEBP.
+    published = load_published_states(Path(__file__).resolve().parent, station)
+    fingerprints = {
+        record["publication_window_id"]: record["source_fingerprint"]
+        for yearly in published.values()
+        for day in yearly["days"].values()
+        for record in day["publication_windows"].values()
+    }
+    logger.info("Git state: %d verified publication windows", len(fingerprints))
     logger.info("MILGRAU %s: %d canonical scientific sessions", station, len(sessions))
     results = stage_publication_products(
         sessions, site_products_root=site_products, station_id=station,
@@ -127,6 +138,7 @@ def main(argv: list[str] | None = None) -> int:
         publication_settings={"schema_version": 2, "mode": "stage-only"},
         publish_year=args.publish_year, publish_date=args.publish_date,
         force=args.force_site_products, dry_run=args.dry_run, logger=logger,
+        published_fingerprints=fingerprints,
     )
     logger.info(
         "Publication views: %d rendered, %d cached, %d without L1 samples",
