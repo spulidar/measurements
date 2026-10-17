@@ -63,16 +63,17 @@ def resolve_config_path(args: argparse.Namespace) -> Path:
 
 def resolve_visualization_root(config: dict, workspace_root: Path) -> Path:
     """Use MILGRAU's official logo resolver; support workspace and package assets."""
-    from milgrau.viz.style import configured_logos, resolve_logo_path
-    import milgrau
+    from milgrau.viz import style as milgrau_style
 
-    logos = configured_logos(config)
+    logos = milgrau_style.configured_logos(config)
     if not logos:
         return workspace_root
-    package_root = Path(milgrau.__file__).resolve().parents[1]
+    # An editable checkout can expose 'milgrau' as a namespace package with
+    # __file__ = None. Anchor on the actual installed renderer module instead.
+    package_root = Path(milgrau_style.__file__).resolve().parents[2]
     candidates = (workspace_root, package_root)
     for root in candidates:
-        if all(resolve_logo_path(root, name).is_file() for name, _height in logos):
+        if all(milgrau_style.resolve_logo_path(root, name).is_file() for name, _height in logos):
             return root
     raise FileNotFoundError(
         "Configured MILGRAU logos are not all resolvable from either the "
