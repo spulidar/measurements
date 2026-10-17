@@ -38,6 +38,9 @@ jobs:
         run: python -m compileall -q publisher update-site.py tests
       - name: Unit and synthetic cross-midnight staging tests
         run: python -m pytest -q tests
+      - name: Execute the actual stage-only CLI safely without source data
+        run: |
+          python update-site.py --stage-only --dry-run --milgrau-config milgrau/config.yaml --publish-date 20250510
       - name: Verify entrypoint has no publishing mode
         run: |
           python update-site.py --help
