@@ -35,12 +35,18 @@ jobs:
           python -m pip install -e "./milgrau[dev,explorer,web]"
           python -c "import boto3, xarray, milgrau; print('milgrau[web] import smoke test: OK')"
       - name: Static syntax check
-        run: python -m compileall -q publisher update-site.py tests
+        run: python -m compileall -q publisher update-site.py preview-site.py tests
+          node --check publisher/preview_assets/app.js
       - name: Unit and synthetic cross-midnight staging tests
         run: python -m pytest -q tests
       - name: Execute the actual stage-only CLI safely without source data
         run: |
           python update-site.py --stage-only --dry-run --milgrau-config milgrau/config.yaml --publish-date 20250510
+      - name: Build a separate local preview without source data
+        run: |
+          python preview-site.py --milgrau-config milgrau/config.yaml
+          test -f milgrau/03-site-products/_preview-v2/index.html
+          test -f milgrau/03-site-products/_preview-v2/manifest.json
       - name: Verify entrypoint has no publishing mode
         run: |
           python update-site.py --help
