@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <meta name="robots" content="noindex,nofollow">
+  <title>SPU Lidar — Measurements v2 (preview)</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <header class="masthead">
+    <div class="shell brandline">
+      <div class="brand">
+        <span class="brandmark" aria-hidden="true">SPU<span class="brand-dot">.</span></span>
+        <span class="brand-name">LIDAR STATION</span>
+      </div>
+      <span class="preview-badge">LOCAL PREVIEW · V2</span>
+    </div>
+  </header>
+  <main class="shell">
+    <section class="hero">
+      <div>
+        <p class="eyebrow">Atmospheric lidar · Scientific measurements</p>
+        <h1>Measurements</h1>
+        <p class="subtitle">Produtos visuais publicados por data e janela de observação. Horários locais da estação; sessões científicas preservadas.</p>
+      </div>
+      <div class="station-block">
+        <span class="detail-label">STATION</span>
+        <strong id="station-name">—</strong>
+      </div>
+    </section>
+
+    <section class="workspace" aria-label="Navegação de medições">
+      <aside class="panel calendar-panel">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">ARCHIVE</p>
+            <h2>Calendário</h2>
+          </div>
+        </div>
+        <div class="calendar-controls">
+          <label class="sr-only" for="year">Ano</label>
+          <select id="year" aria-label="Ano do arquivo"></select>
+          <label class="sr-only" for="month">Mês</label>
+          <select id="month" aria-label="Mês do arquivo"></select>
+        </div>
+        <div class="weekday-row" aria-hidden="true">
+          <span>Seg</span><span>Ter</span><span>Qua</span><span>Qui</span><span>Sex</span><span>Sáb</span><span>Dom</span>
+        </div>
+        <div class="calendar" id="calendar" aria-label="Dias com medições"></div>
+        <div class="calendar-legend"><span class="legend-dot" aria-hidden="true"></span> Dia com produtos disponíveis</div>
+        <p class="small-note">Datas sem produtos disponíveis permanecem desativadas.</p>
+      </aside>
+
+      <section class="panel results-panel" aria-live="polite">
+        <div class="section-heading results-heading">
+          <div>
+            <p class="eyebrow">OBSERVATION DAY</p>
+            <h2 id="day-heading">Selecione uma data</h2>
+          </div>
+          <span id="window-count" class="counter">0 janelas</span>
+        </div>
+        <div class="window-tabs" id="window-tabs" role="group" aria-label="Janela de horário local"></div>
+        <div class="plot-controls">
+          <div class="field">
+            <label for="channel">Canal</label>
+            <select id="channel" aria-label="Filtrar gráficos por canal"><option value="all">Todos os canais</option></select>
+          </div>
+          <div class="field-note" id="figure-count"></div>
+        </div>
+        <div class="plots" id="plots"></div>
+        <div class="empty-state" id="empty-state" hidden></div>
+        <details class="provenance" id="provenance" hidden>
+          <summary>Proveniência científica <span id="source-count"></span></summary>
+          <div id="source-list" class="source-list"></div>
+        </details>
+      </section>
+    </section>
+    <footer class="page-footer">
+      <span>SPU LIDAR STATION</span>
+      <span>Interface de pré-visualização local · Não é o site de produção</span>
+    </footer>
+  </main>
+</body>
+</html>
