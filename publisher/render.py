@@ -1,4 +1,4 @@
-"""Static manifest, redirects, and daily dashboard rendering."""
+"""Existing measurements daily dashboard visual renderer fed only by published state-v2."""
 
 from __future__ import annotations
 
@@ -9,7 +9,6 @@ import json
 from pathlib import Path
 import re
 
-from .state import all_dates, coverage_for_day, get_day, resolved_public_views
 from .windows import PUBLICATION_WINDOW_LABELS, PUBLICATION_WINDOW_STARTS
 
 _FINGERPRINT_RE = re.compile(r'<meta name="publisher-fingerprint" content="([0-9a-f]+)">')
@@ -30,7 +29,7 @@ def read_dashboard_fingerprint(path: str | Path) -> str | None:
 
 def _renderer_fingerprint() -> str:
     digest = sha256()
-    for path in (Path(__file__), Path(__file__).with_name("state.py")):
+    for path in (Path(__file__), Path(__file__).with_name("site_v2.py")):
         digest.update(path.read_bytes())
     return digest.hexdigest()
 
@@ -45,45 +44,6 @@ def dashboard_fingerprint(date: str, day: dict) -> str:
     return digest.hexdigest()
 
 
-def build_manifest(states: dict[str, dict]) -> dict:
-    days: dict[str, dict] = {}
-    for date in all_dates(states):
-        day = get_day(states, date, create=False)
-        assert day is not None
-        coverage = coverage_for_day(day)
-        publication = day.get("canonical", {})
-        slots: dict[str, dict] = {}
-        for window_start in PUBLICATION_WINDOW_STARTS:
-            entry = publication.get(window_start, {})
-            slot = {"available": coverage[window_start]}
-            publication_window_id = entry.get("publication_window_id") if isinstance(entry, dict) else None
-            if publication_window_id:
-                slot["publication_window_id"] = publication_window_id
-            slots[window_start] = slot
-        days[date] = {
-            "day_url": f"{date[:4]}/{date[4:6]}/{date}/index.html",
-            "coverage": coverage,
-            "slots": slots,
-        }
-    return {
-        "schema_version": 4,
-        "publication_window_labels": dict(PUBLICATION_WINDOW_LABELS),
-        # Compatibility alias used by the existing calendar JavaScript.
-        "period_labels": dict(PUBLICATION_WINDOW_LABELS),
-        "days": days,
-    }
-
-
-def write_manifest(states: dict[str, dict], site_root: str | Path, dry_run: bool = False) -> Path:
-    path = Path(site_root) / "measurements.json"
-    if not dry_run:
-        path.write_text(
-            json.dumps(build_manifest(states), indent=2, ensure_ascii=False, sort_keys=True) + "\n",
-            encoding="utf-8",
-        )
-    return path
-
-
 def _public_url(base: str, key: str | None) -> str | None:
     if not key:
         return None
@@ -91,22 +51,32 @@ def _public_url(base: str, key: str | None) -> str | None:
 
 
 def _payload(date: str, day: dict, public_url: str) -> dict:
+    """Adapt verified schema-v2 windows to the unchanged day-page JavaScript contract."""
     views: list[dict] = []
-    for view in resolved_public_views(day):
-        channels = {
-            channel: {
-                altitude: _public_url(public_url, key)
-                for altitude, key in sorted(altitudes.items(), key=lambda item: float(item[0]))
-            }
-            for channel, altitudes in sorted(view.get("channels", {}).items())
-        }
+    windows = day.get("publication_windows", {})
+    for hour in PUBLICATION_WINDOW_STARTS:
+        if hour not in windows:
+            continue
+        record = windows[hour]
+        pub_id = record["publication_window_id"]
+        channels: dict[str, dict[str, str]] = {}
+        for filename, asset in record["assets"].items():
+            prefix = f"rcs_{pub_id}_"
+            if not filename.startswith(prefix) or not filename.endswith(".webp"):
+                raise ValueError(f"Unexpected asset for {pub_id}: {filename}")
+            rest = filename[len(prefix):-5]
+            channel, altitude = rest.rsplit("_", 1)
+            if not altitude.endswith("km"):
+                raise ValueError(f"Unexpected altitude in published asset: {filename}")
+            channels.setdefault(channel, {})[altitude[:-2]] = _public_url(
+                public_url, asset["key"]
+            )
         views.append(
             {
-                "selector_id": view["selector_id"],
-                "publication_window_id": view.get("publication_window_id"),
-                "label": view["label"],
+                "selector_id": hour,
+                "publication_window_id": pub_id,
+                "label": PUBLICATION_WINDOW_LABELS[hour],
                 "channels": channels,
-                "mean": _public_url(public_url, view.get("mean")),
             }
         )
     return {"date": date, "publication_views": views}
@@ -118,16 +88,11 @@ def render_day_dashboard(
     site_root: str | Path,
     public_url: str,
     dry_run: bool = False,
-    show_mean: bool = True,
 ) -> Path:
     output_path = day_output_path(site_root, date)
     fingerprint = dashboard_fingerprint(date, day)
     payload_json = json.dumps(_payload(date, day, public_url), ensure_ascii=False).replace("</", "<\\/")
     date_title = datetime.strptime(date, "%Y%m%d").strftime("%d %b %Y")
-    mean_button = (
-        '<button class="main-mode-btn" id="tab-mean" onclick="setMode(\'mean\')">Mean RCS</button>'
-        if show_mean else ''
-    )
 
     page = f'''<!doctype html>
 <html lang="en">
@@ -183,8 +148,7 @@ def render_day_dashboard(
   <div class="toolbar">
     <div class="control-group" id="period-controls"><h3>Publication window</h3></div>
     <div class="control-group">
-      <button class="main-mode-btn active" id="tab-quicklooks" onclick="setMode('quicklooks')">RCS Maps</button>
-      {mean_button}
+      <button class="main-mode-btn active" id="tab-quicklooks">RCS Maps</button>
     </div>
     <div class="control-group" id="channel-controls"><h3>Wavelength</h3></div>
     <div class="control-group" id="altitude-controls"><h3>Range</h3></div>
@@ -200,7 +164,6 @@ def render_day_dashboard(
 <script>
 const dayData = {payload_json};
 let currentSelectorId = dayData.publication_views.length ? dayData.publication_views[0].selector_id : '';
-let currentMode = 'quicklooks';
 let currentChannel = '';
 let currentAltitude = '';
 
@@ -230,7 +193,7 @@ function renderWindows() {{
 function renderSelectors() {{
   clearButtons(channelControls); clearButtons(altitudeControls);
   const data=currentView();
-  if (!data || currentMode !== 'quicklooks') {{ channelControls.style.display='none'; altitudeControls.style.display='none'; return; }}
+  if (!data) {{ channelControls.style.display='none'; altitudeControls.style.display='none'; return; }}
 
   const channels=Object.keys(data.channels || {{}});
   if (!channels.length) {{ channelControls.style.display='none'; altitudeControls.style.display='none'; return; }}
@@ -261,20 +224,13 @@ function updateDisplay() {{
   if (!data) {{ showMessage('No data are available for this day.'); return; }}
 
   let url='';
-  if (currentMode==='mean') url=data.mean || '';
-  else url=(((data.channels || {{}})[currentChannel] || {{}})[currentAltitude]) || '';
+  url=(((data.channels || {{}})[currentChannel] || {{}})[currentAltitude]) || '';
 
   if (!url) {{ showMessage('No image is available for this view.'); return; }}
   img.style.opacity='.4'; img.src=url;
 }}
 
 function renderAll() {{ renderWindows(); renderSelectors(); updateDisplay(); }}
-function setMode(mode) {{
-  currentMode=mode;
-  document.getElementById('tab-quicklooks').classList.toggle('active', mode==='quicklooks');
-  document.getElementById('tab-mean')?.classList.toggle('active', mode==='mean');
-  renderAll();
-}}
 
 img.onload=()=>{{ img.style.opacity='1'; img.style.display='block'; message.classList.remove('active'); }};
 img.onerror=()=>{{ img.style.opacity='1'; showMessage('Image not found or failed to load.'); }};
@@ -293,25 +249,3 @@ renderAll();
         output_path.parent.mkdir(parents=True, exist_ok=True)
         output_path.write_text(page, encoding="utf-8")
     return output_path
-
-
-def render_legacy_redirect(source: str | Path, target_url: str, dry_run: bool = False) -> Path:
-    path = Path(source)
-    page = f'''<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta http-equiv="refresh" content="0; url={html.escape(target_url, quote=True)}">
-  <link rel="canonical" href="{html.escape(target_url, quote=True)}">
-  <title>Measurement moved</title>
-  <script>location.replace({json.dumps(target_url)});</script>
-</head>
-<body>
-  <p>This measurement has moved to the daily dashboard: <a href="{html.escape(target_url, quote=True)}">open measurement</a>.</p>
-</body>
-</html>
-'''
-    if not dry_run:
-        path.write_text(page, encoding="utf-8")
-    return path

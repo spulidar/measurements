@@ -158,3 +158,15 @@ state v2; old production remains only as rollback during the transition.
 The old `03-site-products/` directory from previous tests is **not**
 automatically deleted or migrated. Review it manually after the new cache
 pipeline has been verified; no command here can remove it.
+
+## Branch reset for historical reconstruction
+
+The `publication-v2` branch deliberately omits the tracked `2012/` to `2026/`
+historical HTML directories, old root `measurements.json`, legacy
+`publisher/state/`, and obsolete schema-v1 publisher modules and tests. The
+new `publisher/state-v2/spu/` is empty until the first verified staging R2
+publication is recorded. These removals affect only the development branch;
+`main`, GitHub Pages and production R2 are unchanged. The original calendar
+source and the daily dashboard appearance are preserved. Generate a fresh
+local manifest/site using `build-site-v2.py`; with empty state it produces an
+empty `days` mapping, without consulting the legacy archive.

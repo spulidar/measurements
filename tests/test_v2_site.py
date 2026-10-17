@@ -94,3 +94,19 @@ def test_site_builder_refuses_wrong_state_and_non_https_r2_url(tmp_path):
         build_unchanged_frontend(
             repo, cache, "spu", r2_public_base="https://staging-r2.example.invalid"
         )
+
+
+def test_empty_state_rebuild_removes_stale_generated_year_pages(tmp_path):
+    repo = site_fixture(tmp_path)
+    cache = tmp_path / ".cache" / "measurements"
+    site, count = build_unchanged_frontend(
+        repo, cache, "spu", r2_public_base="https://staging-r2.example.invalid"
+    )
+    daily = site / "2024" / "09" / "20240913" / "index.html"
+    assert count == 1 and daily.is_file()
+    (repo / "publisher" / "state-v2" / "spu" / "2024.json").unlink()
+    _site, count = build_unchanged_frontend(
+        repo, cache, "spu", r2_public_base="https://staging-r2.example.invalid"
+    )
+    assert count == 0 and not daily.exists()
+    assert json.loads((site / "measurements.json").read_text())["days"] == {}

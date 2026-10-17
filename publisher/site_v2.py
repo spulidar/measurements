@@ -9,33 +9,12 @@ from __future__ import annotations
 from pathlib import Path
 import json
 import re
+import shutil
 from urllib.parse import urlsplit
-from typing import Any
 
 from .published import load_published_states
 from .render import render_day_dashboard
 from .windows import PUBLICATION_WINDOW_LABELS, PUBLICATION_WINDOW_STARTS
-
-_QUICKLOOK = re.compile(r"^\d+nm_[A-Za-z0-9-]+_\d+(?:\.\d+)?km$")
-
-
-def _public_day(date: str, day: dict[str, Any]) -> dict[str, Any]:
-    """Minimal presentational adapter. No historical fallback or schema-v1 import."""
-    canonical = {}
-    for hour, record in day["publication_windows"].items():
-        channels: dict[str, dict[str, str]] = {}
-        for filename, metadata in record["assets"].items():
-            suffix = filename.removeprefix(f"rcs_{record['publication_window_id']}_").removesuffix(".webp")
-            if not _QUICKLOOK.fullmatch(suffix):
-                raise ValueError(f"Unexpected published asset: {filename}")
-            channel, altitude = suffix.rsplit("_", 1)
-            channels.setdefault(channel, {})[altitude.removesuffix("km")] = metadata["key"]
-        canonical[hour] = {
-            "publication_window_id": record["publication_window_id"],
-            "channels": channels,
-            "mean": None,
-        }
-    return {"canonical": canonical, "historical": {}}
 
 
 def build_unchanged_frontend(
@@ -75,13 +54,20 @@ def build_unchanged_frontend(
                 "coverage": coverage, "slots": slots,
             }
 
-    # Leave historical site output and Git-tracked HTML untouched.
+    # Reset generated historical pages confined to the temporary _site-v2 tree.
+    # This avoids orphan pages if persisted state becomes empty or a year is retired.
     target.mkdir(parents=True, exist_ok=True)
+    for stale_year in target.iterdir():
+        if re.fullmatch(r"\d{4}", stale_year.name):
+            if stale_year.is_symlink():
+                raise ValueError(f"Unsafe generated site year symlink: {stale_year}")
+            if stale_year.is_dir():
+                shutil.rmtree(stale_year)
     for year, state in sorted(states.items()):
         for date, day in sorted(state["days"].items()):
             render_day_dashboard(
-                date, _public_day(date, day), target,
-                r2_public_base, show_mean=False,
+                date, day, target,
+                r2_public_base,
             )
 
     manifest = {
