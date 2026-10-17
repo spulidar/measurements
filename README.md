@@ -1,121 +1,121 @@
-# SPU-Lidar measurements publisher
+# SPU-Lidar measurements — publication v2 development
 
-This repository owns the **public website layout and publication state** for SPU-Lidar. Scientific acquisition identity belongs to MILGRAU.
+**Production isolation:** `main` remains the unchanged live site. All new
+publication development is isolated on `publication-v2`, created from the
+existing `main` commit. Never run this branch as GitHub Pages production;
+do not merge it or switch the Pages source before the explicit cutover.
 
-## Identity boundary
+## Scientific/publication responsibilities
 
-MILGRAU `session-refactor` stores one continuous scientific acquisition as a session such as:
+- **MILGRAU** owns scientific configuration/station metadata, L0, L1, L2, QA,
+  continuous scientific session IDs and all generic figure renderers.
+- **measurements** owns only four station-local public views (00–06, 06–12,
+  12–18, 18–24), website-only WEBPs, provenance, public state and eventual
+  website/cloud publication.
 
-```text
-spu_20250511-0012Z_20250511-0737Z
-```
+One session ID such as `spu_20250511-0012Z_20250511-0737Z` remains a
+single scientific NetCDF from 10 May 21:12 to 11 May 04:37 São Paulo local
+time. It contributes to `20250510_spu_18` and `20250511_spu_00`, without
+splitting the file. Conversely a publication window can receive slices from
+multiple sessions. Slices are concatenated only **in memory for plotting**;
+`source_session_id` survives, gaps are retained, and duplicate timestamps or
+incompatible altitude/channel grids fail instead of silently averaging,
+deduplicating, interpolating or regridding.
 
-A session can cross midnight or any website boundary. `measurements` independently owns four station-local publication windows:
+Only canonical MILGRAU L1 NetCDF is discovered; SCC derivatives do not create
+extra sessions. L2 files are inspected for intersecting block coverage and
+provenance, but this publisher **does not** compute window-specific scientific
+L2 means or render session-aggregate L2 graphics as though window-specific.
 
-```text
-00–06  -> YYYYMMDD_spu_00
-06–12  -> YYYYMMDD_spu_06
-12–18  -> YYYYMMDD_spu_12
-18–24  -> YYYYMMDD_spu_18
-```
-
-These identifiers are `publication_window_id` values. They are **not session IDs**.
-
-Example in São Paulo local time:
-
-```text
-scientific acquisition: 10/05 21:12 -> 11/05 04:37
-MILGRAU session:         spu_20250511-0012Z_20250511-0737Z
-website views:           20250510_spu_18 (21:12–24:00 local)
-                         20250511_spu_00 (00:00–04:37 local)
-```
-
-No scientific NetCDF is split. The website only slices the data in memory for visualization.
-
-## Directory boundary
+## Workspace and installation
 
 ```text
 workspace/
-├── milgrau/
-├── measurements/
-├── 02-processed_data/       # MILGRAU scientific NetCDF products only
-└── 03-site-products/        # website-only rendered WEBPs + provenance sidecars
-    └── spu/YYYY/MM/YYYYMMDD/
+├── config.yaml               # MILGRAU recipe
+├── station.yaml              # MILGRAU station catalog
+├── 01-data/                  # immutable raw acquisitions
+├── 02-processed_data/        # L0/L1/L2 NetCDF, MILGRAU only
+├── 03-site-products/         # generated public WEBPs, sidecars and local v2 state
+├── milgrau/                  # checkout milgraumaxxing
+└── measurements/             # checkout publication-v2
 ```
 
-`measurements` no longer recursively scans arbitrary scientific WEBPs under `02-processed_data`. Only validated WEBPs in `03-site-products` are eligible for R2 upload.
-
-The public R2 key remains compatible with the existing site:
-
-```text
-YYYY/MM/YYYYMMDD/rcs_YYYYMMDD_spu_HH_532nm_AN_15km.webp
-```
-
-so no historical object migration is required.
-
-## How publication works
-
-For each selected local publication window the publisher:
-
-1. discovers canonical MILGRAU `SESSION_L1.nc` and optional `SESSION_L2.nc` files;
-2. finds every scientific session intersecting the local window;
-3. reads the exact L1 time span in `[window_start, window_end)`;
-4. concatenates multiple session slices **only in memory for visualization**;
-5. preserves the original `source_session_id` along the time coordinate and keeps real time gaps unchanged;
-6. calls MILGRAU's generic `plot_quicklook` and `plot_global_mean_rcs` renderers;
-7. writes only public WEBPs and a provenance JSON sidecar to `03-site-products`;
-8. uploads those staged WEBPs to the established R2 paths;
-9. updates the existing schema-v1 publication state and daily HTML.
-
-L2 products are read and their intersecting block support is recorded in the sidecar. The current public site does **not** synthesize a windowed L2 optical mean, because the present MILGRAU optical-profile renderer consumes session-aggregate variables. Recomputing those aggregates in this repository would duplicate scientific logic. When MILGRAU exposes a generic window-view L2 renderer, `measurements` can call it without changing session identity or state ownership.
-
-## Environment
-
-Until MILGRAU adds the planned `web` extra, install both in the **same environment**:
+Create one Python 3.12+ environment from the current MILGRAU checkout:
 
 ```bash
 cd workspace/milgrau
-pip install -e .
-pip install -r ../measurements/requirements.txt
+pip install -e ".[web]"
+# For complete development: pip install -e ".[dev,explorer,web]"
+cd ../measurements
+python update-site.py --stage-only --publish-date 20250510
 ```
 
-There is no need for two virtual environments.
+The `web` extra supplies the optional `boto3` dependency. MILGRAU's core
+already supplies xarray, matplotlib, PyYAML etc. No separate
+`measurements/config.yaml`, `requirements.txt` or virtualenv is used.
 
-## Normal use
+`--milgrau-config /path/to/config.yaml` overrides the config file search;
+otherwise `MILGRAU_CONFIG`, then `config.yaml` in the cwd or shared workspace
+is used. MILGRAU's official loader and path functions supply the scientific
+root and station/timezone/visualization recipe. Relative paths (including
+logos) are resolved against the loaded MILGRAU configuration root; selected
+logos must exist there. `03-site-products` is a publication-only sibling
+of the configured scientific `02-processed_data`.
 
-Publish one local day after processing/reprocessing it in MILGRAU:
+## Strict local stage-only pipeline
 
 ```bash
 cd workspace/measurements
-python update-site.py --publish-date 20250510 --no-push
+python update-site.py --stage-only --publish-date 20250511
+python update-site.py --stage-only --publish-year 2025
+python update-site.py --stage-only --dry-run --publish-date 20250511
 ```
 
-Build website staging only:
+There is intentionally **no** upload/delete R2, production HTML generation,
+production state bootstrap/mutation, Git auto-push or --prune-r2 path in the
+new entrypoint. The `--stage-only` flag is mandatory; unrecognized legacy
+options fail argument parsing.
 
-```bash
-python update-site.py --publish-date 20250510 --stage-only
+```text
+03-site-products/
+├── spu/2025/05/20250510/
+│   ├── rcs_20250510_spu_18_532nm_AN_15km.webp
+│   └── 20250510_spu_18.json
+├── spu/2025/05/20250511/
+│   ├── rcs_20250511_spu_00_532nm_AN_15km.webp
+│   └── 20250511_spu_00.json
+└── _state-v2/spu/2025.json
 ```
 
-Publish already staged assets without rerendering:
+The sidecar must attest `publication_window_id`, source sessions, exact L1
+sources, intersecting L2 sources, source fingerprint,
+`scientific_sessions_merged=false`,
+`scientific_netcdf_split=false`, visual-concatenation flag,
+explicit listed assets and their SHA-256 hashes. Sidecar validation rejects
+wrong station/day/path, absent or modified assets and foreign source
+identities. Unlisted WEBPs are never eligible for a future upload.
 
-```bash
-python update-site.py --publish-date 20250510 --skip-stage --no-push
-```
+A staging cache is invalidated by source L1/L2 file size/mtime, renderer
+implementation bytes, adapter code, MILGRAU config, station config and selected
+logo bytes, without requiring a package version bump. A valid sidecar plus
+verified asset hashes permits skipping an unchanged render.
 
-Force regeneration of selected website assets:
+The local state is schema v2 with `days[YYYYMMDD].publication_windows[HH]`,
+not `canonical`. Future R2 layout will be
+`spu/YYYY/MM/YYYYMMDD/<asset>`, but **no cloud publication happens now**.
 
-```bash
-python update-site.py --publish-date 20250510 --force-site-products --no-push
-```
+## Future historical rebuild and cutover (not part of this phase)
 
-Historical state/bootstrap/cleanup commands remain available:
+Process `01-data` through L0/L1/L2/QA by year with checkpoints recording
+scientific session counts, covered local days, publication windows, multi-session
+windows, gaps, L1/L2 coverage and staging failures. Rebuild
+`02-processed_data` and `03-site-products` only after separate authorization.
+Validate the full new archive, test the new HTML/manifest in staging, then
+publish to an isolated R2 bucket/prefix. Cut over only after coverage
+verification; delete obsolete R2 objects and legacy code only **after**
+production has been validated. The old site remains online and frozen
+throughout this work.
 
-```bash
-python update-site.py --validate-state
-python update-site.py --bootstrap-state-from-r2 --html-only --no-push
-python update-site.py --cleanup-report 2024
-```
-
-## Historical compatibility
-
-The committed `publisher/state/YYYY.json` files stay at schema version 1. The legacy JSON field named `canonical` is retained as a storage key so the historical archive does not require migration; new code treats each entry as a publication-window record and adds `publication_window_id` plus source-session provenance when a window is republished.
+Legacy publisher modules remain in this development branch as historical
+reference only; `update-site.py` does not import or invoke them. They are
+not part of the publication-v2 architecture or safety envelope.
