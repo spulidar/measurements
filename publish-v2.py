@@ -49,8 +49,8 @@ def main(argv: list[str] | None = None) -> int:
     repo = Path(__file__).resolve().parent
     if cached == scientific or cached.is_relative_to(scientific) or scientific.is_relative_to(cached):
         raise RuntimeError("Measurement cache must not overlap scientific products")
-    if repo == cached or repo.is_relative_to(cached) or cached.is_relative_to(repo):
-        raise RuntimeError("Measurement cache must not overlap Git repository")
+    if not args.dry_run and (repo == cached or repo.is_relative_to(cached) or cached.is_relative_to(repo)):
+        raise RuntimeError("Measurement cache must not overlap Git repository during publication")
     station = station_id(config)
     log = logging.getLogger("measurements-v2")
     logging.basicConfig(level=logging.INFO, format="%(levelname)s %(message)s")
