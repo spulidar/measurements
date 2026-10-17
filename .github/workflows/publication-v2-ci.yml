@@ -46,8 +46,8 @@ jobs:
       - name: Build a separate local preview without source data
         run: |
           python preview-site.py --milgrau-config milgrau/config.yaml
-          test -f milgrau/03-site-products/_preview-v2/index.html
-          test -f milgrau/03-site-products/_preview-v2/manifest.json
+          test -f milgrau/.cache/measurements/_preview-v2/index.html
+          test -f milgrau/.cache/measurements/_preview-v2/manifest.json
       - name: Verify entrypoint has no publishing mode
         run: |
           python update-site.py --help
