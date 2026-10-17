@@ -1,66 +1,76 @@
-# Session-aware publication migration
+# Publication v2 — migration and future cutover plan
 
-This change adapts `spulidar/measurements` to MILGRAU `session-refactor` without migrating existing R2 objects or historical state.
+This document describes the planned transition. **No migration, reprocessing,
+R2 upload/delete, or production site changes are authorized by this file.**
 
-## What changes
+## Production freeze
 
-- publication windows `00`, `06`, `12`, `18` are owned exclusively by this repository;
-- their full identity is `YYYYMMDD_station_HH` and is called `publication_window_id`;
-- MILGRAU scientific session IDs are read through `milgrau.io.paths` and are never recreated here;
-- L1/L2 NetCDFs are read directly from `02-processed_data`;
-- website rendering happens in `03-site-products`;
-- only staged public WEBPs can be uploaded;
-- multiple scientific sessions may contribute to one website plot, but are concatenated only in memory and retain `source_session_id`;
-- real gaps are not resampled or filled; MILGRAU's generic quicklook renderer displays them as missing data;
-- current public/R2 filenames and keys are retained;
-- state schema 1 is retained.
+- `spulidar/measurements/main`: existing GitHub Pages, legacy dashboard,
+  manifest, `publisher/state/*.json` and current R2 references remain frozen.
+- `spulidar/measurements/publication-v2`: development of a new clean
+  site-publication architecture, with no executable publishing/deletion path.
+- `spulidar/milgrau/milgraumaxxing`: the independent scientific source of
+  truth; it is **not** a publication engine.
 
-## Existing checkout
+The old schema-v1 and historic `saam/sapm/sant` system is not migrated
+incrementally. The new dataset is generated from reprocessed history and
+published as a whole only after validation. The new v2 model uses
+`days[YYYYMMDD].publication_windows[HH]`.
 
-Apply the changed source files over the current `measurements` checkout. **Do not delete**:
+## Development environment
 
-```text
-publisher/state/
-YYYY/                 # historical redirects/pages
-measurements.json     # it will be regenerated as needed
-```
-
-Create the new staging directory beside the repos when the publisher first runs:
-
-```text
-03-site-products/
-```
-
-## First controlled test
-
-Use a single known date and do not push Git initially:
+Use one Python 3.12+ environment, installed from MILGRAU:
 
 ```bash
+cd workspace/milgrau
+pip install -e ".[dev,explorer,web]"
+cd ../measurements
 python -m pytest -q
-python update-site.py --publish-date 20250510 --stage-only
-python update-site.py --publish-date 20250510 --skip-stage --no-push
+python update-site.py --stage-only --publish-date 20250510
 ```
 
-Inspect:
+The `measurements` v2 checkout has **no** separate config.yaml or
+requirements.txt. MILGRAU `config.yaml` and `station.yaml` are loaded via
+MILGRAU APIs. Only local products under
+`workspace/03-site-products/station/YYYY/MM/YYYYMMDD/` and local
+`03-site-products/_state-v2/station/YYYY.json` are generated.
 
-```text
-../03-site-products/spu/2025/05/20250510/
-```
+Local WEBPs require a valid same-window sidecar with listed filenames and
+hashes; orphan scientific or manual WEBPs cannot enter the v2 catalog. Final
+R2 key design is `station/YYYY/MM/YYYYMMDD/asset.webp`, **not** the old
+unprefixed path. This is a future interface, not a cloud migration.
 
-Each publication window has a JSON sidecar showing the contributing scientific session IDs and whether more than one session was concatenated for visualization.
+## Year-by-year historical reprocessing (future, not now)
 
-## Public compatibility
+For each year, with checkpointed scientific runs:
 
-A new staged file such as:
+1. Inventory immutable `01-data/` raw acquisition content and station profile.
+2. Generate L0 using LIBIDS, L1 using LIPANCORA, L2 using LEBEAR.
+3. Review QA, uncertainty semantics, support masks and provenance.
+4. Inventory continuous scientific sessions, L1/L2 availability and temporal gaps.
+5. Generate four station-local publication views wherever samples exist,
+   never cutting a NetCDF on midnight or 6-hour boundaries.
+6. Validate sidecars, hashes and local schema-v2 year state.
+7. Record counts: scientific sessions, local days, publication windows,
+   windows with multiple sessions, gaps, L1/L2 support, staging failures.
 
-```text
-03-site-products/spu/2025/05/20250510/rcs_20250510_spu_18_532nm_AN_15km.webp
-```
+Do not delete `01-data/`. Any rebuild/delete of
+`02-processed_data/` or `03-site-products/` needs a separately approved
+command and full backup/verification plan.
 
-is still uploaded as:
+## Separate cutover decision
 
-```text
-2025/05/20250510/rcs_20250510_spu_18_532nm_AN_15km.webp
-```
+Only after the full historical archive has passed scientific and publication
+acceptance:
 
-No `spu/` prefix is inserted into the established public R2 key, so existing HTML/state links stay valid.
+1. Generate and test new HTML/manifest against local schema v2.
+2. Upload to an **isolated** R2 bucket/prefix, not production.
+3. Audit URL resolution, complete temporal coverage and asset inventories.
+4. Authorize and execute the production switch separately.
+5. Observe live behavior and validate rollback readiness.
+6. Remove retired production R2 objects and legacy site code **only after**
+   the replacement has been verified, in a dedicated cleanup change.
+
+Never run old `--skip-stage`, `--bootstrap-state-from-r2`, `--prune-r2`,
+`--cleanup-report`, or automatic Git push instructions against the new
+development pipeline.
