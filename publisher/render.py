@@ -118,11 +118,16 @@ def render_day_dashboard(
     site_root: str | Path,
     public_url: str,
     dry_run: bool = False,
+    show_mean: bool = True,
 ) -> Path:
     output_path = day_output_path(site_root, date)
     fingerprint = dashboard_fingerprint(date, day)
     payload_json = json.dumps(_payload(date, day, public_url), ensure_ascii=False).replace("</", "<\\/")
     date_title = datetime.strptime(date, "%Y%m%d").strftime("%d %b %Y")
+    mean_button = (
+        '<button class="main-mode-btn" id="tab-mean" onclick="setMode(\'mean\')">Mean RCS</button>'
+        if show_mean else ''
+    )
 
     page = f'''<!doctype html>
 <html lang="en">
@@ -179,7 +184,7 @@ def render_day_dashboard(
     <div class="control-group" id="period-controls"><h3>Publication window</h3></div>
     <div class="control-group">
       <button class="main-mode-btn active" id="tab-quicklooks" onclick="setMode('quicklooks')">RCS Maps</button>
-      <button class="main-mode-btn" id="tab-mean" onclick="setMode('mean')">Mean RCS</button>
+      {mean_button}
     </div>
     <div class="control-group" id="channel-controls"><h3>Wavelength</h3></div>
     <div class="control-group" id="altitude-controls"><h3>Range</h3></div>
@@ -267,7 +272,7 @@ function renderAll() {{ renderWindows(); renderSelectors(); updateDisplay(); }}
 function setMode(mode) {{
   currentMode=mode;
   document.getElementById('tab-quicklooks').classList.toggle('active', mode==='quicklooks');
-  document.getElementById('tab-mean').classList.toggle('active', mode==='mean');
+  document.getElementById('tab-mean')?.classList.toggle('active', mode==='mean');
   renderAll();
 }}
 
