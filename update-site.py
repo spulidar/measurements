@@ -61,6 +61,26 @@ def resolve_config_path(args: argparse.Namespace) -> Path:
     return path
 
 
+def resolve_visualization_root(config: dict, workspace_root: Path) -> Path:
+    """Use MILGRAU's official logo resolver; support workspace and package assets."""
+    from milgrau.viz.style import configured_logos, resolve_logo_path
+    import milgrau
+
+    logos = configured_logos(config)
+    if not logos:
+        return workspace_root
+    package_root = Path(milgrau.__file__).resolve().parents[1]
+    candidates = (workspace_root, package_root)
+    for root in candidates:
+        if all(resolve_logo_path(root, name).is_file() for name, _height in logos):
+            return root
+    raise FileNotFoundError(
+        "Configured MILGRAU logos are not all resolvable from either the "
+        f"workspace root ({workspace_root}) or installed MILGRAU root "
+        f"({package_root}). Fix visualization.logos in the MILGRAU config."
+    )
+
+
 def main(argv: list[str] | None = None) -> int:
     args = parse_args(argv)
     try:
@@ -96,12 +116,13 @@ def main(argv: list[str] | None = None) -> int:
 
     logging.basicConfig(level=logging.INFO, format="%(levelname)s %(message)s")
     logger = logging.getLogger("publication-v2")
+    visual_root = resolve_visualization_root(config, root)
     sessions = discover_scientific_sessions(scientific_root, station)
     logger.info("MILGRAU %s: %d canonical scientific sessions", station, len(sessions))
     results = stage_publication_products(
         sessions, site_products_root=site_products, station_id=station,
         timezone_name=timezone_name, milgrau_config=config,
-        milgrau_config_path=config_path, milgrau_root=root,
+        milgrau_config_path=config_path, milgrau_root=visual_root,
         publication_settings={"schema_version": 2, "mode": "stage-only"},
         publish_year=args.publish_year, publish_date=args.publish_date,
         force=args.force_site_products, dry_run=args.dry_run, logger=logger,

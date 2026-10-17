@@ -58,8 +58,10 @@ already supplies xarray, matplotlib, PyYAML etc. No separate
 otherwise `MILGRAU_CONFIG`, then `config.yaml` in the cwd or shared workspace
 is used. MILGRAU's official loader and path functions supply the scientific
 root and station/timezone/visualization recipe. Relative paths (including
-logos) are resolved against the loaded MILGRAU configuration root; selected
-logos must exist there. `03-site-products` is a publication-only sibling
+logos) are resolved using MILGRAU's official logo-path resolver. The
+workspace root is preferred; if the configured images all reside in the
+installed MILGRAU checkout's `img/`, its package root is used explicitly.
+Mixed/missing logo sets cause an error instead of being silently omitted. `03-site-products` is a publication-only sibling
 of the configured scientific `02-processed_data`.
 
 ## Strict local stage-only pipeline
