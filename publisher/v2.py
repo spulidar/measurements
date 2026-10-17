@@ -1,7 +1,7 @@
 """Publication-v2 staging catalog and schema-v2 local state.
 
 This module has intentionally no boto3/cloud, subprocess, site-HTML or Git
-dependencies. It accepts *only* attested products below 03-site-products.
+dependencies. It accepts *only* attested products below .cache/measurements.
 """
 from __future__ import annotations
 
@@ -18,7 +18,7 @@ _FINGERPRINT = re.compile(r"^[0-9a-f]{64}$")
 _STATION = re.compile(r"^[a-z0-9][a-z0-9-]*$")
 _ASSET = re.compile(
     r"^rcs_(?P<id>\d{8}_[a-z0-9][a-z0-9-]*_(?:00|06|12|18))_"
-    r"(?:(?:\d+nm_[A-Za-z0-9-]+_\d+(?:\.\d+)?km)|mean)\.webp$"
+    r"\d+nm_[A-Za-z0-9-]+_\d+(?:\.\d+)?km\.webp$"
 )
 
 
@@ -161,7 +161,7 @@ def build_state_v2(
 def write_local_state_v2(
     site_products_root: str | Path, station_id: str, years: dict[str, dict[str, Any]]
 ) -> list[Path]:
-    """Only stage local v2 state below 03-site-products/_state-v2/station/."""
+    """Only stage local v2 state below .cache/measurements/_state-v2/station/."""
     output_root = Path(site_products_root).resolve() / "_state-v2" / station_id
     output_root.mkdir(parents=True, exist_ok=True)
     written = []
