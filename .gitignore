@@ -9,7 +9,9 @@ env/
 test.py
 logs/
 
-# Publication staging belongs beside the repositories, not in this Git tree.
+# Never track measurement staging/diagnostic cache.
+.cache/
+# Ignore old experimental directory if present; do not delete it automatically.
 03-site-products/
 
 # Security
