@@ -12,6 +12,7 @@ from __future__ import annotations
 from copy import deepcopy
 from dataclasses import dataclass
 from hashlib import sha256
+import importlib
 import json
 import logging
 from pathlib import Path
@@ -72,8 +73,8 @@ def _milgrau_render_api():
         )
     except ImportError as exc:  # pragma: no cover - runtime environment dependent
         raise RuntimeError(
-            "MILGRAU session-refactor must be installed in this environment before "
-            "website publication products can be rendered."
+            "The current MILGRAU installation is required for website staging. "
+            "Install it with `pip install -e '.[web]'`."
         ) from exc
     return {
         "validate_level1_contract": validate_level1_contract,
@@ -146,6 +147,15 @@ def concatenate_level1_publication_view(
     if len(materialized) == 1:
         combined = materialized[0]
     else:
+        # xarray's outer join would otherwise silently align incompatible scientific
+        # altitude/channel grids. This is a public visualization, not a regridding step.
+        for candidate in materialized[1:]:
+            for coordinate in ("altitude", "channel"):
+                if not materialized[0][coordinate].identical(candidate[coordinate]):
+                    raise RuntimeError(
+                        f"Scientific sessions have incompatible {coordinate} grids; "
+                        "refusing implicit alignment in the publication view."
+                    )
         combined = xr.concat(
             materialized,
             dim="time",
@@ -253,9 +263,17 @@ def level2_intersection_summary(
                     }
                 )
         except Exception as exc:
-            if logger is not None:
-                logger.warning("Ignoring invalid/unreadable Level 2 publication source %s: %s", path, exc)
+            raise RuntimeError(f"Invalid Level 2 publication source {path}: {exc}") from exc
     return tuple(summaries)
+
+
+def _sha256_file(path: Path) -> str:
+    """Hash a bounded file stream (logos/renderers/assets), not scientific arrays."""
+    digest = sha256()
+    with path.open("rb") as stream:
+        for chunk in iter(lambda: stream.read(1024 * 1024), b""):
+            digest.update(chunk)
+    return digest.hexdigest()
 
 
 def _source_fingerprint(
@@ -263,32 +281,65 @@ def _source_fingerprint(
     sessions: Iterable[ScientificSessionSource],
     milgrau_config_path: Path,
     publication_settings: Mapping[str, Any],
+    milgrau_config: Mapping[str, Any],
+    milgrau_root: Path,
 ) -> str:
+    """Capture scientific sources, recipes, logos and actual rendering implementation."""
     digest = sha256()
-    digest.update(window.publication_window_id.encode("utf-8"))
-    digest.update(window.start_utc.isoformat().encode("ascii"))
-    digest.update(window.end_utc.isoformat().encode("ascii"))
-    digest.update(json.dumps(dict(publication_settings), sort_keys=True, default=str).encode("utf-8"))
+    def add(label: str, value: str) -> None:
+        digest.update(label.encode("utf-8") + b"\\0" + value.encode("utf-8") + b"\\n")
 
-    if milgrau_config_path.is_file():
-        digest.update(milgrau_config_path.read_bytes())
-    for module_path in (Path(__file__), Path(__file__).with_name("windows.py")):
-        digest.update(module_path.read_bytes())
+    add("publication_window_id", window.publication_window_id)
+    add("start_utc", window.start_utc.isoformat())
+    add("end_utc", window.end_utc.isoformat())
+    add("publication_settings", json.dumps(dict(publication_settings), sort_keys=True, default=str))
+    add("milgrau_config", json.dumps(dict(milgrau_config), sort_keys=True, default=str))
 
-    try:
-        import milgrau
+    for config_file in (
+        milgrau_config_path,
+        Path(str(milgrau_config.get("_station_config_path", ""))),
+    ):
+        if config_file.is_file():
+            add(str(config_file), _sha256_file(config_file))
 
-        digest.update(str(getattr(milgrau, "__version__", "unknown")).encode("utf-8"))
-    except ImportError:
-        digest.update(b"milgrau-unavailable")
+    # Version numbers are informational, not a substitute for hashing code.
+    import milgrau
+    add("milgrau_version", str(getattr(milgrau, "__version__", "unknown")))
+    for module_name in (
+        "milgrau.viz.quicklooks",
+        "milgrau.viz.style",
+        "milgrau.viz.config",
+        "milgrau.io.contracts",
+    ):
+        module = importlib.import_module(module_name)
+        module_file = Path(module.__file__)
+        if not module_file.is_file():
+            raise RuntimeError(f"Missing MILGRAU renderer dependency: {module_name}")
+        add(module_name, _sha256_file(module_file))
+
+    for module_path in (
+        Path(__file__), Path(__file__).with_name("windows.py"),
+    ):
+        add(str(module_path.name), _sha256_file(module_path))
+
+    from milgrau.viz.style import configured_logos, resolve_logo_path
+    for logo_name, height in configured_logos(milgrau_config):
+        logo_path = resolve_logo_path(milgrau_root, logo_name)
+        if not logo_path.is_file():
+            raise FileNotFoundError(
+                f"Selected MILGRAU visualization logo does not exist: {logo_path}"
+            )
+        add(f"logo:{logo_name}:{height}", _sha256_file(logo_path))
 
     for session in sorted(sessions, key=lambda item: item.session_id):
-        digest.update(session.session_id.encode("utf-8"))
-        for path in (session.level1_path, session.level2_path):
-            if path is None or not path.exists():
+        add("source_session_id", session.session_id)
+        for source in (session.level1_path, session.level2_path):
+            if source is None:
                 continue
-            stat = path.stat()
-            digest.update(f"{path.name}:{stat.st_size}:{stat.st_mtime_ns}".encode("utf-8"))
+            if not source.is_file():
+                raise FileNotFoundError(f"Scientific source disappeared: {source}")
+            stat = source.stat()
+            add(f"source:{source.resolve()}", f"{stat.st_size}:{stat.st_mtime_ns}")
     return digest.hexdigest()
 
 
@@ -301,21 +352,31 @@ def _sidecar_is_current(path: Path, fingerprint: str) -> bool:
         return False
     if payload.get("source_fingerprint") != fingerprint:
         return False
-    assets = payload.get("assets")
-    if not isinstance(assets, list) or not assets:
+    if payload.get("scientific_sessions_merged") is not False:
         return False
-    return all((path.parent / str(name)).is_file() for name in assets)
+    if payload.get("scientific_netcdf_split") is not False:
+        return False
+    assets = payload.get("assets")
+    hashes = payload.get("asset_hashes")
+    if not isinstance(assets, list) or not assets or not isinstance(hashes, dict):
+        return False
+    if len(assets) != len(set(assets)) or set(assets) != set(hashes):
+        return False
+    for name in assets:
+        if not isinstance(name, str) or Path(name).name != name or not name.endswith(".webp"):
+            return False
+        asset = path.parent / name
+        if not asset.is_file() or _sha256_file(asset) != hashes[name]:
+            return False
+    return True
 
 
 def _render_config(milgrau_config: Mapping[str, Any], publication_settings: Mapping[str, Any]) -> dict:
+    # Publication cannot override MILGRAU's visual recipe.
+    from milgrau.viz.config import resolve_visualization_config
     config = deepcopy(dict(milgrau_config))
-    visualization = config.setdefault("visualization", {})
-    if not isinstance(visualization, dict):
-        raise ValueError("MILGRAU visualization configuration must be a mapping.")
-    output_format = str(publication_settings.get("output_format", "webp")).lstrip(".").lower()
-    if output_format != "webp":
-        raise ValueError("measurements currently requires publication.output_format: webp for R2 compatibility.")
-    visualization["output_format"] = output_format
+    if resolve_visualization_config(config).output_format != "webp":
+        raise ValueError("Website publication requires MILGRAU visualization.output_format: webp.")
     return config
 
 
@@ -344,7 +405,9 @@ def render_publication_window(
         return StageWindowResult(window.publication_window_id, (), (), False, True, True)
 
     config_path = Path(milgrau_config_path)
-    fingerprint = _source_fingerprint(window, candidates, config_path, publication_settings)
+    fingerprint = _source_fingerprint(
+        window, candidates, config_path, publication_settings, milgrau_config, Path(milgrau_root)
+    )
     sidecar = publication_sidecar_path(site_products_root, window)
     if not force and _sidecar_is_current(sidecar, fingerprint):
         payload = json.loads(sidecar.read_text(encoding="utf-8"))
@@ -495,6 +558,7 @@ def render_publication_window(
             "source_fingerprint": fingerprint,
             "renderer_owner": "milgrau.generic",
             "assets": sorted(path.name for path in generated_targets),
+            "asset_hashes": {path.name: _sha256_file(path) for path in generated_targets},
         }
         _write_sidecar(sidecar, sidecar_payload)
 

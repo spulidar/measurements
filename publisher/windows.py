@@ -214,7 +214,7 @@ def _milgrau_session_api():
     except ImportError as exc:  # pragma: no cover - depends on runtime install
         raise RuntimeError(
             "MILGRAU must be installed in the same environment to render website products. "
-            "Install the session-refactor checkout with `pip install -e ../milgrau`."
+            "Install the current MILGRAU checkout using `pip install -e '.[web]'`."
         ) from exc
     return product_session_id, session_id_parts
 
@@ -236,8 +236,8 @@ def discover_scientific_sessions(
         try:
             session_id = product_session_id(level1_path)
             parsed_station, start_utc, end_utc = session_id_parts(session_id)
-        except ValueError:
-            continue
+        except ValueError as exc:
+            raise RuntimeError(f"Invalid Level 1 source name: {level1_path}") from exc
 
         # Only the canonical complete-session L1 belongs in the publication
         # source catalog. SCC derivatives and explicit variants are separate
@@ -245,7 +245,9 @@ def discover_scientific_sessions(
         if level1_path.name != f"{session_id}_L1.nc":
             continue
         if parsed_station != str(station_id).strip().lower():
-            continue
+            raise RuntimeError(
+                f"Station mismatch in scientific L1 source {level1_path}: {parsed_station}."
+            )
         if session_id in seen:
             raise RuntimeError(f"Duplicate canonical Level 1 product for session {session_id}.")
         seen.add(session_id)
@@ -263,11 +265,11 @@ def discover_scientific_sessions(
             raise RuntimeError(
                 f"Cannot read exact Level 1 time coordinate for {session_id}: {level1_path}"
             ) from exc
-        if not time_values.size:
-            continue
-        finite_times = time_values[~np.isnat(time_values)]
-        if not finite_times.size:
-            continue
+        if not time_values.size or np.isnat(time_values).any():
+            raise RuntimeError(f"Missing or invalid L1 time samples: {level1_path}")
+        finite_times = time_values
+        if np.any(finite_times[1:] <= finite_times[:-1]):
+            raise RuntimeError(f"L1 times must be strictly increasing: {level1_path}")
         exact_start = pd.Timestamp(finite_times.min()).tz_localize("UTC").to_pydatetime()
         # Scientific profile timestamps are samples, not interval endpoints.
         # Add one microsecond so a final profile exactly on a publication
