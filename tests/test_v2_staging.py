@@ -156,3 +156,38 @@ def test_renderer_and_logo_file_changes_invalidate(tmp_path, monkeypatch):
         return original(path)
     monkeypatch.setattr(staging, "_sha256_file", fake_source_hash)
     assert sum(r.rendered for r in _run(tmp_path, session, cfg)) == 2
+
+
+def test_confirmed_git_state_skips_restaging_after_cache_cleanup(tmp_path, monkeypatch):
+    session, cfg = _stage(tmp_path, monkeypatch)
+    first = _run(tmp_path, session, cfg)
+    assert len(first) == 2 and all(r.rendered for r in first)
+    cache_root = tmp_path / "03-site-products"
+    fingerprints = {}
+    for item in first:
+        date, station, hour = item.publication_window_id.split("_")
+        day = cache_root / station / date[:4] / date[4:6] / date
+        sidecar = day / f"{item.publication_window_id}.json"
+        payload = json.loads(sidecar.read_text())
+        fingerprints[item.publication_window_id] = payload["source_fingerprint"]
+        for filename in payload["assets"]:
+            (day / filename).unlink()
+        sidecar.unlink()
+
+    def stage_with_previous(config):
+        return staging.stage_publication_products(
+            (session,), site_products_root=cache_root,
+            station_id="spu", timezone_name="America/Sao_Paulo",
+            milgrau_config=config, milgrau_config_path=tmp_path / "config.yaml",
+            publication_settings={"schema_version": 2, "mode": "stage-only"},
+            milgrau_root=tmp_path, published_fingerprints=fingerprints,
+        )
+
+    repeated = stage_with_previous(cfg)
+    assert len(repeated) == 2
+    assert all(item.skipped and not item.rendered for item in repeated)
+    assert not list(cache_root.rglob("*.webp"))
+    changed = _config()
+    changed["visualization"]["quicklook"]["colormap"] = "viridis"
+    new_figures = stage_with_previous(changed)
+    assert all(item.rendered for item in new_figures)
