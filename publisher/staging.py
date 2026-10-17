@@ -181,7 +181,21 @@ def concatenate_level1_publication_view(
 
     source_ids = []
     if "source_session_id" in combined.coords:
-        source_ids = sorted({str(value) for value in combined["source_session_id"].values})
+        source_values = np.asarray(combined["source_session_id"].values).astype(str)
+        source_ids = sorted(set(source_values))
+        # Distinct sessions may interleave without exact duplicate timestamps.
+        # That is still an ambiguous scientific overlap, not a safe visual concat.
+        spans = []
+        for source_id in source_ids:
+            source_times = times[source_values == source_id]
+            spans.append((source_times.min(), source_times.max(), source_id))
+        spans.sort()
+        for before, after in zip(spans, spans[1:]):
+            if after[0] <= before[1]:
+                raise RuntimeError(
+                    f"Overlapping scientific session intervals in "
+                    f"{window.publication_window_id}: {before[2]} and {after[2]}"
+                )
 
     combined.attrs = dict(combined.attrs)
     combined.attrs.update(

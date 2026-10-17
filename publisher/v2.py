@@ -77,8 +77,9 @@ def _validated_sidecar(path: Path, root: Path, station: str) -> dict[str, Any]:
         parsed_station, _start, _end = session_id_parts(session_id)
         if parsed_station != station or filename != f"{session_id}_L1.nc":
             raise ValueError(f"Scientific provenance mismatch in {path}: {session_id}")
-    if any(not item.endswith("_L2.nc") for item in l2_files):
-        raise ValueError(f"Invalid L2 source file name in {path}")
+    expected_l2_files = {f"{sid}_L2.nc" for sid in source_sessions}
+    if any(item not in expected_l2_files for item in l2_files):
+        raise ValueError(f"L2 source does not belong to an attested scientific session: {path}")
 
     for key in ("scientific_sessions_merged", "scientific_netcdf_split"):
         if payload.get(key) is not False:

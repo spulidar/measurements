@@ -61,3 +61,15 @@ def test_overlapping_session_timestamps_are_not_silently_merged():
 
     with pytest.raises(RuntimeError, match="duplicate publication time"):
         concatenate_level1_publication_view([first, second], window=window)
+
+
+def test_interleaved_session_ranges_fail_even_without_equal_timestamps():
+    window = PublicationWindow.build("20250510", "spu", "18", "America/Sao_Paulo")
+    first = _subset(
+        ["2025-05-11T00:12:00", "2025-05-11T00:15:00"], "session-a"
+    )
+    second = _subset(
+        ["2025-05-11T00:13:00", "2025-05-11T00:14:00"], "session-b"
+    )
+    with pytest.raises(RuntimeError, match="Overlapping scientific session intervals"):
+        concatenate_level1_publication_view([first, second], window=window)
