@@ -410,6 +410,7 @@ def render_publication_window(
     logger: logging.Logger | None = None,
     force: bool = False,
     dry_run: bool = False,
+    published_fingerprints: Mapping[str, str] | None = None,
 ) -> StageWindowResult:
     """Render one six-hour website view from intersecting scientific sessions."""
     candidates = sessions_intersecting_window(sessions, window)
@@ -421,6 +422,20 @@ def render_publication_window(
         window, candidates, config_path, publication_settings, milgrau_config, Path(milgrau_root)
     )
     sidecar = publication_sidecar_path(site_products_root, window)
+    if (
+        not force
+        and not sidecar.exists()
+        and published_fingerprints is not None
+        and published_fingerprints.get(window.publication_window_id) == fingerprint
+    ):
+        if logger is not None:
+            logger.info("Already published in Git state: %s (no cache required)", window.publication_window_id)
+        return StageWindowResult(
+            window.publication_window_id,
+            tuple(session.session_id for session in candidates),
+            (),
+            False, True, False,
+        )
     if not force and _sidecar_is_current(sidecar, fingerprint):
         payload = json.loads(sidecar.read_text(encoding="utf-8"))
         assets = tuple(sidecar.parent / str(name) for name in payload.get("assets", []))
@@ -595,6 +610,7 @@ def stage_publication_products(
     force: bool = False,
     dry_run: bool = False,
     logger: logging.Logger | None = None,
+    published_fingerprints: Mapping[str, str] | None = None,
 ) -> tuple[StageWindowResult, ...]:
     session_tuple = tuple(sessions)
     results: list[StageWindowResult] = []
@@ -616,6 +632,7 @@ def stage_publication_products(
             logger=logger,
             force=force,
             dry_run=dry_run,
+            published_fingerprints=published_fingerprints,
         )
         results.append(result)
     return tuple(results)
