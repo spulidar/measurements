@@ -56,7 +56,7 @@ def preview_manifest(site_products_root: str | Path, station_id: str) -> dict[st
 
 
 def build_preview(site_products_root: str | Path, station_id: str) -> tuple[Path, int]:
-    """Write a self-contained HTTP-served preview only under 03-site-products."""
+    """Write a self-contained HTTP-served preview only under .cache/measurements."""
     root = Path(site_products_root).resolve()
     manifest = preview_manifest(root, station_id)
     output = root / PREVIEW_FOLDER
