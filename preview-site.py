@@ -15,7 +15,7 @@ from publisher.preview import build_preview
 
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(
-        description="Build an isolated static preview under 03-site-products/_preview-v2."
+        description="Build an isolated static preview under .cache/measurements/_preview-v2."
     )
     parser.add_argument("--milgrau-config", type=Path, default=None)
     args = parser.parse_args(argv)
@@ -34,7 +34,7 @@ def main(argv: list[str] | None = None) -> int:
     config = load_config(config_file)
     workspace = Path(config["_config_file"]).parent
     scientific = processed_data_root(config, root_dir=workspace).resolve()
-    site = resolve_project_path("03-site-products", root_dir=workspace).resolve()
+    site = resolve_project_path(".cache/measurements", root_dir=workspace).resolve()
     if site == scientific or site.is_relative_to(scientific) or scientific.is_relative_to(site):
         raise RuntimeError("Preview products must never overlap the MILGRAU scientific tree.")
 
@@ -44,7 +44,7 @@ def main(argv: list[str] | None = None) -> int:
     logging.info("Created local preview with %d measurement day(s): %s", count, index)
     logging.info(
         "From the workspace root, run: python -m http.server 8765 "
-        "--bind 127.0.0.1 --directory 03-site-products"
+        "--bind 127.0.0.1 --directory .cache/measurements"
     )
     logging.info("Then open: http://127.0.0.1:8765/_preview-v2/")
     return 0
