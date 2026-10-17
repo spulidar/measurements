@@ -1,2 +1,2 @@
-boto3
-PyYAML
+boto3>=1.34
+PyYAML>=6.0

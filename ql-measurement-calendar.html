@@ -29,17 +29,17 @@
 
 <script>
 const siteBaseUrl='https://spulidar.github.io/measurements/';
-const periodOrder=['00','06','12','18'];
+const publicationWindowOrder=['00','06','12','18'];
 let manifest=null;
 
 function parseDateKey(key){return new Date(Number(key.slice(0,4)),Number(key.slice(4,6))-1,Number(key.slice(6,8)));}
 function dayKey(date){return String(date.getFullYear()).padStart(4,'0')+String(date.getMonth()+1).padStart(2,'0')+String(date.getDate()).padStart(2,'0');}
 function tooltipFor(key,day){
-  const labels=manifest.period_labels;
+  const labels=manifest.publication_window_labels || manifest.period_labels || {};
   const lines=[key.slice(6,8)+'/'+key.slice(4,6)+'/'+key.slice(0,4)];
-  periodOrder.forEach(period=>{
-    const slot=(day.slots||{})[period];
-    lines.push(labels[period]+': '+(slot&&slot.available?'data':'no data'));
+  publicationWindowOrder.forEach(windowStart=>{
+    const slot=(day.slots||{})[windowStart];
+    lines.push((labels[windowStart]||windowStart)+': '+(slot&&slot.available?'data':'no data'));
   });
   return lines.join('\n');
 }

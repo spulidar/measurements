@@ -9,7 +9,8 @@ import json
 from pathlib import Path
 import re
 
-from .state import all_dates, coverage_for_day, get_day, resolved_periods
+from .state import all_dates, coverage_for_day, get_day, resolved_public_views
+from .windows import PUBLICATION_WINDOW_LABELS, PUBLICATION_WINDOW_STARTS
 
 _FINGERPRINT_RE = re.compile(r'<meta name="publisher-fingerprint" content="([0-9a-f]+)">')
 
@@ -50,22 +51,25 @@ def build_manifest(states: dict[str, dict]) -> dict:
         day = get_day(states, date, create=False)
         assert day is not None
         coverage = coverage_for_day(day)
+        publication = day.get("canonical", {})
+        slots: dict[str, dict] = {}
+        for window_start in PUBLICATION_WINDOW_STARTS:
+            entry = publication.get(window_start, {})
+            slot = {"available": coverage[window_start]}
+            publication_window_id = entry.get("publication_window_id") if isinstance(entry, dict) else None
+            if publication_window_id:
+                slot["publication_window_id"] = publication_window_id
+            slots[window_start] = slot
         days[date] = {
             "day_url": f"{date[:4]}/{date[4:6]}/{date}/index.html",
             "coverage": coverage,
-            "slots": {
-                period: {"available": available}
-                for period, available in coverage.items()
-            },
+            "slots": slots,
         }
     return {
-        "schema_version": 3,
-        "period_labels": {
-            "00": "00–06",
-            "06": "06–12",
-            "12": "12–18",
-            "18": "18–24",
-        },
+        "schema_version": 4,
+        "publication_window_labels": dict(PUBLICATION_WINDOW_LABELS),
+        # Compatibility alias used by the existing calendar JavaScript.
+        "period_labels": dict(PUBLICATION_WINDOW_LABELS),
         "days": days,
     }
 
@@ -87,24 +91,25 @@ def _public_url(base: str, key: str | None) -> str | None:
 
 
 def _payload(date: str, day: dict, public_url: str) -> dict:
-    periods: list[dict] = []
-    for period in resolved_periods(day):
+    views: list[dict] = []
+    for view in resolved_public_views(day):
         channels = {
             channel: {
                 altitude: _public_url(public_url, key)
                 for altitude, key in sorted(altitudes.items(), key=lambda item: float(item[0]))
             }
-            for channel, altitudes in sorted(period.get("channels", {}).items())
+            for channel, altitudes in sorted(view.get("channels", {}).items())
         }
-        periods.append(
+        views.append(
             {
-                "id": period["id"],
-                "label": period["label"],
+                "selector_id": view["selector_id"],
+                "publication_window_id": view.get("publication_window_id"),
+                "label": view["label"],
                 "channels": channels,
-                "mean": _public_url(public_url, period.get("mean")),
+                "mean": _public_url(public_url, view.get("mean")),
             }
         )
-    return {"date": date, "periods": periods}
+    return {"date": date, "publication_views": views}
 
 
 def render_day_dashboard(
@@ -171,17 +176,17 @@ def render_day_dashboard(
   </div>
 
   <div class="toolbar">
-    <div class="control-group" id="period-controls"><h3>Period</h3></div>
+    <div class="control-group" id="period-controls"><h3>Publication window</h3></div>
     <div class="control-group">
       <button class="main-mode-btn active" id="tab-quicklooks" onclick="setMode('quicklooks')">RCS Maps</button>
-      <button class="main-mode-btn" id="tab-mean" onclick="setMode('mean')">Atmospheric Profiles</button>
+      <button class="main-mode-btn" id="tab-mean" onclick="setMode('mean')">Mean RCS</button>
     </div>
     <div class="control-group" id="channel-controls"><h3>Wavelength</h3></div>
     <div class="control-group" id="altitude-controls"><h3>Range</h3></div>
   </div>
 
   <div class="image-container">
-    <img id="main-display" alt="Lidar quicklook" onclick="openModal(this.src)">
+    <img id="main-display" alt="Lidar publication view" onclick="openModal(this.src)">
     <div id="message" class="message"></div>
   </div>
 
@@ -189,7 +194,7 @@ def render_day_dashboard(
 
 <script>
 const dayData = {payload_json};
-let currentPeriodId = dayData.periods.length ? dayData.periods[0].id : '';
+let currentSelectorId = dayData.publication_views.length ? dayData.publication_views[0].selector_id : '';
 let currentMode = 'quicklooks';
 let currentChannel = '';
 let currentAltitude = '';
@@ -200,25 +205,26 @@ const channelControls = document.getElementById('channel-controls');
 const altitudeControls = document.getElementById('altitude-controls');
 
 function clearButtons(container) {{ container.querySelectorAll('button').forEach(button => button.remove()); }}
-function currentPeriod() {{ return dayData.periods.find(period => period.id === currentPeriodId) || null; }}
+function currentView() {{ return dayData.publication_views.find(view => view.selector_id === currentSelectorId) || null; }}
 function showMessage(text) {{ img.style.display='none'; message.textContent=text; message.classList.add('active'); }}
 function hideMessage() {{ message.classList.remove('active'); message.textContent=''; img.style.display='block'; }}
 
-function renderPeriods() {{
+function renderWindows() {{
   const container=document.getElementById('period-controls');
   clearButtons(container);
-  dayData.periods.forEach(period => {{
+  dayData.publication_views.forEach(view => {{
     const btn=document.createElement('button');
-    btn.className='tab-btn period-btn'+(period.id===currentPeriodId?' active':'');
-    btn.textContent=period.label;
-    btn.onclick=()=>{{ currentPeriodId=period.id; currentChannel=''; currentAltitude=''; renderAll(); }};
+    btn.className='tab-btn period-btn'+(view.selector_id===currentSelectorId?' active':'');
+    btn.textContent=view.label;
+    if (view.publication_window_id) btn.title=view.publication_window_id;
+    btn.onclick=()=>{{ currentSelectorId=view.selector_id; currentChannel=''; currentAltitude=''; renderAll(); }};
     container.appendChild(btn);
   }});
 }}
 
 function renderSelectors() {{
   clearButtons(channelControls); clearButtons(altitudeControls);
-  const data=currentPeriod();
+  const data=currentView();
   if (!data || currentMode !== 'quicklooks') {{ channelControls.style.display='none'; altitudeControls.style.display='none'; return; }}
 
   const channels=Object.keys(data.channels || {{}});
@@ -246,7 +252,7 @@ function renderSelectors() {{
 }}
 
 function updateDisplay() {{
-  const data=currentPeriod(); hideMessage();
+  const data=currentView(); hideMessage();
   if (!data) {{ showMessage('No data are available for this day.'); return; }}
 
   let url='';
@@ -257,7 +263,7 @@ function updateDisplay() {{
   img.style.opacity='.4'; img.src=url;
 }}
 
-function renderAll() {{ renderPeriods(); renderSelectors(); updateDisplay(); }}
+function renderAll() {{ renderWindows(); renderSelectors(); updateDisplay(); }}
 function setMode(mode) {{
   currentMode=mode;
   document.getElementById('tab-quicklooks').classList.toggle('active', mode==='quicklooks');

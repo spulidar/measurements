@@ -2,9 +2,16 @@ processing:
   incremental: true
 
 directories:
+  # Paths below are resolved from the common workspace containing both repos.
   processed_data: "02-processed_data"
+  site_products: "03-site-products"
   site_output: "measurements"
   log_dir: "logs"
 
 publication:
+  station_id: "spu"
+  timezone: "America/Sao_Paulo"
+  # Relative to the common workspace root. The MILGRAU loader resolves station.yaml.
+  milgrau_config: "milgrau/config.yaml"
+  output_format: "webp"
   cloud_public_url: "https://pub-2dc2005030bb4ee796dd63fd528879fa.r2.dev"

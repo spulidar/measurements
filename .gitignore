@@ -1,6 +1,7 @@
 __pycache__/
 *.py[cod]
 *$py.class
+.pytest_cache/
 .venv/
 venv/
 env/
@@ -8,8 +9,8 @@ env/
 test.py
 logs/
 
-# ==========================================
-# Security
-# ==========================================
-credentials.py
+# Publication staging belongs beside the repositories, not in this Git tree.
+03-site-products/
 
+# Security
+credentials.py

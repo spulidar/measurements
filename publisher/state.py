@@ -1,4 +1,9 @@
-"""Persistent publication state for the measurements site."""
+"""Persistent publication state for the measurements site.
+
+The on-disk schema remains version 1 for backward compatibility.  The legacy
+JSON key ``canonical`` is retained as a storage field, but its entries now
+represent website publication windows, never MILGRAU scientific sessions.
+"""
 
 from __future__ import annotations
 
@@ -6,11 +11,15 @@ from copy import deepcopy
 import json
 from pathlib import Path
 import re
-from typing import Iterable
 
-from .catalog import CANONICAL_PERIODS, LocalPeriod, empty_year_state
+from .catalog import PublicationWindowAssets, empty_year_state
+from .windows import PUBLICATION_WINDOW_LABELS, PUBLICATION_WINDOW_STARTS
 
 _STATE_RE = re.compile(r"^(?P<year>\d{4})\.json$")
+_PUBLICATION_WINDOW_ID_RE = re.compile(
+    r"^(?P<date>\d{8})_(?P<station>[a-z0-9][a-z0-9-]*)_(?P<window>00|06|12|18)$",
+    flags=re.IGNORECASE,
+)
 
 
 def state_dir(site_root: str | Path) -> Path:
@@ -68,34 +77,45 @@ def get_day(states: dict[str, dict], date: str, create: bool = False) -> dict | 
     return days.get(date)
 
 
-def canonical_period_payload(period: LocalPeriod) -> dict:
+def publication_window_payload(window: PublicationWindowAssets) -> dict:
     return {
+        "publication_window_id": window.publication_window_id,
         "channels": {
             channel: {
                 altitude: key
                 for altitude, key in sorted(altitudes.items(), key=lambda item: float(item[0]))
             }
-            for channel, altitudes in sorted(period.channels.items())
+            for channel, altitudes in sorted(window.channels.items())
         },
-        "mean": period.mean_key,
-        "fingerprint": period.fingerprint(),
+        "mean": window.mean_key,
+        "fingerprint": window.fingerprint(),
+        "source_sessions": list(window.source_sessions),
+        "source_level1_files": list(window.source_level1_files),
+        "source_level2_files": list(window.source_level2_files),
     }
 
 
-def canonical_period_changed(states: dict[str, dict], period: LocalPeriod) -> bool:
-    day = get_day(states, period.date, create=False)
+def publication_window_changed(states: dict[str, dict], window: PublicationWindowAssets) -> bool:
+    day = get_day(states, window.date, create=False)
     if not day:
         return True
-    existing = day.get("canonical", {}).get(period.period)
+    existing = day.get("canonical", {}).get(window.window_start)
     if not existing:
         return True
-    return existing.get("fingerprint") != period.fingerprint()
+    return existing.get("fingerprint") != window.fingerprint()
 
 
-def commit_canonical_period(states: dict[str, dict], period: LocalPeriod) -> None:
-    day = get_day(states, period.date, create=True)
+def commit_publication_window(states: dict[str, dict], window: PublicationWindowAssets) -> None:
+    day = get_day(states, window.date, create=True)
     assert day is not None
-    day.setdefault("canonical", {})[period.period] = canonical_period_payload(period)
+    day.setdefault("canonical", {})[window.window_start] = publication_window_payload(window)
+
+
+# Old names remain import-compatible for historical scripts, but the values are
+# publication-window payloads rather than session/measurement identities.
+canonical_period_payload = publication_window_payload
+canonical_period_changed = publication_window_changed
+commit_canonical_period = commit_publication_window
 
 
 def _historical_active(day: dict, name: str) -> dict | None:
@@ -107,13 +127,26 @@ def _historical_active(day: dict, name: str) -> dict | None:
     return entry
 
 
-def resolved_periods(day: dict) -> list[dict]:
-    """Resolve the public period selector without exposing migration internals."""
-    canonical = day.get("canonical", {})
-    c00 = canonical.get("00")
-    c06 = canonical.get("06")
-    c12 = canonical.get("12")
-    c18 = canonical.get("18")
+def _public_asset_payload(entry: dict) -> dict:
+    return {
+        "channels": entry.get("channels", {}),
+        "mean": entry.get("mean"),
+        "publication_window_id": entry.get("publication_window_id"),
+    }
+
+
+def resolved_public_views(day: dict) -> list[dict]:
+    """Resolve public selectors while keeping historical fallback behavior.
+
+    New data always use one of the four publication windows.  The special
+    ``night`` selector only exists to keep historical ``sant`` data accessible
+    until both independent 00 and 18 publication windows replace it.
+    """
+    publication = day.get("canonical", {})
+    w00 = publication.get("00")
+    w06 = publication.get("06")
+    w12 = publication.get("12")
+    w18 = publication.get("18")
 
     night = _historical_active(day, "night")
     am = _historical_active(day, "am")
@@ -121,76 +154,115 @@ def resolved_periods(day: dict) -> list[dict]:
 
     result: list[dict] = []
 
-    # The old night product is one combined product. Until both independent
-    # canonical periods exist, retain one honest combined selector.
-    if night and not (c00 and c18):
-        result.append({
-            "id": "night",
-            "label": night.get("label", "00–06 + 18–24"),
-            "channels": night.get("channels", {}),
-            "mean": night.get("mean"),
-        })
-    elif c00:
-        result.append({"id": "00", "label": "00–06", **_public_asset_payload(c00)})
+    if night and not (w00 and w18):
+        result.append(
+            {
+                "selector_id": "night",
+                "publication_window_id": None,
+                "label": night.get("label", "00–06 + 18–24"),
+                "channels": night.get("channels", {}),
+                "mean": night.get("mean"),
+            }
+        )
+    elif w00:
+        result.append(
+            {
+                "selector_id": "00",
+                "label": PUBLICATION_WINDOW_LABELS["00"],
+                **_public_asset_payload(w00),
+            }
+        )
 
-    if c06:
-        result.append({"id": "06", "label": "06–12", **_public_asset_payload(c06)})
+    if w06:
+        result.append(
+            {
+                "selector_id": "06",
+                "label": PUBLICATION_WINDOW_LABELS["06"],
+                **_public_asset_payload(w06),
+            }
+        )
     elif am:
-        result.append({
-            "id": "06",
-            "label": "06–12",
-            "channels": am.get("channels", {}),
-            "mean": am.get("mean"),
-        })
+        result.append(
+            {
+                "selector_id": "06",
+                "publication_window_id": None,
+                "label": PUBLICATION_WINDOW_LABELS["06"],
+                "channels": am.get("channels", {}),
+                "mean": am.get("mean"),
+            }
+        )
 
-    if c12:
-        result.append({"id": "12", "label": "12–18", **_public_asset_payload(c12)})
+    if w12:
+        result.append(
+            {
+                "selector_id": "12",
+                "label": PUBLICATION_WINDOW_LABELS["12"],
+                **_public_asset_payload(w12),
+            }
+        )
     elif pm:
-        result.append({
-            "id": "12",
-            "label": "12–18",
-            "channels": pm.get("channels", {}),
-            "mean": pm.get("mean"),
-        })
+        result.append(
+            {
+                "selector_id": "12",
+                "publication_window_id": None,
+                "label": PUBLICATION_WINDOW_LABELS["12"],
+                "channels": pm.get("channels", {}),
+                "mean": pm.get("mean"),
+            }
+        )
 
-    if not (night and not (c00 and c18)) and c18:
-        result.append({"id": "18", "label": "18–24", **_public_asset_payload(c18)})
+    if not (night and not (w00 and w18)) and w18:
+        result.append(
+            {
+                "selector_id": "18",
+                "label": PUBLICATION_WINDOW_LABELS["18"],
+                **_public_asset_payload(w18),
+            }
+        )
 
-    # If no historical night exists, expose any canonical side that exists.
     if not night:
-        ids = {item["id"] for item in result}
-        if c00 and "00" not in ids:
-            result.insert(0, {"id": "00", "label": "00–06", **_public_asset_payload(c00)})
-        if c18 and "18" not in ids:
-            result.append({"id": "18", "label": "18–24", **_public_asset_payload(c18)})
+        ids = {item["selector_id"] for item in result}
+        if w00 and "00" not in ids:
+            result.insert(
+                0,
+                {
+                    "selector_id": "00",
+                    "label": PUBLICATION_WINDOW_LABELS["00"],
+                    **_public_asset_payload(w00),
+                },
+            )
+        if w18 and "18" not in ids:
+            result.append(
+                {
+                    "selector_id": "18",
+                    "label": PUBLICATION_WINDOW_LABELS["18"],
+                    **_public_asset_payload(w18),
+                }
+            )
 
     return result
 
 
-def _public_asset_payload(entry: dict) -> dict:
-    return {
-        "channels": entry.get("channels", {}),
-        "mean": entry.get("mean"),
-    }
+# Existing callers/tests may still use this old name.
+resolved_periods = resolved_public_views
 
 
 def coverage_for_day(day: dict) -> dict[str, bool]:
-    canonical = day.get("canonical", {})
-    historical = day.get("historical", {})
+    publication = day.get("canonical", {})
     night = _historical_active(day, "night")
     am = _historical_active(day, "am")
     pm = _historical_active(day, "pm")
     return {
-        "00": bool(canonical.get("00") or night),
-        "06": bool(canonical.get("06") or am),
-        "12": bool(canonical.get("12") or pm),
-        "18": bool(canonical.get("18") or night),
+        "00": bool(publication.get("00") or night),
+        "06": bool(publication.get("06") or am),
+        "12": bool(publication.get("12") or pm),
+        "18": bool(publication.get("18") or night),
     }
 
 
 def all_dates(states: dict[str, dict]) -> list[str]:
     dates: list[str] = []
-    for year, state in sorted(states.items()):
+    for _year, state in sorted(states.items()):
         dates.extend(sorted(state.get("days", {})))
     return dates
 
@@ -205,24 +277,27 @@ def historical_keys(entry: dict) -> set[str]:
     return keys
 
 
-def canonical_keys(entry: dict) -> set[str]:
+def publication_keys(entry: dict) -> set[str]:
     return historical_keys(entry)
 
 
+canonical_keys = publication_keys
+
+
 def cleanup_candidates(states: dict[str, dict], year: str) -> list[dict]:
-    """Historical objects that are no longer required by the public site."""
+    """Historical R2 objects no longer required after equivalent windows exist."""
     state = states.get(str(year))
     if not state:
         return []
 
     candidates: list[dict] = []
     for date, day in sorted(state.get("days", {}).items()):
-        canonical = day.get("canonical", {})
+        publication = day.get("canonical", {})
         historical = day.get("historical", {})
         rules = {
-            "am": bool(canonical.get("06")),
-            "pm": bool(canonical.get("12")),
-            "night": bool(canonical.get("00") and canonical.get("18")),
+            "am": bool(publication.get("06")),
+            "pm": bool(publication.get("12")),
+            "night": bool(publication.get("00") and publication.get("18")),
         }
         for name, replaced in rules.items():
             entry = historical.get(name)
@@ -244,19 +319,19 @@ def cleanup_candidates(states: dict[str, dict], year: str) -> list[dict]:
 
 
 def required_canonical_keys_for_cleanup(day: dict, product: str) -> set[str]:
-    canonical = day.get("canonical", {})
+    publication = day.get("canonical", {})
     if product == "am":
-        entry = canonical.get("06")
-        return canonical_keys(entry) if entry else set()
+        entry = publication.get("06")
+        return publication_keys(entry) if entry else set()
     if product == "pm":
-        entry = canonical.get("12")
-        return canonical_keys(entry) if entry else set()
+        entry = publication.get("12")
+        return publication_keys(entry) if entry else set()
     if product == "night":
         keys: set[str] = set()
-        for period in ("00", "18"):
-            entry = canonical.get(period)
+        for window_start in ("00", "18"):
+            entry = publication.get(window_start)
             if entry:
-                keys.update(canonical_keys(entry))
+                keys.update(publication_keys(entry))
         return keys
     return set()
 
@@ -275,7 +350,8 @@ def validate_states(states: dict[str, dict]) -> dict[str, int]:
         "years": 0,
         "days": 0,
         "historical_products": 0,
-        "canonical_periods": 0,
+        "canonical_periods": 0,  # retained output key for log/backward compatibility
+        "publication_windows": 0,
         "asset_keys": 0,
     }
 
@@ -297,10 +373,22 @@ def validate_states(states: dict[str, dict]) -> dict[str, int]:
                 counts["historical_products"] += 1
                 counts["asset_keys"] += len(historical_keys(entry))
 
-            for period, entry in day.get("canonical", {}).items():
-                if period not in CANONICAL_PERIODS:
-                    raise RuntimeError(f"Invalid canonical period {period} on {date}")
+            for window_start, entry in day.get("canonical", {}).items():
+                if window_start not in PUBLICATION_WINDOW_STARTS:
+                    raise RuntimeError(f"Invalid publication window {window_start} on {date}")
+                publication_window_id = entry.get("publication_window_id")
+                if publication_window_id:
+                    match = _PUBLICATION_WINDOW_ID_RE.fullmatch(str(publication_window_id))
+                    if (
+                        match is None
+                        or match.group("date") != date
+                        or match.group("window") != window_start
+                    ):
+                        raise RuntimeError(
+                            f"Invalid publication_window_id {publication_window_id!r} on {date}"
+                        )
                 counts["canonical_periods"] += 1
-                counts["asset_keys"] += len(canonical_keys(entry))
+                counts["publication_windows"] += 1
+                counts["asset_keys"] += len(publication_keys(entry))
 
     return counts

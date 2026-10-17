@@ -1,1 +1,1 @@
-"""Small publisher package for the SPU lidar measurements site."""
+"""SPU-Lidar website publication package."""
