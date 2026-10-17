@@ -22,7 +22,7 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Publication v2: safe local staging only.")
     parser.add_argument(
         "--stage-only", action="store_true", required=True,
-        help="Mandatory safety gate: build 03-site-products only (never publish).",
+        help="Mandatory safety gate: build .cache/measurements only (never publish).",
     )
     parser.add_argument(
         "--milgrau-config", type=Path,
@@ -108,7 +108,7 @@ def main(argv: list[str] | None = None) -> int:
         raise ValueError("MILGRAU visualization.output_format must be webp for publication v2.")
 
     scientific_root = processed_data_root(config, root_dir=root)
-    site_products = resolve_project_path("03-site-products", root_dir=root).resolve()
+    site_products = resolve_project_path(".cache/measurements", root_dir=root).resolve()
     if scientific_root.resolve() == site_products or (
         site_products.is_relative_to(scientific_root.resolve())
         or scientific_root.resolve().is_relative_to(site_products)
@@ -137,7 +137,7 @@ def main(argv: list[str] | None = None) -> int:
     if args.dry_run:
         return 0
 
-    # Only local schema-v2 metadata under 03-site-products; never site production state.
+    # Ephemeral planning state for the local preview, never a published Git state.
     catalog = collect_validated_staging(site_products, station)
     years = build_state_v2(catalog, station)
     paths = write_local_state_v2(site_products, station, years)
