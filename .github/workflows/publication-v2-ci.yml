@@ -36,7 +36,7 @@ jobs:
           python -c "import boto3, xarray, milgrau; print('milgrau[web] import smoke test: OK')"
       - name: Static syntax check
         run: |
-          python -m compileall -q publisher update-site.py preview-site.py tests
+          python -m compileall -q publisher update-site.py preview-site.py publish-v2.py tests
           node --check publisher/preview_assets/app.js
       - name: Unit and synthetic cross-midnight staging tests
         run: python -m pytest -q tests
@@ -48,6 +48,12 @@ jobs:
           python preview-site.py --milgrau-config milgrau/config.yaml
           test -f milgrau/.cache/measurements/_preview-v2/index.html
           test -f milgrau/.cache/measurements/_preview-v2/manifest.json
+      - name: Dry-run R2 staging without network access
+        run: |
+          python publish-v2.py --milgrau-config milgrau/config.yaml --staging-bucket isolated-test --dry-run
+          if python publish-v2.py --milgrau-config milgrau/config.yaml --staging-bucket isolated-test; then
+            echo 'ERROR: R2 upload should require explicit confirmation'; exit 1
+          fi
       - name: Verify entrypoint has no publishing mode
         run: |
           python update-site.py --help
