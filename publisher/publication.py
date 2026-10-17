@@ -24,7 +24,7 @@ from .r2_staging import ensure_uploaded
 from .v2 import _hash_file, collect_validated_staging
 
 BRANCH = "publication-v2"
-REPO_URL = re.compile(r"(?:github\.com[:/])spulidar/measurements(?:\.git)?/?$")
+REPO_URL = re.compile(r"^(?:https://(?:[^@/]+@)?github\.com/|git@github\.com:|ssh://git@github\.com/)spulidar/measurements(?:\.git)?/?$")
 
 
 def _git(repo: Path, *args: str) -> str:
