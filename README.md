@@ -106,6 +106,47 @@ The local state is schema v2 with `days[YYYYMMDD].publication_windows[HH]`,
 not `canonical`. Future R2 layout will be
 `spu/YYYY/MM/YYYYMMDD/<asset>`, but **no cloud publication happens now**.
 
+
+
+## Local website preview (no production publishing)
+
+After a real `--stage-only` run has created the WEBPs, sidecars and state-v2,
+build a separate browser preview:
+
+```bash
+cd ~/milgrau/measurements
+python preview-site.py --milgrau-config ../config.yaml
+python -m http.server 8765 --bind 127.0.0.1 --directory ../03-site-products
+```
+
+Open **http://127.0.0.1:8765/_preview-v2/** in your browser. Stop the server
+with Ctrl+C. It is bound to the loopback interface, not exposed to the network.
+
+The preview lives only under `03-site-products/_preview-v2/` and includes
+`index.html`, `styles.css`, `app.js`, and a generated `manifest.json`.
+It displays a month calendar, the four local publication windows, a channel
+drop-down, available WEBP figures and their contributing scientific session IDs.
+Clicking a figure opens its full-resolution WEBP.
+
+The preview builder accepts **only validated state-v2 and sidecar-attested
+assets**. It fails if a state file is stale, an attested WEBP hash changed, or
+expected state is missing; rerun `update-site.py --stage-only` before rebuilding
+the preview. This first preview intentionally shows static images, **not**
+interactive NetCDF plots. It has no CDN, R2 connection, external CSS/JS,
+production HTML mutation or GitHub Pages deployment. The public site remains
+unchanged on `measurements/main`.
+
+For a date you have already tested (13 September 2024):
+
+```bash
+python update-site.py --stage-only --milgrau-config ../config.yaml --publish-date 20240913
+python preview-site.py --milgrau-config ../config.yaml
+```
+
+The preview calendar will show every locally staged, validated day, not just
+the date of the most recent run. To check the specific result in the browser,
+use `http://127.0.0.1:8765/_preview-v2/?date=20240913&window=12`.
+
 ## Future historical rebuild and cutover (not part of this phase)
 
 Process `01-data` through L0/L1/L2/QA by year with checkpoints recording
