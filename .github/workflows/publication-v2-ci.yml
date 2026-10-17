@@ -1,0 +1,46 @@
+name: Publication v2 safe checks
+
+on:
+  push:
+    branches: [publication-v2]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - name: Checkout publication branch
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Checkout scientific dependency (current branch)
+        uses: actions/checkout@v4
+        with:
+          repository: spulidar/milgrau
+          ref: milgraumaxxing
+          path: milgrau
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: milgrau/pyproject.toml
+      - name: Install one MILGRAU Python environment
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -e "./milgrau[dev,explorer,web]"
+          python -c "import boto3, xarray, milgrau; print('milgrau[web] import smoke test: OK')"
+      - name: Static syntax check
+        run: python -m compileall -q publisher update-site.py tests
+      - name: Unit and synthetic cross-midnight staging tests
+        run: python -m pytest -q tests
+      - name: Verify entrypoint has no publishing mode
+        run: |
+          python update-site.py --help
+          if python update-site.py --publish-date 20250510; then
+            echo "ERROR: --stage-only unexpectedly optional"; exit 1
+          fi
