@@ -68,7 +68,6 @@ def _milgrau_render_api():
         from milgrau.viz.config import resolve_visualization_config
         from milgrau.viz.quicklooks import (
             format_channel_name,
-            plot_global_mean_rcs,
             plot_quicklook,
         )
     except ImportError as exc:  # pragma: no cover - runtime environment dependent
@@ -81,7 +80,6 @@ def _milgrau_render_api():
         "validate_level2_contract": validate_level2_contract,
         "resolve_visualization_config": resolve_visualization_config,
         "format_channel_name": format_channel_name,
-        "plot_global_mean_rcs": plot_global_mean_rcs,
         "plot_quicklook": plot_quicklook,
     }
 
@@ -462,7 +460,6 @@ def render_publication_window(
     resolved = api["resolve_visualization_config"](render_config)
     format_channel_name = api["format_channel_name"]
     plot_quicklook = api["plot_quicklook"]
-    plot_global_mean_rcs = api["plot_global_mean_rcs"]
 
     day_dir = publication_stage_dir(site_products_root, window)
     day_dir.mkdir(parents=True, exist_ok=True)
@@ -521,18 +518,6 @@ def render_publication_window(
                     f"{float(max_altitude):g}km.webp"
                 )
                 generated_temp.append((Path(generic_path), target))
-
-        generic_mean = plot_global_mean_rcs(
-            view,
-            temp_dir,
-            window.publication_window_id,
-            render_config,
-            Path(milgrau_root),
-        )
-        if generic_mean is not None:
-            generated_temp.append(
-                (Path(generic_mean), day_dir / f"rcs_{window.publication_window_id}_mean.webp")
-            )
 
         if not generated_temp:
             raise RuntimeError(
