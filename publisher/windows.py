@@ -16,7 +16,7 @@ from __future__ import annotations
 from dataclasses import dataclass
 from datetime import date, datetime, time, timedelta, timezone
 from pathlib import Path
-from typing import Iterable, Iterator
+from typing import Callable, Iterable, Iterator
 
 import numpy as np
 import pandas as pd
@@ -219,11 +219,55 @@ def _milgrau_session_api():
     return product_session_id, session_id_parts
 
 
+def _discovery_utc_bounds(
+    *, publish_date: str | None, publish_year: str | None, timezone_name: str | None,
+) -> tuple[datetime, datetime] | None:
+    """Conservative early filter only; exact routing always reads NetCDF timestamps.
+
+    Session identifiers use minute precision. A two-day guard around the
+    selected station-local interval prevents discarding any normal boundary
+    case before reading the exact L1 time coordinate.
+    """
+    if publish_date is None and publish_year is None:
+        return None
+    if not timezone_name:
+        raise ValueError("Station timezone is required for scoped L1 discovery.")
+    zone = ZoneInfo(timezone_name)
+    if publish_date is not None:
+        beginning = _parse_local_date(publish_date)
+        ending = beginning + timedelta(days=1)
+    else:
+        if publish_year is None or len(publish_year) != 4 or not publish_year.isdigit():
+            raise ValueError("publish_year must be YYYY")
+        beginning = date(int(publish_year), 1, 1)
+        ending = date(int(publish_year) + 1, 1, 1)
+    lower = datetime.combine(beginning, time.min, tzinfo=zone).astimezone(timezone.utc)
+    upper = datetime.combine(ending, time.min, tzinfo=zone).astimezone(timezone.utc)
+    guard = timedelta(days=2)
+    return lower - guard, upper + guard
+
+
 def discover_scientific_sessions(
     processed_data_root: str | Path,
     station_id: str,
+    *,
+    publish_date: str | None = None,
+    publish_year: str | None = None,
+    timezone_name: str | None = None,
+    skip_invalid_l1: bool = False,
+    report_issue: Callable[[str, Path, str], None] | None = None,
 ) -> tuple[ScientificSessionSource, ...]:
-    """Discover canonical MILGRAU L1/L2 products, never scientific figure WEBPs."""
+    """Discover canonical L1/L2, failing on time corruption unless opted out.
+
+    The scope filter is conservative and based only on canonical session IDs.
+    Exact publication windows still use the complete NetCDF time coordinate.
+    Never sort or deduplicate scientific samples.
+    """
+    if publish_date is not None and publish_year is not None:
+        raise ValueError("publish_date and publish_year are mutually exclusive")
+    utc_bounds = _discovery_utc_bounds(
+        publish_date=publish_date, publish_year=publish_year, timezone_name=timezone_name
+    )
     root = Path(processed_data_root) / str(station_id).strip().lower()
     if not root.exists():
         return ()
@@ -239,42 +283,52 @@ def discover_scientific_sessions(
         except ValueError as exc:
             raise RuntimeError(f"Invalid Level 1 source name: {level1_path}") from exc
 
-        # Only the canonical complete-session L1 belongs in the publication
-        # source catalog. SCC derivatives and explicit variants are separate
-        # scientific products and must not masquerade as sessions here.
+        # Only canonical scientific sessions: no SCC derivative or local variant.
         if level1_path.name != f"{session_id}_L1.nc":
             continue
         if parsed_station != str(station_id).strip().lower():
             raise RuntimeError(
                 f"Station mismatch in scientific L1 source {level1_path}: {parsed_station}."
             )
+        if utc_bounds is not None:
+            lower, upper = utc_bounds
+            if end_utc <= lower or start_utc >= upper:
+                continue
         if session_id in seen:
             raise RuntimeError(f"Duplicate canonical Level 1 product for session {session_id}.")
         seen.add(session_id)
 
-        # Session IDs intentionally have minute precision, while exact profile
-        # times remain in the scientific NetCDF.  Publication-window routing
-        # must use those exact profile times: using the ID end minute could
-        # otherwise drop profiles that extend seconds beyond a six-hour
-        # website boundary.  Read only the time coordinate here; scientific
-        # signal arrays remain lazy/unloaded until a selected window is staged.
+        # Exact sampling (not the minute-precision session identifier) decides
+        # public-window membership. Read no signal arrays here.
         try:
             with xr.open_dataset(level1_path, cache=False) as source:
                 time_values = np.asarray(source["time"].values).astype("datetime64[ns]")
-        except (KeyError, OSError, ValueError) as exc:
+            if not time_values.size or np.isnat(time_values).any():
+                raise ValueError("Missing or invalid L1 time samples")
+            bad_indices = np.flatnonzero(time_values[1:] <= time_values[:-1])
+            if bad_indices.size:
+                first = int(bad_indices[0])
+                earlier, later = time_values[first], time_values[first + 1]
+                kind = "duplicate" if earlier == later else "backward"
+                raise ValueError(
+                    f"{bad_indices.size} non-increasing adjacent time pair(s); "
+                    f"first {kind} at indices {first}/{first + 1}: "
+                    f"{earlier} -> {later}"
+                )
+        except (KeyError, OSError, ValueError, TypeError, OverflowError) as exc:
+            detail = f"{exc} — {level1_path}"
+            if skip_invalid_l1:
+                if report_issue is not None:
+                    report_issue(session_id, level1_path, detail)
+                continue
             raise RuntimeError(
-                f"Cannot read exact Level 1 time coordinate for {session_id}: {level1_path}"
+                f"Invalid L1 time coordinate for {session_id}: {detail}. "
+                "Inspect/regenerate this scientific L1; or explicitly use "
+                "--skip-invalid-l1 to quarantine it from this publication run."
             ) from exc
-        if not time_values.size or np.isnat(time_values).any():
-            raise RuntimeError(f"Missing or invalid L1 time samples: {level1_path}")
-        finite_times = time_values
-        if np.any(finite_times[1:] <= finite_times[:-1]):
-            raise RuntimeError(f"L1 times must be strictly increasing: {level1_path}")
-        exact_start = pd.Timestamp(finite_times.min()).tz_localize("UTC").to_pydatetime()
-        # Scientific profile timestamps are samples, not interval endpoints.
-        # Add one microsecond so a final profile exactly on a publication
-        # boundary still makes the session a candidate for that half-open view.
-        exact_end = (pd.Timestamp(finite_times.max()) + pd.Timedelta(microseconds=1)).tz_localize(
+
+        exact_start = pd.Timestamp(time_values[0]).tz_localize("UTC").to_pydatetime()
+        exact_end = (pd.Timestamp(time_values[-1]) + pd.Timedelta(microseconds=1)).tz_localize(
             "UTC"
         ).to_pydatetime()
 
