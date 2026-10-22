@@ -21,7 +21,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           repository: spulidar/milgrau
-          ref: milgraumaxxing
+          ref: main
           path: milgrau
           persist-credentials: false
       - uses: actions/setup-python@v5
