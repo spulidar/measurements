@@ -99,7 +99,7 @@ def _write_l1_with_times(root: Path, session_id: str, times: list[str]) -> Path:
     year = session_id.split("_")[1][:4]
     month = session_id.split("_")[1][4:6]
     directory = root / "spu" / year / month / session_id
-    directory.mkdir(parents=True)
+    directory.mkdir(parents=True, exist_ok=True)
     path = directory / f"{session_id}_L1.nc"
     xr.Dataset(
         {"dummy": ("time", np.arange(len(times), dtype=float))},
