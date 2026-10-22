@@ -7,7 +7,8 @@ production publisher/state directory or production manifest can be reached.
 from __future__ import annotations
 
 import argparse
-from datetime import datetime
+from datetime import datetime, timezone
+import json
 import logging
 import os
 from pathlib import Path
@@ -33,6 +34,11 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
     dates.add_argument("--publish-date", metavar="YYYYMMDD")
     dates.add_argument("--publish-year", metavar="YYYY")
     parser.add_argument("--force-site-products", action="store_true")
+    parser.add_argument(
+        "--skip-invalid-l1", action="store_true",
+        help="Explicitly exclude corrupt L1 time coordinates, log all excluded "
+             "sessions, and write an audit JSON. Never edits scientific NetCDF.",
+    )
     parser.add_argument("--dry-run", action="store_true", help="Read and plan only; write nothing.")
     args = parser.parse_args(argv)
     if args.publish_year and (len(args.publish_year) != 4 or not args.publish_year.isdigit()):
@@ -119,7 +125,42 @@ def main(argv: list[str] | None = None) -> int:
     logging.basicConfig(level=logging.INFO, format="%(levelname)s %(message)s")
     logger = logging.getLogger("publication-v2")
     visual_root = resolve_visualization_root(config, root)
-    sessions = discover_scientific_sessions(scientific_root, station)
+    invalid_l1: list[dict[str, str]] = []
+    def report_invalid(session_id: str, path: Path, reason: str) -> None:
+        invalid_l1.append({
+            "session_id": session_id, "level1_path": str(path), "reason": reason
+        })
+        logger.error("Excluded invalid scientific L1: %s: %s", session_id, reason)
+
+    sessions = discover_scientific_sessions(
+        scientific_root, station,
+        publish_date=args.publish_date, publish_year=args.publish_year,
+        timezone_name=timezone_name,
+        skip_invalid_l1=args.skip_invalid_l1,
+        report_issue=report_invalid,
+    )
+    if args.skip_invalid_l1:
+        logger.warning(
+            "L1 exclusion audit: %d invalid scientific session(s) excluded",
+            len(invalid_l1),
+        )
+        if not args.dry_run:
+            audit_dir = site_products / "_audit"
+            audit_dir.mkdir(parents=True, exist_ok=True)
+            scope_name = args.publish_date or args.publish_year or "all"
+            audit_path = audit_dir / f"invalid-l1-{scope_name}.json"
+            audit_payload = {
+                "schema_version": 1,
+                "station_id": station,
+                "scope": scope_name,
+                "generated_utc": datetime.now(timezone.utc).isoformat(),
+                "excluded_sessions": invalid_l1,
+            }
+            audit_path.write_text(
+                json.dumps(audit_payload, indent=2, ensure_ascii=False) + "\n",
+                encoding="utf-8",
+            )
+            logger.warning("L1 exclusion audit written to %s", audit_path)
     # Already-verified R2 windows are recorded in Git, never in the image cache.
     # Matching scientific fingerprints need no regenerated local WEBP.
     published = load_published_states(Path(__file__).resolve().parent, station)
@@ -151,6 +192,18 @@ def main(argv: list[str] | None = None) -> int:
 
     # Ephemeral planning state for the local preview, never a published Git state.
     catalog = collect_validated_staging(site_products, station)
+    if invalid_l1:
+        excluded = {item["session_id"] for item in invalid_l1}
+        affected = sorted(
+            key for key, sidecar in catalog.items()
+            if excluded.intersection(sidecar["source_sessions"])
+        )
+        if affected:
+            raise RuntimeError(
+                "Refusing a staged catalog containing previously cached figures "
+                f"from invalid scientific L1 sessions: {', '.join(affected)}. "
+                "Reprocess these L1 products and regenerate their views."
+            )
     years = build_state_v2(catalog, station)
     paths = write_local_state_v2(site_products, station, years)
     logger.info(
