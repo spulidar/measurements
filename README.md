@@ -26,7 +26,7 @@ workspace/
 │       ├── _state-v2/         # disposable local planning state for legacy preview
 │       ├── _preview-v2/       # optional diagnostic preview, NOT the live layout
 │       └── _site-v2/          # generated local copy of the EXISTING website
-├── milgrau/                   # checkout milgraumaxxing
+├── milgrau/                   # checkout main
 └── measurements/              # checkout publication-v2
     ├── publisher/state-v2/spu/YYYY.json # PERSISTENT published windows, Git-tracked
     ├── measurements.json      # old LIVE catalog, frozen until cutover
@@ -67,6 +67,39 @@ The per-window sidecar lists the exact inputs, fingerprint and SHA-256 of
 every WEBP. The disposable `.cache/measurements/_state-v2` is **only** for the
 older local diagnostic preview and must never be treated as the published
 state. The Git-tracked published state is a different directory.
+
+## Handling older L1 files with invalid time coordinates
+
+`update-site.py --stage-only` without a selector scans the entire historic
+L1 catalog. Scientific NetCDF `time` coordinates must be strictly increasing:
+duplicate or backward timestamps fail *by default*. The publisher never
+reorders, deduplicates, modifies, or removes scientific source profiles.
+
+Use a local civil date/year to avoid touching unrelated historical sessions:
+
+```bash
+python update-site.py --stage-only --milgrau-config ../config.yaml --publish-date 20240913
+python update-site.py --stage-only --milgrau-config ../config.yaml --publish-year 2024
+```
+
+Date/year selection filters canonical session IDs conservatively (two-day
+boundary guard), **before** opening their scientific NetCDF coordinates. Exact
+window selection still checks the real `time` samples.
+
+For an exploratory complete-catalog run where L1 repairs are still pending,
+you may explicitly opt in to excluding problematic scientific L1:
+
+```bash
+python update-site.py --stage-only --milgrau-config ../config.yaml --skip-invalid-l1
+```
+
+Every excluded session is logged and listed in
+`.cache/measurements/_audit/invalid-l1-all.json`; year/date-specific reports
+are named after the requested scope. Dry-run mode only logs exclusions and
+does not write the report. Existing cached figures that reference excluded
+scientific sessions are rejected rather than silently approved. Fix source
+data in MILGRAU and restage for scientific completeness before the final
+historical publishing cutover. This opt-in is not a scientific correction.
 
 ## 2. Stage to R2, verify, persist state to GitHub, clean cache
 
