@@ -8,7 +8,7 @@ import json
 import pytest
 
 from publisher.publication import publish_cache, ensure_git_ready
-from publisher.published import STAGING_PREFIX, load_published_states
+from publisher.published import PUBLICATION_PREFIX, load_published_states
 from publisher.r2_staging import ensure_uploaded
 
 SESSION = "spu_20240913-1549Z_20240913-1750Z"
@@ -45,7 +45,7 @@ class R2Fake:
         return {"Body": FakeStream(data), "ContentLength": len(data)}
 
     def upload_file(self, filename, bucket, key, ExtraArgs):
-        assert key.startswith(STAGING_PREFIX + "/")
+        assert key.startswith(PUBLICATION_PREFIX + "/")
         self.objects[(bucket, key)] = open(filename, "rb").read()
         self.uploads.append((bucket, key))
 
@@ -109,7 +109,7 @@ def test_success_upload_state_and_cleanup_without_other_cache_modification(tmp_p
     record = state["days"]["20240913"]["publication_windows"]["12"]
     info = record["assets"][ASSET]
     assert info["sha256"] == sha256(b"verified-test-webp").hexdigest()
-    assert info["key"] == f"{STAGING_PREFIX}/spu/2024/09/20240913/{info['sha256']}/{ASSET}"
+    assert info["key"] == f"{PUBLICATION_PREFIX}/2024/09/20240913/{info['sha256']}/{ASSET}"
     assert remote.objects[("staging-test-bucket", info["key"])] == b"verified-test-webp"
     assert record["scientific_netcdf_split"] is False
     # Published state survives an empty local image cache without replaying.
@@ -176,7 +176,7 @@ def test_remote_key_outside_staging_namespace_is_rejected(tmp_path):
     local = tmp_path / "bad.webp"
     local.write_bytes(b"test")
     remote = R2Fake()
-    with pytest.raises(ValueError, match="outside staging"):
+    with pytest.raises(ValueError, match="outside canonical spu"):
         ensure_uploaded(remote, "bucket", local, {
             "key": "2024/09/20240913/bad.webp",
             "size": 4, "sha256": sha256(b"test").hexdigest(),
@@ -197,3 +197,32 @@ def test_cache_cleanup_rejects_symlink_parent(tmp_path):
     with pytest.raises(ValueError, match="symlinked"):
         clean_verified_window(root, PUB, data)
     assert (new_station / "2024/09/20240913" / ASSET).exists()
+
+
+def test_r2_write_rejects_legacy_year_root_even_with_valid_metadata(tmp_path):
+    local = tmp_path / ASSET
+    local.write_bytes(b"test")
+    remote = R2Fake()
+    with pytest.raises(ValueError, match="outside canonical spu"):
+        ensure_uploaded(remote, "bucket", local, {
+            "key": f"2024/09/20240913/{ASSET}",
+            "size": 4, "sha256": sha256(b"test").hexdigest(),
+        })
+    assert not remote.objects and not remote.uploads
+
+
+def test_r2_write_rejects_wrong_date_or_digest_under_spu(tmp_path):
+    local = tmp_path / ASSET
+    local.write_bytes(b"test")
+    remote = R2Fake()
+    digest = sha256(b"test").hexdigest()
+    for key in (
+        f"spu/2024/10/20240913/{digest}/{ASSET}",
+        f"spu/2024/09/20240913/{'0' * 64}/{ASSET}",
+        f"staging/publication-v2/spu/2024/09/20240913/{digest}/{ASSET}",
+    ):
+        with pytest.raises(ValueError, match="outside canonical spu"):
+            ensure_uploaded(remote, "bucket", local, {
+                "key": key, "size": 4, "sha256": digest,
+            })
+    assert not remote.objects and not remote.uploads

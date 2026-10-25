@@ -17,7 +17,43 @@ _STATION = re.compile(r"^[a-z0-9][a-z0-9-]*$")
 _YEAR = re.compile(r"^\d{4}$")
 _DATE = re.compile(r"^\d{8}$")
 _SAFE_BUCKET = re.compile(r"^[A-Za-z0-9][A-Za-z0-9.-]{1,253}$")
-STAGING_PREFIX = "staging/publication-v2"
+PUBLICATION_PREFIX = "spu"
+
+
+def publication_object_key(pub_id: str, digest: str, filename: str) -> str:
+    """Hash-addressed v2 location, disjoint from legacy top-level YYYY/ keys."""
+    match = _ASSET.fullmatch(filename) if isinstance(filename, str) else None
+    if match is None or match.group("id") != pub_id:
+        raise ValueError(f"Invalid publication asset identity: {filename!r}")
+    if not isinstance(digest, str) or not _FINGERPRINT.fullmatch(digest):
+        raise ValueError("Invalid SHA-256 for publication asset")
+    date, station, hour = pub_id.split("_")
+    if station != PUBLICATION_PREFIX or hour not in PUBLICATION_WINDOW_STARTS:
+        raise ValueError("Only spu publication objects are allowed in this namespace")
+    try:
+        datetime.strptime(date, "%Y%m%d")
+    except ValueError as exc:
+        raise ValueError(f"Invalid publication asset date: {date!r}") from exc
+    return "/".join((station, date[:4], date[4:6], date, digest, filename))
+
+
+def validate_publication_object(metadata: dict[str, Any]) -> None:
+    """Protect R2 writes even when the target bucket also hosts legacy objects."""
+    if not isinstance(metadata, dict):
+        raise ValueError("Invalid publication object metadata")
+    key, digest, size = metadata.get("key"), metadata.get("sha256"), metadata.get("size")
+    if not isinstance(key, str):
+        raise ValueError("Invalid publication object key")
+    filename = key.rsplit("/", 1)[-1]
+    match = _ASSET.fullmatch(filename)
+    if match is None:
+        raise ValueError("R2 object outside canonical spu/YYYY/MM/YYYYMMDD namespace")
+    expected = publication_object_key(match.group("id"), digest, filename)
+    if key != expected:
+        raise ValueError("R2 object outside canonical spu/YYYY/MM/YYYYMMDD namespace")
+    if type(size) is not int or size < 1:
+        raise ValueError("Invalid publication object size")
+
 
 
 def state_root(repository: str | Path, station: str) -> Path:
@@ -76,13 +112,13 @@ def validate_year(payload: dict[str, Any], station: str, year: str) -> None:
                 size = metadata.get("size")
                 if not isinstance(digest, str) or not _FINGERPRINT.fullmatch(digest):
                     raise ValueError(f"Invalid asset SHA-256 in {pub_id}")
-                expected_key = "/".join(
-                    (STAGING_PREFIX, station, year, date[4:6], date, digest, filename)
-                )
+                try:
+                    validate_publication_object(metadata)
+                except ValueError as exc:
+                    raise ValueError(f"Invalid asset key or metadata in {pub_id}: {exc}") from exc
+                expected_key = publication_object_key(pub_id, digest, filename)
                 if key != expected_key:
-                    raise ValueError(f"Asset key outside isolated staging namespace: {pub_id}")
-                if not isinstance(size, int) or size < 1:
-                    raise ValueError(f"Invalid object size in {pub_id}")
+                    raise ValueError(f"Asset key outside canonical spu namespace: {pub_id}")
 
 
 def load_published_states(repository: str | Path, station: str) -> dict[str, dict[str, Any]]:
@@ -113,7 +149,7 @@ def window_record(pub_id: str, sidecar: dict[str, Any], root: Path, bucket: str)
         size = (day_dir / filename).stat().st_size
         if size <= 0:
             raise ValueError(f"Refusing to publish empty asset {filename}")
-        key = "/".join((STAGING_PREFIX, station, date[:4], date[4:6], date, digest, filename))
+        key = publication_object_key(pub_id, digest, filename)
         assets[filename] = {"key": key, "sha256": digest, "size": size}
     return {
         "publication_window_id": pub_id,

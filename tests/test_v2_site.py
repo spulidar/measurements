@@ -6,7 +6,7 @@ import json
 
 import pytest
 
-from publisher.published import STAGING_PREFIX, write_published_states
+from publisher.published import PUBLICATION_PREFIX, write_published_states
 from publisher.site_v2 import build_unchanged_frontend
 
 PUB = "20240913_spu_12"
@@ -34,7 +34,7 @@ def site_fixture(tmp_path):
         "r2_bucket": "test-bucket",
         "assets": {
             ASSET: {
-                "key": f"{STAGING_PREFIX}/spu/2024/09/20240913/{hash_value}/{ASSET}",
+                "key": f"{PUBLICATION_PREFIX}/2024/09/20240913/{hash_value}/{ASSET}",
                 "sha256": hash_value,
                 "size": 10,
             }
@@ -70,7 +70,7 @@ def test_new_site_reuses_current_html_and_renders_from_git_without_cache_images(
     assert 'id="tab-mean"' not in html
     assert "Mean RCS</button>" not in html
     assert "15km.webp" in html
-    assert f"{STAGING_PREFIX}/spu/2024/09/20240913/" in html
+    assert f"{PUBLICATION_PREFIX}/2024/09/20240913/" in html
     calendar = (target / "ql-measurement-calendar.html").read_text()
     assert "body{color:blue}" in calendar
     assert 'const siteBaseUrl="./";' in calendar
@@ -90,7 +90,7 @@ def test_site_builder_refuses_wrong_state_and_non_https_r2_url(tmp_path):
     payload = json.loads(state.read_text())
     payload["days"]["20240913"]["publication_windows"]["12"]["assets"][ASSET]["key"] = "production/unsafe.webp"
     state.write_text(json.dumps(payload))
-    with pytest.raises(ValueError, match="outside isolated staging namespace"):
+    with pytest.raises(ValueError, match="outside canonical spu"):
         build_unchanged_frontend(
             repo, cache, "spu", r2_public_base="https://staging-r2.example.invalid"
         )

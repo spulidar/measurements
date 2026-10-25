@@ -18,7 +18,7 @@ def main(argv: list[str] | None = None) -> int:
     )
     parser.add_argument("--milgrau-config", type=Path)
     parser.add_argument("--staging-bucket", required=True,
-                        help="Explicit Cloudflare R2 bucket; objects use staging/publication-v2/ only.")
+                        help="Explicit Cloudflare R2 bucket; v2 objects use spu/YYYY/MM/YYYYMMDD/ only.")
     parser.add_argument("--confirm-staging-upload", action="store_true",
                         help="Required for any R2 write (NEVER a production release).")
     parser.add_argument("--batch-size", type=int, default=12,

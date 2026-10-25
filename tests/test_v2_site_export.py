@@ -8,7 +8,7 @@ import pytest
 
 from publisher.site_v2 import build_unchanged_frontend
 import publisher.site_export as exporting
-from publisher.published import STAGING_PREFIX, write_published_states
+from publisher.published import PUBLICATION_PREFIX, write_published_states
 
 
 def site_fixture(tmp_path):
@@ -36,7 +36,7 @@ def site_fixture(tmp_path):
             "visualization_only_session_concatenation": False,
             "r2_bucket": "test-bucket",
             "assets": {filename: {
-                "key": f"{STAGING_PREFIX}/spu/2024/09/20240913/{digest}/{filename}",
+                "key": f"{PUBLICATION_PREFIX}/2024/09/20240913/{digest}/{filename}",
                 "sha256": digest,
                 "size": 10,
             }},
@@ -68,7 +68,8 @@ def test_export_populates_branch_without_pushing_or_touching_calendar(example):
     html = (repo / "2024/09/20240913/index.html").read_text()
     assert '<meta name="publisher-fingerprint"' in html
     assert "Mean RCS</button>" not in html
-    assert "staging/publication-v2" in html
+    assert "spu/2024/09/20240913/" in html
+    assert "staging/publication-v2" not in html
     assert (repo / "ql-measurement-calendar.html").read_bytes() == previous_calendar
     assert exporting.export_site_to_branch(repo, site, "spu") == (1, 0)
 

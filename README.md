@@ -105,10 +105,11 @@ historical publishing cutover. This opt-in is not a scientific correction.
 
 **Never use these commands for production cutover.** The publishing command
 is intentionally restricted to the immutable
-`staging/publication-v2/spu/YYYY/MM/YYYYMMDD/SHA256/filename.webp` key
-namespace. Use an explicit bucket and confirmation flag. The bucket may be
-shared with production *only because these staging keys are disjoint*;
-a separate staging bucket is preferable.
+`spu/YYYY/MM/YYYYMMDD/SHA256/filename.webp` key namespace.
+The legacy live objects use top-level `YYYY/` directories; the new v2 objects
+use the independent top-level `spu/` directory. Use an explicit bucket and
+confirmation flag. A shared bucket is possible because these prefixes are
+disjoint, but a separate test bucket is recommended for the first pilot.
 
 First see which windows are eligible, with no credentials or network calls:
 
@@ -150,7 +151,7 @@ object promotion or production GitHub Pages publishing is performed.
 
 For **each** window in a batch:
 1. Reject files without a matching sidecar, attested hashes and canonical identity.
-2. Upload missing or mismatched objects to immutable hash-addressed R2 staging keys.
+2. Upload missing or mismatched objects to immutable hash-addressed R2 keys inside the new `spu/` namespace.
 3. **Download the remote bytes again** and check size plus SHA-256.
 4. Incrementally merge verified records into
    `publisher/state-v2/spu/YYYY.json` in the measurements Git checkout.
@@ -193,7 +194,7 @@ update `measurements/main` or the production Pages site.
 
 The R2 bucket needs a **public HTTPS base URL** (custom domain or configured
 public R2 domain) that serves object keys starting with
-`staging/publication-v2/`. The R2 S3 API endpoint is **not** the public URL.
+`spu/YYYY/MM/YYYYMMDD/`. The R2 S3 API endpoint is **not** the public URL.
 Test access to one object through that public domain before export.
 
 Once all required windows are recorded in Git state:
@@ -266,3 +267,9 @@ publication is recorded. These removals affect only the development branch;
 source and the daily dashboard appearance are preserved. Generate a fresh
 local manifest/site using `build-site-v2.py`; with empty state it produces an
 empty `days` mapping, without consulting the legacy archive.
+
+The earlier R2 prefix `staging/publication-v2/spu/...` is not used for
+new uploads. No objects under the earlier prefix are automatically moved or
+deleted. This path change was made while the Git-tracked v2 state had no
+published year records. Reconcile any untracked R2 uploads from older runs
+separately rather than deleting them blindly.

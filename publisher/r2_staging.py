@@ -1,4 +1,4 @@
-"""Cloudflare R2 *staging-only* transfer and byte-for-byte remote verification.
+"""Cloudflare R2 isolated v2 transfer and byte-for-byte remote verification.
 
 No deletion, promotion, production-key write or public-site publication API exists here.
 """
@@ -11,7 +11,7 @@ from pathlib import Path
 from typing import Any
 from urllib.parse import urlsplit
 
-from .published import STAGING_PREFIX
+from .published import validate_publication_object
 
 
 def r2_client_from_environment():
@@ -84,9 +84,8 @@ def ensure_uploaded(
     metadata: dict[str, Any],
 ) -> bool:
     """Upload once if absent/mismatched, then always read back and SHA-256 check."""
+    validate_publication_object(metadata)
     key = metadata["key"]
-    if not key.startswith(STAGING_PREFIX + "/"):
-        raise ValueError("Refusing a write outside staging/publication-v2/")
     if local_path.is_symlink() or not local_path.is_file():
         raise ValueError(f"Cannot upload an untrusted local file: {local_path}")
     if not verify_remote(client, bucket, metadata):
