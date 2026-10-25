@@ -132,6 +132,22 @@ python publish-v2.py --milgrau-config ../config.yaml \
 The existing private, Git-ignored `credentials.py` is also supported for
 R2 credentials. Never commit tokens.
 
+After a one-window pilot has been verified, `--all` automatically publishes
+every remaining cached window in safe batches. Each batch commits its own
+yearly state updates, verifies remote GitHub HEAD and frees its WEBPs before
+continuing. If interrupted, rerun the same command; already-published windows
+are retained in Git and no longer require a local copy.
+
+```bash
+python publish-v2.py --milgrau-config ../config.yaml \
+  --staging-bucket YOUR_R2_STAGING_BUCKET \
+  --batch-size 24 --all --confirm-staging-upload
+```
+
+`--all` cannot be combined with `--keep-cache`. No automatic R2 deletion,
+object promotion or production GitHub Pages publishing is performed.
+
+
 For **each** window in a batch:
 1. Reject files without a matching sidecar, attested hashes and canonical identity.
 2. Upload missing or mismatched objects to immutable hash-addressed R2 staging keys.
@@ -172,6 +188,53 @@ Only the obsolete mean RCS tab is hidden. The builder reads **only** Git-owned
 `publisher/state-v2`; `03-site-products`, old state-v1, and cache WEBPs
 are not required. HTML and manifest generation remain local and cannot
 update `measurements/main` or the production Pages site.
+
+### Put generated HTML and measurements.json into publication-v2 (new)
+
+The R2 bucket needs a **public HTTPS base URL** (custom domain or configured
+public R2 domain) that serves object keys starting with
+`staging/publication-v2/`. The R2 S3 API endpoint is **not** the public URL.
+Test access to one object through that public domain before export.
+
+Once all required windows are recorded in Git state:
+
+```bash
+python build-site-v2.py --milgrau-config ../config.yaml \
+  --r2-public-base https://YOUR_PUBLIC_STAGING_R2_DOMAIN \
+  --write-branch
+```
+
+This first regenerates `.cache/measurements/_site-v2`, then installs only
+validated `YYYY/MM/YYYYMMDD/index.html` files and root `measurements.json`
+into the **clean, synchronized** `measurements/publication-v2` working tree.
+It refuses an empty state/catalog, prevents overwriting unrelated HTML, and
+will only remove obsolete daily pages previously produced by this renderer.
+It does **not** change `ql-measurement-calendar.html` or push/deploy anything.
+
+Preview the generated local site (the calendar uses relative links there):
+
+```bash
+python -m http.server 8765 --bind 127.0.0.1 \
+  --directory ../.cache/measurements/_site-v2
+```
+
+Check `http://127.0.0.1:8765/ql-measurement-calendar.html`, plus a few
+quicklooks at different dates/channels. Then commit **only** these generated
+site files and push to the development branch:
+
+```bash
+git status --short
+git add -- measurements.json
+git add -A -- ':(glob)[0-9][0-9][0-9][0-9]/**/index.html'
+git diff --cached --stat
+git commit -m "Build publication-v2 HTML and calendar manifest from verified state"
+git push origin publication-v2
+```
+
+Do not merge to `main` or change the repository's GitHub Pages publishing
+source yet. If new windows are published later, rerun `build-site-v2.py
+--write-branch` after completing the preceding Git commit/push. Rebuild
+always uses the persistent state from Git, **not** deleted local WEBPs.
 
 The earlier separate `preview-site.py` remains available as an optional
 diagnostic viewer for still-cached images, **not** the intended new frontend.
