@@ -49,6 +49,11 @@ class R2Fake:
         self.objects[(bucket, key)] = open(filename, "rb").read()
         self.uploads.append((bucket, key))
 
+    def copy_object(self, *, Bucket, CopySource, Key, MetadataDirective):
+        assert MetadataDirective == "COPY"
+        original = self.objects[(CopySource["Bucket"], CopySource["Key"])]
+        self.objects[(Bucket, Key)] = original
+
     def corrupt(self):
         first = next(iter(self.objects))
         self.objects[first] = b"corrupt"
@@ -82,12 +87,14 @@ def simulate_git_save(repo, paths):
     assert all(p.is_file() for p in paths)
 
 
-def publish(root, repo, remote, *, keep_cache=False, git_persist=simulate_git_save):
+def publish(root, repo, remote, *, keep_cache=False, git_persist=simulate_git_save,
+            replace_existing=False):
     return publish_cache(
         root, "spu", repo, "staging-test-bucket", remote,
         git_ready=lambda _: None,
         git_persist=git_persist,
         keep_cache=keep_cache,
+        replace_existing=replace_existing,
     )
 
 
@@ -109,7 +116,7 @@ def test_success_upload_state_and_cleanup_without_other_cache_modification(tmp_p
     record = state["days"]["20240913"]["publication_windows"]["12"]
     info = record["assets"][ASSET]
     assert info["sha256"] == sha256(b"verified-test-webp").hexdigest()
-    assert info["key"] == f"{PUBLICATION_PREFIX}/2024/09/20240913/{info['sha256']}/{ASSET}"
+    assert info["key"] == f"{PUBLICATION_PREFIX}/2024/09/20240913/{ASSET}"
     assert remote.objects[("staging-test-bucket", info["key"])] == b"verified-test-webp"
     assert record["scientific_netcdf_split"] is False
     # Published state survives an empty local image cache without replaying.
@@ -217,12 +224,87 @@ def test_r2_write_rejects_wrong_date_or_digest_under_spu(tmp_path):
     remote = R2Fake()
     digest = sha256(b"test").hexdigest()
     for key in (
-        f"spu/2024/10/20240913/{digest}/{ASSET}",
-        f"spu/2024/09/20240913/{'0' * 64}/{ASSET}",
-        f"staging/publication-v2/spu/2024/09/20240913/{digest}/{ASSET}",
+        f"spu/2024/10/20240913/{ASSET}",
+        f"spu/2024/09/20240914/{ASSET}",
+        f"staging/publication-v2/spu/2024/09/20240913/{ASSET}",
     ):
         with pytest.raises(ValueError, match="outside canonical spu"):
             ensure_uploaded(remote, "bucket", local, {
                 "key": key, "size": 4, "sha256": digest,
             })
     assert not remote.objects and not remote.uploads
+
+
+def _change_cached_asset(asset, sidecar, payload: bytes):
+    asset.write_bytes(payload)
+    sidecar_data = json.loads(sidecar.read_text())
+    sidecar_data["asset_hashes"][ASSET] = sha256(payload).hexdigest()
+    sidecar_data["source_fingerprint"] = "b" * 64
+    sidecar.write_text(json.dumps(sidecar_data))
+
+
+def test_no_silent_overwrite_even_after_previous_verified_publication(tmp_path):
+    root, asset, sidecar = sample_cache(tmp_path)
+    remote = R2Fake()
+    repo = tmp_path / "repo"
+    publish(root, repo, remote, keep_cache=True)
+    old_state = load_published_states(repo, "spu")["2024"]
+    _change_cached_asset(asset, sidecar, b"updated-webp")
+    with pytest.raises(RuntimeError, match="--replace-existing"):
+        publish(root, repo, remote)
+    assert remote.objects[("staging-test-bucket", f"spu/2024/09/20240913/{ASSET}")] == b"verified-test-webp"
+    assert asset.is_file() and sidecar.is_file()
+    assert load_published_states(repo, "spu")["2024"] == old_state
+
+
+def test_explicit_replacement_makes_verified_backup_and_updates_state(tmp_path):
+    from publisher.r2_staging import previous_backup_key
+
+    root, asset, sidecar = sample_cache(tmp_path)
+    remote = R2Fake()
+    repo = tmp_path / "repo"
+    publish(root, repo, remote, keep_cache=True)
+    old_state = load_published_states(repo, "spu")["2024"]
+    old = old_state["days"]["20240913"]["publication_windows"]["12"]["assets"][ASSET]
+    _change_cached_asset(asset, sidecar, b"updated-webp")
+    result = publish(root, repo, remote, replace_existing=True)
+    assert result["windows"] == result["cleaned_windows"] == 1
+    key = old["key"]
+    backup = previous_backup_key(key, old["sha256"])
+    assert remote.objects[("staging-test-bucket", key)] == b"updated-webp"
+    assert remote.objects[("staging-test-bucket", backup)] == b"verified-test-webp"
+    new = load_published_states(repo, "spu")["2024"]["days"]["20240913"]["publication_windows"]["12"]["assets"][ASSET]
+    assert new["key"] == old["key"]
+    assert new["sha256"] == sha256(b"updated-webp").hexdigest()
+    assert not asset.exists() and not sidecar.exists()
+
+
+def test_rollback_after_failed_git_push_reinstates_previous_remote_bytes(tmp_path):
+    from publisher.r2_staging import previous_backup_key
+
+    root, asset, sidecar = sample_cache(tmp_path)
+    remote = R2Fake()
+    repo = tmp_path / "repo"
+    publish(root, repo, remote, keep_cache=True)
+    old = load_published_states(repo, "spu")["2024"]["days"]["20240913"]["publication_windows"]["12"]["assets"][ASSET]
+    _change_cached_asset(asset, sidecar, b"updated-webp")
+
+    def fail_git(_repo, _paths):
+        raise RuntimeError("git push failed")
+
+    with pytest.raises(RuntimeError, match="git push failed"):
+        publish(root, repo, remote, replace_existing=True, git_persist=fail_git)
+    assert remote.objects[("staging-test-bucket", old["key"])] == b"verified-test-webp"
+    assert remote.objects[("staging-test-bucket", previous_backup_key(old["key"], old["sha256"]))] == b"verified-test-webp"
+    assert asset.is_file() and sidecar.is_file()
+
+
+def test_refuse_replacing_untracked_or_altered_r2_objects(tmp_path):
+    root, asset, sidecar = sample_cache(tmp_path)
+    remote = R2Fake()
+    key = f"spu/2024/09/20240913/{ASSET}"
+    remote.objects[("staging-test-bucket", key)] = b"other-owner"
+    with pytest.raises(RuntimeError, match="untracked"):
+        publish(root, tmp_path / "repo", remote, replace_existing=True)
+    assert remote.objects[("staging-test-bucket", key)] == b"other-owner"
+    assert asset.is_file() and sidecar.is_file()
