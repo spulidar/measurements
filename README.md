@@ -105,7 +105,7 @@ historical publishing cutover. This opt-in is not a scientific correction.
 
 **Never use these commands for production cutover.** The publishing command
 is intentionally restricted to the immutable
-`spu/YYYY/MM/YYYYMMDD/SHA256/filename.webp` key namespace.
+`spu/YYYY/MM/YYYYMMDD/filename.webp` key namespace.
 The legacy live objects use top-level `YYYY/` directories; the new v2 objects
 use the independent top-level `spu/` directory. Use an explicit bucket and
 confirmation flag. A shared bucket is possible because these prefixes are
@@ -151,7 +151,7 @@ object promotion or production GitHub Pages publishing is performed.
 
 For **each** window in a batch:
 1. Reject files without a matching sidecar, attested hashes and canonical identity.
-2. Upload missing or mismatched objects to immutable hash-addressed R2 keys inside the new `spu/` namespace.
+2. Upload missing WEBPs to stable keys directly under each `spu/YYYY/MM/YYYYMMDD/` folder. Matching remote bytes are reused. Changed remote bytes require explicit opt-in and a verified backup.
 3. **Download the remote bytes again** and check size plus SHA-256.
 4. Incrementally merge verified records into
    `publisher/state-v2/spu/YYYY.json` in the measurements Git checkout.
@@ -163,7 +163,7 @@ For **each** window in a batch:
 
 If the R2 upload, download verification, Git commit/push or remote SHA
 confirmation fails, the WEBPs stay in cache. The operation is restartable:
-immutable R2 objects with matching bytes are reused and previously registered
+R2 objects with matching bytes are reused and previously registered
 windows survive the removal of local WEBPs. If a Git push fails *after a local
 commit*, reconcile/push the branch before retrying; do not force-push.
 `--keep-cache` disables the cleanup when debugging.
@@ -273,3 +273,45 @@ new uploads. No objects under the earlier prefix are automatically moved or
 deleted. This path change was made while the Git-tracked v2 state had no
 published year records. Reconcile any untracked R2 uploads from older runs
 separately rather than deleting them blindly.
+
+## Stable R2 URLs and verified updates
+
+Public R2 WEBPs now live directly inside the day directory:
+
+```text
+spu/2024/09/20240913/rcs_20240913_spu_12_532nm_AN_15km.webp
+```
+
+The SHA-256 and object size remain in the Git-owned
+`publisher/state-v2/spu/YYYY.json`, not in the R2 key. Daily-page image
+URLs append `?v=<SHA-256>` to distinguish new versions in browser/CDN
+caches; the object response uses `Cache-Control: public, max-age=300,
+must-revalidate`. On a custom R2 domain, confirm Cloudflare cache rules
+include the query string in its cache key (or purge that exact image URL
+after replacement).
+
+The uploader skips an identical remote object. If the key exists but the
+bytes differ, it **refuses** to overwrite by default. An intentional
+republication is opt-in:
+
+```bash
+python update-site.py --stage-only --milgrau-config ../config.yaml --publish-date 20240913
+python publish-v2.py --milgrau-config ../config.yaml \
+  --staging-bucket YOUR_R2_BUCKET --batch-size 1 \
+  --replace-existing --confirm-staging-upload
+```
+
+The overwritten object must match the **previous Git-verified state**; unknown
+R2 objects and unexpected remote modifications are never overwritten.
+Before replacement, the publisher uses R2 server-side copy and readback
+SHA-256 verification to preserve the previous image at
+`_publication_v2_backups/<OLD_SHA256>/spu/YYYY/MM/YYYYMMDD/filename.webp`.
+Backup objects are separate from the public `spu/` image tree and are not
+automatically deleted. A publication failure attempts to restore the original
+bytes from the verified backup and retains the local cache. A process crash
+during an overwrite may require recovery using that backup before retrying.
+
+No production `main`, legacy top-level year folders or old R2 objects are
+modified by this migration. The Git-tracked state was empty before the path
+change. Earlier experiments under old R2 namespaces are not moved or
+deleted automatically.
