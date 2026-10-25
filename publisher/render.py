@@ -68,8 +68,8 @@ def _payload(date: str, day: dict, public_url: str) -> dict:
             channel, altitude = rest.rsplit("_", 1)
             if not altitude.endswith("km"):
                 raise ValueError(f"Unexpected altitude in published asset: {filename}")
-            channels.setdefault(channel, {})[altitude[:-2]] = _public_url(
-                public_url, asset["key"]
+            channels.setdefault(channel, {})[altitude[:-2]] = (
+                _public_url(public_url, asset["key"]) + "?v=" + asset["sha256"]
             )
         views.append(
             {
