@@ -21,7 +21,7 @@ PUBLICATION_PREFIX = "spu"
 
 
 def publication_object_key(pub_id: str, digest: str, filename: str) -> str:
-    """Hash-addressed v2 location, disjoint from legacy top-level YYYY/ keys."""
+    """Stable daily WEBP key, with SHA-256 retained in the Git state."""
     match = _ASSET.fullmatch(filename) if isinstance(filename, str) else None
     if match is None or match.group("id") != pub_id:
         raise ValueError(f"Invalid publication asset identity: {filename!r}")
@@ -34,7 +34,7 @@ def publication_object_key(pub_id: str, digest: str, filename: str) -> str:
         datetime.strptime(date, "%Y%m%d")
     except ValueError as exc:
         raise ValueError(f"Invalid publication asset date: {date!r}") from exc
-    return "/".join((station, date[:4], date[4:6], date, digest, filename))
+    return "/".join((station, date[:4], date[4:6], date, filename))
 
 
 def validate_publication_object(metadata: dict[str, Any]) -> None:
