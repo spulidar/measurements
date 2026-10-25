@@ -23,6 +23,9 @@ def main(argv: list[str] | None = None) -> int:
                         help="Required for any R2 write (NEVER a production release).")
     parser.add_argument("--batch-size", type=int, default=12,
                         help="Maximum publication windows per run (default 12).")
+    parser.add_argument("--all", action="store_true",
+                        help="Process every cached window in resumable, Git-persisted batches. "
+                             "Incompatible with --keep-cache.")
     parser.add_argument("--keep-cache", action="store_true",
                         help="Retain locally staged products after verified GitHub persistence.")
     parser.add_argument("--dry-run", action="store_true",
@@ -34,6 +37,8 @@ def main(argv: list[str] | None = None) -> int:
 
     if args.batch_size < 1:
         parser.error("--batch-size must be positive")
+    if args.all and args.keep_cache:
+        parser.error("--all cannot be combined with --keep-cache (would retry the same batch).")
     candidate = args.milgrau_config or os.environ.get("MILGRAU_CONFIG")
     if candidate is None:
         candidate = Path.cwd() / "config.yaml"
@@ -64,14 +69,29 @@ def main(argv: list[str] | None = None) -> int:
         parser.error("R2 upload requires --confirm-staging-upload; use --dry-run first.")
     # Credentials are requested only after the explicit confirmation flag.
     client = r2_client_from_environment()
-    result = publish_cache(
-        cached, station, repo, args.staging_bucket, client,
-        max_windows=args.batch_size, keep_cache=args.keep_cache, logger=log,
-    )
+    total = {"windows": 0, "uploaded_objects": 0, "changed_years": 0, "cleaned_windows": 0}
+    while True:
+        result = publish_cache(
+            cached, station, repo, args.staging_bucket, client,
+            max_windows=args.batch_size, keep_cache=args.keep_cache, logger=log,
+        )
+        for name in total:
+            total[name] += result[name]
+        log.info(
+            "Verified staging batch: %(windows)d windows, %(uploaded_objects)d newly uploaded, "
+            "%(changed_years)d state years updated, %(cleaned_windows)d windows cleaned",
+            result,
+        )
+        if not args.all or result["windows"] == 0:
+            break
+        if result["cleaned_windows"] != result["windows"]:
+            raise RuntimeError(
+                "Batch did not completely clean the cache: refusing an infinite --all retry loop."
+            )
     log.info(
-        "R2 staging batch complete: %(windows)d windows, %(uploaded_objects)d new objects, "
-        "%(changed_years)d state years changed, %(cleaned_windows)d local windows cleaned",
-        result,
+        "TOTAL: %(windows)d windows, %(uploaded_objects)d newly uploaded, "
+        "%(changed_years)d state-year updates, %(cleaned_windows)d windows cleaned",
+        total,
     )
     log.info("Git branch publication-v2 only. No production website or R2 objects changed.")
     return 0
