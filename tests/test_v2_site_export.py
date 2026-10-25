@@ -36,7 +36,7 @@ def site_fixture(tmp_path):
             "visualization_only_session_concatenation": False,
             "r2_bucket": "test-bucket",
             "assets": {filename: {
-                "key": f"{PUBLICATION_PREFIX}/2024/09/20240913/{digest}/{filename}",
+                "key": f"{PUBLICATION_PREFIX}/2024/09/20240913/{filename}",
                 "sha256": digest,
                 "size": 10,
             }},
