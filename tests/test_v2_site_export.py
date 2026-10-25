@@ -2,13 +2,48 @@
 from __future__ import annotations
 
 import json
-from pathlib import Path
+from hashlib import sha256
 
 import pytest
 
 from publisher.site_v2 import build_unchanged_frontend
 import publisher.site_export as exporting
-from tests.test_v2_site import site_fixture
+from publisher.published import STAGING_PREFIX, write_published_states
+
+
+def site_fixture(tmp_path):
+    repo = tmp_path / "measurements"
+    repo.mkdir()
+    (repo / "ql-measurement-calendar.html").write_text(
+        "<script>const siteBaseUrl='https://spulidar.github.io/measurements/';</script>"
+    )
+    date = "20240913"
+    pub_id = "20240913_spu_12"
+    filename = f"rcs_{pub_id}_532nm_AN_15km.webp"
+    digest = sha256(b"test-image").hexdigest()
+    state = {
+        "schema_version": 2,
+        "station_id": "spu",
+        "year": 2024,
+        "days": {date: {"publication_windows": {"12": {
+            "publication_window_id": pub_id,
+            "source_fingerprint": "a" * 64,
+            "source_sessions": ["spu_20240913-1549Z_20240913-1750Z"],
+            "source_level1_files": ["spu_20240913-1549Z_20240913-1750Z_L1.nc"],
+            "source_level2_files": [],
+            "scientific_sessions_merged": False,
+            "scientific_netcdf_split": False,
+            "visualization_only_session_concatenation": False,
+            "r2_bucket": "test-bucket",
+            "assets": {filename: {
+                "key": f"{STAGING_PREFIX}/spu/2024/09/20240913/{digest}/{filename}",
+                "sha256": digest,
+                "size": 10,
+            }},
+        }}}},
+    }
+    write_published_states(repo, "spu", {}, {"2024": state})
+    return repo
 
 
 @pytest.fixture
