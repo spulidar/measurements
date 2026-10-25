@@ -20,7 +20,7 @@ from .published import (
     load_published_states, update_published_states,
     write_published_states, window_record,
 )
-from .r2_staging import ensure_uploaded
+from .r2_staging import ensure_uploaded, restore_previous
 from .v2 import _hash_file, collect_validated_staging
 
 BRANCH = "publication-v2"
@@ -110,6 +110,7 @@ def publish_cache(
     bucket: str, r2_client: Any, *,
     max_windows: int | None = None,
     keep_cache: bool = False,
+    replace_existing: bool = False,
     logger: logging.Logger | None = None,
     git_ready: Callable[[str | Path], None] = ensure_git_ready,
     git_persist: Callable[[str | Path, list[Path]], None] = push_state,
@@ -126,6 +127,8 @@ def publish_cache(
     previous = load_published_states(repository, station)
     records = {}
     uploaded = 0
+    overwritten: list[tuple[dict[str, Any], dict[str, Any]]] = []
+    planned = []
     for pub_id, sidecar in items:
         record = window_record(pub_id, sidecar, Path(cache_root).resolve(), bucket)
         earlier = (previous.get(pub_id[:4], {})
@@ -133,21 +136,43 @@ def publish_cache(
                    .get("publication_windows", {}).get(pub_id[-2:]))
         if earlier and earlier["r2_bucket"] != bucket:
             raise ValueError(
-                f"Window {pub_id} belongs to another staging bucket; "
+                f"Window {pub_id} belongs to another R2 bucket; "
                 "explicit migration is required."
             )
-        for filename, metadata in record["assets"].items():
-            local = Path(cache_root).resolve() / station / pub_id[:4] / pub_id[4:6] / pub_id[:8] / filename
-            if ensure_uploaded(r2_client, bucket, local, metadata):
-                uploaded += 1
-        records[pub_id] = record
-        if logger:
-            logger.info("Verified staging R2 window %s: %d objects", pub_id, len(record["assets"]))
-    updated = update_published_states(previous, station, records)
-    changed_paths = write_published_states(repository, station, previous, updated)
-    # Even when no state changed, verify the local commit is synchronized with GitHub
-    # before a previously uploaded/cache-retained window can be cleaned.
-    git_persist(repository, changed_paths)
+        planned.append((pub_id, sidecar, record, earlier))
+
+    try:
+        for pub_id, sidecar, record, earlier in planned:
+            for filename, metadata in record["assets"].items():
+                old_metadata = (earlier or {}).get("assets", {}).get(filename)
+                local = Path(cache_root).resolve() / station / pub_id[:4] / pub_id[4:6] / pub_id[:8] / filename
+                if ensure_uploaded(
+                    r2_client, bucket, local, metadata,
+                    allow_replace=replace_existing, previous=old_metadata,
+                ):
+                    uploaded += 1
+                    if old_metadata and old_metadata["sha256"] != metadata["sha256"]:
+                        overwritten.append((metadata, old_metadata))
+            records[pub_id] = record
+            if logger:
+                logger.info("Verified R2 publication window %s: %d object(s)", pub_id, len(record["assets"]))
+        updated = update_published_states(previous, station, records)
+        changed_paths = write_published_states(repository, station, previous, updated)
+        # Keep local images until GitHub confirms its publication state.
+        git_persist(repository, changed_paths)
+    except Exception as exc:
+        rollback_errors: list[str] = []
+        for new_metadata, old_metadata in reversed(overwritten):
+            try:
+                restore_previous(r2_client, bucket, new_metadata, old_metadata)
+            except Exception as rollback_exc:
+                rollback_errors.append(str(rollback_exc))
+        if rollback_errors:
+            raise RuntimeError(
+                "Publication failed; some R2 overwrites could not be restored: "
+                + "; ".join(rollback_errors)
+            ) from exc
+        raise
     if not keep_cache:
         for pub_id, sidecar in items:
             clean_verified_window(cache_root, pub_id, sidecar)
