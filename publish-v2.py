@@ -26,6 +26,11 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--all", action="store_true",
                         help="Process every cached window in resumable, Git-persisted batches. "
                              "Incompatible with --keep-cache.")
+    parser.add_argument(
+        "--replace-existing", action="store_true",
+        help="Allow overwrites only for Git-verified R2 keys; requires a verified "
+             "backup of the previous WEBP before replacement.",
+    )
     parser.add_argument("--keep-cache", action="store_true",
                         help="Retain locally staged products after verified GitHub persistence.")
     parser.add_argument("--dry-run", action="store_true",
@@ -73,7 +78,8 @@ def main(argv: list[str] | None = None) -> int:
     while True:
         result = publish_cache(
             cached, station, repo, args.staging_bucket, client,
-            max_windows=args.batch_size, keep_cache=args.keep_cache, logger=log,
+            max_windows=args.batch_size, keep_cache=args.keep_cache,
+            replace_existing=args.replace_existing, logger=log,
         )
         for name in total:
             total[name] += result[name]
