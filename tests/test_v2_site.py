@@ -34,7 +34,7 @@ def site_fixture(tmp_path):
         "r2_bucket": "test-bucket",
         "assets": {
             ASSET: {
-                "key": f"{PUBLICATION_PREFIX}/2024/09/20240913/{hash_value}/{ASSET}",
+                "key": f"{PUBLICATION_PREFIX}/2024/09/20240913/{ASSET}",
                 "sha256": hash_value,
                 "size": 10,
             }
@@ -70,7 +70,7 @@ def test_new_site_reuses_current_html_and_renders_from_git_without_cache_images(
     assert 'id="tab-mean"' not in html
     assert "Mean RCS</button>" not in html
     assert "15km.webp" in html
-    assert f"{PUBLICATION_PREFIX}/2024/09/20240913/" in html
+    assert f"{PUBLICATION_PREFIX}/2024/09/20240913/{ASSET}?v={sha256(b'test-image').hexdigest()}" in html
     calendar = (target / "ql-measurement-calendar.html").read_text()
     assert "body{color:blue}" in calendar
     assert 'const siteBaseUrl="./";' in calendar
