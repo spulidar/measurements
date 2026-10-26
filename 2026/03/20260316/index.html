@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="publisher-fingerprint" content="83087815c44a65624ae41dac6578898c1eb7ea600126391c530b5e4533157c5b">
+  <title>SPU Lidar | 16 Mar 2026</title>
+  <style>
+    :root { --top:#1a1a1a; --page:#f0f2f5; --panel:#fff; --text:#333; --muted:#777; --blue:#0056b3; }
+    * { box-sizing:border-box; }
+    html,body { margin:0; min-height:100%; background:var(--page); color:var(--text); font-family:'Segoe UI',Roboto,Helvetica,Arial,sans-serif; }
+    body { min-height:100vh; display:flex; flex-direction:column; }
+    .top-bar { background:var(--top); color:white; padding:10px 24px; display:flex; justify-content:space-between; align-items:center; gap:16px; flex-wrap:wrap; box-shadow:0 2px 4px rgba(0,0,0,.2); }
+    .top-bar h2 { margin:0; font-size:18px; font-weight:500; letter-spacing:1px; }
+    .date { color:#4fc3f7; font-weight:700; }
+    .metadata { color:#aaa; font:12px monospace; display:flex; gap:15px; flex-wrap:wrap; }
+    .toolbar { position:sticky; top:0; z-index:10; background:var(--panel); border-bottom:1px solid #ddd; padding:8px 20px; display:flex; justify-content:center; align-items:center; flex-wrap:wrap; gap:18px; box-shadow:0 2px 8px rgba(0,0,0,.05); }
+    .control-group { display:flex; align-items:center; justify-content:center; gap:7px; flex-wrap:wrap; }
+    .control-group h3 { margin:0 4px 0 0; color:var(--muted); font-size:10px; text-transform:uppercase; letter-spacing:1px; }
+    .main-mode-btn { border:0; border-bottom:3px solid transparent; background:transparent; padding:7px 10px; color:var(--muted); font-weight:650; cursor:pointer; }
+    .main-mode-btn.active { color:var(--blue); border-bottom-color:var(--blue); }
+    .tab-btn { border:1px solid #ccc; border-radius:4px; background:#f8f9fa; color:#555; padding:6px 10px; min-height:31px; font:600 12px monospace; cursor:pointer; }
+    .tab-btn:hover { background:#e2e6ea; color:#111; }
+    .tab-btn.active { background:#546e7a; border-color:#37474f; color:#fff; }
+    .period-btn.active { background:var(--blue); border-color:#004085; }
+    .ch-btn.active { background:#2e7d32; border-color:#1b5e20; }
+    .image-container { padding:15px; text-align:center; min-height:calc(100vh - 150px); flex:1; display:flex; justify-content:center; align-items:center; }
+    #main-display { max-width:100%; max-height:calc(100vh - 180px); object-fit:contain; background:#fff; box-shadow:0 6px 16px rgba(0,0,0,.15); cursor:zoom-in; }
+    .message { display:none; max-width:720px; background:#fff; border:1px solid #ddd; border-radius:8px; padding:20px; line-height:1.5; box-shadow:0 4px 12px rgba(0,0,0,.08); }
+    .message.active { display:block; }
+    #myModal { display:none; position:fixed; z-index:1000; inset:0; background:rgba(0,0,0,.9); }
+    .modal-close { position:absolute; top:15px; right:30px; color:#bbb; font-size:40px; cursor:pointer; }
+    .modal-content { display:block; margin:2vh auto 0; max-width:98%; max-height:95vh; }
+    @media (max-width:700px) {
+      .top-bar { justify-content:center; text-align:center; padding:10px 12px; }
+      .metadata { width:100%; justify-content:center; font-size:10px; }
+      .toolbar { position:static; padding:10px 8px; gap:10px; }
+      .control-group { width:100%; }
+      .control-group h3 { width:100%; text-align:center; margin:3px 0; }
+      .tab-btn { flex:1 1 74px; min-height:38px; }
+      .image-container { align-items:flex-start; padding:10px 8px 18px; min-height:auto; }
+      #main-display { width:100%; max-height:none; height:auto; }
+    }
+  </style>
+</head>
+<body>
+  <div class="top-bar">
+    <h2>SPU LIDAR STATION | <span class="date">16 Mar 2026</span></h2>
+    <div class="metadata"><span>LAT: 23.56°S</span><span>LON: 46.73°W</span><span>ELEV: 760m</span></div>
+  </div>
+
+  <div class="toolbar">
+    <div class="control-group" id="period-controls"><h3>Publication window</h3></div>
+    <div class="control-group">
+      <button class="main-mode-btn active" id="tab-quicklooks">RCS Maps</button>
+    </div>
+    <div class="control-group" id="channel-controls"><h3>Wavelength</h3></div>
+    <div class="control-group" id="altitude-controls"><h3>Range</h3></div>
+  </div>
+
+  <div class="image-container">
+    <img id="main-display" alt="Lidar publication view" onclick="openModal(this.src)">
+    <div id="message" class="message"></div>
+  </div>
+
+  <div id="myModal"><span class="modal-close" onclick="closeModal()">&times;</span><img class="modal-content" id="img01" alt="Expanded lidar image"></div>
+
+<script>
+const dayData = {"date": "20260316", "publication_views": [{"selector_id": "12", "publication_window_id": "20260316_spu_12", "label": "12–18", "channels": {"1064nm_AN": {"15": "https://pub-2dc2005030bb4ee796dd63fd528879fa.r2.dev/spu/2026/03/20260316/rcs_20260316_spu_12_1064nm_AN_15km.webp?v=8903d4279fe269a31556438b400d10ec7c9be493553eefb98f48c147a8052281", "30": "https://pub-2dc2005030bb4ee796dd63fd528879fa.r2.dev/spu/2026/03/20260316/rcs_20260316_spu_12_1064nm_AN_30km.webp?v=9f4a06ebcc45cae12770b6a853df7c9d8a347d4c6b3f6fb5876af97a0ecba824", "5": "https://pub-2dc2005030bb4ee796dd63fd528879fa.r2.dev/spu/2026/03/20260316/rcs_20260316_spu_12_1064nm_AN_5km.webp?v=fb88954d33698c3277e42984f73e7b750ef1938d7817eff8a135666ed2f609db"}, "355nm_AN": {"15": "https://pub-2dc2005030bb4ee796dd63fd528879fa.r2.dev/spu/2026/03/20260316/rcs_20260316_spu_12_355nm_AN_15km.webp?v=f3f594c052a888f1f7fe2f2c7728ea3a39ef4be5179690d8bb6cdcea9b31d8d4", "30": "https://pub-2dc2005030bb4ee796dd63fd528879fa.r2.dev/spu/2026/03/20260316/rcs_20260316_spu_12_355nm_AN_30km.webp?v=fbfc13778bb385e8281f50fe2f67d94daec739683b5249c923164b93399750e9", "5": "https://pub-2dc2005030bb4ee796dd63fd528879fa.r2.dev/spu/2026/03/20260316/rcs_20260316_spu_12_355nm_AN_5km.webp?v=4b7ed75350615a3428635f05b8d192ff0ad71e51ef96532d26179d354e293c20"}, "355nm_PC": {"15": "https://pub-2dc2005030bb4ee796dd63fd528879fa.r2.dev/spu/2026/03/20260316/rcs_20260316_spu_12_355nm_PC_15km.webp?v=172a29b26f282e275a823c56f1bb97a882bc03d8c771a807446c16d7dea70970", "30": "https://pub-2dc2005030bb4ee796dd63fd528879fa.r2.dev/spu/2026/03/20260316/rcs_20260316_spu_12_355nm_PC_30km.webp?v=3e2e53fab8ee138d3c7e126bbab16a23eeb184dc8d1cdffbc1edee73edbe3dde", "5": "https://pub-2dc2005030bb4ee796dd63fd528879fa.r2.dev/spu/2026/03/20260316/rcs_20260316_spu_12_355nm_PC_5km.webp?v=5f9096862c70a885574ff49a240569960b252e027495fe9c3996bea5e124f47e"}, "532nm_AN": {"15": "https://pub-2dc2005030bb4ee796dd63fd528879fa.r2.dev/spu/2026/03/20260316/rcs_20260316_spu_12_532nm_AN_15km.webp?v=0dfdaecb89ed4e0c2aeee8b4a3eae6a3c19b59ddeafce2bd4b220f0facf4171b", "30": "https://pub-2dc2005030bb4ee796dd63fd528879fa.r2.dev/spu/2026/03/20260316/rcs_20260316_spu_12_532nm_AN_30km.webp?v=8274c72838af18d90f189a3d89c9725fa179c8c3b7d545bb4222fc29e41e70fc", "5": "https://pub-2dc2005030bb4ee796dd63fd528879fa.r2.dev/spu/2026/03/20260316/rcs_20260316_spu_12_532nm_AN_5km.webp?v=ce0ae165137d47bf6e98fdb8dc375545a08dcd03f2419af441253f8e8a907b18"}, "532nm_PC": {"15": "https://pub-2dc2005030bb4ee796dd63fd528879fa.r2.dev/spu/2026/03/20260316/rcs_20260316_spu_12_532nm_PC_15km.webp?v=54fd9054be9a4e51d35aa1234f3b200a298fea254183a77df17b4c44728c249d", "30": "https://pub-2dc2005030bb4ee796dd63fd528879fa.r2.dev/spu/2026/03/20260316/rcs_20260316_spu_12_532nm_PC_30km.webp?v=6e55554548629ff66822f23afa0124296ca469903adee94ce15fdcce69036dd9", "5": "https://pub-2dc2005030bb4ee796dd63fd528879fa.r2.dev/spu/2026/03/20260316/rcs_20260316_spu_12_532nm_PC_5km.webp?v=624dc0c3963ce31c23a74f40e224fe52f1edd0e116ddce45a993fd38fd835b37"}}}, {"selector_id": "18", "publication_window_id": "20260316_spu_18", "label": "18–24", "channels": {"1064nm_AN": {"15": "https://pub-2dc2005030bb4ee796dd63fd528879fa.r2.dev/spu/2026/03/20260316/rcs_20260316_spu_18_1064nm_AN_15km.webp?v=f4ca81fa28260e2d4577a0a7ffb69ade61e82b6737be7abe095a36d8022a8963", "30": "https://pub-2dc2005030bb4ee796dd63fd528879fa.r2.dev/spu/2026/03/20260316/rcs_20260316_spu_18_1064nm_AN_30km.webp?v=065e968891895c9689b218359a7be09540d2152338772e5d327278372513790f", "5": "https://pub-2dc2005030bb4ee796dd63fd528879fa.r2.dev/spu/2026/03/20260316/rcs_20260316_spu_18_1064nm_AN_5km.webp?v=935b9815ed4046779b468f2c79e8db185c5e884fbd3aa955317786631d0183b7"}, "355nm_AN": {"15": "https://pub-2dc2005030bb4ee796dd63fd528879fa.r2.dev/spu/2026/03/20260316/rcs_20260316_spu_18_355nm_AN_15km.webp?v=aca0fbab1252a161901452daa6f57a4e54d1df8f78cc1b09753c6fbb7fb3a931", "30": "https://pub-2dc2005030bb4ee796dd63fd528879fa.r2.dev/spu/2026/03/20260316/rcs_20260316_spu_18_355nm_AN_30km.webp?v=8e42a2e0eeef64bc6e74b2be44979898c7c1b0dd1b64a4f09ad6a817f6d361c2", "5": "https://pub-2dc2005030bb4ee796dd63fd528879fa.r2.dev/spu/2026/03/20260316/rcs_20260316_spu_18_355nm_AN_5km.webp?v=760984059cfba3e0a766ab7ef99d3c85ad565528f35d36e56044283d5a0873b8"}, "355nm_PC": {"15": "https://pub-2dc2005030bb4ee796dd63fd528879fa.r2.dev/spu/2026/03/20260316/rcs_20260316_spu_18_355nm_PC_15km.webp?v=165c91722060880becf63a83529740bed98b11b2b0064e8caac698ac70d829f7", "30": "https://pub-2dc2005030bb4ee796dd63fd528879fa.r2.dev/spu/2026/03/20260316/rcs_20260316_spu_18_355nm_PC_30km.webp?v=42c59eb7d8b5ef46369715b4b18d36103f2adc9b8695d79597cbb0876aad799f", "5": "https://pub-2dc2005030bb4ee796dd63fd528879fa.r2.dev/spu/2026/03/20260316/rcs_20260316_spu_18_355nm_PC_5km.webp?v=efaf34c3c60c11ff6793a5d612087970f7379cd59e534830444e4616d2fe81fc"}, "532nm_AN": {"15": "https://pub-2dc2005030bb4ee796dd63fd528879fa.r2.dev/spu/2026/03/20260316/rcs_20260316_spu_18_532nm_AN_15km.webp?v=44b4dce000e440114de758f3a744ce4636f664e4c25269856ee1093fa9221709", "30": "https://pub-2dc2005030bb4ee796dd63fd528879fa.r2.dev/spu/2026/03/20260316/rcs_20260316_spu_18_532nm_AN_30km.webp?v=cbe31253722dd1c8b6e27aea982f2000a60281bc992402473f48c4cde35af6bf", "5": "https://pub-2dc2005030bb4ee796dd63fd528879fa.r2.dev/spu/2026/03/20260316/rcs_20260316_spu_18_532nm_AN_5km.webp?v=d8cdf5e6baa2c82e3cbee33b6235f5c5873d19bd3762843da97eefeb95891050"}, "532nm_PC": {"15": "https://pub-2dc2005030bb4ee796dd63fd528879fa.r2.dev/spu/2026/03/20260316/rcs_20260316_spu_18_532nm_PC_15km.webp?v=8ae184c9c53138f0ab6d81f2c0cee4a8bfb23082414224f2115f44f222a18ab3", "30": "https://pub-2dc2005030bb4ee796dd63fd528879fa.r2.dev/spu/2026/03/20260316/rcs_20260316_spu_18_532nm_PC_30km.webp?v=342be825f699959f3ae4078ffe7fb1345a13dea90c58e33c1b0f2374c652e966", "5": "https://pub-2dc2005030bb4ee796dd63fd528879fa.r2.dev/spu/2026/03/20260316/rcs_20260316_spu_18_532nm_PC_5km.webp?v=7e0d04e0cf8220aa19d386df614f5affe35d8eb12b9a5a4560856315684a6b7f"}}}]};
+let currentSelectorId = dayData.publication_views.length ? dayData.publication_views[0].selector_id : '';
+let currentChannel = '';
+let currentAltitude = '';
+
+const img = document.getElementById('main-display');
+const message = document.getElementById('message');
+const channelControls = document.getElementById('channel-controls');
+const altitudeControls = document.getElementById('altitude-controls');
+
+function clearButtons(container) { container.querySelectorAll('button').forEach(button => button.remove()); }
+function currentView() { return dayData.publication_views.find(view => view.selector_id === currentSelectorId) || null; }
+function showMessage(text) { img.style.display='none'; message.textContent=text; message.classList.add('active'); }
+function hideMessage() { message.classList.remove('active'); message.textContent=''; img.style.display='block'; }
+
+function renderWindows() {
+  const container=document.getElementById('period-controls');
+  clearButtons(container);
+  dayData.publication_views.forEach(view => {
+    const btn=document.createElement('button');
+    btn.className='tab-btn period-btn'+(view.selector_id===currentSelectorId?' active':'');
+    btn.textContent=view.label;
+    if (view.publication_window_id) btn.title=view.publication_window_id;
+    btn.onclick=()=>{ currentSelectorId=view.selector_id; currentChannel=''; currentAltitude=''; renderAll(); };
+    container.appendChild(btn);
+  });
+}
+
+function renderSelectors() {
+  clearButtons(channelControls); clearButtons(altitudeControls);
+  const data=currentView();
+  if (!data) { channelControls.style.display='none'; altitudeControls.style.display='none'; return; }
+
+  const channels=Object.keys(data.channels || {});
+  if (!channels.length) { channelControls.style.display='none'; altitudeControls.style.display='none'; return; }
+  channelControls.style.display='flex'; altitudeControls.style.display='flex';
+
+  if (!channels.includes(currentChannel)) currentChannel=channels.find(channel=>channel.includes('532nm_AN')) || channels[0];
+  channels.forEach(channel => {
+    const btn=document.createElement('button');
+    btn.className='tab-btn ch-btn'+(channel===currentChannel?' active':'');
+    btn.textContent=channel.replace('_',' ');
+    btn.onclick=()=>{ currentChannel=channel; currentAltitude=''; renderAll(); };
+    channelControls.appendChild(btn);
+  });
+
+  const altitudes=Object.keys((data.channels || {})[currentChannel] || {}).sort((a,b)=>parseFloat(a)-parseFloat(b));
+  if (!altitudes.includes(currentAltitude)) currentAltitude=altitudes.includes('15') ? '15' : (altitudes[0] || '');
+  altitudes.forEach(altitude => {
+    const btn=document.createElement('button');
+    btn.className='tab-btn'+(altitude===currentAltitude?' active':'');
+    btn.textContent=altitude+' km';
+    btn.onclick=()=>{ currentAltitude=altitude; renderAll(); };
+    altitudeControls.appendChild(btn);
+  });
+}
+
+function updateDisplay() {
+  const data=currentView(); hideMessage();
+  if (!data) { showMessage('No data are available for this day.'); return; }
+
+  let url='';
+  url=(((data.channels || {})[currentChannel] || {})[currentAltitude]) || '';
+
+  if (!url) { showMessage('No image is available for this view.'); return; }
+  img.style.opacity='.4'; img.src=url;
+}
+
+function renderAll() { renderWindows(); renderSelectors(); updateDisplay(); }
+
+img.onload=()=>{ img.style.opacity='1'; img.style.display='block'; message.classList.remove('active'); };
+img.onerror=()=>{ img.style.opacity='1'; showMessage('Image not found or failed to load.'); };
+const modal=document.getElementById('myModal'), modalImg=document.getElementById('img01');
+function openModal(src) { if (!src || img.style.display==='none') return; modal.style.display='block'; modalImg.src=src; }
+function closeModal() { modal.style.display='none'; modalImg.src=''; }
+window.onclick=event=>{ if(event.target===modal) closeModal(); };
+document.addEventListener('keydown',event=>{ if(event.key==='Escape') closeModal(); });
+renderAll();
+</script>
+</body>
+</html>
