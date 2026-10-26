@@ -178,3 +178,18 @@ the normal pipeline. In confirmed mode, importing uses bounded, resumable
 96-window batches, validates R2 byte-for-byte, saves Git state/HTML/catalog
 in each batch, and removes a local window only after GitHub confirms it.
 A rerun is safe for windows left in cache. No older R2 `YYYY/` keys are touched.
+
+## Recovering interrupted R2 streaming reads
+
+A `ReadTimeoutError` during the SHA-256 readback does not imply corrupted
+WEBPs. The R2 client now uses a 120-second read timeout and the publisher
+restarts interrupted GETs up to five times, with short bounded backoff,
+calculating the hash again from the beginning. The integrity requirement
+is unchanged; a wrong digest is never accepted.
+
+A batch is recorded in Git and cleared from the local cache **only after**
+all its objects are verified and the publication branch push is confirmed.
+If one window fails, rerun `milgrau-publish cache --confirm`: earlier
+completed batches stay in Git, and objects already uploaded in the failed
+batch are verified and reused, not sent twice. Do not clear the cache or
+call the ordinary rendering pipeline to recover from a network timeout.
