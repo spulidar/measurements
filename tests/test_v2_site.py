@@ -110,3 +110,62 @@ def test_empty_state_rebuild_removes_stale_generated_year_pages(tmp_path):
     )
     assert count == 0 and not daily.exists()
     assert json.loads((site / "measurements.json").read_text())["days"] == {}
+
+
+
+def test_site_rebuild_is_incremental_and_public_domain_change_updates_html(tmp_path):
+    repo = site_fixture(tmp_path)
+    cache = tmp_path / ".cache" / "measurements"
+    target, _ = build_unchanged_frontend(
+        repo, cache, "spu", r2_public_base="https://first.example.invalid"
+    )
+    page = target / "2024/09/20240913/index.html"
+    assert "https://first.example.invalid/spu/" in page.read_text()
+    import os
+    before = page.stat().st_mtime_ns
+    assert build_unchanged_frontend(
+        repo, cache, "spu", r2_public_base="https://first.example.invalid"
+    )[1] == 1
+    assert page.stat().st_mtime_ns == before
+
+    assert build_unchanged_frontend(
+        repo, cache, "spu", r2_public_base="https://second.example.invalid"
+    )[1] == 1
+    assert "https://second.example.invalid/spu/" in page.read_text()
+    assert "https://first.example.invalid/spu/" not in page.read_text()
+
+
+def test_incremental_rebuild_keeps_unchanged_day_when_another_date_changes(tmp_path):
+    repo = site_fixture(tmp_path)
+    cache = tmp_path / ".cache" / "measurements"
+    target, _ = build_unchanged_frontend(
+        repo, cache, "spu", r2_public_base="https://r2.example.invalid"
+    )
+    first = target / "2024/09/20240913/index.html"
+    original_stat = first.stat().st_mtime_ns
+    state_path = repo / "publisher/state-v2/spu/2024.json"
+    state = json.loads(state_path.read_text())
+    new_date = "20240914"
+    copied = json.loads(json.dumps(state["days"]["20240913"]))
+    record = copied["publication_windows"]["12"]
+    record["publication_window_id"] = "20240914_spu_12"
+    new_assets = {}
+    for filename, meta in record["assets"].items():
+        name = filename.replace("20240913", "20240914")
+        meta["key"] = meta["key"].replace("20240913", "20240914")
+        new_assets[name] = meta
+    record["assets"] = new_assets
+    record["source_sessions"] = [
+        "spu_20240914-1549Z_20240914-1750Z"
+    ]
+    record["source_level1_files"] = [
+        "spu_20240914-1549Z_20240914-1750Z_L1.nc"
+    ]
+    state["days"][new_date] = copied
+    state_path.write_text(json.dumps(state))
+    site, days = build_unchanged_frontend(
+        repo, cache, "spu", r2_public_base="https://r2.example.invalid"
+    )
+    assert days == 2
+    assert first.stat().st_mtime_ns == original_stat
+    assert (site / "2024/09/20240914/index.html").is_file()

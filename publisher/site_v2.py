@@ -9,11 +9,13 @@ from __future__ import annotations
 from pathlib import Path
 import json
 import re
-import shutil
 from urllib.parse import urlsplit
 
 from .published import load_published_states
-from .render import render_day_dashboard
+from .render import (
+    render_day_dashboard, read_dashboard_fingerprint,
+    dashboard_fingerprint, day_output_path,
+)
 from .windows import PUBLICATION_WINDOW_LABELS, PUBLICATION_WINDOW_STARTS
 
 
@@ -59,23 +61,43 @@ def build_unchanged_frontend(
                 "coverage": coverage, "slots": slots,
             }
 
-    # Reset generated historical pages confined to the temporary _site-v2 tree.
-    # This avoids orphan pages if persisted state becomes empty or a year is retired.
+    # Keep verified HTMLs stable, regenerate only changed days. A site renderer
+    # change or R2 public URL change updates the page fingerprint.
     target.mkdir(parents=True, exist_ok=True)
-    for stale_year in target.iterdir():
-        if re.fullmatch(r"\d{4}", stale_year.name):
-            if stale_year.is_symlink():
-                raise ValueError(f"Unsafe generated site year symlink: {stale_year}")
-            if stale_year.is_dir():
-                shutil.rmtree(stale_year)
-    for year, state in sorted(states.items()):
+    expected = {day_output_path(target, date) for date in days}
+    for year_root in target.iterdir():
+        if not re.fullmatch(r"\d{4}", year_root.name):
+            continue
+        if year_root.is_symlink():
+            raise ValueError(f"Unsafe generated site year symlink: {year_root}")
+        if not year_root.is_dir():
+            continue
+        for stale in year_root.glob("*/*/index.html"):
+            if stale in expected:
+                continue
+            if any(part.is_symlink() for part in (stale, stale.parent, stale.parent.parent)):
+                raise ValueError(f"Unsafe generated daily HTML symlink: {stale}")
+            if read_dashboard_fingerprint(stale) is None:
+                raise ValueError(f"Refusing to remove unrelated HTML: {stale}")
+            stale.unlink()
+            for folder in (stale.parent, stale.parent.parent, year_root):
+                try:
+                    folder.rmdir()
+                except OSError:
+                    break
+
+    for _year, state in sorted(states.items()):
         for date, day in sorted(state["days"].items()):
             if date in blocked_dates:
                 continue
-            render_day_dashboard(
-                date, day, target,
-                r2_public_base,
-            )
+            output = day_output_path(target, date)
+            if output.is_symlink() or any(parent.is_symlink() for parent in (
+                output.parent, output.parent.parent, output.parent.parent.parent,
+            )):
+                raise ValueError(f"Unsafe generated dashboard destination: {output}")
+            desired = dashboard_fingerprint(date, day, r2_public_base)
+            if read_dashboard_fingerprint(output) != desired:
+                render_day_dashboard(date, day, target, r2_public_base)
 
     manifest = {
         "schema_version": 4,
@@ -83,15 +105,17 @@ def build_unchanged_frontend(
         "period_labels": dict(PUBLICATION_WINDOW_LABELS),
         "days": days,
     }
-    (target / "measurements.json").write_text(
-        json.dumps(manifest, indent=2, ensure_ascii=False, sort_keys=True) + "\n",
-        encoding="utf-8",
-    )
+    catalog = json.dumps(manifest, indent=2, ensure_ascii=False, sort_keys=True) + "\n"
+    catalog_path = target / "measurements.json"
+    if not catalog_path.is_file() or catalog_path.read_text(encoding="utf-8") != catalog:
+        catalog_path.write_text(catalog, encoding="utf-8")
 
     calendar = (repo / "ql-measurement-calendar.html").read_text(encoding="utf-8")
     exact = "const siteBaseUrl='https://spulidar.github.io/measurements/';"
     if exact not in calendar:
         raise RuntimeError("The original calendar changed: review site contract before proceeding.")
     calendar = calendar.replace(exact, "const siteBaseUrl=" + json.dumps(site_base) + ";")
-    (target / "ql-measurement-calendar.html").write_text(calendar, encoding="utf-8")
+    calendar_path = target / "ql-measurement-calendar.html"
+    if not calendar_path.is_file() or calendar_path.read_text(encoding="utf-8") != calendar:
+        calendar_path.write_text(calendar, encoding="utf-8")
     return target, len(days)

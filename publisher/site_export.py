@@ -134,9 +134,12 @@ def export_site_to_branch(
         raise ValueError("Generated calendar links are not relative to the development site")
 
     for source, destination in copies:
+        if destination.is_file() and destination.read_bytes() == source.read_bytes():
+            continue
         destination.parent.mkdir(parents=True, exist_ok=True)
         shutil.copyfile(source, destination)
-    manifest_dst.write_bytes(manifest_src.read_bytes())
+    if not manifest_dst.is_file() or manifest_dst.read_bytes() != manifest_src.read_bytes():
+        manifest_dst.write_bytes(manifest_src.read_bytes())
 
     retired = 0
     for old in existing:

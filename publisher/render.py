@@ -34,10 +34,11 @@ def _renderer_fingerprint() -> str:
     return digest.hexdigest()
 
 
-def dashboard_fingerprint(date: str, day: dict) -> str:
+def dashboard_fingerprint(date: str, day: dict, public_url: str = "") -> str:
     digest = sha256()
     digest.update(_renderer_fingerprint().encode("ascii"))
     digest.update(date.encode("ascii"))
+    digest.update(public_url.rstrip("/").encode("utf-8"))
     digest.update(
         json.dumps(day, ensure_ascii=False, sort_keys=True, separators=(",", ":")).encode("utf-8")
     )
@@ -90,7 +91,7 @@ def render_day_dashboard(
     dry_run: bool = False,
 ) -> Path:
     output_path = day_output_path(site_root, date)
-    fingerprint = dashboard_fingerprint(date, day)
+    fingerprint = dashboard_fingerprint(date, day, public_url)
     payload_json = json.dumps(_payload(date, day, public_url), ensure_ascii=False).replace("</", "<\\/")
     date_title = datetime.strptime(date, "%Y%m%d").strftime("%d %b %Y")
 
