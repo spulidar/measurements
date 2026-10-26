@@ -483,8 +483,9 @@ def publish_cached(*, date: str | None = None, confirm: bool = False) -> int:
     bytes_total = 0
     for pub_id in approved:
         by_year[pub_id[:4]] = by_year.get(pub_id[:4], 0) + 1
-        for path in catalog[pub_id]["assets"].values():
-            image = ctx.cache / path
+        for filename in catalog[pub_id]["assets"]:
+            image = (ctx.cache / ctx.station / pub_id[:4] /
+                     pub_id[4:6] / pub_id[:8] / filename)
             images += 1
             bytes_total += image.stat().st_size
     LOG.info("Cached import: %d approved window(s), %d WEBPs, %.2f GiB",
