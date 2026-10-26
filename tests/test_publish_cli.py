@@ -426,3 +426,25 @@ def test_historical_cache_rejects_invalid_image_hash_and_blocked_days(project, m
     history.save_controls(ctx.repo, "spu", controls)
     assert pipeline.publish_cached(confirm=False) == 0
     assert image.exists()  # hidden days are not consumed or deleted
+
+
+
+def test_historical_cache_snapshot_rehashes_only_its_selected_batch(project, monkeypatch):
+    from publisher.publication import publish_cache
+    from publisher.v2 import collect_validated_staging
+
+    ctx = project
+    _, asset = staged_day(ctx)
+    original = collect_validated_staging(ctx.cache, "spu")
+    # A cached snapshot that is subsequently tampered must not publish.
+    asset.write_bytes(b"later-corruption")
+    remote = R2()
+    with pytest.raises(ValueError, match="modified"):
+        publish_cache(
+            ctx.cache, "spu", ctx.repo, "example-bucket", remote,
+            selected_window_ids={PUB}, validated_cache_snapshot=original,
+            git_ready=lambda *_a: None,
+            git_persist=lambda *_a: pytest.fail("cannot publish tampered cache"),
+        )
+    assert not remote.objects
+    assert not load_published_states(ctx.repo, "spu")

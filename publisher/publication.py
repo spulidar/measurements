@@ -21,7 +21,7 @@ from .published import (
     write_published_states, window_record,
 )
 from .r2_staging import ensure_uploaded, restore_previous
-from .v2 import _hash_file, collect_validated_staging
+from .v2 import _hash_file, collect_validated_staging, _validated_sidecar
 
 class RemoteStateAmbiguous(RuntimeError):
     """Git outcome unverified; preserve R2 until manual reconciliation."""
@@ -88,7 +88,6 @@ def clean_verified_window(cache_root: str | Path, pub_id: str, sidecar: dict[str
     path = day_dir / f"{pub_id}.json"
     if path.is_symlink() or not path.is_file():
         raise ValueError(f"Missing safe cache sidecar for cleanup: {path}")
-    from .v2 import _validated_sidecar
     validated = _validated_sidecar(path, root, station)
     if validated != sidecar:
         raise ValueError("Sidecar changed during publication; cache retained.")
@@ -115,6 +114,7 @@ def publish_cache(
     max_windows: int | None = None,
     selected_dates: set[str] | None = None,
     selected_window_ids: set[str] | None = None,
+    validated_cache_snapshot: dict[str, dict[str, Any]] | None = None,
     excluded_dates: set[str] | frozenset[str] = frozenset(),
     keep_cache: bool = False,
     replace_existing: bool = False,
@@ -127,7 +127,8 @@ def publish_cache(
         raise ValueError("max_windows must be positive")
     # Check Git before any network upload or local mutation.
     git_ready(repository)
-    catalog = collect_validated_staging(cache_root, station)
+    catalog = (collect_validated_staging(cache_root, station)
+               if validated_cache_snapshot is None else validated_cache_snapshot)
     items = sorted(
         (pub_id, sidecar) for pub_id, sidecar in catalog.items()
         if (selected_dates is None or pub_id[:8] in selected_dates)
@@ -136,6 +137,20 @@ def publish_cache(
     )
     if max_windows is not None:
         items = items[:max_windows]
+    if validated_cache_snapshot is not None:
+        # The full catalog was SHA-256 checked once during import planning.
+        # Recheck only this batch against the live files before any R2 call.
+        base = Path(cache_root).resolve()
+        checked = []
+        for pub_id, snapshot in items:
+            day, owner, _slot = pub_id.split("_")
+            sidecar_path = (base / owner / day[:4] / day[4:6] / day /
+                            f"{pub_id}.json")
+            current = _validated_sidecar(sidecar_path, base, station)
+            if current != snapshot:
+                raise RuntimeError(f"Historical sidecar changed after preflight: {pub_id}")
+            checked.append((pub_id, current))
+        items = checked
     previous = load_published_states(repository, station)
     records = {}
     uploaded = 0

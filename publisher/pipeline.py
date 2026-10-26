@@ -527,6 +527,7 @@ def publish_cached(*, date: str | None = None, confirm: bool = False) -> int:
             result = publish_cache(
                 ctx.cache, ctx.station, ctx.repo, settings["R2_BUCKET_NAME"],
                 client, selected_window_ids=set(chosen),
+                validated_cache_snapshot=catalog,
                 excluded_dates=_blocked_dates(ctx),
                 replace_existing=False,  # historical cache never overwrites unknown R2
                 git_ready=lambda _repo: None,  # checkout_ready runs before batch 1
