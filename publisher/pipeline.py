@@ -16,7 +16,7 @@ import subprocess
 from typing import Any
 from datetime import datetime, timezone
 
-from .publication import ensure_git_ready, _git, publish_cache
+from .publication import ensure_git_ready, _git, publish_cache, RemoteStateAmbiguous
 from .published import load_published_states
 from .site_v2 import build_unchanged_frontend
 from .site_export import export_site_to_branch
@@ -171,8 +171,34 @@ def commit_site(ctx: Context, settings: dict[str, str], *, allow_empty: bool = F
          ":(glob)[0-9][0-9][0-9][0-9]/**/index.html")
     staged = _git(ctx.repo, "diff", "--cached", "--name-only")
     if staged:
+        previous_head = _git(ctx.repo, "rev-parse", "HEAD")
         _git(ctx.repo, "commit", "-m", "Publish verified SPU L1 quicklooks and dashboards")
-        git_push(ctx.repo, settings)
+        new_head = _git(ctx.repo, "rev-parse", "HEAD")
+        try:
+            git_push(ctx.repo, settings)
+        except Exception as exc:
+            try:
+                remote = _git(ctx.repo, "ls-remote", "--heads", "origin", BRANCH)
+            except Exception as query_exc:
+                raise RemoteStateAmbiguous(
+                    "Git push response and remote commit state are unconfirmed; "
+                    "leave R2 as-is and reconcile manually before retrying."
+                ) from query_exc
+            remote_head = remote.split()[0] if remote else ""
+            if remote_head == new_head:
+                LOG.warning("Push response failed but GitHub confirms new commit")
+            elif remote_head == previous_head:
+                # The starting checkout was clean; only our own changes exist.
+                _git(ctx.repo, "reset", "--hard", previous_head)
+                raise RuntimeError(
+                    "Git push did not publish; restored previous local checkout "
+                    "and retained publication cache."
+                ) from exc
+            else:
+                raise RemoteStateAmbiguous(
+                    "Remote branch advanced unexpectedly during publication; "
+                    "do not roll back R2 or force push. Reconcile branches."
+                ) from exc
         LOG.info("Pushed %d changed Git files to %s", len(staged.splitlines()), BRANCH)
     else:
         LOG.info("Git state, HTML and catalog already current")
@@ -237,8 +263,10 @@ def _stage(ctx: Context, *, date: str | None, dry_run: bool) -> dict[str, int]:
         # Never publish stale staged views originating in excluded source sessions.
         catalog = collect_validated_staging(ctx.cache, ctx.station)
         excluded = {sid for sid, _ in invalid}
+        blocked = _blocked_dates(ctx)
         bad = [pub_id for pub_id, record in catalog.items()
-               if excluded.intersection(record["source_sessions"])]
+               if pub_id[:8] not in blocked
+               and excluded.intersection(record["source_sessions"])]
         if bad and not dry_run:
             raise RuntimeError("Staged WEBPs include invalid L1 session(s): " + ", ".join(bad))
     LOG.info("L1=%d, invalid=%d, rendered=%d, current=%d, no-data=%d",
@@ -279,6 +307,8 @@ def sync(*, date: str | None = None, dry_run: bool = False) -> int:
             ctx.cache, ctx.station, ctx.repo, settings["R2_BUCKET_NAME"], remote,
             selected_dates={date} if date else None,
             excluded_dates=_blocked_dates(ctx),
+            replace_existing=True,  # only Git-verified old bytes, with verified backup
+            git_ready=lambda _repo: None,  # checked before local staging
             git_persist=lambda _repo, _paths: commit_site(ctx, settings),
         )
     except Exception:

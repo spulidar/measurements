@@ -23,6 +23,10 @@ from .published import (
 from .r2_staging import ensure_uploaded, restore_previous
 from .v2 import _hash_file, collect_validated_staging
 
+class RemoteStateAmbiguous(RuntimeError):
+    """Git outcome unverified; preserve R2 until manual reconciliation."""
+
+
 BRANCH = "publication-v2"
 REPO_URL = re.compile(r"^(?:https://(?:[^@/]+@)?github\.com/|git@github\.com:|ssh://git@github\.com/)spulidar/measurements(?:\.git)?/?$")
 
@@ -167,6 +171,9 @@ def publish_cache(
         # Keep local images until GitHub confirms its publication state.
         git_persist(repository, changed_paths)
     except Exception as exc:
+        if isinstance(exc, RemoteStateAmbiguous):
+            # Never restore old R2 bytes if Git might already reference the new ones.
+            raise
         rollback_errors: list[str] = []
         for new_metadata, old_metadata in reversed(overwritten):
             try:
