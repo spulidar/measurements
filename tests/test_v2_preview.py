@@ -7,7 +7,7 @@ import json
 import pytest
 
 from publisher.preview import build_preview, preview_manifest
-from publisher.v2 import build_state_v2, collect_validated_staging, write_local_state_v2
+from publisher.v2 import collect_validated_staging
 
 
 SESSION = "spu_20240913-1549Z_20240913-1750Z"
@@ -37,14 +37,8 @@ def make_staged_day(root):
     return target, sidecar
 
 
-def make_state(root):
-    expected = build_state_v2(collect_validated_staging(root, "spu"), "spu")
-    write_local_state_v2(root, "spu", expected)
-
-
 def test_local_preview_reads_verified_state_v2_and_links_existing_asset(tmp_path):
     product, _ = make_staged_day(tmp_path)
-    make_state(tmp_path)
     before = product.read_bytes()
     index, count = build_preview(tmp_path, "spu")
     assert count == 1
@@ -63,22 +57,30 @@ def test_local_preview_reads_verified_state_v2_and_links_existing_asset(tmp_path
     assert product.read_bytes() == before
 
 
-def test_preview_refuses_missing_or_stale_state(tmp_path):
+def test_preview_does_not_require_or_trust_legacy_local_state(tmp_path):
     make_staged_day(tmp_path)
-    with pytest.raises(ValueError, match="years disagree"):
+    # An abandoned _state-v2 from the old CLI must not control new previews.
+    stale_dir = tmp_path / "_state-v2" / "spu"
+    stale_dir.mkdir(parents=True)
+    (stale_dir / "2024.json").write_text('{"old":"stale"}')
+    index, count = build_preview(tmp_path, "spu")
+    assert count == 1 and index.is_file()
+    assert preview_manifest(tmp_path, "spu")["days"]["20240913"]
+    # No duplicated state is rewritten by milgrau-publish images.
+    assert (stale_dir / "2024.json").read_text() == '{"old":"stale"}'
+
+
+def test_preview_refuses_modified_sidecar_hash(tmp_path):
+    _asset, sidecar = make_staged_day(tmp_path)
+    bad = json.loads(sidecar.read_text())
+    bad["asset_hashes"][ASSET] = "0" * 64
+    sidecar.write_text(json.dumps(bad))
+    with pytest.raises(ValueError, match="modified"):
         build_preview(tmp_path, "spu")
-    make_state(tmp_path)
-    state_path = tmp_path / "_state-v2" / "spu" / "2024.json"
-    payload = json.loads(state_path.read_text())
-    payload["days"]["20240913"]["publication_windows"]["12"]["assets"] = {}
-    state_path.write_text(json.dumps(payload))
-    with pytest.raises(ValueError, match="Stale or modified"):
-        preview_manifest(tmp_path, "spu")
 
 
 def test_preview_refuses_unattested_asset_modification(tmp_path):
     asset, _ = make_staged_day(tmp_path)
-    make_state(tmp_path)
     asset.write_bytes(b"modified-after-approval")
     with pytest.raises(ValueError, match="modified"):
         build_preview(tmp_path, "spu")
@@ -86,7 +88,6 @@ def test_preview_refuses_unattested_asset_modification(tmp_path):
 
 def test_preview_refuses_symlink_output(tmp_path):
     make_staged_day(tmp_path)
-    make_state(tmp_path)
     outside = tmp_path / "outside"
     outside.mkdir()
     (tmp_path / "_preview-v2").symlink_to(outside, target_is_directory=True)

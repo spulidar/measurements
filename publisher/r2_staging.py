@@ -5,45 +5,10 @@ No deletion, promotion, production-key write or public-site publication API exis
 from __future__ import annotations
 
 from hashlib import sha256
-import importlib
-import os
 from pathlib import Path
 from typing import Any
-from urllib.parse import urlsplit
 
 from .published import validate_publication_object
-
-
-def r2_client_from_environment():
-    """Credentials are runtime-only, preferring environment to old private credentials.py."""
-    try:
-        import boto3
-    except ImportError as exc:
-        raise RuntimeError("Install MILGRAU with pip install -e '.[web]' for R2 staging.") from exc
-    try:
-        private = importlib.import_module("credentials")
-    except ImportError:
-        private = None
-
-    def secret(env: str, legacy: str) -> str:
-        return (os.environ.get(env) or str(getattr(private, legacy, "") or "")).strip()
-
-    endpoint = secret("R2_ENDPOINT", "R2_ENDPOINT")
-    key = secret("R2_ACCESS_KEY", "R2_ACCESS_KEY")
-    password = secret("R2_SECRET_KEY", "R2_SECRET_KEY")
-    if not all((endpoint, key, password)):
-        raise RuntimeError(
-            "R2 credentials not configured: set R2_ENDPOINT, R2_ACCESS_KEY "
-            "and R2_SECRET_KEY (or use the existing private credentials.py)."
-        )
-    parsed = urlsplit(endpoint)
-    if parsed.scheme != "https" or not parsed.hostname or parsed.username or parsed.password:
-        raise ValueError("R2_ENDPOINT must be a credential-free HTTPS endpoint.")
-    return boto3.client(
-        "s3", endpoint_url=endpoint,
-        aws_access_key_id=key, aws_secret_access_key=password,
-        region_name="auto",
-    )
 
 
 def _remote_digest(client: Any, bucket: str, key: str) -> tuple[int, str] | None:
@@ -54,7 +19,7 @@ def _remote_digest(client: Any, bucket: str, key: str) -> tuple[int, str] | None
         code = getattr(exc, "response", {}).get("Error", {}).get("Code", "")
         if str(code) in {"404", "NoSuchKey", "NotFound"}:
             return None
-        raise RuntimeError(f"Cannot read R2 staging object {key}: {exc}") from exc
+        raise RuntimeError(f"Cannot read R2 object {key}: {exc}") from exc
 
     body = response["Body"]
     digest = sha256()
@@ -69,12 +34,6 @@ def _remote_digest(client: Any, bucket: str, key: str) -> tuple[int, str] | None
     if int(response.get("ContentLength", size)) != size:
         raise RuntimeError(f"Incomplete R2 object response for {key}")
     return size, digest.hexdigest()
-
-
-def verify_remote(client: Any, bucket: str, metadata: dict[str, Any]) -> bool:
-    """Return true only for a byte-for-byte matching R2 object."""
-    result = _remote_digest(client, bucket, metadata["key"])
-    return result == (metadata["size"], metadata["sha256"])
 
 
 def previous_backup_key(key: str, old_sha256: str) -> str:

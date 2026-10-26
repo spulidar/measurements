@@ -85,7 +85,9 @@ legacy R2 objects remain unchanged**.
 | `milgrau-publish restore 20260731` | Unhide or restore backed-up objects and day state |
 
 `images` generates a local, disposable diagnostic preview under
-`.cache/measurements/_preview-v2`; the scientific files are not modified.
+`.cache/measurements/_preview-v2` directly from verified cached WEBPs and
+sidecar JSON files; it does not require or create the old duplicated
+`_state-v2` planning files. Scientific NetCDFs are never modified.
 
 `hide` and `remove` write persistent controls under
 `publisher/state-v2/_controls/spu.json` so the next ordinary sync will
@@ -115,10 +117,19 @@ Do not enable GitHub Pages from this branch or merge it into `main`
 until history, URLs, site content and an appropriate rollback have been
 reviewed separately.
 
-The four former command-line scripts (`update-site.py`,
-`publish-v2.py`, `build-site-v2.py`, `preview-site.py`) have been
-superseded by `milgrau-publish`. Their reusable internals remain in the
-publisher package and are tested.
+The four former root CLI scripts (`update-site.py`,
+`publish-v2.py`, `build-site-v2.py`, `preview-site.py`) were removed.
+Their useful internals remain as focused modules. Obsolete R2 credential
+discovery, remote-verification wrappers and the duplicated local
+`_state-v2` cache writer have also been removed; `milgrau-publish` is the
+only supported operational entrypoint.
+
+The modules in `publisher/` are **not** independent commands: `cli` and
+`pipeline` coordinate execution; `windows` and `staging` use MILGRAU
+to discover/render; `v2` validates local sidecars; `r2_staging`,
+`published`, `publication` and `history` handle publication; `render`,
+`site_v2`, `site_export` and `preview` handle generated pages and
+diagnostic preview. They remain separate to preserve testable responsibilities.
 
 ## Quick checks
 

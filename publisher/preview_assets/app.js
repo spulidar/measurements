@@ -128,7 +128,6 @@ function figureInfo(filename, publicationId) {
   const prefix = "rcs_" + publicationId + "_";
   if (!filename.startsWith(prefix) || !filename.endsWith(".webp")) return null;
   const suffix = filename.slice(prefix.length, -5);
-  if (suffix === "mean") return { channel: "mean", label: "Perfil médio", height: "" };
   const match = /^(.*)_(\d+(?:\.\d+)?km)$/.exec(suffix);
   if (!match) return null;
   return {
@@ -165,8 +164,7 @@ function renderPlots() {
   }).filter(item => item.info);
   const channels = [...new Set(items.map(item => item.info.channel))].sort();
   for (const channel of channels) {
-    const option = node("option", "", channel === "mean"
-      ? "Perfil médio" : channel.replace("_", " · "));
+    const option = node("option", "", channel.replace("_", " · "));
     option.value = channel;
     selector.append(option);
   }

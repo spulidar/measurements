@@ -17,40 +17,23 @@ ASSET_FILES = ("index.html", "app.js", "styles.css")
 
 
 def preview_manifest(site_products_root: str | Path, station_id: str) -> dict[str, Any]:
-    """Reject stale/tampered state and assets before exposing any preview entries."""
+    """Build a read-only local preview from validated WEBPs and sidecars.
+
+    The old, duplicated _state-v2 cache has been retired. Every referenced
+    asset is attested by its sidecar and independently SHA-256 verified by
+    collect_validated_staging. This works immediately after 'images DATE'.
+    """
     root = Path(site_products_root).resolve()
     station = station_id.strip().lower()
     catalog = collect_validated_staging(root, station)
-    expected = build_state_v2(catalog, station)
-    state_dir = root / "_state-v2" / station
-    stored_years = {
-        path.stem: path
-        for path in state_dir.glob("*.json")
-    } if state_dir.is_dir() else {}
-    if set(stored_years) != set(expected):
-        raise ValueError(
-            "Local state-v2 years disagree with validated staging. "
-            "Run update-site.py --stage-only again before building the preview."
-        )
+    years = build_state_v2(catalog, station)
     days: dict[str, Any] = {}
-    for year, expected_payload in sorted(expected.items()):
-        path = stored_years[year]
-        if path.is_symlink():
-            raise ValueError(f"Symlink state file is not permitted: {path}")
-        try:
-            payload = json.loads(path.read_text(encoding="utf-8"))
-        except (OSError, json.JSONDecodeError) as exc:
-            raise ValueError(f"Unreadable v2 state file: {path}") from exc
-        if payload != expected_payload:
-            raise ValueError(
-                f"Stale or modified state-v2 file: {path}. "
-                "Re-run update-site.py --stage-only."
-            )
+    for _year, payload in sorted(years.items()):
         days.update(payload["days"])
     return {
         "schema_version": 2,
         "station_id": station,
-        "years": sorted(expected, reverse=True),
+        "years": sorted(years, reverse=True),
         "days": days,
     }
 

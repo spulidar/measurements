@@ -1,7 +1,7 @@
-"""Publication-v2 staging catalog and schema-v2 local state.
+"""Validate cached WEBPs/sidecars and build an ephemeral preview catalog.
 
-This module has intentionally no boto3/cloud, subprocess, site-HTML or Git
-dependencies. It accepts *only* attested products below .cache/measurements.
+Permanent publication metadata is owned by published.py (Git state).
+This module has no R2, Git or HTML side effects.
 """
 from __future__ import annotations
 
@@ -157,23 +157,3 @@ def build_state_v2(
         }
     return years
 
-
-def write_local_state_v2(
-    site_products_root: str | Path, station_id: str, years: dict[str, dict[str, Any]]
-) -> list[Path]:
-    """Only stage local v2 state below .cache/measurements/_state-v2/station/."""
-    output_root = Path(site_products_root).resolve() / "_state-v2" / station_id
-    output_root.mkdir(parents=True, exist_ok=True)
-    written = []
-    for year, payload in sorted(years.items()):
-        if len(year) != 4 or not year.isdigit() or payload["station_id"] != station_id:
-            raise ValueError(f"Invalid staged state year/station: {year}")
-        target = output_root / f"{year}.json"
-        tmp = target.with_suffix(".json.tmp")
-        tmp.write_text(
-            json.dumps(payload, indent=2, ensure_ascii=False, sort_keys=True) + "\n",
-            encoding="utf-8",
-        )
-        tmp.replace(target)
-        written.append(target)
-    return written

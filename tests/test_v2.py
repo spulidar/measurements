@@ -4,7 +4,7 @@ import json
 
 import pytest
 
-from publisher.v2 import build_state_v2, collect_validated_staging, write_local_state_v2
+from publisher.v2 import build_state_v2, collect_validated_staging
 
 
 SESSION = "spu_20250511-0012Z_20250511-0737Z"
@@ -50,9 +50,8 @@ def test_attested_asset_enters_new_station_prefixed_state(tmp_path):
     assert record["publication_window_id"] == PUB
     assert record["source_sessions"] == [SESSION]
     assert record["assets"][ASSET] == f"spu/2025/05/20250510/{ASSET}"
-    files = write_local_state_v2(tmp_path, "spu", {"2025": state})
-    assert files == [tmp_path / "_state-v2" / "spu" / "2025.json"]
-    assert json.loads(files[0].read_text())["schema_version"] == 2
+    # Preview state is derived from the attested cache, not duplicated on disk.
+    assert not (tmp_path / "_state-v2").exists()
 
 
 def test_missing_sidecar_asset_fails(tmp_path):
