@@ -16,3 +16,8 @@ logs/
 
 # Security
 credentials.py
+
+# Editable installation build artifacts
+*.egg-info/
+build/
+dist/

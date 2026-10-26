@@ -323,7 +323,11 @@ def images(date: str) -> int:
     ctx = context()
     logging.basicConfig(level=logging.INFO, format="%(levelname)s %(message)s")
     _stage(ctx, date=date, dry_run=False)
-    LOG.info("Local images only; no R2, Git or HTML publication")
+    from .preview import build_preview
+    index, count = build_preview(ctx.cache, ctx.station)
+    LOG.info("Rendered local products; diagnostic preview for %d day(s): %s",
+             count, index)
+    LOG.info("No R2, Git or published HTML changed")
     return 0
 
 
@@ -345,6 +349,8 @@ def status() -> int:
     catalog = collect_validated_staging(ctx.cache, ctx.station)
     n = sum(len(day["publication_windows"])
             for state in states.values() for day in state["days"].values())
+    local_l1 = sum(1 for _ in ctx.scientific.rglob("*_L1.nc")) if ctx.scientific.is_dir() else 0
+    LOG.info("Local scientific L1: %d file(s)", local_l1)
     LOG.info("Published: %d verified windows in %d year(s)", n, len(states))
     LOG.info("Staged: %d windows", len(catalog))
     LOG.info("Blocked: %d hidden days; %d removed days",

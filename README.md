@@ -1,317 +1,132 @@
-# SPU-Lidar measurements — publication v2
+# SPU Lidar measurements — optional publisher
 
-**The live site remains unchanged.** `measurements/main`, GitHub Pages,
-its historical HTML and `measurements.json`, and the existing R2 objects are
-untouched by the v2 development commands. Work only on `publication-v2`.
-The visual frontend remains the existing daily dashboard and year calendar,
-except that **Mean RCS / GlobalMeanRCS is no longer generated or displayed**.
-A possible Level 2 page is future work, not implemented.
+The experimental publisher is isolated on **measurements/publication-v2**.
+**It does not change measurements/main, the live GitHub Pages site, historical
+year-root R2 objects, or MILGRAU scientific NetCDFs.**
 
-## One MILGRAU workspace, one Python environment
+## Optional installation (one environment, no extra config)
 
-```text
-workspace/
-├── config.yaml                # authoritative MILGRAU configuration
-├── station.yaml
-├── 01-data/                   # raw data
-├── 02-processed_data/         # scientific L0/L1/L2, never edited by publisher
-├── .cache/
-│   ├── era5/                  # other MILGRAU caches are untouched
-│   ├── weather/
-│   ├── radiosonde/
-│   └── measurements/          # temporary publication staging only
-│       ├── spu/YYYY/MM/YYYYMMDD/
-│       │   ├── rcs_YYYYMMDD_spu_HH_CHANNEL_ALTkm.webp
-│       │   └── YYYYMMDD_spu_HH.json
-│       ├── _state-v2/         # disposable local planning state for legacy preview
-│       ├── _preview-v2/       # optional diagnostic preview, NOT the live layout
-│       └── _site-v2/          # generated local copy of the EXISTING website
-├── milgrau/                   # checkout main
-└── measurements/              # checkout publication-v2
-    ├── publisher/state-v2/spu/YYYY.json # PERSISTENT published windows, Git-tracked
-    ├── measurements.json      # old LIVE catalog, frozen until cutover
-    └── ql-measurement-calendar.html # existing frontend, unchanged
-```
+The measurements package installs the single \`milgrau-publish\` command.
+MILGRAU stays the owner of scientific sessions, the Level 1 NetCDF schema,
+configuration, image renderer, and station timezone. No publication settings
+are added to \`milgrau/config.yaml\`.
 
-Install from current MILGRAU, using the same environment in both checkouts:
+\`\`\`bash
+cd ~/milgrau
+git -C milgrau switch main
+git -C measurements switch publication-v2
+git -C measurements pull --ff-only origin publication-v2
+python -m pip install -e "./milgrau[web]"
+python -m pip install -e ./measurements
+milgrau-publish --help
+\`\`\`
 
-```bash
-cd ~/milgrau/milgrau
-pip install -e ".[web]"
-cd ../measurements
-git switch publication-v2
-git pull --ff-only origin publication-v2
-```
+Install the optional measurements package in the **same active venv** as
+MILGRAU. The console script works from any directory after editable install.
 
-`--milgrau-config ../config.yaml` is always available. The CLI reads the
-station/timezone and scientific data paths from MILGRAU's own loader and
-`milgrau.io.paths`. There is no `measurements/config.yaml`, requirements
-file, or separate Python environment.
+The publisher reads \`~/milgrau/config.yaml\` and the existing private
+\`credentials.py\` at either \`~/milgrau/credentials.py\` or
+\`~/milgrau/milgrau/credentials.py\`, in that order. It recognizes:
 
-## 1. Generate only L1 quicklook images in the temporary cache
+\`\`\`text
+GITHUB_USER, GITHUB_TOKEN,
+R2_BUCKET_NAME, R2_ACCESS_KEY, R2_SECRET_KEY, R2_ENDPOINT, R2_PUBLIC_URL
+\`\`\`
 
-```bash
-python update-site.py --stage-only --milgrau-config ../config.yaml --publish-date 20240913
-python update-site.py --stage-only --milgrau-config ../config.yaml --publish-year 2024
-python update-site.py --stage-only --milgrau-config ../config.yaml --dry-run --publish-date 20240913
-```
+Environment variables with those names override file values. \`credentials.py\`
+must stay outside Git and must never be shared. The Git token is passed to
+Git only through process environment for HTTPS remotes; it is not embedded
+in repository URLs or command arguments. Existing SSH Git authentication
+also works.
 
-This uses the canonical whole-session L1 NetCDFs and the MILGRAU generic
-renderer. Only publication-time views are sliced in memory. Four possible
-windows: 00–06, 06–12, 12–18, 18–24, in the station's local civil timezone.
-Science NetCDFs are never split, modified, merged, regridded or reprocessed by
-`measurements`; time gaps and scientific source IDs are preserved.
-No L2 graphics or mean RCS charts are generated.
+## Everyday command
 
-The per-window sidecar lists the exact inputs, fingerprint and SHA-256 of
-every WEBP. The disposable `.cache/measurements/_state-v2` is **only** for the
-older local diagnostic preview and must never be treated as the published
-state. The Git-tracked published state is a different directory.
+\`\`\`bash
+milgrau-publish
+\`\`\`
 
-## Handling older L1 files with invalid time coordinates
+This discovers available local L1s, rejects malformed L1 timestamps with an
+audit, checks the Git-owned state fingerprints, creates only necessary WEBPs
+using MILGRAU, uploads them to R2, downloads the remote bytes to verify SHA-256,
+and updates year state, day HTMLs and calendar manifest together with **one
+Git commit and push** on \`publication-v2\`. It only removes temporary local
+WEBPs/sidecars after GitHub confirms the committed branch HEAD.
 
-`update-site.py --stage-only` without a selector scans the entire historic
-L1 catalog. Scientific NetCDF `time` coordinates must be strictly increasing:
-duplicate or backward timestamps fail *by default*. The publisher never
-reorders, deduplicates, modifies, or removes scientific source profiles.
+The scientific data in \`02-processed_data/\` are **never altered**. Missing
+local sessions or days are **never interpreted as deletions**.
 
-Use a local civil date/year to avoid touching unrelated historical sessions:
+WebPs are stored directly under:
 
-```bash
-python update-site.py --stage-only --milgrau-config ../config.yaml --publish-date 20240913
-python update-site.py --stage-only --milgrau-config ../config.yaml --publish-year 2024
-```
+\`\`\`text
+spu/YYYY/MM/YYYYMMDD/rcs_YYYYMMDD_spu_HH_CHANNEL_ALTkm.webp
+\`\`\`
 
-Date/year selection filters canonical session IDs conservatively (two-day
-boundary guard), **before** opening their scientific NetCDF coordinates. Exact
-window selection still checks the real `time` samples.
+There are no hash subfolders. SHA-256 stays in \`publisher/state-v2\` and
+only image URLs receive \`?v=SHA256\` to distinguish cache versions.
+Day-page URLs remain \`YYYY/MM/YYYYMMDD/index.html\`.
 
-For an exploratory complete-catalog run where L1 repairs are still pending,
-you may explicitly opt in to excluding problematic scientific L1:
+The HTML calendar file normally stays untouched: its data come from the
+updated \`measurements.json\`. Before cutover, **production main/Pages and
+legacy R2 objects remain unchanged**.
 
-```bash
-python update-site.py --stage-only --milgrau-config ../config.yaml --skip-invalid-l1
-```
+## All supported operations
 
-Every excluded session is logged and listed in
-`.cache/measurements/_audit/invalid-l1-all.json`; year/date-specific reports
-are named after the requested scope. Dry-run mode only logs exclusions and
-does not write the report. Existing cached figures that reference excluded
-scientific sessions are rejected rather than silently approved. Fix source
-data in MILGRAU and restage for scientific completeness before the final
-historical publishing cutover. This opt-in is not a scientific correction.
+| Command | Action |
+| --- | --- |
+| \`milgrau-publish\` | Incremental sync, R2 + state + HTML + Git |
+| \`milgrau-publish --date 20260731\` | Sync only the specified local day |
+| \`milgrau-publish --dry-run\` | Plan images and pending windows without writes |
+| \`milgrau-publish status\` | Count local L1s, staged windows, state and blocked dates |
+| \`milgrau-publish images 20260731\` | Render only local WEBPs and diagnostic preview |
+| \`milgrau-publish html\` | Rebuild and commit/push site from verified state only |
+| \`milgrau-publish hide 20260731\` | Remove day from calendar and HTML; keep R2 bytes |
+| \`milgrau-publish remove 20260731\` | Preview all objects affected; no mutation |
+| \`milgrau-publish remove 20260731 --confirm\` | Back up, remove day from Git, then delete exact verified R2 objects |
+| \`milgrau-publish restore 20260731\` | Unhide or restore backed-up objects and day state |
 
-## 2. Stage to R2, verify, persist state to GitHub, clean cache
+\`images\` generates a local, disposable diagnostic preview under
+\`.cache/measurements/_preview-v2\`; the scientific files are not modified.
 
-**Never use these commands for production cutover.** The publishing command
-is intentionally restricted to the immutable
-`spu/YYYY/MM/YYYYMMDD/filename.webp` key namespace.
-The legacy live objects use top-level `YYYY/` directories; the new v2 objects
-use the independent top-level `spu/` directory. Use an explicit bucket and
-confirmation flag. A shared bucket is possible because these prefixes are
-disjoint, but a separate test bucket is recommended for the first pilot.
+\`hide\` and \`remove\` write persistent controls under
+\`publisher/state-v2/_controls/spu.json\` so the next ordinary sync will
+**not republish the blocked day**. \`restore\` explicitly removes that block.
 
-First see which windows are eligible, with no credentials or network calls:
+A real \`remove\` first verifies every R2 object matches the Git-published
+SHA-256 and stores a byte-verified backup under
+\`_publication_v2_backups/<SHA256>/spu/YYYY/MM/YYYYMMDD/<filename>\`.
+Next it removes the day from the Git state and generated HTMLs and confirms
+the remote commit. Only then does it delete the **exact** old R2 keys.
+If cleanup fails, rerunning the same confirmed command resumes pending
+deletions from the tombstone. It never deletes a folder/prefix blindly, or
+touches historical \`YYYY/\` keys.
 
-```bash
-python publish-v2.py --milgrau-config ../config.yaml \
-  --staging-bucket YOUR_R2_STAGING_BUCKET --dry-run
-```
+A previously published image is only overwritten when the existing R2 bytes
+exactly match the previous verified Git state; it gets a verified backup
+first. A failed known Git push restores the previous local commit and remote
+image bytes. If Git remote outcome is ambiguous, the publisher fails closed
+and needs manual reconciliation. Temporary products and the last-run journal
+are retained in \`.cache/measurements/\` for safe re-execution.
 
-Only when ready to **actually upload** (this command makes R2 and GitHub
-writes):
+## Safety and deployment
 
-```bash
-export R2_ENDPOINT="https://<account>.r2.cloudflarestorage.com"
-export R2_ACCESS_KEY="..."
-export R2_SECRET_KEY="..."
-python publish-v2.py --milgrau-config ../config.yaml \
-  --staging-bucket YOUR_R2_STAGING_BUCKET \
-  --batch-size 12 --confirm-staging-upload
-```
+Publishing requires a clean checkout on **publication-v2**, with an
+\`origin\` pointing to \`spulidar/measurements\` and synchronized with GitHub.
+Do not enable GitHub Pages from this branch or merge it into \`main\`
+until history, URLs, site content and an appropriate rollback have been
+reviewed separately.
 
-The existing private, Git-ignored `credentials.py` is also supported for
-R2 credentials. Never commit tokens.
+The four former command-line scripts (\`update-site.py\`,
+\`publish-v2.py\`, \`build-site-v2.py\`, \`preview-site.py\`) have been
+superseded by \`milgrau-publish\`. Their reusable internals remain in the
+publisher package and are tested.
 
-After a one-window pilot has been verified, `--all` automatically publishes
-every remaining cached window in safe batches. Each batch commits its own
-yearly state updates, verifies remote GitHub HEAD and frees its WEBPs before
-continuing. If interrupted, rerun the same command; already-published windows
-are retained in Git and no longer require a local copy.
+## Quick checks
 
-```bash
-python publish-v2.py --milgrau-config ../config.yaml \
-  --staging-bucket YOUR_R2_STAGING_BUCKET \
-  --batch-size 24 --all --confirm-staging-upload
-```
+\`\`\`bash
+milgrau-publish status
+milgrau-publish --dry-run
+python -m pytest -q tests
+\`\`\`
 
-`--all` cannot be combined with `--keep-cache`. No automatic R2 deletion,
-object promotion or production GitHub Pages publishing is performed.
-
-
-For **each** window in a batch:
-1. Reject files without a matching sidecar, attested hashes and canonical identity.
-2. Upload missing WEBPs to stable keys directly under each `spu/YYYY/MM/YYYYMMDD/` folder. Matching remote bytes are reused. Changed remote bytes require explicit opt-in and a verified backup.
-3. **Download the remote bytes again** and check size plus SHA-256.
-4. Incrementally merge verified records into
-   `publisher/state-v2/spu/YYYY.json` in the measurements Git checkout.
-5. Commit only changed state files, push **only** to
-   `origin/publication-v2`, and check that the remote branch SHA matches.
-6. Finally delete **only** the verified WEBPs and sidecars belonging to these
-   windows from `.cache/measurements/`. Never clear the whole `.cache`.
-   Other MILGRAU caches and the scientific data are not touched.
-
-If the R2 upload, download verification, Git commit/push or remote SHA
-confirmation fails, the WEBPs stay in cache. The operation is restartable:
-R2 objects with matching bytes are reused and previously registered
-windows survive the removal of local WEBPs. If a Git push fails *after a local
-commit*, reconcile/push the branch before retrying; do not force-push.
-`--keep-cache` disables the cleanup when debugging.
-
-New state starts **empty** (no schema-v1 history import). The v2 state is
-persisted in the Git repository only when the corresponding R2 objects were
-actually verified. The current production site is neither modified nor used
-as fallback by the new pipeline. There is **no R2 deletion operation**.
-
-## 3. Rebuild the same site locally from Git state alone
-
-After verified publication, when the cache WEBPs have been removed:
-
-```bash
-python build-site-v2.py --milgrau-config ../config.yaml \
-  --r2-public-base https://YOUR_STAGING_PUBLIC_R2_BASE
-python -m http.server 8765 --bind 127.0.0.1 --directory ../.cache/measurements/_site-v2
-```
-
-Open `http://127.0.0.1:8765/ql-measurement-calendar.html`. The calendar and
-daily page appearance/selection controls are reused from the current site.
-Only the obsolete mean RCS tab is hidden. The builder reads **only** Git-owned
-`publisher/state-v2`; `03-site-products`, old state-v1, and cache WEBPs
-are not required. HTML and manifest generation remain local and cannot
-update `measurements/main` or the production Pages site.
-
-### Put generated HTML and measurements.json into publication-v2 (new)
-
-The R2 bucket needs a **public HTTPS base URL** (custom domain or configured
-public R2 domain) that serves object keys starting with
-`spu/YYYY/MM/YYYYMMDD/`. The R2 S3 API endpoint is **not** the public URL.
-Test access to one object through that public domain before export.
-
-Once all required windows are recorded in Git state:
-
-```bash
-python build-site-v2.py --milgrau-config ../config.yaml \
-  --r2-public-base https://YOUR_PUBLIC_STAGING_R2_DOMAIN \
-  --write-branch
-```
-
-This first regenerates `.cache/measurements/_site-v2`, then installs only
-validated `YYYY/MM/YYYYMMDD/index.html` files and root `measurements.json`
-into the **clean, synchronized** `measurements/publication-v2` working tree.
-It refuses an empty state/catalog, prevents overwriting unrelated HTML, and
-will only remove obsolete daily pages previously produced by this renderer.
-It does **not** change `ql-measurement-calendar.html` or push/deploy anything.
-
-Preview the generated local site (the calendar uses relative links there):
-
-```bash
-python -m http.server 8765 --bind 127.0.0.1 \
-  --directory ../.cache/measurements/_site-v2
-```
-
-Check `http://127.0.0.1:8765/ql-measurement-calendar.html`, plus a few
-quicklooks at different dates/channels. Then commit **only** these generated
-site files and push to the development branch:
-
-```bash
-git status --short
-git add -- measurements.json
-git add -A -- ':(glob)[0-9][0-9][0-9][0-9]/**/index.html'
-git diff --cached --stat
-git commit -m "Build publication-v2 HTML and calendar manifest from verified state"
-git push origin publication-v2
-```
-
-Do not merge to `main` or change the repository's GitHub Pages publishing
-source yet. If new windows are published later, rerun `build-site-v2.py
---write-branch` after completing the preceding Git commit/push. Rebuild
-always uses the persistent state from Git, **not** deleted local WEBPs.
-
-The earlier separate `preview-site.py` remains available as an optional
-diagnostic viewer for still-cached images, **not** the intended new frontend.
-
-## Full historical reprocessing and final cutover — not executed
-
-Reprocess historical `01-data` through MILGRAU's L0/L1/L2/QA separately.
-Stage and upload WEBPs month-by-month or year-by-year, freeing disk space
-between verified batches. Keep the live website and its existing R2 content
-online until *all* new historical windows, asset coverage, time gaps, and
-external URLs have been accepted. Only then prepare a deliberate final
-production deployment and separately authorized old-R2 cleanup.
-The public site must never be switched while the new Git-owned catalogue is
-empty or incomplete. Historical legacy `saam/sapm/sant` is NOT migrated into
-state v2; old production remains only as rollback during the transition.
-
-The old `03-site-products/` directory from previous tests is **not**
-automatically deleted or migrated. Review it manually after the new cache
-pipeline has been verified; no command here can remove it.
-
-## Branch reset for historical reconstruction
-
-The `publication-v2` branch deliberately omits the tracked `2012/` to `2026/`
-historical HTML directories, old root `measurements.json`, legacy
-`publisher/state/`, and obsolete schema-v1 publisher modules and tests. The
-new `publisher/state-v2/spu/` is empty until the first verified staging R2
-publication is recorded. These removals affect only the development branch;
-`main`, GitHub Pages and production R2 are unchanged. The original calendar
-source and the daily dashboard appearance are preserved. Generate a fresh
-local manifest/site using `build-site-v2.py`; with empty state it produces an
-empty `days` mapping, without consulting the legacy archive.
-
-The earlier R2 prefix `staging/publication-v2/spu/...` is not used for
-new uploads. No objects under the earlier prefix are automatically moved or
-deleted. This path change was made while the Git-tracked v2 state had no
-published year records. Reconcile any untracked R2 uploads from older runs
-separately rather than deleting them blindly.
-
-## Stable R2 URLs and verified updates
-
-Public R2 WEBPs now live directly inside the day directory:
-
-```text
-spu/2024/09/20240913/rcs_20240913_spu_12_532nm_AN_15km.webp
-```
-
-The SHA-256 and object size remain in the Git-owned
-`publisher/state-v2/spu/YYYY.json`, not in the R2 key. Daily-page image
-URLs append `?v=<SHA-256>` to distinguish new versions in browser/CDN
-caches; the object response uses `Cache-Control: public, max-age=300,
-must-revalidate`. On a custom R2 domain, confirm Cloudflare cache rules
-include the query string in its cache key (or purge that exact image URL
-after replacement).
-
-The uploader skips an identical remote object. If the key exists but the
-bytes differ, it **refuses** to overwrite by default. An intentional
-republication is opt-in:
-
-```bash
-python update-site.py --stage-only --milgrau-config ../config.yaml --publish-date 20240913
-python publish-v2.py --milgrau-config ../config.yaml \
-  --staging-bucket YOUR_R2_BUCKET --batch-size 1 \
-  --replace-existing --confirm-staging-upload
-```
-
-The overwritten object must match the **previous Git-verified state**; unknown
-R2 objects and unexpected remote modifications are never overwritten.
-Before replacement, the publisher uses R2 server-side copy and readback
-SHA-256 verification to preserve the previous image at
-`_publication_v2_backups/<OLD_SHA256>/spu/YYYY/MM/YYYYMMDD/filename.webp`.
-Backup objects are separate from the public `spu/` image tree and are not
-automatically deleted. A publication failure attempts to restore the original
-bytes from the verified backup and retains the local cache. A process crash
-during an overwrite may require recovery using that backup before retrying.
-
-No production `main`, legacy top-level year folders or old R2 objects are
-modified by this migration. The Git-tracked state was empty before the path
-change. Earlier experiments under old R2 namespaces are not moved or
-deleted automatically.
+The complete CI tests are offline and must never perform real R2 uploads
+or write to production GitHub branches.

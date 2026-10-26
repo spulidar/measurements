@@ -13,11 +13,11 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 25
     steps:
-      - name: Checkout publication branch
+      - name: Checkout publication branch (read only)
         uses: actions/checkout@v4
         with:
           persist-credentials: false
-      - name: Checkout scientific dependency (current branch)
+      - name: Checkout MILGRAU scientific core
         uses: actions/checkout@v4
         with:
           repository: spulidar/milgrau
@@ -29,46 +29,31 @@ jobs:
           python-version: "3.12"
           cache: pip
           cache-dependency-path: milgrau/pyproject.toml
-      - name: Install one MILGRAU Python environment
+      - name: Install shared environment and optional publisher
         run: |
           python -m pip install --upgrade pip
           python -m pip install -e "./milgrau[dev,explorer,web]"
           python -m pip install -e .
+          python -c "import boto3, xarray, milgrau; from publisher.cli import main; print('core + publisher OK')"
           milgrau-publish --help
-          python -c "import boto3, xarray, milgrau; print('milgrau[web] import smoke test: OK')"
-      - name: Verify optional CLI entrypoint
-        run: |
-          python -c "from publisher.cli import main; assert callable(main)"
           milgrau-publish status --help
           milgrau-publish remove --help
-      - name: Static syntax check
+      - name: Static syntax
         run: |
-          python -m compileall -q publisher update-site.py preview-site.py publish-v2.py build-site-v2.py tests
+          python -m compileall -q publisher tests
           node --check publisher/preview_assets/app.js
-      - name: Unit and synthetic cross-midnight staging tests
+      - name: Unit, integration and synthetic Level 1 tests
         run: python -m pytest -q tests
-      - name: Execute the actual stage-only CLI safely without source data
+      - name: Build safe empty-state calendar (no R2 or Git writes)
         run: |
-          python update-site.py --stage-only --dry-run --milgrau-config milgrau/config.yaml --publish-date 20250510
-      - name: Build a separate local preview without source data
-        run: |
-          python preview-site.py --milgrau-config milgrau/config.yaml
-          test -f milgrau/.cache/measurements/_preview-v2/index.html
-          test -f milgrau/.cache/measurements/_preview-v2/manifest.json
-      - name: Dry-run R2 staging without network access
-        run: |
-          python publish-v2.py --milgrau-config milgrau/config.yaml --staging-bucket isolated-test --dry-run
-          if python publish-v2.py --milgrau-config milgrau/config.yaml --staging-bucket isolated-test; then
-            echo 'ERROR: R2 upload should require explicit confirmation'; exit 1
-          fi
-      - name: Generate unchanged-layout local site from empty persistent state
-        run: |
-          python build-site-v2.py --milgrau-config milgrau/config.yaml --r2-public-base https://staging.example.invalid
-          test -f milgrau/.cache/measurements/_site-v2/ql-measurement-calendar.html
-          test -f milgrau/.cache/measurements/_site-v2/measurements.json
-      - name: Verify entrypoint has no publishing mode
-        run: |
-          python update-site.py --help
-          if python update-site.py --publish-date 20250510; then
-            echo "ERROR: --stage-only unexpectedly optional"; exit 1
-          fi
+          python - <<'PY'
+          from pathlib import Path
+          from publisher.site_v2 import build_unchanged_frontend
+          root, days = build_unchanged_frontend(
+              Path.cwd(), Path.cwd() / ".cache/measurements", "spu",
+              r2_public_base="https://staging.example.invalid",
+          )
+          assert days == 0
+          assert (root / "ql-measurement-calendar.html").is_file()
+          assert (root / "measurements.json").is_file()
+          PY
