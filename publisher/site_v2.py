@@ -36,10 +36,15 @@ def build_unchanged_frontend(
     if target.is_symlink() or (target.exists() and not target.is_dir()):
         raise ValueError("Unsafe local website preview directory")
     states = load_published_states(repo, station)
+    from .history import load_controls
+    controls = load_controls(repo, station)
+    blocked_dates = set(controls["hidden"]) | set(controls["removed"])
 
     days: dict[str, Any] = {}
     for year, state in sorted(states.items()):
         for date, day in sorted(state["days"].items()):
+            if date in blocked_dates:
+                continue
             views = day["publication_windows"]
             coverage = {hour: hour in views for hour in PUBLICATION_WINDOW_STARTS}
             slots = {
@@ -65,6 +70,8 @@ def build_unchanged_frontend(
                 shutil.rmtree(stale_year)
     for year, state in sorted(states.items()):
         for date, day in sorted(state["days"].items()):
+            if date in blocked_dates:
+                continue
             render_day_dashboard(
                 date, day, target,
                 r2_public_base,
