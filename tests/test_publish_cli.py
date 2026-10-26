@@ -308,3 +308,121 @@ def test_images_regenerates_already_published_day_for_local_inspection(project, 
     monkeypatch.setattr(preview, "build_preview", lambda *_a, **kw: (ctx.cache / "_preview-v2/index.html", 0))
     assert pipeline.images("20240913") == 0
     assert calls == [{"date": "20240913", "dry_run": False, "force": True}]
+
+
+def _historical_scientific_source(ctx, date="20240913"):
+    """Only metadata is needed: source content stays unread by the cache importer."""
+    from datetime import datetime, timezone
+    import os
+    from publisher.windows import ScientificSessionSource
+
+    sid = f"spu_{date}-1549Z_{date}-1750Z"
+    source = ctx.scientific / "spu" / date[:4] / date[4:6] / sid / f"{sid}_L1.nc"
+    source.parent.mkdir(parents=True, exist_ok=True)
+    source.write_bytes(b"scientific-original-L1-not-to-be-modified")
+    os.utime(source, ns=(1_600_000_000_000_000_000, 1_600_000_000_000_000_000))
+    return ScientificSessionSource(
+        session_id=sid, station_id="spu",
+        start_utc=datetime(int(date[:4]), int(date[4:6]), int(date[6:]), 15, 49, tzinfo=timezone.utc),
+        end_utc=datetime(int(date[:4]), int(date[4:6]), int(date[6:]), 17, 50, tzinfo=timezone.utc),
+        level1_path=source,
+    )
+
+
+def test_cache_command_dispatch_is_explicit_and_not_the_normal_sync(monkeypatch):
+    requested = []
+    monkeypatch.setattr(pipeline, "publish_cached", lambda **kw: requested.append(kw) or 0)
+    assert cli.main(["cache"]) == 0
+    assert cli.main(["cache", "--date", "20240913"]) == 0
+    assert cli.main(["cache", "--confirm"]) == 0
+    assert requested == [
+        {"date": None, "confirm": False},
+        {"date": "20240913", "confirm": False},
+        {"date": None, "confirm": True},
+    ]
+
+
+def test_historical_cache_is_audited_without_rendering_or_any_network_writes(project, monkeypatch):
+    ctx = project
+    _, image = staged_day(ctx)
+    scientific = _historical_scientific_source(ctx)
+    original_l1 = scientific.level1_path.read_bytes()
+    from publisher import staging
+    monkeypatch.setattr(pipeline, "discover_scientific_sessions",
+                        lambda *_a, **_kw: (scientific,))
+    monkeypatch.setattr(pipeline, "_stage",
+                        lambda *_a, **_kw: pytest.fail("historical cache must never be rerendered"))
+    monkeypatch.setattr(pipeline, "r2_client",
+                        lambda *_a, **_kw: pytest.fail("audit must not contact R2"))
+    assert pipeline.publish_cached() == 0
+    assert image.is_file()
+    assert scientific.level1_path.read_bytes() == original_l1
+    assert not (ctx.cache / "_publish-journal.json").exists()
+    assert not load_published_states(ctx.repo, ctx.station)
+
+
+def test_historical_cache_confirm_uploads_old_fingerprint_without_rerender(project, monkeypatch):
+    ctx = project
+    _, image = staged_day(ctx)
+    old_sidecar = json.loads((image.parent / f"{PUB}.json").read_text())
+    scientific = _historical_scientific_source(ctx)
+    original_l1 = scientific.level1_path.read_bytes()
+    monkeypatch.setattr(pipeline, "discover_scientific_sessions",
+                        lambda *_a, **_kw: (scientific,))
+    monkeypatch.setattr(pipeline, "_stage",
+                        lambda *_a, **_kw: pytest.fail("historical WEBPs must be reused"))
+    remote = R2()
+    monkeypatch.setattr(pipeline, "r2_client", lambda *_args: remote)
+    commits = []
+
+    def verify_commit(ctx_, settings):
+        assert image.exists(), "cache must survive until Git confirms commit"
+        state = load_published_states(ctx_.repo, "spu")["2024"]
+        record = state["days"]["20240913"]["publication_windows"]["12"]
+        assert record["source_fingerprint"] == old_sidecar["source_fingerprint"]
+        assert record["assets"][ASSET]["key"] == f"spu/2024/09/20240913/{ASSET}"
+        assert ("example-bucket", record["assets"][ASSET]["key"]) in remote.objects
+        commits.append("verified")
+    monkeypatch.setattr(pipeline, "commit_site", verify_commit)
+    assert pipeline.publish_cached(confirm=True) == 0
+    assert commits == ["verified"]
+    assert not image.exists()
+    assert scientific.level1_path.read_bytes() == original_l1
+    assert load_published_states(ctx.repo, "spu")["2024"]
+
+
+def test_historical_cache_rejects_missing_or_newer_l1_before_upload(project, monkeypatch):
+    ctx = project
+    _, image = staged_day(ctx)
+    source = _historical_scientific_source(ctx)
+    monkeypatch.setattr(pipeline, "discover_scientific_sessions",
+                        lambda *_a, **_kw: (source,))
+    monkeypatch.setattr(pipeline, "r2_client",
+                        lambda *_args: pytest.fail("stale cache cannot upload"))
+    source.level1_path.touch()
+    with pytest.raises(RuntimeError, match="require regeneration"):
+        pipeline.publish_cached(confirm=True)
+    assert image.exists()
+    source.level1_path.unlink()
+    monkeypatch.setattr(pipeline, "discover_scientific_sessions",
+                        lambda *_a, **_kw: ())
+    with pytest.raises(RuntimeError, match="require regeneration"):
+        pipeline.publish_cached(confirm=True)
+    assert not load_published_states(ctx.repo, "spu")
+
+
+def test_historical_cache_rejects_invalid_image_hash_and_blocked_days(project, monkeypatch):
+    ctx = project
+    _, image = staged_day(ctx)
+    scientific = _historical_scientific_source(ctx)
+    monkeypatch.setattr(pipeline, "discover_scientific_sessions",
+                        lambda *_a, **_kw: (scientific,))
+    image.write_bytes(b"tampered-image")
+    with pytest.raises(ValueError, match="modified"):
+        pipeline.publish_cached()
+    image.write_bytes(BYTES)
+    controls = history.load_controls(ctx.repo, "spu")
+    controls["hidden"].append("20240913")
+    history.save_controls(ctx.repo, "spu", controls)
+    assert pipeline.publish_cached(confirm=False) == 0
+    assert image.exists()  # hidden days are not consumed or deleted

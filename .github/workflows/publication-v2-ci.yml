@@ -42,6 +42,7 @@ jobs:
           milgrau-publish --help
           milgrau-publish status --help
           milgrau-publish remove --help
+          milgrau-publish cache --help
       - name: Static syntax
         run: |
           python -m compileall -q publisher tests
