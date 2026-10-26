@@ -1,0 +1,1194 @@
+{
+  "days": {
+    "20200107": {
+      "coverage": {
+        "00": false,
+        "06": true,
+        "12": false,
+        "18": false
+      },
+      "day_url": "2020/01/20200107/index.html",
+      "slots": {
+        "00": {
+          "available": false
+        },
+        "06": {
+          "available": true,
+          "publication_window_id": "20200107_spu_06"
+        },
+        "12": {
+          "available": false
+        },
+        "18": {
+          "available": false
+        }
+      }
+    },
+    "20200112": {
+      "coverage": {
+        "00": true,
+        "06": false,
+        "12": false,
+        "18": false
+      },
+      "day_url": "2020/01/20200112/index.html",
+      "slots": {
+        "00": {
+          "available": true,
+          "publication_window_id": "20200112_spu_00"
+        },
+        "06": {
+          "available": false
+        },
+        "12": {
+          "available": false
+        },
+        "18": {
+          "available": false
+        }
+      }
+    },
+    "20200115": {
+      "coverage": {
+        "00": false,
+        "06": true,
+        "12": true,
+        "18": true
+      },
+      "day_url": "2020/01/20200115/index.html",
+      "slots": {
+        "00": {
+          "available": false
+        },
+        "06": {
+          "available": true,
+          "publication_window_id": "20200115_spu_06"
+        },
+        "12": {
+          "available": true,
+          "publication_window_id": "20200115_spu_12"
+        },
+        "18": {
+          "available": true,
+          "publication_window_id": "20200115_spu_18"
+        }
+      }
+    },
+    "20200116": {
+      "coverage": {
+        "00": false,
+        "06": true,
+        "12": false,
+        "18": false
+      },
+      "day_url": "2020/01/20200116/index.html",
+      "slots": {
+        "00": {
+          "available": false
+        },
+        "06": {
+          "available": true,
+          "publication_window_id": "20200116_spu_06"
+        },
+        "12": {
+          "available": false
+        },
+        "18": {
+          "available": false
+        }
+      }
+    },
+    "20200121": {
+      "coverage": {
+        "00": false,
+        "06": true,
+        "12": true,
+        "18": false
+      },
+      "day_url": "2020/01/20200121/index.html",
+      "slots": {
+        "00": {
+          "available": false
+        },
+        "06": {
+          "available": true,
+          "publication_window_id": "20200121_spu_06"
+        },
+        "12": {
+          "available": true,
+          "publication_window_id": "20200121_spu_12"
+        },
+        "18": {
+          "available": false
+        }
+      }
+    },
+    "20200126": {
+      "coverage": {
+        "00": true,
+        "06": true,
+        "12": true,
+        "18": true
+      },
+      "day_url": "2020/01/20200126/index.html",
+      "slots": {
+        "00": {
+          "available": true,
+          "publication_window_id": "20200126_spu_00"
+        },
+        "06": {
+          "available": true,
+          "publication_window_id": "20200126_spu_06"
+        },
+        "12": {
+          "available": true,
+          "publication_window_id": "20200126_spu_12"
+        },
+        "18": {
+          "available": true,
+          "publication_window_id": "20200126_spu_18"
+        }
+      }
+    },
+    "20200127": {
+      "coverage": {
+        "00": false,
+        "06": true,
+        "12": false,
+        "18": false
+      },
+      "day_url": "2020/01/20200127/index.html",
+      "slots": {
+        "00": {
+          "available": false
+        },
+        "06": {
+          "available": true,
+          "publication_window_id": "20200127_spu_06"
+        },
+        "12": {
+          "available": false
+        },
+        "18": {
+          "available": false
+        }
+      }
+    },
+    "20200129": {
+      "coverage": {
+        "00": false,
+        "06": true,
+        "12": false,
+        "18": false
+      },
+      "day_url": "2020/01/20200129/index.html",
+      "slots": {
+        "00": {
+          "available": false
+        },
+        "06": {
+          "available": true,
+          "publication_window_id": "20200129_spu_06"
+        },
+        "12": {
+          "available": false
+        },
+        "18": {
+          "available": false
+        }
+      }
+    },
+    "20200130": {
+      "coverage": {
+        "00": false,
+        "06": true,
+        "12": false,
+        "18": false
+      },
+      "day_url": "2020/01/20200130/index.html",
+      "slots": {
+        "00": {
+          "available": false
+        },
+        "06": {
+          "available": true,
+          "publication_window_id": "20200130_spu_06"
+        },
+        "12": {
+          "available": false
+        },
+        "18": {
+          "available": false
+        }
+      }
+    },
+    "20200207": {
+      "coverage": {
+        "00": false,
+        "06": true,
+        "12": false,
+        "18": false
+      },
+      "day_url": "2020/02/20200207/index.html",
+      "slots": {
+        "00": {
+          "available": false
+        },
+        "06": {
+          "available": true,
+          "publication_window_id": "20200207_spu_06"
+        },
+        "12": {
+          "available": false
+        },
+        "18": {
+          "available": false
+        }
+      }
+    },
+    "20200214": {
+      "coverage": {
+        "00": false,
+        "06": true,
+        "12": false,
+        "18": false
+      },
+      "day_url": "2020/02/20200214/index.html",
+      "slots": {
+        "00": {
+          "available": false
+        },
+        "06": {
+          "available": true,
+          "publication_window_id": "20200214_spu_06"
+        },
+        "12": {
+          "available": false
+        },
+        "18": {
+          "available": false
+        }
+      }
+    },
+    "20200216": {
+      "coverage": {
+        "00": true,
+        "06": true,
+        "12": false,
+        "18": false
+      },
+      "day_url": "2020/02/20200216/index.html",
+      "slots": {
+        "00": {
+          "available": true,
+          "publication_window_id": "20200216_spu_00"
+        },
+        "06": {
+          "available": true,
+          "publication_window_id": "20200216_spu_06"
+        },
+        "12": {
+          "available": false
+        },
+        "18": {
+          "available": false
+        }
+      }
+    },
+    "20200217": {
+      "coverage": {
+        "00": false,
+        "06": true,
+        "12": false,
+        "18": false
+      },
+      "day_url": "2020/02/20200217/index.html",
+      "slots": {
+        "00": {
+          "available": false
+        },
+        "06": {
+          "available": true,
+          "publication_window_id": "20200217_spu_06"
+        },
+        "12": {
+          "available": false
+        },
+        "18": {
+          "available": false
+        }
+      }
+    },
+    "20200218": {
+      "coverage": {
+        "00": false,
+        "06": true,
+        "12": true,
+        "18": false
+      },
+      "day_url": "2020/02/20200218/index.html",
+      "slots": {
+        "00": {
+          "available": false
+        },
+        "06": {
+          "available": true,
+          "publication_window_id": "20200218_spu_06"
+        },
+        "12": {
+          "available": true,
+          "publication_window_id": "20200218_spu_12"
+        },
+        "18": {
+          "available": false
+        }
+      }
+    },
+    "20200219": {
+      "coverage": {
+        "00": false,
+        "06": true,
+        "12": false,
+        "18": false
+      },
+      "day_url": "2020/02/20200219/index.html",
+      "slots": {
+        "00": {
+          "available": false
+        },
+        "06": {
+          "available": true,
+          "publication_window_id": "20200219_spu_06"
+        },
+        "12": {
+          "available": false
+        },
+        "18": {
+          "available": false
+        }
+      }
+    },
+    "20200220": {
+      "coverage": {
+        "00": false,
+        "06": true,
+        "12": false,
+        "18": false
+      },
+      "day_url": "2020/02/20200220/index.html",
+      "slots": {
+        "00": {
+          "available": false
+        },
+        "06": {
+          "available": true,
+          "publication_window_id": "20200220_spu_06"
+        },
+        "12": {
+          "available": false
+        },
+        "18": {
+          "available": false
+        }
+      }
+    },
+    "20200302": {
+      "coverage": {
+        "00": false,
+        "06": false,
+        "12": true,
+        "18": false
+      },
+      "day_url": "2020/03/20200302/index.html",
+      "slots": {
+        "00": {
+          "available": false
+        },
+        "06": {
+          "available": false
+        },
+        "12": {
+          "available": true,
+          "publication_window_id": "20200302_spu_12"
+        },
+        "18": {
+          "available": false
+        }
+      }
+    },
+    "20200304": {
+      "coverage": {
+        "00": false,
+        "06": true,
+        "12": false,
+        "18": false
+      },
+      "day_url": "2020/03/20200304/index.html",
+      "slots": {
+        "00": {
+          "available": false
+        },
+        "06": {
+          "available": true,
+          "publication_window_id": "20200304_spu_06"
+        },
+        "12": {
+          "available": false
+        },
+        "18": {
+          "available": false
+        }
+      }
+    },
+    "20200305": {
+      "coverage": {
+        "00": false,
+        "06": true,
+        "12": false,
+        "18": false
+      },
+      "day_url": "2020/03/20200305/index.html",
+      "slots": {
+        "00": {
+          "available": false
+        },
+        "06": {
+          "available": true,
+          "publication_window_id": "20200305_spu_06"
+        },
+        "12": {
+          "available": false
+        },
+        "18": {
+          "available": false
+        }
+      }
+    },
+    "20200306": {
+      "coverage": {
+        "00": false,
+        "06": true,
+        "12": true,
+        "18": true
+      },
+      "day_url": "2020/03/20200306/index.html",
+      "slots": {
+        "00": {
+          "available": false
+        },
+        "06": {
+          "available": true,
+          "publication_window_id": "20200306_spu_06"
+        },
+        "12": {
+          "available": true,
+          "publication_window_id": "20200306_spu_12"
+        },
+        "18": {
+          "available": true,
+          "publication_window_id": "20200306_spu_18"
+        }
+      }
+    },
+    "20200309": {
+      "coverage": {
+        "00": false,
+        "06": true,
+        "12": true,
+        "18": false
+      },
+      "day_url": "2020/03/20200309/index.html",
+      "slots": {
+        "00": {
+          "available": false
+        },
+        "06": {
+          "available": true,
+          "publication_window_id": "20200309_spu_06"
+        },
+        "12": {
+          "available": true,
+          "publication_window_id": "20200309_spu_12"
+        },
+        "18": {
+          "available": false
+        }
+      }
+    },
+    "20200310": {
+      "coverage": {
+        "00": false,
+        "06": true,
+        "12": true,
+        "18": true
+      },
+      "day_url": "2020/03/20200310/index.html",
+      "slots": {
+        "00": {
+          "available": false
+        },
+        "06": {
+          "available": true,
+          "publication_window_id": "20200310_spu_06"
+        },
+        "12": {
+          "available": true,
+          "publication_window_id": "20200310_spu_12"
+        },
+        "18": {
+          "available": true,
+          "publication_window_id": "20200310_spu_18"
+        }
+      }
+    },
+    "20200312": {
+      "coverage": {
+        "00": false,
+        "06": true,
+        "12": true,
+        "18": true
+      },
+      "day_url": "2020/03/20200312/index.html",
+      "slots": {
+        "00": {
+          "available": false
+        },
+        "06": {
+          "available": true,
+          "publication_window_id": "20200312_spu_06"
+        },
+        "12": {
+          "available": true,
+          "publication_window_id": "20200312_spu_12"
+        },
+        "18": {
+          "available": true,
+          "publication_window_id": "20200312_spu_18"
+        }
+      }
+    },
+    "20200313": {
+      "coverage": {
+        "00": false,
+        "06": true,
+        "12": true,
+        "18": false
+      },
+      "day_url": "2020/03/20200313/index.html",
+      "slots": {
+        "00": {
+          "available": false
+        },
+        "06": {
+          "available": true,
+          "publication_window_id": "20200313_spu_06"
+        },
+        "12": {
+          "available": true,
+          "publication_window_id": "20200313_spu_12"
+        },
+        "18": {
+          "available": false
+        }
+      }
+    },
+    "20200315": {
+      "coverage": {
+        "00": true,
+        "06": true,
+        "12": true,
+        "18": false
+      },
+      "day_url": "2020/03/20200315/index.html",
+      "slots": {
+        "00": {
+          "available": true,
+          "publication_window_id": "20200315_spu_00"
+        },
+        "06": {
+          "available": true,
+          "publication_window_id": "20200315_spu_06"
+        },
+        "12": {
+          "available": true,
+          "publication_window_id": "20200315_spu_12"
+        },
+        "18": {
+          "available": false
+        }
+      }
+    },
+    "20200316": {
+      "coverage": {
+        "00": false,
+        "06": true,
+        "12": true,
+        "18": false
+      },
+      "day_url": "2020/03/20200316/index.html",
+      "slots": {
+        "00": {
+          "available": false
+        },
+        "06": {
+          "available": true,
+          "publication_window_id": "20200316_spu_06"
+        },
+        "12": {
+          "available": true,
+          "publication_window_id": "20200316_spu_12"
+        },
+        "18": {
+          "available": false
+        }
+      }
+    },
+    "20200317": {
+      "coverage": {
+        "00": false,
+        "06": true,
+        "12": true,
+        "18": false
+      },
+      "day_url": "2020/03/20200317/index.html",
+      "slots": {
+        "00": {
+          "available": false
+        },
+        "06": {
+          "available": true,
+          "publication_window_id": "20200317_spu_06"
+        },
+        "12": {
+          "available": true,
+          "publication_window_id": "20200317_spu_12"
+        },
+        "18": {
+          "available": false
+        }
+      }
+    },
+    "20200324": {
+      "coverage": {
+        "00": false,
+        "06": true,
+        "12": true,
+        "18": false
+      },
+      "day_url": "2020/03/20200324/index.html",
+      "slots": {
+        "00": {
+          "available": false
+        },
+        "06": {
+          "available": true,
+          "publication_window_id": "20200324_spu_06"
+        },
+        "12": {
+          "available": true,
+          "publication_window_id": "20200324_spu_12"
+        },
+        "18": {
+          "available": false
+        }
+      }
+    },
+    "20200411": {
+      "coverage": {
+        "00": false,
+        "06": true,
+        "12": true,
+        "18": false
+      },
+      "day_url": "2020/04/20200411/index.html",
+      "slots": {
+        "00": {
+          "available": false
+        },
+        "06": {
+          "available": true,
+          "publication_window_id": "20200411_spu_06"
+        },
+        "12": {
+          "available": true,
+          "publication_window_id": "20200411_spu_12"
+        },
+        "18": {
+          "available": false
+        }
+      }
+    },
+    "20200424": {
+      "coverage": {
+        "00": false,
+        "06": true,
+        "12": true,
+        "18": false
+      },
+      "day_url": "2020/04/20200424/index.html",
+      "slots": {
+        "00": {
+          "available": false
+        },
+        "06": {
+          "available": true,
+          "publication_window_id": "20200424_spu_06"
+        },
+        "12": {
+          "available": true,
+          "publication_window_id": "20200424_spu_12"
+        },
+        "18": {
+          "available": false
+        }
+      }
+    },
+    "20200426": {
+      "coverage": {
+        "00": false,
+        "06": true,
+        "12": true,
+        "18": true
+      },
+      "day_url": "2020/04/20200426/index.html",
+      "slots": {
+        "00": {
+          "available": false
+        },
+        "06": {
+          "available": true,
+          "publication_window_id": "20200426_spu_06"
+        },
+        "12": {
+          "available": true,
+          "publication_window_id": "20200426_spu_12"
+        },
+        "18": {
+          "available": true,
+          "publication_window_id": "20200426_spu_18"
+        }
+      }
+    },
+    "20200428": {
+      "coverage": {
+        "00": false,
+        "06": true,
+        "12": true,
+        "18": true
+      },
+      "day_url": "2020/04/20200428/index.html",
+      "slots": {
+        "00": {
+          "available": false
+        },
+        "06": {
+          "available": true,
+          "publication_window_id": "20200428_spu_06"
+        },
+        "12": {
+          "available": true,
+          "publication_window_id": "20200428_spu_12"
+        },
+        "18": {
+          "available": true,
+          "publication_window_id": "20200428_spu_18"
+        }
+      }
+    },
+    "20200505": {
+      "coverage": {
+        "00": false,
+        "06": true,
+        "12": true,
+        "18": true
+      },
+      "day_url": "2020/05/20200505/index.html",
+      "slots": {
+        "00": {
+          "available": false
+        },
+        "06": {
+          "available": true,
+          "publication_window_id": "20200505_spu_06"
+        },
+        "12": {
+          "available": true,
+          "publication_window_id": "20200505_spu_12"
+        },
+        "18": {
+          "available": true,
+          "publication_window_id": "20200505_spu_18"
+        }
+      }
+    },
+    "20200510": {
+      "coverage": {
+        "00": false,
+        "06": true,
+        "12": true,
+        "18": true
+      },
+      "day_url": "2020/05/20200510/index.html",
+      "slots": {
+        "00": {
+          "available": false
+        },
+        "06": {
+          "available": true,
+          "publication_window_id": "20200510_spu_06"
+        },
+        "12": {
+          "available": true,
+          "publication_window_id": "20200510_spu_12"
+        },
+        "18": {
+          "available": true,
+          "publication_window_id": "20200510_spu_18"
+        }
+      }
+    },
+    "20200517": {
+      "coverage": {
+        "00": false,
+        "06": true,
+        "12": true,
+        "18": true
+      },
+      "day_url": "2020/05/20200517/index.html",
+      "slots": {
+        "00": {
+          "available": false
+        },
+        "06": {
+          "available": true,
+          "publication_window_id": "20200517_spu_06"
+        },
+        "12": {
+          "available": true,
+          "publication_window_id": "20200517_spu_12"
+        },
+        "18": {
+          "available": true,
+          "publication_window_id": "20200517_spu_18"
+        }
+      }
+    },
+    "20200519": {
+      "coverage": {
+        "00": false,
+        "06": true,
+        "12": true,
+        "18": true
+      },
+      "day_url": "2020/05/20200519/index.html",
+      "slots": {
+        "00": {
+          "available": false
+        },
+        "06": {
+          "available": true,
+          "publication_window_id": "20200519_spu_06"
+        },
+        "12": {
+          "available": true,
+          "publication_window_id": "20200519_spu_12"
+        },
+        "18": {
+          "available": true,
+          "publication_window_id": "20200519_spu_18"
+        }
+      }
+    },
+    "20200526": {
+      "coverage": {
+        "00": false,
+        "06": true,
+        "12": true,
+        "18": false
+      },
+      "day_url": "2020/05/20200526/index.html",
+      "slots": {
+        "00": {
+          "available": false
+        },
+        "06": {
+          "available": true,
+          "publication_window_id": "20200526_spu_06"
+        },
+        "12": {
+          "available": true,
+          "publication_window_id": "20200526_spu_12"
+        },
+        "18": {
+          "available": false
+        }
+      }
+    },
+    "20200531": {
+      "coverage": {
+        "00": false,
+        "06": true,
+        "12": true,
+        "18": false
+      },
+      "day_url": "2020/05/20200531/index.html",
+      "slots": {
+        "00": {
+          "available": false
+        },
+        "06": {
+          "available": true,
+          "publication_window_id": "20200531_spu_06"
+        },
+        "12": {
+          "available": true,
+          "publication_window_id": "20200531_spu_12"
+        },
+        "18": {
+          "available": false
+        }
+      }
+    },
+    "20200619": {
+      "coverage": {
+        "00": false,
+        "06": false,
+        "12": true,
+        "18": false
+      },
+      "day_url": "2020/06/20200619/index.html",
+      "slots": {
+        "00": {
+          "available": false
+        },
+        "06": {
+          "available": false
+        },
+        "12": {
+          "available": true,
+          "publication_window_id": "20200619_spu_12"
+        },
+        "18": {
+          "available": false
+        }
+      }
+    },
+    "20200621": {
+      "coverage": {
+        "00": false,
+        "06": true,
+        "12": true,
+        "18": true
+      },
+      "day_url": "2020/06/20200621/index.html",
+      "slots": {
+        "00": {
+          "available": false
+        },
+        "06": {
+          "available": true,
+          "publication_window_id": "20200621_spu_06"
+        },
+        "12": {
+          "available": true,
+          "publication_window_id": "20200621_spu_12"
+        },
+        "18": {
+          "available": true,
+          "publication_window_id": "20200621_spu_18"
+        }
+      }
+    },
+    "20200708": {
+      "coverage": {
+        "00": false,
+        "06": true,
+        "12": true,
+        "18": false
+      },
+      "day_url": "2020/07/20200708/index.html",
+      "slots": {
+        "00": {
+          "available": false
+        },
+        "06": {
+          "available": true,
+          "publication_window_id": "20200708_spu_06"
+        },
+        "12": {
+          "available": true,
+          "publication_window_id": "20200708_spu_12"
+        },
+        "18": {
+          "available": false
+        }
+      }
+    },
+    "20200712": {
+      "coverage": {
+        "00": true,
+        "06": true,
+        "12": true,
+        "18": false
+      },
+      "day_url": "2020/07/20200712/index.html",
+      "slots": {
+        "00": {
+          "available": true,
+          "publication_window_id": "20200712_spu_00"
+        },
+        "06": {
+          "available": true,
+          "publication_window_id": "20200712_spu_06"
+        },
+        "12": {
+          "available": true,
+          "publication_window_id": "20200712_spu_12"
+        },
+        "18": {
+          "available": false
+        }
+      }
+    },
+    "20200721": {
+      "coverage": {
+        "00": false,
+        "06": true,
+        "12": true,
+        "18": true
+      },
+      "day_url": "2020/07/20200721/index.html",
+      "slots": {
+        "00": {
+          "available": false
+        },
+        "06": {
+          "available": true,
+          "publication_window_id": "20200721_spu_06"
+        },
+        "12": {
+          "available": true,
+          "publication_window_id": "20200721_spu_12"
+        },
+        "18": {
+          "available": true,
+          "publication_window_id": "20200721_spu_18"
+        }
+      }
+    },
+    "20200803": {
+      "coverage": {
+        "00": false,
+        "06": true,
+        "12": true,
+        "18": false
+      },
+      "day_url": "2020/08/20200803/index.html",
+      "slots": {
+        "00": {
+          "available": false
+        },
+        "06": {
+          "available": true,
+          "publication_window_id": "20200803_spu_06"
+        },
+        "12": {
+          "available": true,
+          "publication_window_id": "20200803_spu_12"
+        },
+        "18": {
+          "available": false
+        }
+      }
+    },
+    "20200809": {
+      "coverage": {
+        "00": false,
+        "06": true,
+        "12": true,
+        "18": false
+      },
+      "day_url": "2020/08/20200809/index.html",
+      "slots": {
+        "00": {
+          "available": false
+        },
+        "06": {
+          "available": true,
+          "publication_window_id": "20200809_spu_06"
+        },
+        "12": {
+          "available": true,
+          "publication_window_id": "20200809_spu_12"
+        },
+        "18": {
+          "available": false
+        }
+      }
+    },
+    "20200810": {
+      "coverage": {
+        "00": false,
+        "06": true,
+        "12": true,
+        "18": true
+      },
+      "day_url": "2020/08/20200810/index.html",
+      "slots": {
+        "00": {
+          "available": false
+        },
+        "06": {
+          "available": true,
+          "publication_window_id": "20200810_spu_06"
+        },
+        "12": {
+          "available": true,
+          "publication_window_id": "20200810_spu_12"
+        },
+        "18": {
+          "available": true,
+          "publication_window_id": "20200810_spu_18"
+        }
+      }
+    },
+    "20200812": {
+      "coverage": {
+        "00": false,
+        "06": true,
+        "12": true,
+        "18": false
+      },
+      "day_url": "2020/08/20200812/index.html",
+      "slots": {
+        "00": {
+          "available": false
+        },
+        "06": {
+          "available": true,
+          "publication_window_id": "20200812_spu_06"
+        },
+        "12": {
+          "available": true,
+          "publication_window_id": "20200812_spu_12"
+        },
+        "18": {
+          "available": false
+        }
+      }
+    }
+  },
+  "period_labels": {
+    "00": "00–06",
+    "06": "06–12",
+    "12": "12–18",
+    "18": "18–24"
+  },
+  "publication_window_labels": {
+    "00": "00–06",
+    "06": "06–12",
+    "12": "12–18",
+    "18": "18–24"
+  },
+  "schema_version": 4
+}
