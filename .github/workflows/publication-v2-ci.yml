@@ -55,16 +55,25 @@ jobs:
           cp milgrau/station.yaml ../station.yaml
           milgrau-publish --dry-run
           milgrau-publish status
-      - name: Build safe empty-state calendar (no R2 or Git writes)
+      - name: Validate calendar matches committed publication history (no cloud writes)
         run: |
           python - <<'PY'
           from pathlib import Path
           from publisher.site_v2 import build_unchanged_frontend
+          from publisher.published import load_published_states
+          from publisher.history import load_controls
+          repo = Path.cwd()
+          states = load_published_states(repo, "spu")
+          controls = load_controls(repo, "spu")
+          blocked = set(controls["hidden"]) | set(controls["removed"])
+          expected_days = {date for year in states.values() for date in year["days"] if date not in blocked}
           root, days = build_unchanged_frontend(
-              Path.cwd(), Path.cwd() / ".cache/measurements", "spu",
+              repo, repo / ".cache/measurements", "spu",
               r2_public_base="https://staging.example.invalid",
           )
-          assert days == 0
+          assert days == len(expected_days), (days, len(expected_days))
           assert (root / "ql-measurement-calendar.html").is_file()
           assert (root / "measurements.json").is_file()
+          for date in expected_days:
+              assert (root / date[:4] / date[4:6] / date / "index.html").is_file()
           PY
