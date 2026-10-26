@@ -396,3 +396,150 @@ def status() -> int:
         recent = json.loads(journal.read_text())
         LOG.info("Last run: %s (%s) %s", recent["action"], recent["status"], recent["at_utc"])
     return 0
+
+
+def _attest_cached_products(ctx: Context, catalog: dict[str, dict],
+                            *, date: str | None = None) -> tuple[list[str], list[str]]:
+    """Preflight historical WEBPs without comparing renderer-version fingerprints.
+
+    Sidecars and image hashes have already been strictly verified by the v2
+    catalog reader. Require every attested L1 to exist, match the scientific
+    source identity and the complete set of sources intersecting its six-hour
+    window, and not be newer than the historical sidecar. Fingerprint drift
+    from a code change is intentionally not interpreted as corrupt science.
+    """
+    from .windows import PublicationWindow, sessions_intersecting_window
+
+    blocked = _blocked_dates(ctx)
+    selected = {
+        pub_id: data for pub_id, data in catalog.items()
+        if (date is None or pub_id[:8] == date) and pub_id[:8] not in blocked
+    }
+    if not selected:
+        return [], []
+    sessions = discover_scientific_sessions(
+        ctx.scientific, ctx.station, publish_date=date,
+        timezone_name=ctx.timezone, skip_invalid_l1=False,
+    )
+    by_id = {s.session_id: s for s in sessions}
+    approved: list[str] = []
+    rejected: list[str] = []
+    for pub_id, sidecar in sorted(selected.items()):
+        window = PublicationWindow.build(
+            pub_id[:8], ctx.station, pub_id[-2:], ctx.timezone,
+        )
+        sources = sessions_intersecting_window(sessions, window)
+        attested_ids = set(sidecar["source_sessions"])
+        current_ids = {s.session_id for s in sources}
+        reason = None
+        if attested_ids != current_ids:
+            reason = "scientific source list changed since rendering"
+        elif sidecar.get("renderer_owner", "milgrau.generic") != "milgrau.generic":
+            reason = "unknown historical image renderer"
+        else:
+            sidecar_path = (ctx.cache / ctx.station / pub_id[:4] /
+                            pub_id[4:6] / pub_id[:8] / f"{pub_id}.json")
+            # A source modified after the recorded sidecar is not safe to
+            # publish from the previous rendering. Sub-second timestamps are
+            # deliberately kept; a fresh L1 may differ even at same size.
+            sidecar_mtime = sidecar_path.stat().st_mtime_ns
+            for sid in sorted(attested_ids):
+                source = by_id[sid]
+                if source.level1_path.name not in sidecar["source_level1_files"]:
+                    reason = "scientific Level 1 provenance mismatch"
+                    break
+                if source.level1_path.stat().st_mtime_ns > sidecar_mtime:
+                    reason = f"Level 1 modified after cached rendering: {sid}"
+                    break
+                old_l2 = f"{sid}_L2.nc"
+                if old_l2 in sidecar["source_level2_files"]:
+                    if source.level2_path is None:
+                        reason = f"formerly referenced Level 2 missing: {sid}"
+                        break
+                    if source.level2_path.stat().st_mtime_ns > sidecar_mtime:
+                        reason = f"Level 2 modified after cached rendering: {sid}"
+                        break
+        if reason:
+            rejected.append(f"{pub_id}: {reason}")
+        else:
+            approved.append(pub_id)
+    return approved, rejected
+
+
+def publish_cached(*, date: str | None = None, confirm: bool = False) -> int:
+    """Audit/import six-year historical cache without regenerating images.
+
+    No network/Git/R2 operations occur until --confirm. Verified windows are
+    published in bounded batches, each with a Git commit and remote HEAD
+    confirmation, so interrupted imports can resume safely.
+    """
+    ctx = context()
+    logging.basicConfig(level=logging.INFO, format="%(levelname)s %(message)s")
+    # collect_validated_staging checks every declared WEBP against its SHA-256.
+    catalog = collect_validated_staging(ctx.cache, ctx.station)
+    approved, rejected = _attest_cached_products(ctx, catalog, date=date)
+    by_year: dict[str, int] = {}
+    images = 0
+    bytes_total = 0
+    for pub_id in approved:
+        by_year[pub_id[:4]] = by_year.get(pub_id[:4], 0) + 1
+        for path in catalog[pub_id]["assets"].values():
+            image = ctx.cache / path
+            images += 1
+            bytes_total += image.stat().st_size
+    LOG.info("Cached import: %d approved window(s), %d WEBPs, %.2f GiB",
+             len(approved), images, bytes_total / (1024 ** 3))
+    for year, count in sorted(by_year.items()):
+        LOG.info("  %s: %d approved window(s)", year, count)
+    for problem in rejected[:20]:
+        LOG.warning("NOT IMPORTED: %s", problem)
+    if len(rejected) > 20:
+        LOG.warning("... and %d more rejected windows", len(rejected) - 20)
+    if rejected:
+        # No automatic partial import, because the operator requested an
+        # auditable historical recovery. A specific date can be imported
+        # independently after diagnosing the invalid windows.
+        raise RuntimeError(
+            f"{len(rejected)} cached window(s) require regeneration or investigation. "
+            "No images were uploaded or removed. Inspect the warnings above; "
+            "use 'milgrau-publish cache --date YYYYMMDD' for an isolated day."
+        )
+    if not confirm:
+        LOG.info("AUDIT ONLY: no rendering, R2 upload, Git push or cache deletion.")
+        LOG.info("Review the existing historical images, then use "
+                 "'milgrau-publish cache --confirm' to import them.")
+        return 0
+    if not approved:
+        LOG.info("No eligible cached windows to import.")
+        return 0
+    checkout_ready(ctx.repo)
+    settings = secrets(ctx, require_r2=True)
+    client = r2_client(settings)
+    # Bounded batches prevent one six-year import from becoming a single
+    # all-or-nothing multi-hour transaction.
+    batch_size = 96
+    totals = {"windows": 0, "uploaded_objects": 0, "cleaned_windows": 0}
+    LOG.info("Importing cached WEBPs without rendering, %d windows per batch", batch_size)
+    for offset in range(0, len(approved), batch_size):
+        chosen = approved[offset:offset + batch_size]
+        _write_journal(ctx, "cache-import", "started", windows=totals["windows"])
+        try:
+            result = publish_cache(
+                ctx.cache, ctx.station, ctx.repo, settings["R2_BUCKET_NAME"],
+                client, selected_window_ids=set(chosen),
+                excluded_dates=_blocked_dates(ctx),
+                replace_existing=False,  # historical cache never overwrites unknown R2
+                git_ready=lambda _repo: None,  # checkout_ready runs before batch 1
+                git_persist=lambda _repo, _paths: commit_site(ctx, settings),
+            )
+        except Exception:
+            _write_journal(ctx, "cache-import", "failed", windows=totals["windows"])
+            raise
+        for key in totals:
+            totals[key] += result[key]
+        _write_journal(ctx, "cache-import", "progress", **totals)
+        LOG.info("Imported %d/%d historical windows", totals["windows"], len(approved))
+    _write_journal(ctx, "cache-import", "complete", **totals)
+    LOG.info("Historical cache import completed: %d windows, %d WEBPs uploaded",
+             totals["windows"], totals["uploaded_objects"])
+    return 0

@@ -114,6 +114,7 @@ def publish_cache(
     bucket: str, r2_client: Any, *,
     max_windows: int | None = None,
     selected_dates: set[str] | None = None,
+    selected_window_ids: set[str] | None = None,
     excluded_dates: set[str] | frozenset[str] = frozenset(),
     keep_cache: bool = False,
     replace_existing: bool = False,
@@ -130,6 +131,7 @@ def publish_cache(
     items = sorted(
         (pub_id, sidecar) for pub_id, sidecar in catalog.items()
         if (selected_dates is None or pub_id[:8] in selected_dates)
+        and (selected_window_ids is None or pub_id in selected_window_ids)
         and pub_id[:8] not in excluded_dates
     )
     if max_windows is not None:

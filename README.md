@@ -144,3 +144,37 @@ python -m pytest -q tests
 
 The complete CI tests are offline and must never perform real R2 uploads
 or write to production GitHub branches.
+
+
+## Recovering an existing historical WEBP cache
+
+Code and renderer updates alter source fingerprints, even when L1 content is
+unchanged. If you already rendered years of figures using the previous
+`update-site.py`, do **not** invoke ordinary `milgrau-publish` to publish
+that historical backlog: ordinary sync may rerender it because the new code
+has a different fingerprint.
+
+Use the explicit cache importer instead:
+
+```bash
+milgrau-publish cache                  # read-only audit, zero uploads
+milgrau-publish cache --date 20240913  # inspect one selected day
+milgrau-publish cache --confirm        # publish approved historical cache
+```
+
+This operation **never rerenders a figure**. It validates the historical
+sidecar, rehashes every referenced WEBP, checks its declared L1/L2 source
+provenance against the MILGRAU scientific catalog, checks that the source
+files have not been modified after the cached sidecar was generated, and
+excludes blocked dates. Historical source fingerprints are *not*
+recalculated against the latest renderer (that mismatch caused the unnecessary
+rerender). As a trade-off, the importer cannot prove that an old renderer
+produced the same graph as the current code: review sample historical figures
+before explicitly approving their import.
+
+If any window fails these checks, the import aborts before contacting R2.
+Use a date-scoped import for known-good days, or regenerate stale dates via
+the normal pipeline. In confirmed mode, importing uses bounded, resumable
+96-window batches, validates R2 byte-for-byte, saves Git state/HTML/catalog
+in each batch, and removes a local window only after GitHub confirms it.
+A rerun is safe for windows left in cache. No older R2 `YYYY/` keys are touched.

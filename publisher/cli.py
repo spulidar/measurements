@@ -29,6 +29,12 @@ def main(argv: list[str] | None = None) -> int:
     images = sub.add_parser("images", help="Render WEBPs locally only")
     images.add_argument("date", type=_date)
     sub.add_parser("html", help="Rebuild HTML and calendar from verified Git state")
+    cache = sub.add_parser(
+        "cache", help="Audit previously rendered WEBPs; explicit opt-in to publish without rendering"
+    )
+    cache.add_argument("--date", type=_date, help="Import only one local publication date")
+    cache.add_argument("--confirm", action="store_true",
+                       help="Upload verified existing WEBPs and publish state/HTML in resumable batches")
     hide = sub.add_parser("hide", help="Hide a day without deleting R2")
     hide.add_argument("date", type=_date)
     remove = sub.add_parser("remove", help="Preview/perform fully verified day removal")
@@ -47,6 +53,8 @@ def main(argv: list[str] | None = None) -> int:
         return pipeline.images(args.date)
     if args.command == "html":
         return pipeline.publish_html()
+    if args.command == "cache":
+        return pipeline.publish_cached(date=args.date, confirm=args.confirm)
     if args.command in {"hide", "remove", "restore"}:
         from . import history
         return history.operate(args.command, args.date, confirm=getattr(args, "confirm", False))
