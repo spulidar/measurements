@@ -156,53 +156,87 @@ def git_push(repo: Path, settings: dict[str, str]) -> None:
         raise RuntimeError("GitHub did not confirm published branch HEAD")
 
 
-def commit_site(ctx: Context, settings: dict[str, str], *, allow_empty: bool = False) -> int:
-    """Commit generated pages, persistent state and catalog together."""
-    base = settings.get("R2_PUBLIC_URL", "").strip()
-    if not base:
-        raise RuntimeError("R2_PUBLIC_URL missing from credentials.py")
-    generated, count = build_unchanged_frontend(
-        ctx.repo, ctx.cache, ctx.station, r2_public_base=base,
-    )
-    export_site_to_branch(
-        ctx.repo, generated, ctx.station, orchestrated=True, allow_empty=allow_empty,
-    )
-    _git(ctx.repo, "add", "-A", "--", "publisher/state-v2", "measurements.json",
+def _restore_clean_checkout(ctx: Context, baseline: str) -> None:
+    """Undo only our own state/HTML writes after a definitively failed Git push.
+
+    The calling command verified a clean checkout before doing any work. If
+    remote HEAD is unclear, this refuses to touch either Git or R2.
+    """
+    try:
+        remote = _git(ctx.repo, "ls-remote", "--heads", "origin", BRANCH)
+    except Exception as exc:
+        raise RemoteStateAmbiguous(
+            "Cannot verify GitHub branch after failure; preserve checkout and R2. "
+            "Reconcile manually before retrying."
+        ) from exc
+    remote_head = remote.split()[0] if remote else ""
+    if remote_head != baseline:
+        raise RemoteStateAmbiguous(
+            "Remote branch moved or may have published the new state. "
+            "Do not reset local checkout or R2 until reconciled."
+        )
+    _git(ctx.repo, "reset", "--hard", baseline)
+    # Only generated state/catalog/day HTML paths are eligible for cleanup;
+    # no scientific, credentials, source code or arbitrary user files.
+    _git(ctx.repo, "clean", "-fd", "--", "publisher/state-v2",
+         "measurements.json",
          ":(glob)[0-9][0-9][0-9][0-9]/**/index.html")
-    staged = _git(ctx.repo, "diff", "--cached", "--name-only")
-    if staged:
-        previous_head = _git(ctx.repo, "rev-parse", "HEAD")
-        _git(ctx.repo, "commit", "-m", "Publish verified SPU L1 quicklooks and dashboards")
-        new_head = _git(ctx.repo, "rev-parse", "HEAD")
-        try:
-            git_push(ctx.repo, settings)
-        except Exception as exc:
+
+
+def commit_site(ctx: Context, settings: dict[str, str], *, allow_empty: bool = False) -> int:
+    """Publish Git state, day HTMLs and calendar in exactly one branch commit.
+
+    A locally staged failure is rolled back if origin HEAD is verified to
+    remain at the starting commit; ambiguous Git outcomes fail closed.
+    """
+    baseline = _git(ctx.repo, "rev-parse", "HEAD")
+    try:
+        base = settings.get("R2_PUBLIC_URL", "").strip()
+        if not base:
+            raise RuntimeError("R2_PUBLIC_URL missing from credentials.py")
+        generated, count = build_unchanged_frontend(
+            ctx.repo, ctx.cache, ctx.station, r2_public_base=base,
+        )
+        export_site_to_branch(
+            ctx.repo, generated, ctx.station, orchestrated=True, allow_empty=allow_empty,
+        )
+        _git(ctx.repo, "add", "-A", "--", "publisher/state-v2", "measurements.json",
+             ":(glob)[0-9][0-9][0-9][0-9]/**/index.html")
+        staged = _git(ctx.repo, "diff", "--cached", "--name-only")
+        if staged:
+            _git(ctx.repo, "commit", "-m", "Publish verified SPU L1 quicklooks and dashboards")
+            local = _git(ctx.repo, "rev-parse", "HEAD")
             try:
-                remote = _git(ctx.repo, "ls-remote", "--heads", "origin", BRANCH)
-            except Exception as query_exc:
-                raise RemoteStateAmbiguous(
-                    "Git push response and remote commit state are unconfirmed; "
-                    "leave R2 as-is and reconcile manually before retrying."
-                ) from query_exc
-            remote_head = remote.split()[0] if remote else ""
-            if remote_head == new_head:
-                LOG.warning("Push response failed but GitHub confirms new commit")
-            elif remote_head == previous_head:
-                # The starting checkout was clean; only our own changes exist.
-                _git(ctx.repo, "reset", "--hard", previous_head)
-                raise RuntimeError(
-                    "Git push did not publish; restored previous local checkout "
-                    "and retained publication cache."
-                ) from exc
-            else:
-                raise RemoteStateAmbiguous(
-                    "Remote branch advanced unexpectedly during publication; "
-                    "do not roll back R2 or force push. Reconcile branches."
-                ) from exc
-        LOG.info("Pushed %d changed Git files to %s", len(staged.splitlines()), BRANCH)
-    else:
-        LOG.info("Git state, HTML and catalog already current")
-    return count
+                git_push(ctx.repo, settings)
+            except Exception:
+                # A failed client-side response is not proof that the push failed.
+                try:
+                    remote = _git(ctx.repo, "ls-remote", "--heads", "origin", BRANCH)
+                except Exception as exc:
+                    raise RemoteStateAmbiguous(
+                        "Cannot verify outcome of Git push; do not roll back R2."
+                    ) from exc
+                if not remote or remote.split()[0] != local:
+                    raise
+                LOG.warning("Git push reported an error but remote SHA confirms success")
+            LOG.info("Pushed %d changed Git files to %s", len(staged.splitlines()), BRANCH)
+        else:
+            LOG.info("Git state, HTML and calendar already current")
+        return count
+    except RemoteStateAmbiguous:
+        raise
+    except Exception as exc:
+        try:
+            _restore_clean_checkout(ctx, baseline)
+        except RemoteStateAmbiguous:
+            raise
+        except Exception as cleanup_exc:
+            raise RuntimeError(
+                "Publishing failed; cleaning local Git artifacts also failed. "
+                "Do not retry until the checkout is reconciled: "
+                + str(cleanup_exc)
+            ) from exc
+        raise
 
 
 def _write_journal(ctx: Context, action: str, status: str, **counts) -> None:
