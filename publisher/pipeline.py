@@ -111,6 +111,7 @@ def secrets(ctx: Context, *, require_r2: bool = False) -> dict[str, str]:
 def r2_client(settings: dict[str, str]):
     """Use the same authenticated boto3 S3 API as measurements."""
     import boto3
+    from botocore.config import Config
     from urllib.parse import urlsplit
     endpoint = settings["R2_ENDPOINT"]
     parsed = urlsplit(endpoint)
@@ -120,6 +121,8 @@ def r2_client(settings: dict[str, str]):
         "s3", endpoint_url=endpoint, region_name="auto",
         aws_access_key_id=settings["R2_ACCESS_KEY"],
         aws_secret_access_key=settings["R2_SECRET_KEY"],
+        config=Config(connect_timeout=20, read_timeout=120,
+                      retries={"mode": "standard", "max_attempts": 4}),
     )
 
 
