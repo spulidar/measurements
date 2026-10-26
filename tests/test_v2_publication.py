@@ -337,3 +337,27 @@ def test_r2_read_timeout_resumes_from_new_stream(tmp_path, monkeypatch):
     assert r2_staging.ensure_uploaded(remote, "bucket", asset, metadata) is False
     assert len(calls) == 2
     assert not remote.uploads
+
+
+def test_persistent_r2_stream_timeout_keeps_cache(tmp_path, monkeypatch):
+    from botocore.exceptions import ReadTimeoutError
+    from publisher import r2_staging
+
+    root, asset, sidecar = sample_cache(tmp_path)
+    remote = R2Fake()
+    calls = []
+    class BrokenStream:
+        def iter_chunks(self, chunk_size):
+            raise ReadTimeoutError(endpoint_url="https://example.invalid", error="timeout")
+            yield b""  # pragma: no cover
+        def close(self):
+            calls.append("closed")
+    remote.get_object = lambda **_: {
+        "Body": BrokenStream(), "ContentLength": asset.stat().st_size
+    }
+    monkeypatch.setattr(r2_staging.time, "sleep", lambda _: None)
+    with pytest.raises(RuntimeError, match="after 5 attempts"):
+        publish(root, tmp_path / "repo", remote)
+    assert len(calls) == 5
+    assert asset.exists() and sidecar.exists()
+    assert load_published_states(tmp_path / "repo", "spu") == {}
