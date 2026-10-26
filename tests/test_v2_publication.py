@@ -308,3 +308,32 @@ def test_refuse_replacing_untracked_or_altered_r2_objects(tmp_path):
         publish(root, tmp_path / "repo", remote, replace_existing=True)
     assert remote.objects[("staging-test-bucket", key)] == b"other-owner"
     assert asset.is_file() and sidecar.is_file()
+
+
+def test_r2_read_timeout_resumes_from_new_stream(tmp_path, monkeypatch):
+    from botocore.exceptions import ReadTimeoutError
+    from publisher import r2_staging
+
+    root, asset, _ = sample_cache(tmp_path)
+    remote = R2Fake()
+    key = f"spu/2024/09/20240913/{ASSET}"
+    data = asset.read_bytes()
+    remote.objects[("bucket", key)] = data
+    real_get = remote.get_object
+    calls = []
+    class BrokenStream:
+        def iter_chunks(self, chunk_size):
+            yield b"partial"
+            raise ReadTimeoutError(endpoint_url="https://example.invalid", error="timeout")
+        def close(self):
+            pass
+    def get(*, Bucket, Key):
+        calls.append(Key)
+        return ({"Body": BrokenStream(), "ContentLength": len(data)}
+                if len(calls) == 1 else real_get(Bucket=Bucket, Key=Key))
+    remote.get_object = get
+    monkeypatch.setattr(r2_staging.time, "sleep", lambda _: None)
+    metadata = {"key": key, "size": len(data), "sha256": sha256(data).hexdigest()}
+    assert r2_staging.ensure_uploaded(remote, "bucket", asset, metadata) is False
+    assert len(calls) == 2
+    assert not remote.uploads
