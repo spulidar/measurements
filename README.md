@@ -84,10 +84,13 @@ legacy R2 objects remain unchanged**.
 | `milgrau-publish remove 20260731 --confirm` | Back up, remove day from Git, then delete exact verified R2 objects |
 | `milgrau-publish restore 20260731` | Unhide or restore backed-up objects and day state |
 
-`images` generates a local, disposable diagnostic preview under
+`images` regenerates WEBPs from scientific L1 for the requested date,
+including dates whose previous cached images were cleaned after publication.
+It generates a local diagnostic preview under
 `.cache/measurements/_preview-v2` directly from verified cached WEBPs and
 sidecar JSON files; it does not require or create the old duplicated
-`_state-v2` planning files. Scientific NetCDFs are never modified.
+`_state-v2` planning files. No R2 or Git mutation occurs during `images`,
+and scientific NetCDFs are never modified.
 
 `hide` and `remove` write persistent controls under
 `publisher/state-v2/_controls/spu.json` so the next ordinary sync will

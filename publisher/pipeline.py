@@ -255,7 +255,7 @@ def _blocked_dates(ctx: Context) -> set[str]:
     return set(controls["hidden"]) | set(controls["removed"])
 
 
-def _stage(ctx: Context, *, date: str | None, dry_run: bool) -> dict[str, int]:
+def _stage(ctx: Context, *, date: str | None, dry_run: bool, force: bool = False) -> dict[str, int]:
     invalid: list[tuple[str, str]] = []
     def report(session_id: str, path: Path, reason: str) -> None:
         invalid.append((session_id, reason))
@@ -277,7 +277,7 @@ def _stage(ctx: Context, *, date: str | None, dry_run: bool) -> dict[str, int]:
         milgrau_config_path=ctx.config_path, publication_settings={
             "schema_version": 2, "mode": "stage-only",
         }, milgrau_root=ctx.visual_root, publish_date=date, dry_run=dry_run,
-        excluded_dates=_blocked_dates(ctx), logger=LOG,
+        excluded_dates=_blocked_dates(ctx), logger=LOG, force=force,
         published_fingerprints=fingerprints,
     )
     numbers = {
@@ -356,7 +356,9 @@ def sync(*, date: str | None = None, dry_run: bool = False) -> int:
 def images(date: str) -> int:
     ctx = context()
     logging.basicConfig(level=logging.INFO, format="%(levelname)s %(message)s")
-    _stage(ctx, date=date, dry_run=False)
+    # Explicit image inspection should generate local WEBPs even when Git
+    # already records this date and disposable cache was previously cleaned.
+    _stage(ctx, date=date, dry_run=False, force=True)
     from .preview import build_preview
     index, count = build_preview(ctx.cache, ctx.station)
     LOG.info("Rendered local products; diagnostic preview for %d day(s): %s",

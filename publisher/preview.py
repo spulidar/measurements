@@ -1,7 +1,7 @@
-"""Read-only local preview builder for the publication-v2 state.
+"""Local diagnostic preview built from validated cached WEBPs and sidecars.
 
-The browser reads a generated manifest made *only* from validated state-v2.
-It never reads science NetCDF, uploads objects or edits the historical site.
+It does not read a separately persisted planning state; permanent publication
+records belong exclusively to Git-backed publisher/state-v2/.
 """
 from __future__ import annotations
 

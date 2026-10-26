@@ -297,3 +297,14 @@ def test_tombstone_blocks_rediscovery_even_if_local_cached_webp_exists(project, 
     assert pipeline.sync() == 0
     assert asset.is_file()
     assert not load_published_states(ctx.repo, "spu")
+
+
+
+def test_images_regenerates_already_published_day_for_local_inspection(project, monkeypatch):
+    ctx = project
+    calls = []
+    monkeypatch.setattr(pipeline, "_stage", lambda *_a, **kw: calls.append(kw) or {})
+    from publisher import preview
+    monkeypatch.setattr(preview, "build_preview", lambda *_a, **kw: (ctx.cache / "_preview-v2/index.html", 0))
+    assert pipeline.images("20240913") == 0
+    assert calls == [{"date": "20240913", "dry_run": False, "force": True}]
