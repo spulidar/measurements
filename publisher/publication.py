@@ -109,6 +109,8 @@ def publish_cache(
     cache_root: str | Path, station: str, repository: str | Path,
     bucket: str, r2_client: Any, *,
     max_windows: int | None = None,
+    selected_dates: set[str] | None = None,
+    excluded_dates: set[str] | frozenset[str] = frozenset(),
     keep_cache: bool = False,
     replace_existing: bool = False,
     logger: logging.Logger | None = None,
@@ -121,7 +123,11 @@ def publish_cache(
     # Check Git before any network upload or local mutation.
     git_ready(repository)
     catalog = collect_validated_staging(cache_root, station)
-    items = sorted(catalog.items())
+    items = sorted(
+        (pub_id, sidecar) for pub_id, sidecar in catalog.items()
+        if (selected_dates is None or pub_id[:8] in selected_dates)
+        and pub_id[:8] not in excluded_dates
+    )
     if max_windows is not None:
         items = items[:max_windows]
     previous = load_published_states(repository, station)

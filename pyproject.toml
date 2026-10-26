@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "spulidar-measurements-publisher"
+version = "2.0.0"
+description = "Optional publication CLI for MILGRAU measurements"
+requires-python = ">=3.12"
+readme = "README.md"
+dependencies = []
+
+[project.scripts]
+milgrau-publish = "publisher.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["publisher*"]
+
+[tool.setuptools.package-data]
+publisher = ["preview_assets/*.html", "preview_assets/*.js", "preview_assets/*.css"]

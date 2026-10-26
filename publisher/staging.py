@@ -607,6 +607,7 @@ def stage_publication_products(
     milgrau_root: str | Path,
     publish_year: str | None = None,
     publish_date: str | None = None,
+    excluded_dates: set[str] | frozenset[str] = frozenset(),
     force: bool = False,
     dry_run: bool = False,
     logger: logging.Logger | None = None,
@@ -621,6 +622,8 @@ def stage_publication_products(
         publish_year=publish_year,
         publish_date=publish_date,
     ):
+        if window.date_key in excluded_dates:
+            continue
         result = render_publication_window(
             window,
             session_tuple,

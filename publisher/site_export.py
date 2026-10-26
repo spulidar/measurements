@@ -37,6 +37,7 @@ def _ensure_safe_destination(root: Path, path: Path) -> None:
 
 def export_site_to_branch(
     repository: str | Path, generated_site: str | Path, station: str,
+    *, orchestrated: bool = False, allow_empty: bool = False,
 ) -> tuple[int, int]:
     """Copy only verified-state HTML and manifest into a clean development branch.
 
@@ -47,13 +48,16 @@ def export_site_to_branch(
     generated = Path(generated_site).resolve()
     if not generated.is_dir() or generated.is_relative_to(repo) or repo.is_relative_to(generated):
         raise ValueError("The generated site must be an external staging directory.")
-    ensure_git_ready(repo)
-    dirty = _git(repo, "status", "--porcelain", "--untracked-files=normal")
-    if dirty:
-        raise RuntimeError(
-            "Refusing site export with uncommitted/untracked Git files. "
-            "Review, commit or stash your changes first."
-        )
+    if not orchestrated:
+        ensure_git_ready(repo)
+        dirty = _git(repo, "status", "--porcelain", "--untracked-files=normal")
+        if dirty:
+            raise RuntimeError(
+                "Refusing site export with uncommitted/untracked Git files. "
+                "Review, commit or stash your changes first."
+            )
+    # The orchestrator verifies the clean checkout BEFORE updating Git-owned state.
+    # Only that checked workflow may export after state changes but before commit.
 
     states = load_published_states(repo, station)
     expected_dates = {
@@ -61,7 +65,7 @@ def export_site_to_branch(
         for state in states.values()
         for date in state["days"]
     }
-    if not expected_dates:
+    if not expected_dates and not allow_empty:
         raise RuntimeError(
             "No verified Git-owned publication windows: refusing to export "
             "an empty public catalog into the branch."
