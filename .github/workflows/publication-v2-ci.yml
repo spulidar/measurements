@@ -12,6 +12,10 @@ jobs:
   test:
     runs-on: ubuntu-latest
     timeout-minutes: 25
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.12", "3.14"]
     steps:
       - name: Checkout publication branch (read only)
         uses: actions/checkout@v4
@@ -26,7 +30,7 @@ jobs:
           persist-credentials: false
       - uses: actions/setup-python@v5
         with:
-          python-version: "3.12"
+          python-version: ${{ matrix.python-version }}
           cache: pip
           cache-dependency-path: milgrau/pyproject.toml
       - name: Install shared environment and optional publisher
@@ -44,6 +48,12 @@ jobs:
           node --check publisher/preview_assets/app.js
       - name: Unit, integration and synthetic Level 1 tests
         run: python -m pytest -q tests
+      - name: Execute real console dry-run without credentials or L1
+        run: |
+          cp milgrau/config.yaml ../config.yaml
+          cp milgrau/station.yaml ../station.yaml
+          milgrau-publish --dry-run
+          milgrau-publish status
       - name: Build safe empty-state calendar (no R2 or Git writes)
         run: |
           python - <<'PY'
