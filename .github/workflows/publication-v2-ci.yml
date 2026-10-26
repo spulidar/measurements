@@ -33,7 +33,14 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           python -m pip install -e "./milgrau[dev,explorer,web]"
+          python -m pip install -e .
+          milgrau-publish --help
           python -c "import boto3, xarray, milgrau; print('milgrau[web] import smoke test: OK')"
+      - name: Verify optional CLI entrypoint
+        run: |
+          python -c "from publisher.cli import main; assert callable(main)"
+          milgrau-publish status --help
+          milgrau-publish remove --help
       - name: Static syntax check
         run: |
           python -m compileall -q publisher update-site.py preview-site.py publish-v2.py build-site-v2.py tests

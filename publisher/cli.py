@@ -21,7 +21,8 @@ def main(argv: list[str] | None = None) -> int:
         prog="milgrau-publish",
         description="Incrementally publish MILGRAU L1 quicklooks to the isolated measurements branch.",
     )
-    parser.add_argument("--date", type=_date, help="Synchronize only one station-local day")
+    parser.add_argument("--date", dest="sync_date", type=_date,
+                        help="Synchronize only one station-local day")
     parser.add_argument("--dry-run", action="store_true", help="Plan changes without uploads or writes")
     sub = parser.add_subparsers(dest="command")
     sub.add_parser("status", help="Report local, staged, published and blocked days")
@@ -36,7 +37,7 @@ def main(argv: list[str] | None = None) -> int:
     restore = sub.add_parser("restore", help="Restore a hidden or removed day")
     restore.add_argument("date", type=_date)
     args = parser.parse_args(argv)
-    if args.date and args.command:
+    if args.sync_date and args.command:
         parser.error("--date applies to the default sync only")
     if args.dry_run and args.command:
         parser.error("--dry-run applies to the default sync only")
@@ -49,7 +50,7 @@ def main(argv: list[str] | None = None) -> int:
     if args.command in {"hide", "remove", "restore"}:
         from . import history
         return history.operate(args.command, args.date, confirm=getattr(args, "confirm", False))
-    return pipeline.sync(date=args.date, dry_run=args.dry_run)
+    return pipeline.sync(date=args.sync_date, dry_run=args.dry_run)
 
 
 if __name__ == "__main__":

@@ -9,6 +9,7 @@ import json
 import pytest
 
 from publisher import cli, history, pipeline
+from publisher.pipeline import secrets as original_secrets
 from publisher.published import load_published_states, write_published_states
 from publisher.site_v2 import build_unchanged_frontend
 
@@ -171,11 +172,11 @@ def test_credentials_import_from_milgrau_checkout_no_new_yaml(project, monkeypat
     for key in ("GITHUB_USER", "GITHUB_TOKEN", "R2_BUCKET_NAME", "R2_ACCESS_KEY",
                 "R2_SECRET_KEY", "R2_ENDPOINT", "R2_PUBLIC_URL"):
         monkeypatch.delenv(key, raising=False)
-    result = pipeline.secrets(ctx, require_r2=True)
+    result = original_secrets(ctx, require_r2=True)
     assert result["GITHUB_TOKEN"] == "PRIVATE_TEST_TOKEN"
     assert result["R2_BUCKET_NAME"] == "old-bucket"
     monkeypatch.setenv("R2_BUCKET_NAME", "override-bucket")
-    assert pipeline.secrets(ctx, require_r2=True)["R2_BUCKET_NAME"] == "override-bucket"
+    assert original_secrets(ctx, require_r2=True)["R2_BUCKET_NAME"] == "override-bucket"
 
 
 def test_single_sync_publishes_git_state_after_r2_verification_and_cleans_cache(project, monkeypatch):
@@ -247,7 +248,8 @@ def test_remove_is_preview_only_then_verifies_backup_before_git_and_deletion(pro
     calls = []
     def fake_commit(ctx_, settings, *, allow_empty=False):
         assert ("example-bucket", key) in remote.objects
-        assert "20240913" not in load_published_states(ctx_.repo, "spu")["2024"]["days"]
+        is_published = "20240913" in load_published_states(ctx_.repo, "spu")["2024"]["days"]
+        assert is_published == bool(calls)  # first removal; second commit restores
         calls.append("Git site published")
     monkeypatch.setattr(pipeline, "commit_site", fake_commit)
     assert history.operate("remove", "20240913", confirm=False) == 0
