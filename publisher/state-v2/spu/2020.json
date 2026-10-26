@@ -9023,6 +9023,3098 @@
             "spu_20200812-1126Z_20200813-0001Z"
           ],
           "visualization_only_session_concatenation": false
+        },
+        "18": {
+          "assets": {
+            "rcs_20200812_spu_18_1064nm_AN_15km.webp": {
+              "key": "spu/2020/08/20200812/rcs_20200812_spu_18_1064nm_AN_15km.webp",
+              "sha256": "2ef44e150e7ce8e4de49e227d8f470d6054d176607302229a0b6ad5b41e09b13",
+              "size": 168404
+            },
+            "rcs_20200812_spu_18_1064nm_AN_30km.webp": {
+              "key": "spu/2020/08/20200812/rcs_20200812_spu_18_1064nm_AN_30km.webp",
+              "sha256": "244416e60b718bd4c387dbff34889bfe63ae1c53cd552ea0b2688225fa3774b4",
+              "size": 191508
+            },
+            "rcs_20200812_spu_18_1064nm_AN_5km.webp": {
+              "key": "spu/2020/08/20200812/rcs_20200812_spu_18_1064nm_AN_5km.webp",
+              "sha256": "997565573ae702c800ae09d439ab67117cc82dfdbd1088384da15cd76996ffa4",
+              "size": 48618
+            },
+            "rcs_20200812_spu_18_355nm_AN_15km.webp": {
+              "key": "spu/2020/08/20200812/rcs_20200812_spu_18_355nm_AN_15km.webp",
+              "sha256": "e4357f2d57d6b02f4860cd3ef0ae37d7a4d91726adb7f02c35f3760f85628eef",
+              "size": 144854
+            },
+            "rcs_20200812_spu_18_355nm_AN_30km.webp": {
+              "key": "spu/2020/08/20200812/rcs_20200812_spu_18_355nm_AN_30km.webp",
+              "sha256": "9db11a4e326a413208c4f49f1ce41e61f48c93e3926f11af06a50620d7875261",
+              "size": 208670
+            },
+            "rcs_20200812_spu_18_355nm_AN_5km.webp": {
+              "key": "spu/2020/08/20200812/rcs_20200812_spu_18_355nm_AN_5km.webp",
+              "sha256": "97127032a49a6c8344bc03c7db6546c763c3ac0fbd4b7408a0ec7a9a47f4ebaa",
+              "size": 59268
+            },
+            "rcs_20200812_spu_18_355nm_PC_15km.webp": {
+              "key": "spu/2020/08/20200812/rcs_20200812_spu_18_355nm_PC_15km.webp",
+              "sha256": "b9146dac1b4a512e209fa2880fe5a22a9fbea55b492cd530d2043e36ede79779",
+              "size": 127742
+            },
+            "rcs_20200812_spu_18_355nm_PC_30km.webp": {
+              "key": "spu/2020/08/20200812/rcs_20200812_spu_18_355nm_PC_30km.webp",
+              "sha256": "fa63fdcee3d8049676c30b35add8e76a58d1cd7f250cdcd27297a36d92fcbf9e",
+              "size": 113530
+            },
+            "rcs_20200812_spu_18_355nm_PC_5km.webp": {
+              "key": "spu/2020/08/20200812/rcs_20200812_spu_18_355nm_PC_5km.webp",
+              "sha256": "59397a8982a0fe74bff8b50d5cab1492686940967a0acaef76afdac949cd313a",
+              "size": 120282
+            },
+            "rcs_20200812_spu_18_532nm_AN_15km.webp": {
+              "key": "spu/2020/08/20200812/rcs_20200812_spu_18_532nm_AN_15km.webp",
+              "sha256": "68c71aaac02bd64eb7b8f4080e249a0e739290e521e5684f6cdec6ed51a8a727",
+              "size": 126896
+            },
+            "rcs_20200812_spu_18_532nm_AN_30km.webp": {
+              "key": "spu/2020/08/20200812/rcs_20200812_spu_18_532nm_AN_30km.webp",
+              "sha256": "ba333959c1a0ea9098639aa5441cc040e0daff4601136727c87a0936b15e5637",
+              "size": 209076
+            },
+            "rcs_20200812_spu_18_532nm_AN_5km.webp": {
+              "key": "spu/2020/08/20200812/rcs_20200812_spu_18_532nm_AN_5km.webp",
+              "sha256": "ceecaa3c72e8fff1bbba9395240dd89c713804f19fe633edc01aa8fe3e08777e",
+              "size": 53486
+            },
+            "rcs_20200812_spu_18_532nm_PC_15km.webp": {
+              "key": "spu/2020/08/20200812/rcs_20200812_spu_18_532nm_PC_15km.webp",
+              "sha256": "4174833a5ebf148ccd804668393f6b48a44af802e3928cc9bbf106789f7c0fff",
+              "size": 83698
+            },
+            "rcs_20200812_spu_18_532nm_PC_30km.webp": {
+              "key": "spu/2020/08/20200812/rcs_20200812_spu_18_532nm_PC_30km.webp",
+              "sha256": "0b3d41c0ef972b36de70039798075f4ba356172b07fa91aa7f1b8afb1ab652a9",
+              "size": 95518
+            },
+            "rcs_20200812_spu_18_532nm_PC_5km.webp": {
+              "key": "spu/2020/08/20200812/rcs_20200812_spu_18_532nm_PC_5km.webp",
+              "sha256": "540c163f5b90b930b1bcc18ad954dfbc0ccc07095e0d2a2e4f70af38b21156c6",
+              "size": 45146
+            }
+          },
+          "publication_window_id": "20200812_spu_18",
+          "r2_bucket": "spu-ql",
+          "scientific_netcdf_split": false,
+          "scientific_sessions_merged": false,
+          "source_fingerprint": "98fb017205b6ebfd69a47b2341d0125b18c88c864569bdf0a0dee54e7348bf10",
+          "source_level1_files": [
+            "spu_20200812-1126Z_20200813-0001Z_L1.nc"
+          ],
+          "source_level2_files": [],
+          "source_sessions": [
+            "spu_20200812-1126Z_20200813-0001Z"
+          ],
+          "visualization_only_session_concatenation": false
+        }
+      }
+    },
+    "20200824": {
+      "publication_windows": {
+        "06": {
+          "assets": {
+            "rcs_20200824_spu_06_1064nm_AN_15km.webp": {
+              "key": "spu/2020/08/20200824/rcs_20200824_spu_06_1064nm_AN_15km.webp",
+              "sha256": "d353263b052b33efda5335a62d6b97b2659756714a9a20ec4401955898fc6af2",
+              "size": 254196
+            },
+            "rcs_20200824_spu_06_1064nm_AN_30km.webp": {
+              "key": "spu/2020/08/20200824/rcs_20200824_spu_06_1064nm_AN_30km.webp",
+              "sha256": "22d4f102a1ef292becd81db0fbda9cca24fe0e8053aa999e4f0043ca7ce9a549",
+              "size": 251200
+            },
+            "rcs_20200824_spu_06_1064nm_AN_5km.webp": {
+              "key": "spu/2020/08/20200824/rcs_20200824_spu_06_1064nm_AN_5km.webp",
+              "sha256": "6ba3f715b47d4b01c381c73aa3498b52ac52b260814ebb0dad0d6f528d78f958",
+              "size": 291754
+            },
+            "rcs_20200824_spu_06_355nm_AN_15km.webp": {
+              "key": "spu/2020/08/20200824/rcs_20200824_spu_06_355nm_AN_15km.webp",
+              "sha256": "4888b66a2bd4fd88ff2ba666354b34ee417adf8353af2fcb74252dfc8e8758cc",
+              "size": 266446
+            },
+            "rcs_20200824_spu_06_355nm_AN_30km.webp": {
+              "key": "spu/2020/08/20200824/rcs_20200824_spu_06_355nm_AN_30km.webp",
+              "sha256": "2d28c8dec2c2a6444ac082a3986a8ba7030c420f0c2f33d12c0a4a00352aeed3",
+              "size": 313652
+            },
+            "rcs_20200824_spu_06_355nm_AN_5km.webp": {
+              "key": "spu/2020/08/20200824/rcs_20200824_spu_06_355nm_AN_5km.webp",
+              "sha256": "1699b8631c1950069866c43d955aca75c30778d23d2307084150ff002c88e68d",
+              "size": 148692
+            },
+            "rcs_20200824_spu_06_355nm_PC_15km.webp": {
+              "key": "spu/2020/08/20200824/rcs_20200824_spu_06_355nm_PC_15km.webp",
+              "sha256": "c0df9d79481203756c11a6b1fb1c366cf5b6b325c861b5dfb069a0ee2c84a1be",
+              "size": 294380
+            },
+            "rcs_20200824_spu_06_355nm_PC_30km.webp": {
+              "key": "spu/2020/08/20200824/rcs_20200824_spu_06_355nm_PC_30km.webp",
+              "sha256": "f7cfc88d6a96bad54332599644c9cc1daefa2ce60b084f2a68cdf7c43a947957",
+              "size": 317098
+            },
+            "rcs_20200824_spu_06_355nm_PC_5km.webp": {
+              "key": "spu/2020/08/20200824/rcs_20200824_spu_06_355nm_PC_5km.webp",
+              "sha256": "1900b114f359ad6f6e734dfb737b94b9a67c9867f899875b78e283ad110c0bc8",
+              "size": 194118
+            },
+            "rcs_20200824_spu_06_532nm_AN_15km.webp": {
+              "key": "spu/2020/08/20200824/rcs_20200824_spu_06_532nm_AN_15km.webp",
+              "sha256": "8d0e03d51fbcde2c4fe52cbfcda48e121e80af35206d0b3c9e5a74ab036acc14",
+              "size": 273168
+            },
+            "rcs_20200824_spu_06_532nm_AN_30km.webp": {
+              "key": "spu/2020/08/20200824/rcs_20200824_spu_06_532nm_AN_30km.webp",
+              "sha256": "ea86175dc777261e9418d30f3df822cff9c4b97987618445494eebc1c2766741",
+              "size": 316366
+            },
+            "rcs_20200824_spu_06_532nm_AN_5km.webp": {
+              "key": "spu/2020/08/20200824/rcs_20200824_spu_06_532nm_AN_5km.webp",
+              "sha256": "b738d33f566d5778f6de6d9f467b7912bb0cfda18d7ec63163fa0804792adf28",
+              "size": 140776
+            },
+            "rcs_20200824_spu_06_532nm_PC_15km.webp": {
+              "key": "spu/2020/08/20200824/rcs_20200824_spu_06_532nm_PC_15km.webp",
+              "sha256": "643f11e2974f005736735b8bc6b2f60d0651e2bea092a344efa3de5c45885e1e",
+              "size": 297014
+            },
+            "rcs_20200824_spu_06_532nm_PC_30km.webp": {
+              "key": "spu/2020/08/20200824/rcs_20200824_spu_06_532nm_PC_30km.webp",
+              "sha256": "81166d16c4d3681ce1eb26dcb8aed9aa965706d98196c49b1f4135f2b83879c4",
+              "size": 326106
+            },
+            "rcs_20200824_spu_06_532nm_PC_5km.webp": {
+              "key": "spu/2020/08/20200824/rcs_20200824_spu_06_532nm_PC_5km.webp",
+              "sha256": "47a6a8662c8ef1994287316da48851f3697953763ab149a8585677ef300656d6",
+              "size": 197974
+            }
+          },
+          "publication_window_id": "20200824_spu_06",
+          "r2_bucket": "spu-ql",
+          "scientific_netcdf_split": false,
+          "scientific_sessions_merged": false,
+          "source_fingerprint": "37ec79b5ccf09041f93b5becb09d97b66ba3b5d06e61b978fb5bab6cc68dd908",
+          "source_level1_files": [
+            "spu_20200824-1054Z_20200824-2205Z_L1.nc"
+          ],
+          "source_level2_files": [],
+          "source_sessions": [
+            "spu_20200824-1054Z_20200824-2205Z"
+          ],
+          "visualization_only_session_concatenation": false
+        },
+        "12": {
+          "assets": {
+            "rcs_20200824_spu_12_1064nm_AN_15km.webp": {
+              "key": "spu/2020/08/20200824/rcs_20200824_spu_12_1064nm_AN_15km.webp",
+              "sha256": "86170e66ba452fc71f1939bf8ccab9fabe1c0a2ce37140ff80a23306c41d50e5",
+              "size": 348586
+            },
+            "rcs_20200824_spu_12_1064nm_AN_30km.webp": {
+              "key": "spu/2020/08/20200824/rcs_20200824_spu_12_1064nm_AN_30km.webp",
+              "sha256": "cb47bfdae104bc23526e8ead1594d4754c4ba3f39c0b29b35aa3de842fb95876",
+              "size": 350522
+            },
+            "rcs_20200824_spu_12_1064nm_AN_5km.webp": {
+              "key": "spu/2020/08/20200824/rcs_20200824_spu_12_1064nm_AN_5km.webp",
+              "sha256": "7a45cb36b4793b2c9683da64350ad5692f2b577ece05669d9edd6014444d4549",
+              "size": 345656
+            },
+            "rcs_20200824_spu_12_355nm_AN_15km.webp": {
+              "key": "spu/2020/08/20200824/rcs_20200824_spu_12_355nm_AN_15km.webp",
+              "sha256": "9d0b6613ae60dbe5e13edde51e5945e2f33452f8ddde074498b93ebe6a687654",
+              "size": 360326
+            },
+            "rcs_20200824_spu_12_355nm_AN_30km.webp": {
+              "key": "spu/2020/08/20200824/rcs_20200824_spu_12_355nm_AN_30km.webp",
+              "sha256": "c29022f2a6baff4fabe51e7954607d1e82e2e04ced2f6e080c9a0c288645cca7",
+              "size": 432770
+            },
+            "rcs_20200824_spu_12_355nm_AN_5km.webp": {
+              "key": "spu/2020/08/20200824/rcs_20200824_spu_12_355nm_AN_5km.webp",
+              "sha256": "2a37b7ddac238e896492dce1ddf1cdc190547300abe9a888682eac066fdb6ef6",
+              "size": 214870
+            },
+            "rcs_20200824_spu_12_355nm_PC_15km.webp": {
+              "key": "spu/2020/08/20200824/rcs_20200824_spu_12_355nm_PC_15km.webp",
+              "sha256": "284dad9d4a23f7bf9b1e50a9b6e002d2326b4f861ae277f2cc6005198b0455c7",
+              "size": 405772
+            },
+            "rcs_20200824_spu_12_355nm_PC_30km.webp": {
+              "key": "spu/2020/08/20200824/rcs_20200824_spu_12_355nm_PC_30km.webp",
+              "sha256": "7f9c082884378be119cb5b25c04a5cc7df90e4ab04175a10c5c17eebdbee33d7",
+              "size": 430462
+            },
+            "rcs_20200824_spu_12_355nm_PC_5km.webp": {
+              "key": "spu/2020/08/20200824/rcs_20200824_spu_12_355nm_PC_5km.webp",
+              "sha256": "dc9dcbdf246ea2a7b02e7fa26d5662ff1c6c47505cb000de9866740eb634bddb",
+              "size": 246610
+            },
+            "rcs_20200824_spu_12_532nm_AN_15km.webp": {
+              "key": "spu/2020/08/20200824/rcs_20200824_spu_12_532nm_AN_15km.webp",
+              "sha256": "f0285341c34ac9094ee1436be083a8fad2675cdd570179482441341a1414ac5e",
+              "size": 370348
+            },
+            "rcs_20200824_spu_12_532nm_AN_30km.webp": {
+              "key": "spu/2020/08/20200824/rcs_20200824_spu_12_532nm_AN_30km.webp",
+              "sha256": "d8eb816841366d7a1ae8c03f95bb3db64552ae8034d98a78d4de0021080eeddb",
+              "size": 428700
+            },
+            "rcs_20200824_spu_12_532nm_AN_5km.webp": {
+              "key": "spu/2020/08/20200824/rcs_20200824_spu_12_532nm_AN_5km.webp",
+              "sha256": "81fd7d16d87ec183d439b200f3568c976dd13b2c03e51e54142297fd4f57802f",
+              "size": 205156
+            },
+            "rcs_20200824_spu_12_532nm_PC_15km.webp": {
+              "key": "spu/2020/08/20200824/rcs_20200824_spu_12_532nm_PC_15km.webp",
+              "sha256": "2a3b5329e04d53f61bf67029db883696c35500216d7d023cc4540d31b82f4b22",
+              "size": 398176
+            },
+            "rcs_20200824_spu_12_532nm_PC_30km.webp": {
+              "key": "spu/2020/08/20200824/rcs_20200824_spu_12_532nm_PC_30km.webp",
+              "sha256": "993628c8ff68d9f224dafba695c154ecec64880b8740d2bf859f785bf19304a3",
+              "size": 431640
+            },
+            "rcs_20200824_spu_12_532nm_PC_5km.webp": {
+              "key": "spu/2020/08/20200824/rcs_20200824_spu_12_532nm_PC_5km.webp",
+              "sha256": "0ee3f1948340c423f332b9ebb71af8ffac168423d300567eb3dd4f60d729f4a9",
+              "size": 202850
+            }
+          },
+          "publication_window_id": "20200824_spu_12",
+          "r2_bucket": "spu-ql",
+          "scientific_netcdf_split": false,
+          "scientific_sessions_merged": false,
+          "source_fingerprint": "ba55ce240a28d76643f1dea589e9ae268838f647932928379356194abd1b676d",
+          "source_level1_files": [
+            "spu_20200824-1054Z_20200824-2205Z_L1.nc"
+          ],
+          "source_level2_files": [],
+          "source_sessions": [
+            "spu_20200824-1054Z_20200824-2205Z"
+          ],
+          "visualization_only_session_concatenation": false
+        },
+        "18": {
+          "assets": {
+            "rcs_20200824_spu_18_1064nm_AN_15km.webp": {
+              "key": "spu/2020/08/20200824/rcs_20200824_spu_18_1064nm_AN_15km.webp",
+              "sha256": "187bb39801b552198a01d190da5a29936fde2ec4b7b1fea8ad9b261582e78103",
+              "size": 97986
+            },
+            "rcs_20200824_spu_18_1064nm_AN_30km.webp": {
+              "key": "spu/2020/08/20200824/rcs_20200824_spu_18_1064nm_AN_30km.webp",
+              "sha256": "4fea45357776618ed7038ba8822864b9706991a9a05966ab7d2e1576b306cf03",
+              "size": 101704
+            },
+            "rcs_20200824_spu_18_1064nm_AN_5km.webp": {
+              "key": "spu/2020/08/20200824/rcs_20200824_spu_18_1064nm_AN_5km.webp",
+              "sha256": "75e216359e24e576863a50806dae0ec57ea3da942d843592aded28b031495147",
+              "size": 100994
+            },
+            "rcs_20200824_spu_18_355nm_AN_15km.webp": {
+              "key": "spu/2020/08/20200824/rcs_20200824_spu_18_355nm_AN_15km.webp",
+              "sha256": "98aecc248e9ea3786c06c7c3437cdac1afba96b60211f377b9b5d40bfc2da57a",
+              "size": 104304
+            },
+            "rcs_20200824_spu_18_355nm_AN_30km.webp": {
+              "key": "spu/2020/08/20200824/rcs_20200824_spu_18_355nm_AN_30km.webp",
+              "sha256": "070e06abb4758194204b920c49c2d3f543188015be22f8adfaa7e5b40f15da39",
+              "size": 120002
+            },
+            "rcs_20200824_spu_18_355nm_AN_5km.webp": {
+              "key": "spu/2020/08/20200824/rcs_20200824_spu_18_355nm_AN_5km.webp",
+              "sha256": "5ada3356145ed834679c5add8ad9ce874ea5ceae8ee491308f0f2a116f46c201",
+              "size": 74320
+            },
+            "rcs_20200824_spu_18_355nm_PC_15km.webp": {
+              "key": "spu/2020/08/20200824/rcs_20200824_spu_18_355nm_PC_15km.webp",
+              "sha256": "7041ab0cfb7b762c2a1a61f6e898ea16d6076a49db905a0ae2b08bc45434563f",
+              "size": 107870
+            },
+            "rcs_20200824_spu_18_355nm_PC_30km.webp": {
+              "key": "spu/2020/08/20200824/rcs_20200824_spu_18_355nm_PC_30km.webp",
+              "sha256": "90a13f45316306ed8f07c66a0377bf10702ffde9731d031b1e3edc39c1c724b8",
+              "size": 99324
+            },
+            "rcs_20200824_spu_18_355nm_PC_5km.webp": {
+              "key": "spu/2020/08/20200824/rcs_20200824_spu_18_355nm_PC_5km.webp",
+              "sha256": "c0e81247e2d87f8c05934e19c92f217054d8698713cdb4afa06e1a1594844cfb",
+              "size": 90668
+            },
+            "rcs_20200824_spu_18_532nm_AN_15km.webp": {
+              "key": "spu/2020/08/20200824/rcs_20200824_spu_18_532nm_AN_15km.webp",
+              "sha256": "12a69cb28d720d468276dd3ba5b80844bd161949a49213e6e7cc934602d3f306",
+              "size": 105408
+            },
+            "rcs_20200824_spu_18_532nm_AN_30km.webp": {
+              "key": "spu/2020/08/20200824/rcs_20200824_spu_18_532nm_AN_30km.webp",
+              "sha256": "5fdc7628edd51ad566ee1ababf74570b25b4a415a165af2812e5bc06ecb9cefd",
+              "size": 118618
+            },
+            "rcs_20200824_spu_18_532nm_AN_5km.webp": {
+              "key": "spu/2020/08/20200824/rcs_20200824_spu_18_532nm_AN_5km.webp",
+              "sha256": "e5aa0cfe76534e95662ba340849c497cb058cd39e7b1b9099a78ad9bad74c54b",
+              "size": 70748
+            },
+            "rcs_20200824_spu_18_532nm_PC_15km.webp": {
+              "key": "spu/2020/08/20200824/rcs_20200824_spu_18_532nm_PC_15km.webp",
+              "sha256": "081f3a7679fe6d66354b30af1be90437c06be077d6fdbc9454c8cb871dd8ff66",
+              "size": 108474
+            },
+            "rcs_20200824_spu_18_532nm_PC_30km.webp": {
+              "key": "spu/2020/08/20200824/rcs_20200824_spu_18_532nm_PC_30km.webp",
+              "sha256": "02ab0d5ab7f01dc96a3e53ac5906afd2ad21d1f4dbc36761a380ae17bb103054",
+              "size": 105094
+            },
+            "rcs_20200824_spu_18_532nm_PC_5km.webp": {
+              "key": "spu/2020/08/20200824/rcs_20200824_spu_18_532nm_PC_5km.webp",
+              "sha256": "276984c6026ed288912ef0330ac9c6a09fa83dfa86ec234e4bbd37642f5a1b13",
+              "size": 76400
+            }
+          },
+          "publication_window_id": "20200824_spu_18",
+          "r2_bucket": "spu-ql",
+          "scientific_netcdf_split": false,
+          "scientific_sessions_merged": false,
+          "source_fingerprint": "fc427fa783f68ac008292eaf3fe1c96dd76edaccc9529b028e654a7c3cd8e6de",
+          "source_level1_files": [
+            "spu_20200824-1054Z_20200824-2205Z_L1.nc"
+          ],
+          "source_level2_files": [],
+          "source_sessions": [
+            "spu_20200824-1054Z_20200824-2205Z"
+          ],
+          "visualization_only_session_concatenation": false
+        }
+      }
+    },
+    "20200830": {
+      "publication_windows": {
+        "06": {
+          "assets": {
+            "rcs_20200830_spu_06_1064nm_AN_15km.webp": {
+              "key": "spu/2020/08/20200830/rcs_20200830_spu_06_1064nm_AN_15km.webp",
+              "sha256": "7a2adcb58682a495d68507807a1afff68a3706767416a87d2ba8d7ab44ed51e1",
+              "size": 248996
+            },
+            "rcs_20200830_spu_06_1064nm_AN_30km.webp": {
+              "key": "spu/2020/08/20200830/rcs_20200830_spu_06_1064nm_AN_30km.webp",
+              "sha256": "207573da96a82c20a298d0613944edbae317355d1fc0ff34d28a3c6fa7c6394f",
+              "size": 241546
+            },
+            "rcs_20200830_spu_06_1064nm_AN_5km.webp": {
+              "key": "spu/2020/08/20200830/rcs_20200830_spu_06_1064nm_AN_5km.webp",
+              "sha256": "c748edda1aee39260b604e7c66c018d4ab8d5395a430a7ee004fe605d12ba2b2",
+              "size": 202760
+            },
+            "rcs_20200830_spu_06_355nm_AN_15km.webp": {
+              "key": "spu/2020/08/20200830/rcs_20200830_spu_06_355nm_AN_15km.webp",
+              "sha256": "0f868f96d0f1377c2e515ab7d54372421211e58029f13a9ff1aed499e206cde0",
+              "size": 274556
+            },
+            "rcs_20200830_spu_06_355nm_AN_30km.webp": {
+              "key": "spu/2020/08/20200830/rcs_20200830_spu_06_355nm_AN_30km.webp",
+              "sha256": "bb9eb0d86b2f287942b7a19d8b42cf44e096b1ccfd43cb306089a10d2d0206c6",
+              "size": 270084
+            },
+            "rcs_20200830_spu_06_355nm_AN_5km.webp": {
+              "key": "spu/2020/08/20200830/rcs_20200830_spu_06_355nm_AN_5km.webp",
+              "sha256": "178ca63b08a039886e12c937739db2956cc7df854fd522daa58561c4cfefe0c7",
+              "size": 173050
+            },
+            "rcs_20200830_spu_06_355nm_PC_15km.webp": {
+              "key": "spu/2020/08/20200830/rcs_20200830_spu_06_355nm_PC_15km.webp",
+              "sha256": "7886d408e79a69c5636079bedf14d0f3ab9ffaab8ecbdd328f5ecd1f47a147cf",
+              "size": 288038
+            },
+            "rcs_20200830_spu_06_355nm_PC_30km.webp": {
+              "key": "spu/2020/08/20200830/rcs_20200830_spu_06_355nm_PC_30km.webp",
+              "sha256": "577e86fafba2edd0812328d02f385cc73e26db3a96fc8c99bb0ad6f46e2bfecc",
+              "size": 282968
+            },
+            "rcs_20200830_spu_06_355nm_PC_5km.webp": {
+              "key": "spu/2020/08/20200830/rcs_20200830_spu_06_355nm_PC_5km.webp",
+              "sha256": "f84a46494b24d154a7ff48a45c9364152c0fa8f1d99f9fc620fae773bba961b2",
+              "size": 180324
+            },
+            "rcs_20200830_spu_06_532nm_AN_15km.webp": {
+              "key": "spu/2020/08/20200830/rcs_20200830_spu_06_532nm_AN_15km.webp",
+              "sha256": "707795f04c207676a63ff286d4f918e3d41140e3b02fe78db455278db3bab43c",
+              "size": 277182
+            },
+            "rcs_20200830_spu_06_532nm_AN_30km.webp": {
+              "key": "spu/2020/08/20200830/rcs_20200830_spu_06_532nm_AN_30km.webp",
+              "sha256": "64335bc7d11029bcaec4021b1c9900d73880451389639279321e626e507b41b7",
+              "size": 276836
+            },
+            "rcs_20200830_spu_06_532nm_AN_5km.webp": {
+              "key": "spu/2020/08/20200830/rcs_20200830_spu_06_532nm_AN_5km.webp",
+              "sha256": "3ef6e04ce6ae7f962cf2b0feb362d3a33b323bf14606946f08b317c90f9563ea",
+              "size": 170736
+            },
+            "rcs_20200830_spu_06_532nm_PC_15km.webp": {
+              "key": "spu/2020/08/20200830/rcs_20200830_spu_06_532nm_PC_15km.webp",
+              "sha256": "4a64adc5100efc03b0e4f3ee07f6ff2b0bae7a87e5631783cc3cf85cd6d7840a",
+              "size": 271692
+            },
+            "rcs_20200830_spu_06_532nm_PC_30km.webp": {
+              "key": "spu/2020/08/20200830/rcs_20200830_spu_06_532nm_PC_30km.webp",
+              "sha256": "a977760b057ef7039dd4d98d729ef0a01fa0c8be24238b4b04cc0958aeda44ac",
+              "size": 288852
+            },
+            "rcs_20200830_spu_06_532nm_PC_5km.webp": {
+              "key": "spu/2020/08/20200830/rcs_20200830_spu_06_532nm_PC_5km.webp",
+              "sha256": "4cb0272bc4f11c94ac212855523f74496c6169f6efd5aebf9b25f2fba55a6848",
+              "size": 167314
+            }
+          },
+          "publication_window_id": "20200830_spu_06",
+          "r2_bucket": "spu-ql",
+          "scientific_netcdf_split": false,
+          "scientific_sessions_merged": false,
+          "source_fingerprint": "0fc47800dd32ece4c125121d6949694d32935f17ab6725da17d7b41f18173a43",
+          "source_level1_files": [
+            "spu_20200830-1115Z_20200830-2320Z_L1.nc"
+          ],
+          "source_level2_files": [],
+          "source_sessions": [
+            "spu_20200830-1115Z_20200830-2320Z"
+          ],
+          "visualization_only_session_concatenation": false
+        },
+        "12": {
+          "assets": {
+            "rcs_20200830_spu_12_1064nm_AN_15km.webp": {
+              "key": "spu/2020/08/20200830/rcs_20200830_spu_12_1064nm_AN_15km.webp",
+              "sha256": "9209a590854ac11a37c24fbed9a1174f7c0b1b02d27af7c9d8b89fa17356837d",
+              "size": 379220
+            },
+            "rcs_20200830_spu_12_1064nm_AN_30km.webp": {
+              "key": "spu/2020/08/20200830/rcs_20200830_spu_12_1064nm_AN_30km.webp",
+              "sha256": "ddbd0305829c2c98e993f1a07e521c33169a5d5cedffced89c59d888f6b00077",
+              "size": 363828
+            },
+            "rcs_20200830_spu_12_1064nm_AN_5km.webp": {
+              "key": "spu/2020/08/20200830/rcs_20200830_spu_12_1064nm_AN_5km.webp",
+              "sha256": "f482ac7e6c87e691b85d99184606fe5b5168cac8cdbaf051eb980694a2412521",
+              "size": 299758
+            },
+            "rcs_20200830_spu_12_355nm_AN_15km.webp": {
+              "key": "spu/2020/08/20200830/rcs_20200830_spu_12_355nm_AN_15km.webp",
+              "sha256": "73bc81848b9a13e09e6987fcffc18718ca3d9fea7fb34072265943d46ffb2379",
+              "size": 430012
+            },
+            "rcs_20200830_spu_12_355nm_AN_30km.webp": {
+              "key": "spu/2020/08/20200830/rcs_20200830_spu_12_355nm_AN_30km.webp",
+              "sha256": "e94a57c70ebbc015d9556f2cbd21da27dfc85671f93f5244b1bf0e0a59535f46",
+              "size": 403108
+            },
+            "rcs_20200830_spu_12_355nm_AN_5km.webp": {
+              "key": "spu/2020/08/20200830/rcs_20200830_spu_12_355nm_AN_5km.webp",
+              "sha256": "faeade896d0e5db700ebc151dae54d118c21db4b57884c27338950999c8161f6",
+              "size": 275370
+            },
+            "rcs_20200830_spu_12_355nm_PC_15km.webp": {
+              "key": "spu/2020/08/20200830/rcs_20200830_spu_12_355nm_PC_15km.webp",
+              "sha256": "7538125d459fa492a33f99a6d6cf2c5b6c07d4caad0b9d5773e4f3d325d48885",
+              "size": 443906
+            },
+            "rcs_20200830_spu_12_355nm_PC_30km.webp": {
+              "key": "spu/2020/08/20200830/rcs_20200830_spu_12_355nm_PC_30km.webp",
+              "sha256": "0cbe01557dc45c8fd799008764250f07e48099a15df0d05bc46459c7420d90ba",
+              "size": 416238
+            },
+            "rcs_20200830_spu_12_355nm_PC_5km.webp": {
+              "key": "spu/2020/08/20200830/rcs_20200830_spu_12_355nm_PC_5km.webp",
+              "sha256": "5e2ff1eb19f5ec9d2ada5cb6f9113fdc4c888fbb69b24b17e91c9a91a054994c",
+              "size": 290584
+            },
+            "rcs_20200830_spu_12_532nm_AN_15km.webp": {
+              "key": "spu/2020/08/20200830/rcs_20200830_spu_12_532nm_AN_15km.webp",
+              "sha256": "6a9d83082819e7697bd3482961473ba2daf74867118faee8138a87093e84be25",
+              "size": 433804
+            },
+            "rcs_20200830_spu_12_532nm_AN_30km.webp": {
+              "key": "spu/2020/08/20200830/rcs_20200830_spu_12_532nm_AN_30km.webp",
+              "sha256": "2b8b9ec652d45caf3a4258a5fab37a0cd787a98e26bc22a15649dbdd8dbeaed0",
+              "size": 415538
+            },
+            "rcs_20200830_spu_12_532nm_AN_5km.webp": {
+              "key": "spu/2020/08/20200830/rcs_20200830_spu_12_532nm_AN_5km.webp",
+              "sha256": "1b1fc0cd2778ffcef558988bebd7c7bc0e3c895435108bc7dd6ed9acb11fd56b",
+              "size": 279662
+            },
+            "rcs_20200830_spu_12_532nm_PC_15km.webp": {
+              "key": "spu/2020/08/20200830/rcs_20200830_spu_12_532nm_PC_15km.webp",
+              "sha256": "d1f6efb750496a935c08b06390eb5c49c2aaa031e09030ba9410aeeb7d546f43",
+              "size": 428252
+            },
+            "rcs_20200830_spu_12_532nm_PC_30km.webp": {
+              "key": "spu/2020/08/20200830/rcs_20200830_spu_12_532nm_PC_30km.webp",
+              "sha256": "a65ac2211a11d0f5f5eccecedf140fbbca6746066a673e2de4e7df7f832f0a4b",
+              "size": 432566
+            },
+            "rcs_20200830_spu_12_532nm_PC_5km.webp": {
+              "key": "spu/2020/08/20200830/rcs_20200830_spu_12_532nm_PC_5km.webp",
+              "sha256": "798a7da5014b636ade206a60d6095a263568938ba8ee78c96606132ffc0a90aa",
+              "size": 280138
+            }
+          },
+          "publication_window_id": "20200830_spu_12",
+          "r2_bucket": "spu-ql",
+          "scientific_netcdf_split": false,
+          "scientific_sessions_merged": false,
+          "source_fingerprint": "86503dce11a23113375d341dcd02c2c2d06d98189fea774f552e0d6c021e6bc6",
+          "source_level1_files": [
+            "spu_20200830-1115Z_20200830-2320Z_L1.nc"
+          ],
+          "source_level2_files": [],
+          "source_sessions": [
+            "spu_20200830-1115Z_20200830-2320Z"
+          ],
+          "visualization_only_session_concatenation": false
+        },
+        "18": {
+          "assets": {
+            "rcs_20200830_spu_18_1064nm_AN_15km.webp": {
+              "key": "spu/2020/08/20200830/rcs_20200830_spu_18_1064nm_AN_15km.webp",
+              "sha256": "a206314aacc659ce60328a2d9c5bd38234275e38aa042572414fbdb15ce34f6c",
+              "size": 177084
+            },
+            "rcs_20200830_spu_18_1064nm_AN_30km.webp": {
+              "key": "spu/2020/08/20200830/rcs_20200830_spu_18_1064nm_AN_30km.webp",
+              "sha256": "3f36c5d599e9411759242e4a64a1941e42dd2829f3b6ff3c6da9deda934e3cde",
+              "size": 172148
+            },
+            "rcs_20200830_spu_18_1064nm_AN_5km.webp": {
+              "key": "spu/2020/08/20200830/rcs_20200830_spu_18_1064nm_AN_5km.webp",
+              "sha256": "3630273ddf136813ad73d3fdca51e8c2324238846ea35aa9e8cd5f108ce321d6",
+              "size": 129726
+            },
+            "rcs_20200830_spu_18_355nm_AN_15km.webp": {
+              "key": "spu/2020/08/20200830/rcs_20200830_spu_18_355nm_AN_15km.webp",
+              "sha256": "7f81bcc6c8a0c2640c74c3f335d5b51ea24fbcc975bf541b6796e60bea6dc1e5",
+              "size": 186326
+            },
+            "rcs_20200830_spu_18_355nm_AN_30km.webp": {
+              "key": "spu/2020/08/20200830/rcs_20200830_spu_18_355nm_AN_30km.webp",
+              "sha256": "76ac457cc9c4c553af8f3697a0fd210b5ce19d79b20d59afe70e45843821f648",
+              "size": 186696
+            },
+            "rcs_20200830_spu_18_355nm_AN_5km.webp": {
+              "key": "spu/2020/08/20200830/rcs_20200830_spu_18_355nm_AN_5km.webp",
+              "sha256": "658450dd15f700958cb838e080d5a43191e6e0e44f9aae6d12e4457dbc169143",
+              "size": 132108
+            },
+            "rcs_20200830_spu_18_355nm_PC_15km.webp": {
+              "key": "spu/2020/08/20200830/rcs_20200830_spu_18_355nm_PC_15km.webp",
+              "sha256": "9e1e123d019c765094d93b94d075434b591ca157e03270dc09c38ce23cea12ba",
+              "size": 171786
+            },
+            "rcs_20200830_spu_18_355nm_PC_30km.webp": {
+              "key": "spu/2020/08/20200830/rcs_20200830_spu_18_355nm_PC_30km.webp",
+              "sha256": "4be82e7f5f76974d7e5eac63cd3de22b4e39775bc5be1f99141c8b85d3ed0f65",
+              "size": 142492
+            },
+            "rcs_20200830_spu_18_355nm_PC_5km.webp": {
+              "key": "spu/2020/08/20200830/rcs_20200830_spu_18_355nm_PC_5km.webp",
+              "sha256": "8f07c0dc41828cdc202057b1ef7b91709bba856fdc66d22d561637f8ab21f67a",
+              "size": 146466
+            },
+            "rcs_20200830_spu_18_532nm_AN_15km.webp": {
+              "key": "spu/2020/08/20200830/rcs_20200830_spu_18_532nm_AN_15km.webp",
+              "sha256": "28a58e6d9df04e5e8eb9fa97d768f2ddd217159d42991f95386ca44ec29afaea",
+              "size": 185332
+            },
+            "rcs_20200830_spu_18_532nm_AN_30km.webp": {
+              "key": "spu/2020/08/20200830/rcs_20200830_spu_18_532nm_AN_30km.webp",
+              "sha256": "2d69bacf34be9734120aea2738ec2f85cdb56edbc0916d9b28d9778619179858",
+              "size": 190772
+            },
+            "rcs_20200830_spu_18_532nm_AN_5km.webp": {
+              "key": "spu/2020/08/20200830/rcs_20200830_spu_18_532nm_AN_5km.webp",
+              "sha256": "d42f0bbdf16b594da5d8cd55bd95f5853ab3f8a695e800f33cad13e2119ae5cf",
+              "size": 129084
+            },
+            "rcs_20200830_spu_18_532nm_PC_15km.webp": {
+              "key": "spu/2020/08/20200830/rcs_20200830_spu_18_532nm_PC_15km.webp",
+              "sha256": "69f2fe9a0bb377c13de64e20f2924d8b08fa5a9fe8ea489d581695aa6fd3bee7",
+              "size": 156240
+            },
+            "rcs_20200830_spu_18_532nm_PC_30km.webp": {
+              "key": "spu/2020/08/20200830/rcs_20200830_spu_18_532nm_PC_30km.webp",
+              "sha256": "68f098941470e073b2dee08fe705af6716bd9825ecc8f5a7ecdde2f519eab954",
+              "size": 139748
+            },
+            "rcs_20200830_spu_18_532nm_PC_5km.webp": {
+              "key": "spu/2020/08/20200830/rcs_20200830_spu_18_532nm_PC_5km.webp",
+              "sha256": "d10a08dfed63dec91f835213d9afb489c2c1d8835be4f3b78174530f76baebae",
+              "size": 136232
+            }
+          },
+          "publication_window_id": "20200830_spu_18",
+          "r2_bucket": "spu-ql",
+          "scientific_netcdf_split": false,
+          "scientific_sessions_merged": false,
+          "source_fingerprint": "474558a043422b844c39b334b1889ef2c907272bbcd88d04d8da13e2a87fb1ce",
+          "source_level1_files": [
+            "spu_20200830-1115Z_20200830-2320Z_L1.nc"
+          ],
+          "source_level2_files": [],
+          "source_sessions": [
+            "spu_20200830-1115Z_20200830-2320Z"
+          ],
+          "visualization_only_session_concatenation": false
+        }
+      }
+    },
+    "20200913": {
+      "publication_windows": {
+        "06": {
+          "assets": {
+            "rcs_20200913_spu_06_1064nm_AN_15km.webp": {
+              "key": "spu/2020/09/20200913/rcs_20200913_spu_06_1064nm_AN_15km.webp",
+              "sha256": "eb33fcb72afc38f966601a7375cc3fea7097eb451398b1bd43113a49bc19430b",
+              "size": 266640
+            },
+            "rcs_20200913_spu_06_1064nm_AN_30km.webp": {
+              "key": "spu/2020/09/20200913/rcs_20200913_spu_06_1064nm_AN_30km.webp",
+              "sha256": "e6869b71037a4bd632e327907888e9df966a4a707fce5acb85355e7a6fe27238",
+              "size": 262104
+            },
+            "rcs_20200913_spu_06_1064nm_AN_5km.webp": {
+              "key": "spu/2020/09/20200913/rcs_20200913_spu_06_1064nm_AN_5km.webp",
+              "sha256": "0255fc0df667dc1e77673b0a7a362621d78b6dff1d39af6841400926a0281bf6",
+              "size": 121670
+            },
+            "rcs_20200913_spu_06_355nm_AN_15km.webp": {
+              "key": "spu/2020/09/20200913/rcs_20200913_spu_06_355nm_AN_15km.webp",
+              "sha256": "ff02b20e6b02633d3ad1363e396067038486712574c0200f15d6992a29883f66",
+              "size": 256990
+            },
+            "rcs_20200913_spu_06_355nm_AN_30km.webp": {
+              "key": "spu/2020/09/20200913/rcs_20200913_spu_06_355nm_AN_30km.webp",
+              "sha256": "c8714fb0d8218c32d9177449e73de5e4237c3ad11faeacadd18c216bf5957e58",
+              "size": 265940
+            },
+            "rcs_20200913_spu_06_355nm_AN_5km.webp": {
+              "key": "spu/2020/09/20200913/rcs_20200913_spu_06_355nm_AN_5km.webp",
+              "sha256": "014c6113a46e57a5a2a0066e2d6645b2ce0b005bfe97cc1694a9fdf1a0deaf01",
+              "size": 142376
+            },
+            "rcs_20200913_spu_06_355nm_PC_15km.webp": {
+              "key": "spu/2020/09/20200913/rcs_20200913_spu_06_355nm_PC_15km.webp",
+              "sha256": "1e32069bcbcda6b85960c31657cd2c59856d0f6ed0edef08dbeeb988749111b7",
+              "size": 311570
+            },
+            "rcs_20200913_spu_06_355nm_PC_30km.webp": {
+              "key": "spu/2020/09/20200913/rcs_20200913_spu_06_355nm_PC_30km.webp",
+              "sha256": "f236f45bab100845477b43cbca8896ea985173a2eeb35fd3a5d19e4636175c22",
+              "size": 272198
+            },
+            "rcs_20200913_spu_06_355nm_PC_5km.webp": {
+              "key": "spu/2020/09/20200913/rcs_20200913_spu_06_355nm_PC_5km.webp",
+              "sha256": "9fcd70bffb72d1e2093c96f212db44fe9c93793b1c4e38725726f5df6c07458e",
+              "size": 220624
+            },
+            "rcs_20200913_spu_06_532nm_AN_15km.webp": {
+              "key": "spu/2020/09/20200913/rcs_20200913_spu_06_532nm_AN_15km.webp",
+              "sha256": "ddb662bbd6e3918a3840332b5d21edb34b6a97771d943a3e69326819f162d5ac",
+              "size": 253902
+            },
+            "rcs_20200913_spu_06_532nm_AN_30km.webp": {
+              "key": "spu/2020/09/20200913/rcs_20200913_spu_06_532nm_AN_30km.webp",
+              "sha256": "0a23eca9b6546abfad25c26c7d05e1470c091d7ce9fd18f5307fd30afd909e1f",
+              "size": 274342
+            },
+            "rcs_20200913_spu_06_532nm_AN_5km.webp": {
+              "key": "spu/2020/09/20200913/rcs_20200913_spu_06_532nm_AN_5km.webp",
+              "sha256": "9fffdee026475b237f5a1bf002d1420409e10c4a9bafbca5a3682e445ec763f8",
+              "size": 132564
+            },
+            "rcs_20200913_spu_06_532nm_PC_15km.webp": {
+              "key": "spu/2020/09/20200913/rcs_20200913_spu_06_532nm_PC_15km.webp",
+              "sha256": "7777ba06e1f0d898aeac0a6a2cc849981d8683cb4923fdc4fa36bde4a55e6151",
+              "size": 308868
+            },
+            "rcs_20200913_spu_06_532nm_PC_30km.webp": {
+              "key": "spu/2020/09/20200913/rcs_20200913_spu_06_532nm_PC_30km.webp",
+              "sha256": "e92b6cd7958e40552318ca4b4836bb387ed0bab0b59c32dad5bafb88ac76392e",
+              "size": 280060
+            },
+            "rcs_20200913_spu_06_532nm_PC_5km.webp": {
+              "key": "spu/2020/09/20200913/rcs_20200913_spu_06_532nm_PC_5km.webp",
+              "sha256": "1bcd44e99410a327f71f2e319310a505c0b055fe0f9c8a61dadcaefcc20d0014",
+              "size": 221216
+            }
+          },
+          "publication_window_id": "20200913_spu_06",
+          "r2_bucket": "spu-ql",
+          "scientific_netcdf_split": false,
+          "scientific_sessions_merged": false,
+          "source_fingerprint": "2effb63d6ccb550e887959025c4efae16c594167100b428d0f5e511544a39257",
+          "source_level1_files": [
+            "spu_20200913-1055Z_20200914-0020Z_L1.nc"
+          ],
+          "source_level2_files": [],
+          "source_sessions": [
+            "spu_20200913-1055Z_20200914-0020Z"
+          ],
+          "visualization_only_session_concatenation": false
+        },
+        "12": {
+          "assets": {
+            "rcs_20200913_spu_12_1064nm_AN_15km.webp": {
+              "key": "spu/2020/09/20200913/rcs_20200913_spu_12_1064nm_AN_15km.webp",
+              "sha256": "7fc16cfdcf8bc4f1ced6ebef5f0e25805565db83b4854283550c569411f86a13",
+              "size": 388996
+            },
+            "rcs_20200913_spu_12_1064nm_AN_30km.webp": {
+              "key": "spu/2020/09/20200913/rcs_20200913_spu_12_1064nm_AN_30km.webp",
+              "sha256": "bba3117e886c7ae8fe5dbcdd1b09ece11ff01263078ec143d11130bef4f4a51d",
+              "size": 364630
+            },
+            "rcs_20200913_spu_12_1064nm_AN_5km.webp": {
+              "key": "spu/2020/09/20200913/rcs_20200913_spu_12_1064nm_AN_5km.webp",
+              "sha256": "91d34cbd1de54d182faf4086776dc59c05c57d56a84dc42f51d5efe7755d092d",
+              "size": 194830
+            },
+            "rcs_20200913_spu_12_355nm_AN_15km.webp": {
+              "key": "spu/2020/09/20200913/rcs_20200913_spu_12_355nm_AN_15km.webp",
+              "sha256": "c4f3235af45b3f437a67d37f71261f7a3b4ecc306e66aff739bce9dc08a1c33c",
+              "size": 367930
+            },
+            "rcs_20200913_spu_12_355nm_AN_30km.webp": {
+              "key": "spu/2020/09/20200913/rcs_20200913_spu_12_355nm_AN_30km.webp",
+              "sha256": "c3c7e1da11cef1393a0eac7e82ed366bb1dc8a48105a7aea851d9f80e52c6821",
+              "size": 374434
+            },
+            "rcs_20200913_spu_12_355nm_AN_5km.webp": {
+              "key": "spu/2020/09/20200913/rcs_20200913_spu_12_355nm_AN_5km.webp",
+              "sha256": "c331412f9998d162d1bdbd22c39409c73286ad03cdecb90f019ebaacb1d00edf",
+              "size": 212876
+            },
+            "rcs_20200913_spu_12_355nm_PC_15km.webp": {
+              "key": "spu/2020/09/20200913/rcs_20200913_spu_12_355nm_PC_15km.webp",
+              "sha256": "7bb12ab67ef1b10b8525216d843df0f9b1022b858439a80c714de0087caca4e1",
+              "size": 424166
+            },
+            "rcs_20200913_spu_12_355nm_PC_30km.webp": {
+              "key": "spu/2020/09/20200913/rcs_20200913_spu_12_355nm_PC_30km.webp",
+              "sha256": "215bd484eb5d63d1004b550c26d9063be9644b795ab39892a09b1bc285c8e0f6",
+              "size": 371188
+            },
+            "rcs_20200913_spu_12_355nm_PC_5km.webp": {
+              "key": "spu/2020/09/20200913/rcs_20200913_spu_12_355nm_PC_5km.webp",
+              "sha256": "3807221f3e772fa361bf10ca2d9e9e86458ec373c4154952040686ca2a7cf5ee",
+              "size": 301698
+            },
+            "rcs_20200913_spu_12_532nm_AN_15km.webp": {
+              "key": "spu/2020/09/20200913/rcs_20200913_spu_12_532nm_AN_15km.webp",
+              "sha256": "9b4df3fe81a10a56283fd6cdcc13e026d7eb289930455cfb677c99548478c7e9",
+              "size": 382094
+            },
+            "rcs_20200913_spu_12_532nm_AN_30km.webp": {
+              "key": "spu/2020/09/20200913/rcs_20200913_spu_12_532nm_AN_30km.webp",
+              "sha256": "e8ff67320b32b064cf1486b68c0718ac15a77cf9d0b8fcdd9a5971c7d5b16d14",
+              "size": 383312
+            },
+            "rcs_20200913_spu_12_532nm_AN_5km.webp": {
+              "key": "spu/2020/09/20200913/rcs_20200913_spu_12_532nm_AN_5km.webp",
+              "sha256": "b4d7ec7d0bbd801a7a172d4c8daacfac68f04b316d217b56fcdab0039d707291",
+              "size": 218310
+            },
+            "rcs_20200913_spu_12_532nm_PC_15km.webp": {
+              "key": "spu/2020/09/20200913/rcs_20200913_spu_12_532nm_PC_15km.webp",
+              "sha256": "6c430738162ab120738e14ea15360a283ed8dbb0ac17d1a38b625636adde800e",
+              "size": 411390
+            },
+            "rcs_20200913_spu_12_532nm_PC_30km.webp": {
+              "key": "spu/2020/09/20200913/rcs_20200913_spu_12_532nm_PC_30km.webp",
+              "sha256": "b565cd7028182dd787e356daf4fab95d006e6fd94f4f67fae6ac468df83a7371",
+              "size": 379572
+            },
+            "rcs_20200913_spu_12_532nm_PC_5km.webp": {
+              "key": "spu/2020/09/20200913/rcs_20200913_spu_12_532nm_PC_5km.webp",
+              "sha256": "40ad1d6127faffe3e66b5f392b904b0004a85238469e1011e06d47dc1da54861",
+              "size": 280548
+            }
+          },
+          "publication_window_id": "20200913_spu_12",
+          "r2_bucket": "spu-ql",
+          "scientific_netcdf_split": false,
+          "scientific_sessions_merged": false,
+          "source_fingerprint": "401a2d1c1552717059c5f50a8f8a62861f49f2385bbd74d27687244a195c768f",
+          "source_level1_files": [
+            "spu_20200913-1055Z_20200914-0020Z_L1.nc"
+          ],
+          "source_level2_files": [],
+          "source_sessions": [
+            "spu_20200913-1055Z_20200914-0020Z"
+          ],
+          "visualization_only_session_concatenation": false
+        },
+        "18": {
+          "assets": {
+            "rcs_20200913_spu_18_1064nm_AN_15km.webp": {
+              "key": "spu/2020/09/20200913/rcs_20200913_spu_18_1064nm_AN_15km.webp",
+              "sha256": "75dcc2a197b53cf48bca3c4ed30988154c1e9167b65bf2e47d6f34db1551a907",
+              "size": 235666
+            },
+            "rcs_20200913_spu_18_1064nm_AN_30km.webp": {
+              "key": "spu/2020/09/20200913/rcs_20200913_spu_18_1064nm_AN_30km.webp",
+              "sha256": "351c908e770c3a3a60238238536bfb301ade69b4b078386258141c2dbc39cd11",
+              "size": 223262
+            },
+            "rcs_20200913_spu_18_1064nm_AN_5km.webp": {
+              "key": "spu/2020/09/20200913/rcs_20200913_spu_18_1064nm_AN_5km.webp",
+              "sha256": "7dbb4c3a3fbf2a0d938367742e2bc540c2be45a414dd6508a83e44d6861da52d",
+              "size": 131248
+            },
+            "rcs_20200913_spu_18_355nm_AN_15km.webp": {
+              "key": "spu/2020/09/20200913/rcs_20200913_spu_18_355nm_AN_15km.webp",
+              "sha256": "6efcc72faed170add84c3d23bd63d5ed17a1c7a68d21d2ac6485f10ddcb4c09b",
+              "size": 236778
+            },
+            "rcs_20200913_spu_18_355nm_AN_30km.webp": {
+              "key": "spu/2020/09/20200913/rcs_20200913_spu_18_355nm_AN_30km.webp",
+              "sha256": "275996eae063aabf1ff5e8e5b8882d631bdee98edb6157d7420749dd98001614",
+              "size": 235634
+            },
+            "rcs_20200913_spu_18_355nm_AN_5km.webp": {
+              "key": "spu/2020/09/20200913/rcs_20200913_spu_18_355nm_AN_5km.webp",
+              "sha256": "971cab2675e5bb1559a6e03456a41c94e9a122d09d94729e0339e36959deae11",
+              "size": 151278
+            },
+            "rcs_20200913_spu_18_355nm_PC_15km.webp": {
+              "key": "spu/2020/09/20200913/rcs_20200913_spu_18_355nm_PC_15km.webp",
+              "sha256": "893b3112d87d3c583fc455c97c25fc2388715206e07f7765fc7ae0f13504017f",
+              "size": 207048
+            },
+            "rcs_20200913_spu_18_355nm_PC_30km.webp": {
+              "key": "spu/2020/09/20200913/rcs_20200913_spu_18_355nm_PC_30km.webp",
+              "sha256": "24f3b4892547c196d239ec26fcddba607151cb458f3b8c301ee3129a836d6d9b",
+              "size": 169740
+            },
+            "rcs_20200913_spu_18_355nm_PC_5km.webp": {
+              "key": "spu/2020/09/20200913/rcs_20200913_spu_18_355nm_PC_5km.webp",
+              "sha256": "4951845d0d24402c7ed1bf8ae4d874496a18e432fc477b45f707f0256608c7b2",
+              "size": 189992
+            },
+            "rcs_20200913_spu_18_532nm_AN_15km.webp": {
+              "key": "spu/2020/09/20200913/rcs_20200913_spu_18_532nm_AN_15km.webp",
+              "sha256": "58886fa100dcb53241023310968819b6c98f1fac1991db98783a03b7e4ffd23e",
+              "size": 235752
+            },
+            "rcs_20200913_spu_18_532nm_AN_30km.webp": {
+              "key": "spu/2020/09/20200913/rcs_20200913_spu_18_532nm_AN_30km.webp",
+              "sha256": "b4fae0403c9ac6edc517372010d025ed5db31d6095e1770d6fb2be61cd3a00e4",
+              "size": 245588
+            },
+            "rcs_20200913_spu_18_532nm_AN_5km.webp": {
+              "key": "spu/2020/09/20200913/rcs_20200913_spu_18_532nm_AN_5km.webp",
+              "sha256": "2b16242b77a15412b1417cdcd587516bf5d444109907d86a28a953988efdaa07",
+              "size": 142248
+            },
+            "rcs_20200913_spu_18_532nm_PC_15km.webp": {
+              "key": "spu/2020/09/20200913/rcs_20200913_spu_18_532nm_PC_15km.webp",
+              "sha256": "84db9d9c1b0f5f89f5d965e8cf5fa34edc2a01b438cadf46d6456798ea4f92e0",
+              "size": 192146
+            },
+            "rcs_20200913_spu_18_532nm_PC_30km.webp": {
+              "key": "spu/2020/09/20200913/rcs_20200913_spu_18_532nm_PC_30km.webp",
+              "sha256": "51ce3a336f02b54b7405b6ddc9b859c35b13fe3d6ec256c15c215c1eb2e7363a",
+              "size": 173688
+            },
+            "rcs_20200913_spu_18_532nm_PC_5km.webp": {
+              "key": "spu/2020/09/20200913/rcs_20200913_spu_18_532nm_PC_5km.webp",
+              "sha256": "904143cfd0001de4f0fed33c2107735ad0d831117047a8658510d502b499a6c0",
+              "size": 167152
+            }
+          },
+          "publication_window_id": "20200913_spu_18",
+          "r2_bucket": "spu-ql",
+          "scientific_netcdf_split": false,
+          "scientific_sessions_merged": false,
+          "source_fingerprint": "aeea5fb2c632f90aa9b266aca6acc8fbc2326755f4f75e5a6cce7730f41a49b9",
+          "source_level1_files": [
+            "spu_20200913-1055Z_20200914-0020Z_L1.nc"
+          ],
+          "source_level2_files": [],
+          "source_sessions": [
+            "spu_20200913-1055Z_20200914-0020Z"
+          ],
+          "visualization_only_session_concatenation": false
+        }
+      }
+    },
+    "20200914": {
+      "publication_windows": {
+        "06": {
+          "assets": {
+            "rcs_20200914_spu_06_1064nm_AN_15km.webp": {
+              "key": "spu/2020/09/20200914/rcs_20200914_spu_06_1064nm_AN_15km.webp",
+              "sha256": "6a38a5047659d54b0f5da8d83cdea4af5b9e3825b47f288fca0f55b46b12f80f",
+              "size": 221674
+            },
+            "rcs_20200914_spu_06_1064nm_AN_30km.webp": {
+              "key": "spu/2020/09/20200914/rcs_20200914_spu_06_1064nm_AN_30km.webp",
+              "sha256": "c94c75c134d549f810ac0f2175cfd38a1e415bffd16e341db4c206f91e4d31de",
+              "size": 224462
+            },
+            "rcs_20200914_spu_06_1064nm_AN_5km.webp": {
+              "key": "spu/2020/09/20200914/rcs_20200914_spu_06_1064nm_AN_5km.webp",
+              "sha256": "86c0fab4e844d76eee0179564ba8f684bca91b41aec3187e44daec0b3beff8c8",
+              "size": 95746
+            },
+            "rcs_20200914_spu_06_355nm_AN_15km.webp": {
+              "key": "spu/2020/09/20200914/rcs_20200914_spu_06_355nm_AN_15km.webp",
+              "sha256": "acc3803ef89b58191f2e78fb1f0e1085412381c18ac3bc4b288bb213cc214746",
+              "size": 200762
+            },
+            "rcs_20200914_spu_06_355nm_AN_30km.webp": {
+              "key": "spu/2020/09/20200914/rcs_20200914_spu_06_355nm_AN_30km.webp",
+              "sha256": "a1491b553bd8045e0b6ba67972347ff3ac6f911d1c492f08a199e24f4e6a81bf",
+              "size": 227984
+            },
+            "rcs_20200914_spu_06_355nm_AN_5km.webp": {
+              "key": "spu/2020/09/20200914/rcs_20200914_spu_06_355nm_AN_5km.webp",
+              "sha256": "7e7ee33553902a355202bb9b97f30d6a3e7623763ae02b21e57b75ffc54462dd",
+              "size": 108612
+            },
+            "rcs_20200914_spu_06_355nm_PC_15km.webp": {
+              "key": "spu/2020/09/20200914/rcs_20200914_spu_06_355nm_PC_15km.webp",
+              "sha256": "86928ea4f1e2bfb4dd0b34472f9f5dcd2fbbe564e50c94c764e009dc8f2d425a",
+              "size": 250444
+            },
+            "rcs_20200914_spu_06_355nm_PC_30km.webp": {
+              "key": "spu/2020/09/20200914/rcs_20200914_spu_06_355nm_PC_30km.webp",
+              "sha256": "7d84ebfba32c2dbf77a29749c506392e6394b8ee853658adc4662bfd083c2675",
+              "size": 231640
+            },
+            "rcs_20200914_spu_06_355nm_PC_5km.webp": {
+              "key": "spu/2020/09/20200914/rcs_20200914_spu_06_355nm_PC_5km.webp",
+              "sha256": "b8d18d65e8ba062aeb3e821c090bf6b4c7878812606b5c206705ad362cca946f",
+              "size": 173428
+            },
+            "rcs_20200914_spu_06_532nm_AN_15km.webp": {
+              "key": "spu/2020/09/20200914/rcs_20200914_spu_06_532nm_AN_15km.webp",
+              "sha256": "c2f1fd8a8ad9fee636c1705f286929b044be3ba21c546dd08fd20360b501b4e2",
+              "size": 206118
+            },
+            "rcs_20200914_spu_06_532nm_AN_30km.webp": {
+              "key": "spu/2020/09/20200914/rcs_20200914_spu_06_532nm_AN_30km.webp",
+              "sha256": "46742e82bfa03431780bfcd33a33cd9401662636cff803901813778440307b62",
+              "size": 239110
+            },
+            "rcs_20200914_spu_06_532nm_AN_5km.webp": {
+              "key": "spu/2020/09/20200914/rcs_20200914_spu_06_532nm_AN_5km.webp",
+              "sha256": "d6f14b7e783510fd2fc086afd8f82824a4a14770cc7fddd43b226d377bd6089f",
+              "size": 113464
+            },
+            "rcs_20200914_spu_06_532nm_PC_15km.webp": {
+              "key": "spu/2020/09/20200914/rcs_20200914_spu_06_532nm_PC_15km.webp",
+              "sha256": "3180da4f5e3238d0e14e1ba6423637cc3ed16f7b9ef4626bd6409cc4c38b07c0",
+              "size": 232676
+            },
+            "rcs_20200914_spu_06_532nm_PC_30km.webp": {
+              "key": "spu/2020/09/20200914/rcs_20200914_spu_06_532nm_PC_30km.webp",
+              "sha256": "bfa41e8b9ef2e724405a0aee0b738a75b46d80cb4a4a12d896c7d02212846135",
+              "size": 241984
+            },
+            "rcs_20200914_spu_06_532nm_PC_5km.webp": {
+              "key": "spu/2020/09/20200914/rcs_20200914_spu_06_532nm_PC_5km.webp",
+              "sha256": "8686d8859f746d143a20795349e14b03c195a91a7bd4e93fb96df4a4d08261d0",
+              "size": 154504
+            }
+          },
+          "publication_window_id": "20200914_spu_06",
+          "r2_bucket": "spu-ql",
+          "scientific_netcdf_split": false,
+          "scientific_sessions_merged": false,
+          "source_fingerprint": "b487c9e8e43e074d41dcc5a0e0ca00dea8df58ecf5838986847c678cd8f90e11",
+          "source_level1_files": [
+            "spu_20200914-1142Z_20200914-2218Z_L1.nc"
+          ],
+          "source_level2_files": [],
+          "source_sessions": [
+            "spu_20200914-1142Z_20200914-2218Z"
+          ],
+          "visualization_only_session_concatenation": false
+        },
+        "12": {
+          "assets": {
+            "rcs_20200914_spu_12_1064nm_AN_15km.webp": {
+              "key": "spu/2020/09/20200914/rcs_20200914_spu_12_1064nm_AN_15km.webp",
+              "sha256": "2a37a2974645d7af9099dcd920e0bc6d4189d2aab73af78eb4f4708d14e78903",
+              "size": 315052
+            },
+            "rcs_20200914_spu_12_1064nm_AN_30km.webp": {
+              "key": "spu/2020/09/20200914/rcs_20200914_spu_12_1064nm_AN_30km.webp",
+              "sha256": "3d747896ed574a52d7388161a1bcbbf2e7b6f4d797499753d92efab1534966a4",
+              "size": 363000
+            },
+            "rcs_20200914_spu_12_1064nm_AN_5km.webp": {
+              "key": "spu/2020/09/20200914/rcs_20200914_spu_12_1064nm_AN_5km.webp",
+              "sha256": "ec93cf554492d165a9c18fd97a9f6872d583655eea497e1ef246920da92f7576",
+              "size": 127550
+            },
+            "rcs_20200914_spu_12_355nm_AN_15km.webp": {
+              "key": "spu/2020/09/20200914/rcs_20200914_spu_12_355nm_AN_15km.webp",
+              "sha256": "460fce4a357ce3677bce988aeeef6879fc6a749892b019362c9ef706f2145253",
+              "size": 288640
+            },
+            "rcs_20200914_spu_12_355nm_AN_30km.webp": {
+              "key": "spu/2020/09/20200914/rcs_20200914_spu_12_355nm_AN_30km.webp",
+              "sha256": "b4a570020bc4853ad7d6ed22d96757ad99425d8cb874cfbfcdca718254f72183",
+              "size": 370724
+            },
+            "rcs_20200914_spu_12_355nm_AN_5km.webp": {
+              "key": "spu/2020/09/20200914/rcs_20200914_spu_12_355nm_AN_5km.webp",
+              "sha256": "489091180430831524a9042bcd8aa0548c772833d060f63eb3272988d6321cd0",
+              "size": 140880
+            },
+            "rcs_20200914_spu_12_355nm_PC_15km.webp": {
+              "key": "spu/2020/09/20200914/rcs_20200914_spu_12_355nm_PC_15km.webp",
+              "sha256": "750e35f099e97a0cca53babaa4ba6f5d2bfe69a4546c06b895e9a06586e83557",
+              "size": 374180
+            },
+            "rcs_20200914_spu_12_355nm_PC_30km.webp": {
+              "key": "spu/2020/09/20200914/rcs_20200914_spu_12_355nm_PC_30km.webp",
+              "sha256": "31e4c40db9e7e50f1b3c0971e8c25240824ec0b6f544182cb20359d3b833934a",
+              "size": 369024
+            },
+            "rcs_20200914_spu_12_355nm_PC_5km.webp": {
+              "key": "spu/2020/09/20200914/rcs_20200914_spu_12_355nm_PC_5km.webp",
+              "sha256": "84a32a2dd57645849fec9c3a60acb8f3272bbbd995e3ec78f714e819fdd0ebb9",
+              "size": 243008
+            },
+            "rcs_20200914_spu_12_532nm_AN_15km.webp": {
+              "key": "spu/2020/09/20200914/rcs_20200914_spu_12_532nm_AN_15km.webp",
+              "sha256": "453b73cda4a1995d0ef8b8ef647a593568270fe689d1375a66de37445a7273e9",
+              "size": 257846
+            },
+            "rcs_20200914_spu_12_532nm_AN_30km.webp": {
+              "key": "spu/2020/09/20200914/rcs_20200914_spu_12_532nm_AN_30km.webp",
+              "sha256": "35cbfc1dd5912abf4edf5c8556214daa7c21db2bd02a92672b00a6f09bb6fd67",
+              "size": 380402
+            },
+            "rcs_20200914_spu_12_532nm_AN_5km.webp": {
+              "key": "spu/2020/09/20200914/rcs_20200914_spu_12_532nm_AN_5km.webp",
+              "sha256": "0ce4c90b666dfc99f0137c5349925101e6e40e1fc91eeb89b5db92e7a18f398e",
+              "size": 120972
+            },
+            "rcs_20200914_spu_12_532nm_PC_15km.webp": {
+              "key": "spu/2020/09/20200914/rcs_20200914_spu_12_532nm_PC_15km.webp",
+              "sha256": "990b25ec0575d645f504ea6e6e543ff27efe2d6c5b2186c9ab10d2a85a3edd5a",
+              "size": 326850
+            },
+            "rcs_20200914_spu_12_532nm_PC_30km.webp": {
+              "key": "spu/2020/09/20200914/rcs_20200914_spu_12_532nm_PC_30km.webp",
+              "sha256": "04c9b396ed2489fa20d44c70e9939df31a4b06b6d9d550ac0344fcda2f798188",
+              "size": 383442
+            },
+            "rcs_20200914_spu_12_532nm_PC_5km.webp": {
+              "key": "spu/2020/09/20200914/rcs_20200914_spu_12_532nm_PC_5km.webp",
+              "sha256": "4bc5c51e4630ed083759ed86802e125879f23e243d1c8e232b49ead2b4c83759",
+              "size": 209510
+            }
+          },
+          "publication_window_id": "20200914_spu_12",
+          "r2_bucket": "spu-ql",
+          "scientific_netcdf_split": false,
+          "scientific_sessions_merged": false,
+          "source_fingerprint": "aeb39163e5c9bbb9bf1a76561c41b574d609c6ff861fba15b9b49871139f41d1",
+          "source_level1_files": [
+            "spu_20200914-1142Z_20200914-2218Z_L1.nc"
+          ],
+          "source_level2_files": [],
+          "source_sessions": [
+            "spu_20200914-1142Z_20200914-2218Z"
+          ],
+          "visualization_only_session_concatenation": false
+        },
+        "18": {
+          "assets": {
+            "rcs_20200914_spu_18_1064nm_AN_15km.webp": {
+              "key": "spu/2020/09/20200914/rcs_20200914_spu_18_1064nm_AN_15km.webp",
+              "sha256": "a72e8ec0088740538fa4fc7feb5311aec7966b23e64322ac8ffbb32e9e57066d",
+              "size": 71502
+            },
+            "rcs_20200914_spu_18_1064nm_AN_30km.webp": {
+              "key": "spu/2020/09/20200914/rcs_20200914_spu_18_1064nm_AN_30km.webp",
+              "sha256": "fa29de5adf3d123dfe031be9ae6be8817982a1c748934601b3b46f392ec1104e",
+              "size": 112994
+            },
+            "rcs_20200914_spu_18_1064nm_AN_5km.webp": {
+              "key": "spu/2020/09/20200914/rcs_20200914_spu_18_1064nm_AN_5km.webp",
+              "sha256": "e8edcb90a4f7506bd38fb88d5fff0ce6b76745fbfd83cd961011d1cff623dc47",
+              "size": 54342
+            },
+            "rcs_20200914_spu_18_355nm_AN_15km.webp": {
+              "key": "spu/2020/09/20200914/rcs_20200914_spu_18_355nm_AN_15km.webp",
+              "sha256": "187e75319e2765d7158cb54a7e6b00a110ebb46d04ef41eee2994107441d25fe",
+              "size": 81890
+            },
+            "rcs_20200914_spu_18_355nm_AN_30km.webp": {
+              "key": "spu/2020/09/20200914/rcs_20200914_spu_18_355nm_AN_30km.webp",
+              "sha256": "b9ddb809670a7804e3bb3bccea21ddad37c2a5d23c46e1b22721149dc9d56f86",
+              "size": 116190
+            },
+            "rcs_20200914_spu_18_355nm_AN_5km.webp": {
+              "key": "spu/2020/09/20200914/rcs_20200914_spu_18_355nm_AN_5km.webp",
+              "sha256": "19ceb9d527eca3aa109cb1cf74170ad66587b1b76bb30481a8666a2c7c365763",
+              "size": 55884
+            },
+            "rcs_20200914_spu_18_355nm_PC_15km.webp": {
+              "key": "spu/2020/09/20200914/rcs_20200914_spu_18_355nm_PC_15km.webp",
+              "sha256": "2f17085a72887c9e29fa295985fe5a2d271e901ace810d286ecd352b3d2d2bc7",
+              "size": 72540
+            },
+            "rcs_20200914_spu_18_355nm_PC_30km.webp": {
+              "key": "spu/2020/09/20200914/rcs_20200914_spu_18_355nm_PC_30km.webp",
+              "sha256": "365c7cf1cb180f67c4d5901322edf764fd6ad258ef701df163d4d128cdec59b4",
+              "size": 70150
+            },
+            "rcs_20200914_spu_18_355nm_PC_5km.webp": {
+              "key": "spu/2020/09/20200914/rcs_20200914_spu_18_355nm_PC_5km.webp",
+              "sha256": "c55ac5b053f07fb1d5fb8c9df5c353b8dde75978eb00fa28990ab71e5612ecb8",
+              "size": 72930
+            },
+            "rcs_20200914_spu_18_532nm_AN_15km.webp": {
+              "key": "spu/2020/09/20200914/rcs_20200914_spu_18_532nm_AN_15km.webp",
+              "sha256": "c5f18ee5c91a684f2f7979dd58efeab494437f71c4099f18de57e55658c5d80c",
+              "size": 65648
+            },
+            "rcs_20200914_spu_18_532nm_AN_30km.webp": {
+              "key": "spu/2020/09/20200914/rcs_20200914_spu_18_532nm_AN_30km.webp",
+              "sha256": "a79cc2cfbeb3c5402ce77d07fce40a7503ffebadc30038f373d3ae5d12d5c711",
+              "size": 105814
+            },
+            "rcs_20200914_spu_18_532nm_AN_5km.webp": {
+              "key": "spu/2020/09/20200914/rcs_20200914_spu_18_532nm_AN_5km.webp",
+              "sha256": "46020bbc61e08171ca416df1d8f571ddb262e57405528060d6399acec09244fa",
+              "size": 50840
+            },
+            "rcs_20200914_spu_18_532nm_PC_15km.webp": {
+              "key": "spu/2020/09/20200914/rcs_20200914_spu_18_532nm_PC_15km.webp",
+              "sha256": "c455fd29db60e56835f455a115fbdcf243f1930e30bc1527465e1267d351ee49",
+              "size": 58722
+            },
+            "rcs_20200914_spu_18_532nm_PC_30km.webp": {
+              "key": "spu/2020/09/20200914/rcs_20200914_spu_18_532nm_PC_30km.webp",
+              "sha256": "69c9a3113ad38a71035da05f5821911c5d0a4c3003bbeeff9eb3a063a3aad0c5",
+              "size": 61668
+            },
+            "rcs_20200914_spu_18_532nm_PC_5km.webp": {
+              "key": "spu/2020/09/20200914/rcs_20200914_spu_18_532nm_PC_5km.webp",
+              "sha256": "636bf8f38a121c45c78c31d4fa77ff80e3ae6df369eae06ece1e6520a0f148a2",
+              "size": 67404
+            }
+          },
+          "publication_window_id": "20200914_spu_18",
+          "r2_bucket": "spu-ql",
+          "scientific_netcdf_split": false,
+          "scientific_sessions_merged": false,
+          "source_fingerprint": "26a480aba4e3d38c032dc48de2347c3391a18524e7a8ab13ae69b54cb482e14a",
+          "source_level1_files": [
+            "spu_20200914-1142Z_20200914-2218Z_L1.nc"
+          ],
+          "source_level2_files": [],
+          "source_sessions": [
+            "spu_20200914-1142Z_20200914-2218Z"
+          ],
+          "visualization_only_session_concatenation": false
+        }
+      }
+    },
+    "20200916": {
+      "publication_windows": {
+        "06": {
+          "assets": {
+            "rcs_20200916_spu_06_1064nm_AN_15km.webp": {
+              "key": "spu/2020/09/20200916/rcs_20200916_spu_06_1064nm_AN_15km.webp",
+              "sha256": "57e627138b3d5e79491cb396d71c1847f3c6fed023bfb01e1badcab38d8329ad",
+              "size": 280978
+            },
+            "rcs_20200916_spu_06_1064nm_AN_30km.webp": {
+              "key": "spu/2020/09/20200916/rcs_20200916_spu_06_1064nm_AN_30km.webp",
+              "sha256": "7d72b5f2c5aca5d7a4a19578d4f12da3e1b9e4aadedb7470544e642130618baf",
+              "size": 279790
+            },
+            "rcs_20200916_spu_06_1064nm_AN_5km.webp": {
+              "key": "spu/2020/09/20200916/rcs_20200916_spu_06_1064nm_AN_5km.webp",
+              "sha256": "600e32fad2d37c8a447995b1b10fe22d7227566b3ccacc74fc34620c097ebcdd",
+              "size": 162184
+            },
+            "rcs_20200916_spu_06_355nm_AN_15km.webp": {
+              "key": "spu/2020/09/20200916/rcs_20200916_spu_06_355nm_AN_15km.webp",
+              "sha256": "d4d316757081b3394aa48f339f8d7775599079d990d20c1a024dfd697d93d24c",
+              "size": 285632
+            },
+            "rcs_20200916_spu_06_355nm_AN_30km.webp": {
+              "key": "spu/2020/09/20200916/rcs_20200916_spu_06_355nm_AN_30km.webp",
+              "sha256": "d46c1cef6be931fda9ba71f3becffc9b77fbec6eca1895e76dc583664377cdc5",
+              "size": 280814
+            },
+            "rcs_20200916_spu_06_355nm_AN_5km.webp": {
+              "key": "spu/2020/09/20200916/rcs_20200916_spu_06_355nm_AN_5km.webp",
+              "sha256": "dbed0fc8cbc640f39352e443dde1ffaa83bcf84f9b52abccd26bbaaf95e0d956",
+              "size": 152418
+            },
+            "rcs_20200916_spu_06_355nm_PC_15km.webp": {
+              "key": "spu/2020/09/20200916/rcs_20200916_spu_06_355nm_PC_15km.webp",
+              "sha256": "aec01d6fb35ee57c2d9254f32ab6a77740ed9502bb863f5a2d881990ce4c08c3",
+              "size": 330420
+            },
+            "rcs_20200916_spu_06_355nm_PC_30km.webp": {
+              "key": "spu/2020/09/20200916/rcs_20200916_spu_06_355nm_PC_30km.webp",
+              "sha256": "7d3e827ed195bef27c82cca8b9ffe4ddd9fec0db628610c946a8ecd6d1fdce15",
+              "size": 284040
+            },
+            "rcs_20200916_spu_06_355nm_PC_5km.webp": {
+              "key": "spu/2020/09/20200916/rcs_20200916_spu_06_355nm_PC_5km.webp",
+              "sha256": "528d4d95ad7d475082c42c9462a6dd919fb719424a98d670ced716cdd91a45f5",
+              "size": 236922
+            },
+            "rcs_20200916_spu_06_532nm_AN_15km.webp": {
+              "key": "spu/2020/09/20200916/rcs_20200916_spu_06_532nm_AN_15km.webp",
+              "sha256": "c9406d064bc1c4d0d677cd2b04f3480ffa73830453b6480ba565d238b3966d58",
+              "size": 297282
+            },
+            "rcs_20200916_spu_06_532nm_AN_30km.webp": {
+              "key": "spu/2020/09/20200916/rcs_20200916_spu_06_532nm_AN_30km.webp",
+              "sha256": "6419dbd5013dab821d0eda333b727f21bdc2a422382769abadfe47cf0a05ca57",
+              "size": 293508
+            },
+            "rcs_20200916_spu_06_532nm_AN_5km.webp": {
+              "key": "spu/2020/09/20200916/rcs_20200916_spu_06_532nm_AN_5km.webp",
+              "sha256": "827d382f064c33266eb8ae8b7f0b91605994b425e644d517fd9f849842d91723",
+              "size": 162240
+            },
+            "rcs_20200916_spu_06_532nm_PC_15km.webp": {
+              "key": "spu/2020/09/20200916/rcs_20200916_spu_06_532nm_PC_15km.webp",
+              "sha256": "f968b664a98c912fe9cc4b0e9d62aee59834a0a80ed7813a37f14f0ce6fc8f7d",
+              "size": 316738
+            },
+            "rcs_20200916_spu_06_532nm_PC_30km.webp": {
+              "key": "spu/2020/09/20200916/rcs_20200916_spu_06_532nm_PC_30km.webp",
+              "sha256": "1f2990959ae0bcb6e71b7735ebdec1a82e50223a25cdd864239c0f08ecb60f56",
+              "size": 294884
+            },
+            "rcs_20200916_spu_06_532nm_PC_5km.webp": {
+              "key": "spu/2020/09/20200916/rcs_20200916_spu_06_532nm_PC_5km.webp",
+              "sha256": "a213e714a1315d2f2e8f05651cb1c17464434dae8faaa695e7a75e51843f967f",
+              "size": 206146
+            }
+          },
+          "publication_window_id": "20200916_spu_06",
+          "r2_bucket": "spu-ql",
+          "scientific_netcdf_split": false,
+          "scientific_sessions_merged": false,
+          "source_fingerprint": "464ad7114e1e07947c7b0194d6027ed32525cce5187170fcd5aee76bc21cfd39",
+          "source_level1_files": [
+            "spu_20200916-1038Z_20200916-1943Z_L1.nc"
+          ],
+          "source_level2_files": [],
+          "source_sessions": [
+            "spu_20200916-1038Z_20200916-1943Z"
+          ],
+          "visualization_only_session_concatenation": false
+        },
+        "12": {
+          "assets": {
+            "rcs_20200916_spu_12_1064nm_AN_15km.webp": {
+              "key": "spu/2020/09/20200916/rcs_20200916_spu_12_1064nm_AN_15km.webp",
+              "sha256": "71e32bedd6fd5d59ee44d0a00220dfe84faa93da3f00fb5445076f82409496ea",
+              "size": 258320
+            },
+            "rcs_20200916_spu_12_1064nm_AN_30km.webp": {
+              "key": "spu/2020/09/20200916/rcs_20200916_spu_12_1064nm_AN_30km.webp",
+              "sha256": "a54c5d327888b2236990c7338900e72401867ad6133a9544e0d148a733af78cd",
+              "size": 299982
+            },
+            "rcs_20200916_spu_12_1064nm_AN_5km.webp": {
+              "key": "spu/2020/09/20200916/rcs_20200916_spu_12_1064nm_AN_5km.webp",
+              "sha256": "cbb97ff38e2af4bd5d8c432cc91ad415b5d176e53de0a690dd460a518b360831",
+              "size": 143692
+            },
+            "rcs_20200916_spu_12_355nm_AN_15km.webp": {
+              "key": "spu/2020/09/20200916/rcs_20200916_spu_12_355nm_AN_15km.webp",
+              "sha256": "15ad41dc3c171d82205666127efa2a8dcc06d98762e2a50c143604d734626993",
+              "size": 281474
+            },
+            "rcs_20200916_spu_12_355nm_AN_30km.webp": {
+              "key": "spu/2020/09/20200916/rcs_20200916_spu_12_355nm_AN_30km.webp",
+              "sha256": "4ba35c1a58954d27442fdf630b5217e4ecd99a6dd54164c73d5e0fbdb63ce807",
+              "size": 294194
+            },
+            "rcs_20200916_spu_12_355nm_AN_5km.webp": {
+              "key": "spu/2020/09/20200916/rcs_20200916_spu_12_355nm_AN_5km.webp",
+              "sha256": "17ffc59f60b411251503b25edbd3f5afe51e13077eab92df6341eb7395babb48",
+              "size": 123724
+            },
+            "rcs_20200916_spu_12_355nm_PC_15km.webp": {
+              "key": "spu/2020/09/20200916/rcs_20200916_spu_12_355nm_PC_15km.webp",
+              "sha256": "8e9f64a189779ae28a4608eb48e27e17a3073537fde81de9eb7730c77c50e3d5",
+              "size": 319252
+            },
+            "rcs_20200916_spu_12_355nm_PC_30km.webp": {
+              "key": "spu/2020/09/20200916/rcs_20200916_spu_12_355nm_PC_30km.webp",
+              "sha256": "fa13f0380f9ed6a74da86365f0b35ce0c635dd1024784b431dd20eb89fc58612",
+              "size": 299670
+            },
+            "rcs_20200916_spu_12_355nm_PC_5km.webp": {
+              "key": "spu/2020/09/20200916/rcs_20200916_spu_12_355nm_PC_5km.webp",
+              "sha256": "70f17e3ba5c1ad134a2195b94811a4f067fb6a148e0118952b3251d90ee6586b",
+              "size": 196224
+            },
+            "rcs_20200916_spu_12_532nm_AN_15km.webp": {
+              "key": "spu/2020/09/20200916/rcs_20200916_spu_12_532nm_AN_15km.webp",
+              "sha256": "9a45da4f03983bd1e5a9b10a3d7ee41800a8bb76805ec5bf7f25554023801d32",
+              "size": 262682
+            },
+            "rcs_20200916_spu_12_532nm_AN_30km.webp": {
+              "key": "spu/2020/09/20200916/rcs_20200916_spu_12_532nm_AN_30km.webp",
+              "sha256": "1aea9c1ecd3a89f9125c334de1a8bafdbad96329d045f12a5db70e1f18aeb0b0",
+              "size": 308310
+            },
+            "rcs_20200916_spu_12_532nm_AN_5km.webp": {
+              "key": "spu/2020/09/20200916/rcs_20200916_spu_12_532nm_AN_5km.webp",
+              "sha256": "8d7fc59e1a06a9ecf1637bfc6ddf1f107957e6184eee3579a5feef7b13e7ebe8",
+              "size": 125026
+            },
+            "rcs_20200916_spu_12_532nm_PC_15km.webp": {
+              "key": "spu/2020/09/20200916/rcs_20200916_spu_12_532nm_PC_15km.webp",
+              "sha256": "baf203bcef688258ccb02d0093640b1d2284d9d3219223e9f897d0f78a840aa9",
+              "size": 288300
+            },
+            "rcs_20200916_spu_12_532nm_PC_30km.webp": {
+              "key": "spu/2020/09/20200916/rcs_20200916_spu_12_532nm_PC_30km.webp",
+              "sha256": "747f05b9d07260ffaccea64a141b90d1bc37523888650edf2a2f5de310aa3b42",
+              "size": 305770
+            },
+            "rcs_20200916_spu_12_532nm_PC_5km.webp": {
+              "key": "spu/2020/09/20200916/rcs_20200916_spu_12_532nm_PC_5km.webp",
+              "sha256": "7d8a26fe722720824ed8580f0433ea9ddf8e7b8482b10ec56258b119f0bda6e0",
+              "size": 164532
+            }
+          },
+          "publication_window_id": "20200916_spu_12",
+          "r2_bucket": "spu-ql",
+          "scientific_netcdf_split": false,
+          "scientific_sessions_merged": false,
+          "source_fingerprint": "75d73825b584bb46bdb9636f02c33bf08a4b25dd7fe6ec006fe034420be1eb3c",
+          "source_level1_files": [
+            "spu_20200916-1038Z_20200916-1943Z_L1.nc"
+          ],
+          "source_level2_files": [],
+          "source_sessions": [
+            "spu_20200916-1038Z_20200916-1943Z"
+          ],
+          "visualization_only_session_concatenation": false
+        }
+      }
+    },
+    "20200917": {
+      "publication_windows": {
+        "06": {
+          "assets": {
+            "rcs_20200917_spu_06_1064nm_AN_15km.webp": {
+              "key": "spu/2020/09/20200917/rcs_20200917_spu_06_1064nm_AN_15km.webp",
+              "sha256": "0a97087027de43933d823619c1561f58c79f51fe92b54ffe70447c6656ac296d",
+              "size": 255884
+            },
+            "rcs_20200917_spu_06_1064nm_AN_30km.webp": {
+              "key": "spu/2020/09/20200917/rcs_20200917_spu_06_1064nm_AN_30km.webp",
+              "sha256": "0250af5b0037c5bc1c9035d7d014e51d8736c10df704a01232e15cd481ee7812",
+              "size": 260222
+            },
+            "rcs_20200917_spu_06_1064nm_AN_5km.webp": {
+              "key": "spu/2020/09/20200917/rcs_20200917_spu_06_1064nm_AN_5km.webp",
+              "sha256": "6b4ee79fa6acc15db06d3cdce314aa50b6dd60f06d99eee270db08ac96a495db",
+              "size": 119752
+            },
+            "rcs_20200917_spu_06_355nm_AN_15km.webp": {
+              "key": "spu/2020/09/20200917/rcs_20200917_spu_06_355nm_AN_15km.webp",
+              "sha256": "e61e74dce727e3c9b5399dfdbd957c34bb4bdfeae51ce788b9e38cfce6329220",
+              "size": 250194
+            },
+            "rcs_20200917_spu_06_355nm_AN_30km.webp": {
+              "key": "spu/2020/09/20200917/rcs_20200917_spu_06_355nm_AN_30km.webp",
+              "sha256": "7ac2055637fce83ac6042ed2964827a727b5aa897f6c8551be26ef1373e3efa6",
+              "size": 276176
+            },
+            "rcs_20200917_spu_06_355nm_AN_5km.webp": {
+              "key": "spu/2020/09/20200917/rcs_20200917_spu_06_355nm_AN_5km.webp",
+              "sha256": "c6e3e6e8d042e87cc2028477e639236ce7cd24924eabead3c4b2c7d2303295d0",
+              "size": 147488
+            },
+            "rcs_20200917_spu_06_355nm_PC_15km.webp": {
+              "key": "spu/2020/09/20200917/rcs_20200917_spu_06_355nm_PC_15km.webp",
+              "sha256": "1c07857d59bf1ba8851a43fe06ac24ad8721e2296e133ea81cfb983fe7aac774",
+              "size": 304978
+            },
+            "rcs_20200917_spu_06_355nm_PC_30km.webp": {
+              "key": "spu/2020/09/20200917/rcs_20200917_spu_06_355nm_PC_30km.webp",
+              "sha256": "e2919f7cce21aa3ad15ac4c84fe90fd3a3ed8a78982cd5ace389836d7d6990e2",
+              "size": 283288
+            },
+            "rcs_20200917_spu_06_355nm_PC_5km.webp": {
+              "key": "spu/2020/09/20200917/rcs_20200917_spu_06_355nm_PC_5km.webp",
+              "sha256": "7961c29ba5bf4849543b644b9755cb852f95ca94a1b09a2e921c6d7a1cd9ede0",
+              "size": 211050
+            },
+            "rcs_20200917_spu_06_532nm_AN_15km.webp": {
+              "key": "spu/2020/09/20200917/rcs_20200917_spu_06_532nm_AN_15km.webp",
+              "sha256": "f2fc3e5f3eebe9c0e48c812e4786f87db683f528b6325443ffe91dfab947bf19",
+              "size": 222594
+            },
+            "rcs_20200917_spu_06_532nm_AN_30km.webp": {
+              "key": "spu/2020/09/20200917/rcs_20200917_spu_06_532nm_AN_30km.webp",
+              "sha256": "f7711804379a16e3d205b8e73feae043ffa53766e67db8fd30310f631e54d4ee",
+              "size": 287544
+            },
+            "rcs_20200917_spu_06_532nm_AN_5km.webp": {
+              "key": "spu/2020/09/20200917/rcs_20200917_spu_06_532nm_AN_5km.webp",
+              "sha256": "ffc54847a25993fa786294bd9279c79a48763451dc0995492c02465ec5c1e209",
+              "size": 124920
+            },
+            "rcs_20200917_spu_06_532nm_PC_15km.webp": {
+              "key": "spu/2020/09/20200917/rcs_20200917_spu_06_532nm_PC_15km.webp",
+              "sha256": "6a93b4955ebea0e654f932450b9f377d0f1a9dff6743ab846c61557d125bde37",
+              "size": 291942
+            },
+            "rcs_20200917_spu_06_532nm_PC_30km.webp": {
+              "key": "spu/2020/09/20200917/rcs_20200917_spu_06_532nm_PC_30km.webp",
+              "sha256": "b1486cfa1082733812ea16413b0776d9820b5eca781e36a16d1f8218676c2ff5",
+              "size": 290906
+            },
+            "rcs_20200917_spu_06_532nm_PC_5km.webp": {
+              "key": "spu/2020/09/20200917/rcs_20200917_spu_06_532nm_PC_5km.webp",
+              "sha256": "8c26b9bd9a5a9cbaec89406768e9d781eb76e70754b8d45ff5595e524352a621",
+              "size": 196458
+            }
+          },
+          "publication_window_id": "20200917_spu_06",
+          "r2_bucket": "spu-ql",
+          "scientific_netcdf_split": false,
+          "scientific_sessions_merged": false,
+          "source_fingerprint": "e7b189ff31e59c4061a84745d47b44440302cd35bc7cbebc0b23c0cf5c0ca684",
+          "source_level1_files": [
+            "spu_20200917-1053Z_20200917-2148Z_L1.nc"
+          ],
+          "source_level2_files": [],
+          "source_sessions": [
+            "spu_20200917-1053Z_20200917-2148Z"
+          ],
+          "visualization_only_session_concatenation": false
+        },
+        "12": {
+          "assets": {
+            "rcs_20200917_spu_12_1064nm_AN_15km.webp": {
+              "key": "spu/2020/09/20200917/rcs_20200917_spu_12_1064nm_AN_15km.webp",
+              "sha256": "a855f1e477098b13659d17d35ed721d19108521f0d08bdf8933a962cd20cc61c",
+              "size": 186410
+            },
+            "rcs_20200917_spu_12_1064nm_AN_30km.webp": {
+              "key": "spu/2020/09/20200917/rcs_20200917_spu_12_1064nm_AN_30km.webp",
+              "sha256": "fa1ef1e563bb884d29864a8c095f730e72335fa001511c82dcb11dbe801856ed",
+              "size": 344326
+            },
+            "rcs_20200917_spu_12_1064nm_AN_5km.webp": {
+              "key": "spu/2020/09/20200917/rcs_20200917_spu_12_1064nm_AN_5km.webp",
+              "sha256": "eecb10a45ee84a80302af90886a4e51983c9f76a5f20b1f56c7effeb0cdf634f",
+              "size": 164436
+            },
+            "rcs_20200917_spu_12_355nm_AN_15km.webp": {
+              "key": "spu/2020/09/20200917/rcs_20200917_spu_12_355nm_AN_15km.webp",
+              "sha256": "869ee79ee5d5da918b2cbdc5b12d1f72758dd44dc109631da25fb30a732003a5",
+              "size": 299732
+            },
+            "rcs_20200917_spu_12_355nm_AN_30km.webp": {
+              "key": "spu/2020/09/20200917/rcs_20200917_spu_12_355nm_AN_30km.webp",
+              "sha256": "19286d9fe3a7946242bdc9246ac377995ae85746b58ffb5e6e084a91b677992f",
+              "size": 372190
+            },
+            "rcs_20200917_spu_12_355nm_AN_5km.webp": {
+              "key": "spu/2020/09/20200917/rcs_20200917_spu_12_355nm_AN_5km.webp",
+              "sha256": "14436f72a84cbad5085f4f7f27163b2f84363cfebf5e6d826f4378dc87d3cf8b",
+              "size": 150958
+            },
+            "rcs_20200917_spu_12_355nm_PC_15km.webp": {
+              "key": "spu/2020/09/20200917/rcs_20200917_spu_12_355nm_PC_15km.webp",
+              "sha256": "843a1c094d8771dbf6d0587ae8547d3ac7d8727c1900793f077a82de0ecb6ffc",
+              "size": 382040
+            },
+            "rcs_20200917_spu_12_355nm_PC_30km.webp": {
+              "key": "spu/2020/09/20200917/rcs_20200917_spu_12_355nm_PC_30km.webp",
+              "sha256": "feb0208c7a078e446ae501a84375f2495a69578421adfecc1dc475cc8398760f",
+              "size": 367764
+            },
+            "rcs_20200917_spu_12_355nm_PC_5km.webp": {
+              "key": "spu/2020/09/20200917/rcs_20200917_spu_12_355nm_PC_5km.webp",
+              "sha256": "bfb48ff8b680268a3b76af31360dce86daff38f91aaf1d1cf523f3cd843711d2",
+              "size": 268528
+            },
+            "rcs_20200917_spu_12_532nm_AN_15km.webp": {
+              "key": "spu/2020/09/20200917/rcs_20200917_spu_12_532nm_AN_15km.webp",
+              "sha256": "f3e435e1ca8145cf2bbfb7047d30c323298d110b210a27447e835b93a74495d5",
+              "size": 234030
+            },
+            "rcs_20200917_spu_12_532nm_AN_30km.webp": {
+              "key": "spu/2020/09/20200917/rcs_20200917_spu_12_532nm_AN_30km.webp",
+              "sha256": "9a2b7476c237f071e3eddf9eede4c95527f163031a62817fb7661ec7a315e73a",
+              "size": 361484
+            },
+            "rcs_20200917_spu_12_532nm_AN_5km.webp": {
+              "key": "spu/2020/09/20200917/rcs_20200917_spu_12_532nm_AN_5km.webp",
+              "sha256": "31fbdd850911742b9c622d945181e5aa9a3b55d9a35dd5985d5509898a90c4aa",
+              "size": 166938
+            },
+            "rcs_20200917_spu_12_532nm_PC_15km.webp": {
+              "key": "spu/2020/09/20200917/rcs_20200917_spu_12_532nm_PC_15km.webp",
+              "sha256": "2eaffb7619cefb4d40286bd63bd3a9f1ff450589a9cde9f0966d71f5cc3fba53",
+              "size": 218686
+            },
+            "rcs_20200917_spu_12_532nm_PC_30km.webp": {
+              "key": "spu/2020/09/20200917/rcs_20200917_spu_12_532nm_PC_30km.webp",
+              "sha256": "d885ed0b90cb14e4b264a24e5cc96d1a01f8a1e91bff8338b388d8cd0bc82dd3",
+              "size": 345434
+            },
+            "rcs_20200917_spu_12_532nm_PC_5km.webp": {
+              "key": "spu/2020/09/20200917/rcs_20200917_spu_12_532nm_PC_5km.webp",
+              "sha256": "007e3d67d080730313e2b411b223af14fd0192cc4fefc64d2f6e7ada91fb63fe",
+              "size": 232356
+            }
+          },
+          "publication_window_id": "20200917_spu_12",
+          "r2_bucket": "spu-ql",
+          "scientific_netcdf_split": false,
+          "scientific_sessions_merged": false,
+          "source_fingerprint": "7138cf8d4a9adda84ff407b258ac0152cc941b9c538843133f7ddf85ed591065",
+          "source_level1_files": [
+            "spu_20200917-1053Z_20200917-2148Z_L1.nc"
+          ],
+          "source_level2_files": [],
+          "source_sessions": [
+            "spu_20200917-1053Z_20200917-2148Z"
+          ],
+          "visualization_only_session_concatenation": false
+        },
+        "18": {
+          "assets": {
+            "rcs_20200917_spu_18_1064nm_AN_15km.webp": {
+              "key": "spu/2020/09/20200917/rcs_20200917_spu_18_1064nm_AN_15km.webp",
+              "sha256": "81e4aaacdbc753d37fab06fc759b911daa06e4e28a88d74aea352172f230b727",
+              "size": 68750
+            },
+            "rcs_20200917_spu_18_1064nm_AN_30km.webp": {
+              "key": "spu/2020/09/20200917/rcs_20200917_spu_18_1064nm_AN_30km.webp",
+              "sha256": "c1874ed318d11aee398b174acdf016e7ef6c142bc6edd78991c69429ad6cedd3",
+              "size": 82134
+            },
+            "rcs_20200917_spu_18_1064nm_AN_5km.webp": {
+              "key": "spu/2020/09/20200917/rcs_20200917_spu_18_1064nm_AN_5km.webp",
+              "sha256": "6711725516c3f2efb13f1e90331e464aa038d02f960ff63b289c97456f7c2288",
+              "size": 38926
+            },
+            "rcs_20200917_spu_18_355nm_AN_15km.webp": {
+              "key": "spu/2020/09/20200917/rcs_20200917_spu_18_355nm_AN_15km.webp",
+              "sha256": "015070f9e44aa7d4f5e4722b56b03a53bbfdde69b3fa241a025a3849c790be94",
+              "size": 81238
+            },
+            "rcs_20200917_spu_18_355nm_AN_30km.webp": {
+              "key": "spu/2020/09/20200917/rcs_20200917_spu_18_355nm_AN_30km.webp",
+              "sha256": "9272c168c92cebcda65daac83f845c956980a6d897dced67e5b32fc6aee573c2",
+              "size": 83746
+            },
+            "rcs_20200917_spu_18_355nm_AN_5km.webp": {
+              "key": "spu/2020/09/20200917/rcs_20200917_spu_18_355nm_AN_5km.webp",
+              "sha256": "2c3ed88193c4edb9fb824205552442827bc14534f9ac4971ae6d230196acfa1f",
+              "size": 38706
+            },
+            "rcs_20200917_spu_18_355nm_PC_15km.webp": {
+              "key": "spu/2020/09/20200917/rcs_20200917_spu_18_355nm_PC_15km.webp",
+              "sha256": "36adc010bcaf23447b6c818b5ac03cfc6a5639f6eb884782207e1243f361921e",
+              "size": 47872
+            },
+            "rcs_20200917_spu_18_355nm_PC_30km.webp": {
+              "key": "spu/2020/09/20200917/rcs_20200917_spu_18_355nm_PC_30km.webp",
+              "sha256": "b5a3fccd9f92182d8120a63f552ccedbce66cb887ba9a359db16e39bd24e316e",
+              "size": 50306
+            },
+            "rcs_20200917_spu_18_355nm_PC_5km.webp": {
+              "key": "spu/2020/09/20200917/rcs_20200917_spu_18_355nm_PC_5km.webp",
+              "sha256": "b64bd5eb2ea183f916cf1f149a0b5b19bce5700017880cefa89f18e331b0716d",
+              "size": 40192
+            },
+            "rcs_20200917_spu_18_532nm_AN_15km.webp": {
+              "key": "spu/2020/09/20200917/rcs_20200917_spu_18_532nm_AN_15km.webp",
+              "sha256": "e808c3014ce2ea581820ae4efd7042cd64a8051796f47d995fd133319aefd04b",
+              "size": 79034
+            },
+            "rcs_20200917_spu_18_532nm_AN_30km.webp": {
+              "key": "spu/2020/09/20200917/rcs_20200917_spu_18_532nm_AN_30km.webp",
+              "sha256": "7cc4dcf8871aa607b67a62994959f2c5f73f037c6fda64e926ad5aa96da8b21c",
+              "size": 83754
+            },
+            "rcs_20200917_spu_18_532nm_AN_5km.webp": {
+              "key": "spu/2020/09/20200917/rcs_20200917_spu_18_532nm_AN_5km.webp",
+              "sha256": "395b3b568c01792f2133447b727fbc867707993aec07b4a95006825c9cd6523d",
+              "size": 36280
+            },
+            "rcs_20200917_spu_18_532nm_PC_15km.webp": {
+              "key": "spu/2020/09/20200917/rcs_20200917_spu_18_532nm_PC_15km.webp",
+              "sha256": "6d0573f068d486357e62439c51697e7819083453ba519b6953576b898287f0f9",
+              "size": 50820
+            },
+            "rcs_20200917_spu_18_532nm_PC_30km.webp": {
+              "key": "spu/2020/09/20200917/rcs_20200917_spu_18_532nm_PC_30km.webp",
+              "sha256": "74001ca477d887a31aba5da218ada012364dc74a74491ac80fe22a9db78aa4ea",
+              "size": 52580
+            },
+            "rcs_20200917_spu_18_532nm_PC_5km.webp": {
+              "key": "spu/2020/09/20200917/rcs_20200917_spu_18_532nm_PC_5km.webp",
+              "sha256": "ba25dd61b9e725c9ab60c565bf82e55bb476b0a83a862535a2eef4bef04b3d82",
+              "size": 39130
+            }
+          },
+          "publication_window_id": "20200917_spu_18",
+          "r2_bucket": "spu-ql",
+          "scientific_netcdf_split": false,
+          "scientific_sessions_merged": false,
+          "source_fingerprint": "0da9f3c4560154e4be7ab6c9bdbcc6b738aa097db7536798762385e4dcea88e9",
+          "source_level1_files": [
+            "spu_20200917-1053Z_20200917-2148Z_L1.nc"
+          ],
+          "source_level2_files": [],
+          "source_sessions": [
+            "spu_20200917-1053Z_20200917-2148Z"
+          ],
+          "visualization_only_session_concatenation": false
+        }
+      }
+    },
+    "20200918": {
+      "publication_windows": {
+        "12": {
+          "assets": {
+            "rcs_20200918_spu_12_1064nm_AN_15km.webp": {
+              "key": "spu/2020/09/20200918/rcs_20200918_spu_12_1064nm_AN_15km.webp",
+              "sha256": "d4d11ec7a67d6546bdda2ae8e24e32423b64bdfb9f273535613b33f86b46375c",
+              "size": 50418
+            },
+            "rcs_20200918_spu_12_1064nm_AN_30km.webp": {
+              "key": "spu/2020/09/20200918/rcs_20200918_spu_12_1064nm_AN_30km.webp",
+              "sha256": "556f20732a8750efa2c37d92d42468fd8d8aea98a3123a6e1310a11f18a685bc",
+              "size": 55632
+            },
+            "rcs_20200918_spu_12_1064nm_AN_5km.webp": {
+              "key": "spu/2020/09/20200918/rcs_20200918_spu_12_1064nm_AN_5km.webp",
+              "sha256": "e0196470eeba6c431d370ad0f8a62d97c70417bceeb8329fb7a2dbd2bdfc1b60",
+              "size": 48510
+            },
+            "rcs_20200918_spu_12_355nm_AN_15km.webp": {
+              "key": "spu/2020/09/20200918/rcs_20200918_spu_12_355nm_AN_15km.webp",
+              "sha256": "f7d7b0724142a1e58baf4bafafa36dc8e6dc160129f8eccb94f340bc4eb48c1a",
+              "size": 54770
+            },
+            "rcs_20200918_spu_12_355nm_AN_30km.webp": {
+              "key": "spu/2020/09/20200918/rcs_20200918_spu_12_355nm_AN_30km.webp",
+              "sha256": "4d76eb7c022bc38c56ece01e55157ed5084e96e717fc246ab8f62767254f4cbf",
+              "size": 50748
+            },
+            "rcs_20200918_spu_12_355nm_AN_5km.webp": {
+              "key": "spu/2020/09/20200918/rcs_20200918_spu_12_355nm_AN_5km.webp",
+              "sha256": "574774b799413c45ef57bfa4372bea4367cafa8840f3da4379a30de537a1640a",
+              "size": 47720
+            },
+            "rcs_20200918_spu_12_355nm_PC_15km.webp": {
+              "key": "spu/2020/09/20200918/rcs_20200918_spu_12_355nm_PC_15km.webp",
+              "sha256": "d4f6a4ce4933778174fc220e766cd3e38044ba78141771c69b189cc697963c9f",
+              "size": 40718
+            },
+            "rcs_20200918_spu_12_355nm_PC_30km.webp": {
+              "key": "spu/2020/09/20200918/rcs_20200918_spu_12_355nm_PC_30km.webp",
+              "sha256": "c3ec66adbdcb454eacebcaff07f6111ebe3a4428e6ab52cce7e3ac2319dab753",
+              "size": 44596
+            },
+            "rcs_20200918_spu_12_355nm_PC_5km.webp": {
+              "key": "spu/2020/09/20200918/rcs_20200918_spu_12_355nm_PC_5km.webp",
+              "sha256": "caf964e1a5e0a76be077addb81ee382f109d1ec79d81a2fd4080aaf26391a818",
+              "size": 41566
+            },
+            "rcs_20200918_spu_12_532nm_AN_15km.webp": {
+              "key": "spu/2020/09/20200918/rcs_20200918_spu_12_532nm_AN_15km.webp",
+              "sha256": "d44bb1781ac70fd5b71a667b79aa1c4fd94fce8d39e0a1e1e074ef19ef905e37",
+              "size": 41974
+            },
+            "rcs_20200918_spu_12_532nm_AN_30km.webp": {
+              "key": "spu/2020/09/20200918/rcs_20200918_spu_12_532nm_AN_30km.webp",
+              "sha256": "d98d70d1c83d77325dcfafef8f9beacf93bfe14fa829246e37b38d4440e149ac",
+              "size": 44544
+            },
+            "rcs_20200918_spu_12_532nm_AN_5km.webp": {
+              "key": "spu/2020/09/20200918/rcs_20200918_spu_12_532nm_AN_5km.webp",
+              "sha256": "161180808c6c446721fa856f4a9dfb2da35ffeffff6c9011e1f201cf26027411",
+              "size": 40968
+            },
+            "rcs_20200918_spu_12_532nm_PC_15km.webp": {
+              "key": "spu/2020/09/20200918/rcs_20200918_spu_12_532nm_PC_15km.webp",
+              "sha256": "e83d6edcbea71b242564d61a3dd303e8cf085557c408488e4e67aec8fe73d841",
+              "size": 43104
+            },
+            "rcs_20200918_spu_12_532nm_PC_30km.webp": {
+              "key": "spu/2020/09/20200918/rcs_20200918_spu_12_532nm_PC_30km.webp",
+              "sha256": "ace18a6e06c347a2f401e5db15091d193f247e0553864216815690f4fc26a562",
+              "size": 48976
+            },
+            "rcs_20200918_spu_12_532nm_PC_5km.webp": {
+              "key": "spu/2020/09/20200918/rcs_20200918_spu_12_532nm_PC_5km.webp",
+              "sha256": "8cb4e8d297ac3b50eeb4bb215a99dc1a885b67e7a31168e171fd1a2a146b68b0",
+              "size": 43216
+            }
+          },
+          "publication_window_id": "20200918_spu_12",
+          "r2_bucket": "spu-ql",
+          "scientific_netcdf_split": false,
+          "scientific_sessions_merged": false,
+          "source_fingerprint": "027ea9e5f3ae9099b72b58499e82429a12063761729a75d8fcbd189e92159d63",
+          "source_level1_files": [
+            "spu_20200918-1533Z_20200918-1538Z_L1.nc"
+          ],
+          "source_level2_files": [],
+          "source_sessions": [
+            "spu_20200918-1533Z_20200918-1538Z"
+          ],
+          "visualization_only_session_concatenation": false
+        }
+      }
+    },
+    "20200919": {
+      "publication_windows": {
+        "06": {
+          "assets": {
+            "rcs_20200919_spu_06_1064nm_AN_15km.webp": {
+              "key": "spu/2020/09/20200919/rcs_20200919_spu_06_1064nm_AN_15km.webp",
+              "sha256": "7770ddf61bae3bf613798dd7b6db5594a6d77eb2de0d67c93280fc70684dda37",
+              "size": 152454
+            },
+            "rcs_20200919_spu_06_1064nm_AN_30km.webp": {
+              "key": "spu/2020/09/20200919/rcs_20200919_spu_06_1064nm_AN_30km.webp",
+              "sha256": "ccfafe462bcf7ce77c215022fef07338d4478bcd261f133f3cbbc3b5a5dd49d8",
+              "size": 163992
+            },
+            "rcs_20200919_spu_06_1064nm_AN_5km.webp": {
+              "key": "spu/2020/09/20200919/rcs_20200919_spu_06_1064nm_AN_5km.webp",
+              "sha256": "101bc7d00f76440c113541876579f7804aa3b5fc80e6aa0a65f5ebbbeb186009",
+              "size": 95464
+            },
+            "rcs_20200919_spu_06_355nm_AN_15km.webp": {
+              "key": "spu/2020/09/20200919/rcs_20200919_spu_06_355nm_AN_15km.webp",
+              "sha256": "3a644d4a0c3f1df550d64439845fdba3ba19a47bc8103ef49b98920bd5fbe035",
+              "size": 119696
+            },
+            "rcs_20200919_spu_06_355nm_AN_30km.webp": {
+              "key": "spu/2020/09/20200919/rcs_20200919_spu_06_355nm_AN_30km.webp",
+              "sha256": "9c6662ee6e4d9064cd683ef359d00f43854347c349ecbd4ebf4e597927010362",
+              "size": 156932
+            },
+            "rcs_20200919_spu_06_355nm_AN_5km.webp": {
+              "key": "spu/2020/09/20200919/rcs_20200919_spu_06_355nm_AN_5km.webp",
+              "sha256": "dae8c734e5205c162b633af07f86ec3c607ace57b5b7e912facb63e34edd0acb",
+              "size": 62438
+            },
+            "rcs_20200919_spu_06_355nm_PC_15km.webp": {
+              "key": "spu/2020/09/20200919/rcs_20200919_spu_06_355nm_PC_15km.webp",
+              "sha256": "6df4b797039742097849a24200ca5124df426692bad7905f05fa11205d827885",
+              "size": 166862
+            },
+            "rcs_20200919_spu_06_355nm_PC_30km.webp": {
+              "key": "spu/2020/09/20200919/rcs_20200919_spu_06_355nm_PC_30km.webp",
+              "sha256": "a47ce78c268edca5f227933ec0e2b1b9ded0bd10a79881d0fc113b2f10371e7d",
+              "size": 161940
+            },
+            "rcs_20200919_spu_06_355nm_PC_5km.webp": {
+              "key": "spu/2020/09/20200919/rcs_20200919_spu_06_355nm_PC_5km.webp",
+              "sha256": "aeaf6adad837c7367fc741ff6ad1baf7bc4193dc18c24d10d6fb99b87c4375a5",
+              "size": 111442
+            },
+            "rcs_20200919_spu_06_532nm_AN_15km.webp": {
+              "key": "spu/2020/09/20200919/rcs_20200919_spu_06_532nm_AN_15km.webp",
+              "sha256": "27a7634905006a7978aab5f3647a8e7a5f5ac664b88ba0455814c7e4f339589f",
+              "size": 119668
+            },
+            "rcs_20200919_spu_06_532nm_AN_30km.webp": {
+              "key": "spu/2020/09/20200919/rcs_20200919_spu_06_532nm_AN_30km.webp",
+              "sha256": "e4f5de6b6fda1baa1e1a8906c4d69230536fcd54dd142af199e7fa0fb73b401f",
+              "size": 164272
+            },
+            "rcs_20200919_spu_06_532nm_AN_5km.webp": {
+              "key": "spu/2020/09/20200919/rcs_20200919_spu_06_532nm_AN_5km.webp",
+              "sha256": "188d9ae524a5e4d96cd00d7de7a9045409a0f4d27f27636e0e4f07e0e04e1a74",
+              "size": 77034
+            },
+            "rcs_20200919_spu_06_532nm_PC_15km.webp": {
+              "key": "spu/2020/09/20200919/rcs_20200919_spu_06_532nm_PC_15km.webp",
+              "sha256": "ea4876454a9984cc977de0b115b322d7af0b8c79f61bf7a501b229886f9e4bc9",
+              "size": 161466
+            },
+            "rcs_20200919_spu_06_532nm_PC_30km.webp": {
+              "key": "spu/2020/09/20200919/rcs_20200919_spu_06_532nm_PC_30km.webp",
+              "sha256": "e032c20f2b94d791927227a5e51d01cec867fb4473a5447665f5e169762b49bd",
+              "size": 162718
+            },
+            "rcs_20200919_spu_06_532nm_PC_5km.webp": {
+              "key": "spu/2020/09/20200919/rcs_20200919_spu_06_532nm_PC_5km.webp",
+              "sha256": "63eb8dcacf1e7f7699851ca5605199954f2e226298d244f6e9e10721df813e38",
+              "size": 110868
+            }
+          },
+          "publication_window_id": "20200919_spu_06",
+          "r2_bucket": "spu-ql",
+          "scientific_netcdf_split": false,
+          "scientific_sessions_merged": false,
+          "source_fingerprint": "70c1cb5ff2b475e0c9f637a86ad37683a49e37654524145100beacafd0fe4974",
+          "source_level1_files": [
+            "spu_20200919-1251Z_20200919-2011Z_L1.nc"
+          ],
+          "source_level2_files": [],
+          "source_sessions": [
+            "spu_20200919-1251Z_20200919-2011Z"
+          ],
+          "visualization_only_session_concatenation": false
+        },
+        "12": {
+          "assets": {
+            "rcs_20200919_spu_12_1064nm_AN_15km.webp": {
+              "key": "spu/2020/09/20200919/rcs_20200919_spu_12_1064nm_AN_15km.webp",
+              "sha256": "41a8ce1ee2e979d4c62de5780cd6e76bdc0c8836be1b152b58874ffd3769baa8",
+              "size": 235496
+            },
+            "rcs_20200919_spu_12_1064nm_AN_30km.webp": {
+              "key": "spu/2020/09/20200919/rcs_20200919_spu_12_1064nm_AN_30km.webp",
+              "sha256": "ea3b342d373dc6351d06a8b72f90f951080257b7ffc83bd4c8744c335ef1288f",
+              "size": 322208
+            },
+            "rcs_20200919_spu_12_1064nm_AN_5km.webp": {
+              "key": "spu/2020/09/20200919/rcs_20200919_spu_12_1064nm_AN_5km.webp",
+              "sha256": "b8030cb20c86c368fe8d5f84c1c289964edbe10858c21cd632d73132e1aa32f0",
+              "size": 187970
+            },
+            "rcs_20200919_spu_12_355nm_AN_15km.webp": {
+              "key": "spu/2020/09/20200919/rcs_20200919_spu_12_355nm_AN_15km.webp",
+              "sha256": "abeb6129efe52b76fab11ba11b1e8f4551b677b4f4aa95465e9118a76f06c5b7",
+              "size": 255110
+            },
+            "rcs_20200919_spu_12_355nm_AN_30km.webp": {
+              "key": "spu/2020/09/20200919/rcs_20200919_spu_12_355nm_AN_30km.webp",
+              "sha256": "3061b3a59d32702c7dc3c2b2992e97c0732339a6f0b69a989fb3d33dbed5082d",
+              "size": 324946
+            },
+            "rcs_20200919_spu_12_355nm_AN_5km.webp": {
+              "key": "spu/2020/09/20200919/rcs_20200919_spu_12_355nm_AN_5km.webp",
+              "sha256": "a943ae11ea623848ab799d1e67a006e5444b9e3359402d5ebdfd3d66fb7a73f5",
+              "size": 138814
+            },
+            "rcs_20200919_spu_12_355nm_PC_15km.webp": {
+              "key": "spu/2020/09/20200919/rcs_20200919_spu_12_355nm_PC_15km.webp",
+              "sha256": "d76b3fe606cfa5dc491914eed764d627308477af47f80bc8452cadd8d93d227c",
+              "size": 329042
+            },
+            "rcs_20200919_spu_12_355nm_PC_30km.webp": {
+              "key": "spu/2020/09/20200919/rcs_20200919_spu_12_355nm_PC_30km.webp",
+              "sha256": "8f7be8c251630c32cb55a992e1502f81a6551b150718be6692b8fed8dde9762e",
+              "size": 325090
+            },
+            "rcs_20200919_spu_12_355nm_PC_5km.webp": {
+              "key": "spu/2020/09/20200919/rcs_20200919_spu_12_355nm_PC_5km.webp",
+              "sha256": "9fa4fb7e2f48c438ed8df36a9115a20c5cc5f3088046e4bb1a5d25108ca12723",
+              "size": 229432
+            },
+            "rcs_20200919_spu_12_532nm_AN_15km.webp": {
+              "key": "spu/2020/09/20200919/rcs_20200919_spu_12_532nm_AN_15km.webp",
+              "sha256": "26ed9f7897491c882c4f700053e3706bb51eb99a1523e7f42da56cdc08fb8405",
+              "size": 255720
+            },
+            "rcs_20200919_spu_12_532nm_AN_30km.webp": {
+              "key": "spu/2020/09/20200919/rcs_20200919_spu_12_532nm_AN_30km.webp",
+              "sha256": "6a8d6f72bad1a9c7a118154c62cd523738305fca53187d49ffbc7ce971e8a6e1",
+              "size": 340566
+            },
+            "rcs_20200919_spu_12_532nm_AN_5km.webp": {
+              "key": "spu/2020/09/20200919/rcs_20200919_spu_12_532nm_AN_5km.webp",
+              "sha256": "325ba9062282a718ebf16c7971dcf56f54b9856f7f8d640a5ac2cdae7aaef174",
+              "size": 160246
+            },
+            "rcs_20200919_spu_12_532nm_PC_15km.webp": {
+              "key": "spu/2020/09/20200919/rcs_20200919_spu_12_532nm_PC_15km.webp",
+              "sha256": "1f4a59fc174da5f02b41c2064fb93d768472e18c9d63c4591131fc407aeace29",
+              "size": 313452
+            },
+            "rcs_20200919_spu_12_532nm_PC_30km.webp": {
+              "key": "spu/2020/09/20200919/rcs_20200919_spu_12_532nm_PC_30km.webp",
+              "sha256": "328988bf9f9aadd29befde9218a0fe6108831d0daf5e4a3d7b21ebfdb927be45",
+              "size": 339146
+            },
+            "rcs_20200919_spu_12_532nm_PC_5km.webp": {
+              "key": "spu/2020/09/20200919/rcs_20200919_spu_12_532nm_PC_5km.webp",
+              "sha256": "548ee61b0b04f408f0dcc7a299e8082148a5ae4577b22d841dc7fa91110348a9",
+              "size": 212746
+            }
+          },
+          "publication_window_id": "20200919_spu_12",
+          "r2_bucket": "spu-ql",
+          "scientific_netcdf_split": false,
+          "scientific_sessions_merged": false,
+          "source_fingerprint": "ff2f2d8af721506f45f84d70c19ba73391bc1d6c1999ed385dd4defb617747da",
+          "source_level1_files": [
+            "spu_20200919-1251Z_20200919-2011Z_L1.nc"
+          ],
+          "source_level2_files": [],
+          "source_sessions": [
+            "spu_20200919-1251Z_20200919-2011Z"
+          ],
+          "visualization_only_session_concatenation": false
+        }
+      }
+    },
+    "20200925": {
+      "publication_windows": {
+        "06": {
+          "assets": {
+            "rcs_20200925_spu_06_1064nm_AN_15km.webp": {
+              "key": "spu/2020/09/20200925/rcs_20200925_spu_06_1064nm_AN_15km.webp",
+              "sha256": "8cc9a9754c4b377bc99c5ef0c94c090d4ee9ce66ef2ff2f5dad8190df4de893b",
+              "size": 260464
+            },
+            "rcs_20200925_spu_06_1064nm_AN_30km.webp": {
+              "key": "spu/2020/09/20200925/rcs_20200925_spu_06_1064nm_AN_30km.webp",
+              "sha256": "80ff2077fdbeefb2ed037c881568d230e610fdacded65806c78092555e963bcc",
+              "size": 256938
+            },
+            "rcs_20200925_spu_06_1064nm_AN_5km.webp": {
+              "key": "spu/2020/09/20200925/rcs_20200925_spu_06_1064nm_AN_5km.webp",
+              "sha256": "bb913b82bc88548ab35b9d0f130bd339b2323c9a31127f5f6efddf427e57abe0",
+              "size": 120112
+            },
+            "rcs_20200925_spu_06_355nm_AN_15km.webp": {
+              "key": "spu/2020/09/20200925/rcs_20200925_spu_06_355nm_AN_15km.webp",
+              "sha256": "05dc0f98b66f77d5b3ac399f32e09f54e12627c76369d0766f5e1c83a0a5a981",
+              "size": 258434
+            },
+            "rcs_20200925_spu_06_355nm_AN_30km.webp": {
+              "key": "spu/2020/09/20200925/rcs_20200925_spu_06_355nm_AN_30km.webp",
+              "sha256": "9bbac5e2b11f959ca1e7358c7d88ac387af16e8de0b8ad79afa7c469319c7b52",
+              "size": 289806
+            },
+            "rcs_20200925_spu_06_355nm_AN_5km.webp": {
+              "key": "spu/2020/09/20200925/rcs_20200925_spu_06_355nm_AN_5km.webp",
+              "sha256": "e67c6d6f723ed272e1f370406b2eb51f92cb50c7f156dc780a7363ed4a2babf4",
+              "size": 152408
+            },
+            "rcs_20200925_spu_06_355nm_PC_15km.webp": {
+              "key": "spu/2020/09/20200925/rcs_20200925_spu_06_355nm_PC_15km.webp",
+              "sha256": "170de0d0f7949db81f82a2dd5756738dbde5b70666d424d92c78c6c9dbc91d3b",
+              "size": 302494
+            },
+            "rcs_20200925_spu_06_355nm_PC_30km.webp": {
+              "key": "spu/2020/09/20200925/rcs_20200925_spu_06_355nm_PC_30km.webp",
+              "sha256": "ce98bddd1f9e6987f5e738075d151bda9ecf774819fa33c097b166c931eb4288",
+              "size": 299788
+            },
+            "rcs_20200925_spu_06_355nm_PC_5km.webp": {
+              "key": "spu/2020/09/20200925/rcs_20200925_spu_06_355nm_PC_5km.webp",
+              "sha256": "6aaf11355f65ec8ae2174a5ce0f89aed57d014656f6cbb6010d327b7868c80ee",
+              "size": 184864
+            },
+            "rcs_20200925_spu_06_532nm_AN_15km.webp": {
+              "key": "spu/2020/09/20200925/rcs_20200925_spu_06_532nm_AN_15km.webp",
+              "sha256": "fdce4a27d23cefba6f8eb02bae77a12407967a5ea97fcec8d2e0a203412f9f1d",
+              "size": 247370
+            },
+            "rcs_20200925_spu_06_532nm_AN_30km.webp": {
+              "key": "spu/2020/09/20200925/rcs_20200925_spu_06_532nm_AN_30km.webp",
+              "sha256": "24dc26ce3fbbc9aa5927bf8fafe7d917365eac97f325b18d242bf45921cf1f3e",
+              "size": 290902
+            },
+            "rcs_20200925_spu_06_532nm_AN_5km.webp": {
+              "key": "spu/2020/09/20200925/rcs_20200925_spu_06_532nm_AN_5km.webp",
+              "sha256": "de45489dec8f033100a3372773547f6db1f891a3d2d4a36a82f7f36476548037",
+              "size": 136466
+            },
+            "rcs_20200925_spu_06_532nm_PC_15km.webp": {
+              "key": "spu/2020/09/20200925/rcs_20200925_spu_06_532nm_PC_15km.webp",
+              "sha256": "313ba950c2f785b6ec33b322a9637ffe4695ad6e39773267a28985e61ad23ab6",
+              "size": 298444
+            },
+            "rcs_20200925_spu_06_532nm_PC_30km.webp": {
+              "key": "spu/2020/09/20200925/rcs_20200925_spu_06_532nm_PC_30km.webp",
+              "sha256": "22246eafb8062e2c4e64d7b640e9bf2620a626a92631a73d6281554aa021fcd9",
+              "size": 300200
+            },
+            "rcs_20200925_spu_06_532nm_PC_5km.webp": {
+              "key": "spu/2020/09/20200925/rcs_20200925_spu_06_532nm_PC_5km.webp",
+              "sha256": "1ae6dbbd40a90dfff285e9ec80bb6fe269806e388c9d2e2f5c5e058079a4aa2d",
+              "size": 188750
+            }
+          },
+          "publication_window_id": "20200925_spu_06",
+          "r2_bucket": "spu-ql",
+          "scientific_netcdf_split": false,
+          "scientific_sessions_merged": false,
+          "source_fingerprint": "a1553b3f2b2399af5eb633e78a4807afe22e9e211df3823de99ca5f6eeb75131",
+          "source_level1_files": [
+            "spu_20200925-1058Z_20200925-2210Z_L1.nc"
+          ],
+          "source_level2_files": [],
+          "source_sessions": [
+            "spu_20200925-1058Z_20200925-2210Z"
+          ],
+          "visualization_only_session_concatenation": false
+        },
+        "12": {
+          "assets": {
+            "rcs_20200925_spu_12_1064nm_AN_15km.webp": {
+              "key": "spu/2020/09/20200925/rcs_20200925_spu_12_1064nm_AN_15km.webp",
+              "sha256": "5833953462e611b2cb184ae971dcb84361e19691398ad933f1ada4330380c61d",
+              "size": 323098
+            },
+            "rcs_20200925_spu_12_1064nm_AN_30km.webp": {
+              "key": "spu/2020/09/20200925/rcs_20200925_spu_12_1064nm_AN_30km.webp",
+              "sha256": "841b72ca21ec69efe9aed0f33bcafe4fd50cb0e5b5fee139da5696c91d77d207",
+              "size": 349198
+            },
+            "rcs_20200925_spu_12_1064nm_AN_5km.webp": {
+              "key": "spu/2020/09/20200925/rcs_20200925_spu_12_1064nm_AN_5km.webp",
+              "sha256": "1deda2b42f1cefd95f0503e4e42848900f7b3bbf90fae5948b50c3acd2c963bd",
+              "size": 166798
+            },
+            "rcs_20200925_spu_12_355nm_AN_15km.webp": {
+              "key": "spu/2020/09/20200925/rcs_20200925_spu_12_355nm_AN_15km.webp",
+              "sha256": "25ed181b61902083f6e552fe5c6a128b9da94d3744859e51ea5f1f6bdcb43083",
+              "size": 320992
+            },
+            "rcs_20200925_spu_12_355nm_AN_30km.webp": {
+              "key": "spu/2020/09/20200925/rcs_20200925_spu_12_355nm_AN_30km.webp",
+              "sha256": "0911009f4744ac260d77a4bfa0082cc4c827072688e344d628c1479b8787947d",
+              "size": 384494
+            },
+            "rcs_20200925_spu_12_355nm_AN_5km.webp": {
+              "key": "spu/2020/09/20200925/rcs_20200925_spu_12_355nm_AN_5km.webp",
+              "sha256": "eab087554f050a7e6b17256982efc747b2176091f6f9b96f62b3cfbc8e988377",
+              "size": 181452
+            },
+            "rcs_20200925_spu_12_355nm_PC_15km.webp": {
+              "key": "spu/2020/09/20200925/rcs_20200925_spu_12_355nm_PC_15km.webp",
+              "sha256": "76992ef0786f261be047e61e7646dec8cf50c4b8627644fcdbcc70aa7741b2fe",
+              "size": 383790
+            },
+            "rcs_20200925_spu_12_355nm_PC_30km.webp": {
+              "key": "spu/2020/09/20200925/rcs_20200925_spu_12_355nm_PC_30km.webp",
+              "sha256": "d6064e0f13f3f095997ca0560c3b0c4a146994e844d356d8e4716c2da4d7ec8c",
+              "size": 383582
+            },
+            "rcs_20200925_spu_12_355nm_PC_5km.webp": {
+              "key": "spu/2020/09/20200925/rcs_20200925_spu_12_355nm_PC_5km.webp",
+              "sha256": "4740255eda534fdea219d5cad61c71860d7297e1c63602d6d9b11bc73c198562",
+              "size": 260108
+            },
+            "rcs_20200925_spu_12_532nm_AN_15km.webp": {
+              "key": "spu/2020/09/20200925/rcs_20200925_spu_12_532nm_AN_15km.webp",
+              "sha256": "8fbe0f093f97fe8715d6b9ea60f75581ad821a6465f5f7d4a3934da6d168c10b",
+              "size": 294888
+            },
+            "rcs_20200925_spu_12_532nm_AN_30km.webp": {
+              "key": "spu/2020/09/20200925/rcs_20200925_spu_12_532nm_AN_30km.webp",
+              "sha256": "01132e6142198ca3392d326eb13605f64869d6f661da6023fc4b6c460f0040ef",
+              "size": 381886
+            },
+            "rcs_20200925_spu_12_532nm_AN_5km.webp": {
+              "key": "spu/2020/09/20200925/rcs_20200925_spu_12_532nm_AN_5km.webp",
+              "sha256": "8c28682c50e3e312a2ea4ab6cbab52d8e8a1f92d3be78ceb157e59a7b0459014",
+              "size": 154522
+            },
+            "rcs_20200925_spu_12_532nm_PC_15km.webp": {
+              "key": "spu/2020/09/20200925/rcs_20200925_spu_12_532nm_PC_15km.webp",
+              "sha256": "d8e03e58ef0bfb80d4b279f86c97456a08c805b8e0989af1d08a191d13861021",
+              "size": 318952
+            },
+            "rcs_20200925_spu_12_532nm_PC_30km.webp": {
+              "key": "spu/2020/09/20200925/rcs_20200925_spu_12_532nm_PC_30km.webp",
+              "sha256": "0adc20e9cac5d6d9f6a28f520d3a9e396b010dcd222ebccf1099e604b26b8fde",
+              "size": 368444
+            },
+            "rcs_20200925_spu_12_532nm_PC_5km.webp": {
+              "key": "spu/2020/09/20200925/rcs_20200925_spu_12_532nm_PC_5km.webp",
+              "sha256": "a12f59f0503ba390aba839b160517f43d2b6ee6c61612683dc88cc6cfd87a504",
+              "size": 182314
+            }
+          },
+          "publication_window_id": "20200925_spu_12",
+          "r2_bucket": "spu-ql",
+          "scientific_netcdf_split": false,
+          "scientific_sessions_merged": false,
+          "source_fingerprint": "317f63300d209e5f4022cfe0280486ca1d2374c9c63c23303e3914f5550a19fb",
+          "source_level1_files": [
+            "spu_20200925-1058Z_20200925-2210Z_L1.nc"
+          ],
+          "source_level2_files": [],
+          "source_sessions": [
+            "spu_20200925-1058Z_20200925-2210Z"
+          ],
+          "visualization_only_session_concatenation": false
+        },
+        "18": {
+          "assets": {
+            "rcs_20200925_spu_18_1064nm_AN_15km.webp": {
+              "key": "spu/2020/09/20200925/rcs_20200925_spu_18_1064nm_AN_15km.webp",
+              "sha256": "cb78ced0d08ff40dd5d613fcf090337ff50240dff8b4128bef495e45501f0f69",
+              "size": 109880
+            },
+            "rcs_20200925_spu_18_1064nm_AN_30km.webp": {
+              "key": "spu/2020/09/20200925/rcs_20200925_spu_18_1064nm_AN_30km.webp",
+              "sha256": "c5093b15bbd7896f9ee0689f4d95bb6c8875ea0c97f47de105db0114ff63b4b3",
+              "size": 110002
+            },
+            "rcs_20200925_spu_18_1064nm_AN_5km.webp": {
+              "key": "spu/2020/09/20200925/rcs_20200925_spu_18_1064nm_AN_5km.webp",
+              "sha256": "7fc082ab8c0dcda736a54c471cc31a255226ead1032c2082d15edcd8fc610c82",
+              "size": 85656
+            },
+            "rcs_20200925_spu_18_355nm_AN_15km.webp": {
+              "key": "spu/2020/09/20200925/rcs_20200925_spu_18_355nm_AN_15km.webp",
+              "sha256": "040fe02a283e86f7383b575842394b608fe525032465046863171ed1b8f2e0be",
+              "size": 105468
+            },
+            "rcs_20200925_spu_18_355nm_AN_30km.webp": {
+              "key": "spu/2020/09/20200925/rcs_20200925_spu_18_355nm_AN_30km.webp",
+              "sha256": "98a402142d3d2c916f70bafe88fb91d089a69cd7bf69c5c1cece1e0dade08e41",
+              "size": 124200
+            },
+            "rcs_20200925_spu_18_355nm_AN_5km.webp": {
+              "key": "spu/2020/09/20200925/rcs_20200925_spu_18_355nm_AN_5km.webp",
+              "sha256": "7166c41c074fc6e52ae443e0b65abdf8e2e90aeed008c449062c1776224606aa",
+              "size": 77942
+            },
+            "rcs_20200925_spu_18_355nm_PC_15km.webp": {
+              "key": "spu/2020/09/20200925/rcs_20200925_spu_18_355nm_PC_15km.webp",
+              "sha256": "ec9bbd7da8ac1fb03b8d4c6c8beb4eb4f2c8578cc4edbc175ab25052fdfec768",
+              "size": 101750
+            },
+            "rcs_20200925_spu_18_355nm_PC_30km.webp": {
+              "key": "spu/2020/09/20200925/rcs_20200925_spu_18_355nm_PC_30km.webp",
+              "sha256": "57084d499a9daee9d593ab568dd1afca39dc64737b6c6164a4e44ff7cb1797f6",
+              "size": 95720
+            },
+            "rcs_20200925_spu_18_355nm_PC_5km.webp": {
+              "key": "spu/2020/09/20200925/rcs_20200925_spu_18_355nm_PC_5km.webp",
+              "sha256": "1e64b0d2a3199068bfa863fd21e17a0f49a30a1ab5249b61b731185530cd929f",
+              "size": 77126
+            },
+            "rcs_20200925_spu_18_532nm_AN_15km.webp": {
+              "key": "spu/2020/09/20200925/rcs_20200925_spu_18_532nm_AN_15km.webp",
+              "sha256": "5d5341b5adcb8fc67ae8ebe006f918680cf1eb3c82569f8418191a3d2cab4c3a",
+              "size": 101918
+            },
+            "rcs_20200925_spu_18_532nm_AN_30km.webp": {
+              "key": "spu/2020/09/20200925/rcs_20200925_spu_18_532nm_AN_30km.webp",
+              "sha256": "e1d28d3f6ce36304303c664d01d49a9386533ab8611f3f69b65466316421f3c1",
+              "size": 121814
+            },
+            "rcs_20200925_spu_18_532nm_AN_5km.webp": {
+              "key": "spu/2020/09/20200925/rcs_20200925_spu_18_532nm_AN_5km.webp",
+              "sha256": "50b97745c16a2d395667cd62fc952941aa0ac1f68a2e2d8663a3bc4a9d9193f8",
+              "size": 66930
+            },
+            "rcs_20200925_spu_18_532nm_PC_15km.webp": {
+              "key": "spu/2020/09/20200925/rcs_20200925_spu_18_532nm_PC_15km.webp",
+              "sha256": "0ede5af808faf2615735d383049a04ef0700748710db115e3a1bfbb3a30bff4a",
+              "size": 96528
+            },
+            "rcs_20200925_spu_18_532nm_PC_30km.webp": {
+              "key": "spu/2020/09/20200925/rcs_20200925_spu_18_532nm_PC_30km.webp",
+              "sha256": "754ef3ff39f3348c79737715dc104a61397af4a5466154cc4e9c49eb7ddf1895",
+              "size": 90282
+            },
+            "rcs_20200925_spu_18_532nm_PC_5km.webp": {
+              "key": "spu/2020/09/20200925/rcs_20200925_spu_18_532nm_PC_5km.webp",
+              "sha256": "22ab8857862d3b2677c0fa1db146176ebc16599f546933206df2e542d7c6303a",
+              "size": 75914
+            }
+          },
+          "publication_window_id": "20200925_spu_18",
+          "r2_bucket": "spu-ql",
+          "scientific_netcdf_split": false,
+          "scientific_sessions_merged": false,
+          "source_fingerprint": "cbb9a4a8f16a9f9a67e0fdfc8b8c25d49f829c4549353c634b42ee7e809ed857",
+          "source_level1_files": [
+            "spu_20200925-1058Z_20200925-2210Z_L1.nc"
+          ],
+          "source_level2_files": [],
+          "source_sessions": [
+            "spu_20200925-1058Z_20200925-2210Z"
+          ],
+          "visualization_only_session_concatenation": false
+        }
+      }
+    },
+    "20200926": {
+      "publication_windows": {
+        "06": {
+          "assets": {
+            "rcs_20200926_spu_06_1064nm_AN_15km.webp": {
+              "key": "spu/2020/09/20200926/rcs_20200926_spu_06_1064nm_AN_15km.webp",
+              "sha256": "0e3194b43d6d224c7b522d13be89e4c4f6968a17cea2c2cf7316ec0ce6fed8b0",
+              "size": 97716
+            },
+            "rcs_20200926_spu_06_1064nm_AN_30km.webp": {
+              "key": "spu/2020/09/20200926/rcs_20200926_spu_06_1064nm_AN_30km.webp",
+              "sha256": "a1f0c4d77ea123ddcd679939ee1e270d967dd4e52f95afd909d610b4222015dc",
+              "size": 98620
+            },
+            "rcs_20200926_spu_06_1064nm_AN_5km.webp": {
+              "key": "spu/2020/09/20200926/rcs_20200926_spu_06_1064nm_AN_5km.webp",
+              "sha256": "9c8645e82e4d57be9a528271e525319d737c9ae072c0da5c970548bde659abb9",
+              "size": 76936
+            },
+            "rcs_20200926_spu_06_355nm_AN_15km.webp": {
+              "key": "spu/2020/09/20200926/rcs_20200926_spu_06_355nm_AN_15km.webp",
+              "sha256": "e5be2c33257ad124f7f6f1e44235c607f88a3c8f2a24c46b3bd609e0a9c08496",
+              "size": 99174
+            },
+            "rcs_20200926_spu_06_355nm_AN_30km.webp": {
+              "key": "spu/2020/09/20200926/rcs_20200926_spu_06_355nm_AN_30km.webp",
+              "sha256": "f8eabd149dcee37cd2648ad6ea6e4c87b4da1c2cacf309482dbc847db72b846d",
+              "size": 103364
+            },
+            "rcs_20200926_spu_06_355nm_AN_5km.webp": {
+              "key": "spu/2020/09/20200926/rcs_20200926_spu_06_355nm_AN_5km.webp",
+              "sha256": "f0fc7d0b8c7435d243bb423c5d72ec02405c5db144d0e7ff5e085780dda7f1b5",
+              "size": 70572
+            },
+            "rcs_20200926_spu_06_355nm_PC_15km.webp": {
+              "key": "spu/2020/09/20200926/rcs_20200926_spu_06_355nm_PC_15km.webp",
+              "sha256": "10f66ebc7d9f4a6e4c1f5e6973e471051e34d3d3dcc7adc050e540a17bc8217b",
+              "size": 104702
+            },
+            "rcs_20200926_spu_06_355nm_PC_30km.webp": {
+              "key": "spu/2020/09/20200926/rcs_20200926_spu_06_355nm_PC_30km.webp",
+              "sha256": "6acc3b8a90090f74a962f49c222e82dcbe06a35e81771694f528a0c102c0de90",
+              "size": 107180
+            },
+            "rcs_20200926_spu_06_355nm_PC_5km.webp": {
+              "key": "spu/2020/09/20200926/rcs_20200926_spu_06_355nm_PC_5km.webp",
+              "sha256": "dc38f61eb47b662a897ee51b1027751b326898b754f5504d6f6d464b7ca1cd20",
+              "size": 76548
+            },
+            "rcs_20200926_spu_06_532nm_AN_15km.webp": {
+              "key": "spu/2020/09/20200926/rcs_20200926_spu_06_532nm_AN_15km.webp",
+              "sha256": "948a777fe1a70a386a8d23e3caa2673db4087a20d01befbc078ed4f905068e45",
+              "size": 98754
+            },
+            "rcs_20200926_spu_06_532nm_AN_30km.webp": {
+              "key": "spu/2020/09/20200926/rcs_20200926_spu_06_532nm_AN_30km.webp",
+              "sha256": "b5eb218d29f08696f9b4a049476cb3a951e8438012fc7c52bd9d7f1cf0be2321",
+              "size": 105098
+            },
+            "rcs_20200926_spu_06_532nm_AN_5km.webp": {
+              "key": "spu/2020/09/20200926/rcs_20200926_spu_06_532nm_AN_5km.webp",
+              "sha256": "6acb7a5aa7a325d26fbb3df5e5186bea12a37a763dbb11ca49cc8cc148951fb5",
+              "size": 66920
+            },
+            "rcs_20200926_spu_06_532nm_PC_15km.webp": {
+              "key": "spu/2020/09/20200926/rcs_20200926_spu_06_532nm_PC_15km.webp",
+              "sha256": "56bba0f25e63ea5401090f7a7a5d4ca35ef5f9c081daee34a13072182a64e2d4",
+              "size": 105118
+            },
+            "rcs_20200926_spu_06_532nm_PC_30km.webp": {
+              "key": "spu/2020/09/20200926/rcs_20200926_spu_06_532nm_PC_30km.webp",
+              "sha256": "ae61d48f6065aae3ced4149b2640d984a9a9aae72bcd5eae13e4a7ffc34c4b2a",
+              "size": 109330
+            },
+            "rcs_20200926_spu_06_532nm_PC_5km.webp": {
+              "key": "spu/2020/09/20200926/rcs_20200926_spu_06_532nm_PC_5km.webp",
+              "sha256": "76dda962f6b4a270f5bd8ad4b4fb88e5f2fdbc2ddfb65d4935e6adaad4ac0075",
+              "size": 76278
+            }
+          },
+          "publication_window_id": "20200926_spu_06",
+          "r2_bucket": "spu-ql",
+          "scientific_netcdf_split": false,
+          "scientific_sessions_merged": false,
+          "source_fingerprint": "c892bceb4899e4d855b0ccd391f0e26ea689eb704b835811bb2bd0e547e37d5f",
+          "source_level1_files": [
+            "spu_20200926-1404Z_20200926-2132Z_L1.nc"
+          ],
+          "source_level2_files": [],
+          "source_sessions": [
+            "spu_20200926-1404Z_20200926-2132Z"
+          ],
+          "visualization_only_session_concatenation": false
+        },
+        "12": {
+          "assets": {
+            "rcs_20200926_spu_12_1064nm_AN_15km.webp": {
+              "key": "spu/2020/09/20200926/rcs_20200926_spu_12_1064nm_AN_15km.webp",
+              "sha256": "84a769c8be15f887ce4258afba373b38f0a1a1995187adb4557df622ed8fb0c6",
+              "size": 371642
+            },
+            "rcs_20200926_spu_12_1064nm_AN_30km.webp": {
+              "key": "spu/2020/09/20200926/rcs_20200926_spu_12_1064nm_AN_30km.webp",
+              "sha256": "257fd424793b6fc4bad50ebae070416f2551022bfadd17a5eaf3484a53e4a081",
+              "size": 360114
+            },
+            "rcs_20200926_spu_12_1064nm_AN_5km.webp": {
+              "key": "spu/2020/09/20200926/rcs_20200926_spu_12_1064nm_AN_5km.webp",
+              "sha256": "29dfc0f3cde7a468c469e97404710122458b829da0d01dbaa2ff6cb5600e7e1b",
+              "size": 244750
+            },
+            "rcs_20200926_spu_12_355nm_AN_15km.webp": {
+              "key": "spu/2020/09/20200926/rcs_20200926_spu_12_355nm_AN_15km.webp",
+              "sha256": "ebaaccf7ef7da4e7a4ba94f197430a466f5924e735c14984571f1d289bfd2b22",
+              "size": 379566
+            },
+            "rcs_20200926_spu_12_355nm_AN_30km.webp": {
+              "key": "spu/2020/09/20200926/rcs_20200926_spu_12_355nm_AN_30km.webp",
+              "sha256": "ff392bef8e3aad737fb86424ddb02786583995badf4839e7afae40bf0552325e",
+              "size": 410498
+            },
+            "rcs_20200926_spu_12_355nm_AN_5km.webp": {
+              "key": "spu/2020/09/20200926/rcs_20200926_spu_12_355nm_AN_5km.webp",
+              "sha256": "88f93f372d8b2dab3d7d8065be9e6ff8c1f94eda5262fa405b90def4e75d4a8a",
+              "size": 246296
+            },
+            "rcs_20200926_spu_12_355nm_PC_15km.webp": {
+              "key": "spu/2020/09/20200926/rcs_20200926_spu_12_355nm_PC_15km.webp",
+              "sha256": "8dec26accd37f1e76ff47a9daeb064f5b28937ee4bb1c71c07652d98f3bb91f2",
+              "size": 413570
+            },
+            "rcs_20200926_spu_12_355nm_PC_30km.webp": {
+              "key": "spu/2020/09/20200926/rcs_20200926_spu_12_355nm_PC_30km.webp",
+              "sha256": "4685c0977d19a4129634f9a7c8e8491c1c6a5770c64baa5d8c38943f03d819e6",
+              "size": 409932
+            },
+            "rcs_20200926_spu_12_355nm_PC_5km.webp": {
+              "key": "spu/2020/09/20200926/rcs_20200926_spu_12_355nm_PC_5km.webp",
+              "sha256": "b2d9897fe6f5c24b9dc2d84a30b6f1fcc31768d8712ac86ec5e8c30fd054ef00",
+              "size": 274750
+            },
+            "rcs_20200926_spu_12_532nm_AN_15km.webp": {
+              "key": "spu/2020/09/20200926/rcs_20200926_spu_12_532nm_AN_15km.webp",
+              "sha256": "45a21046e11334fbfec9809f3099b5574244c70c16d5b70e3c71dc883572b47a",
+              "size": 377564
+            },
+            "rcs_20200926_spu_12_532nm_AN_30km.webp": {
+              "key": "spu/2020/09/20200926/rcs_20200926_spu_12_532nm_AN_30km.webp",
+              "sha256": "4f0d36fa55a3b38e14528529935c0cf45391a378c96bbf8217c4c40c75555a62",
+              "size": 424570
+            },
+            "rcs_20200926_spu_12_532nm_AN_5km.webp": {
+              "key": "spu/2020/09/20200926/rcs_20200926_spu_12_532nm_AN_5km.webp",
+              "sha256": "cf1f92f2c595fda2bb0bc6834cb5db673c94dc0126646408ade84ec587274a87",
+              "size": 238444
+            },
+            "rcs_20200926_spu_12_532nm_PC_15km.webp": {
+              "key": "spu/2020/09/20200926/rcs_20200926_spu_12_532nm_PC_15km.webp",
+              "sha256": "7e55afef00ea29d115261015f9a275779016db5f8700b139394d5690cf8b3de9",
+              "size": 377430
+            },
+            "rcs_20200926_spu_12_532nm_PC_30km.webp": {
+              "key": "spu/2020/09/20200926/rcs_20200926_spu_12_532nm_PC_30km.webp",
+              "sha256": "9afcbdc0473d7328512141cde2f7d3eec47fde1e0fe14855c5cc7fe4f2f278a0",
+              "size": 421708
+            },
+            "rcs_20200926_spu_12_532nm_PC_5km.webp": {
+              "key": "spu/2020/09/20200926/rcs_20200926_spu_12_532nm_PC_5km.webp",
+              "sha256": "e7ecd757d46128acdd1ae92f03cb2336d539fc2c4760acd57c51ba6f470836ad",
+              "size": 246796
+            }
+          },
+          "publication_window_id": "20200926_spu_12",
+          "r2_bucket": "spu-ql",
+          "scientific_netcdf_split": false,
+          "scientific_sessions_merged": false,
+          "source_fingerprint": "5e8d7c5d29a9240b9af3ba047642e8f3f775cc0dd1650962ece8d0375a0496f9",
+          "source_level1_files": [
+            "spu_20200926-1404Z_20200926-2132Z_L1.nc"
+          ],
+          "source_level2_files": [],
+          "source_sessions": [
+            "spu_20200926-1404Z_20200926-2132Z"
+          ],
+          "visualization_only_session_concatenation": false
+        },
+        "18": {
+          "assets": {
+            "rcs_20200926_spu_18_1064nm_AN_15km.webp": {
+              "key": "spu/2020/09/20200926/rcs_20200926_spu_18_1064nm_AN_15km.webp",
+              "sha256": "526aa6dc98003445fe4779460cc85a498bf1c8c2e125f5936dc4ba4bcd46244f",
+              "size": 76874
+            },
+            "rcs_20200926_spu_18_1064nm_AN_30km.webp": {
+              "key": "spu/2020/09/20200926/rcs_20200926_spu_18_1064nm_AN_30km.webp",
+              "sha256": "b70a676d273dc9e0f8c870880b86ca1434b96fbb2116aa6c73c46dc8b4cfd0fb",
+              "size": 77064
+            },
+            "rcs_20200926_spu_18_1064nm_AN_5km.webp": {
+              "key": "spu/2020/09/20200926/rcs_20200926_spu_18_1064nm_AN_5km.webp",
+              "sha256": "45af9d1014a9a0216399dbd398dddc23b372553e9fd5e485cf02dff8073aa5b8",
+              "size": 55666
+            },
+            "rcs_20200926_spu_18_355nm_AN_15km.webp": {
+              "key": "spu/2020/09/20200926/rcs_20200926_spu_18_355nm_AN_15km.webp",
+              "sha256": "cf6ba8048f4eb6ef4d81fdf63f29de7658493c124ba5379052333247c60c130c",
+              "size": 70180
+            },
+            "rcs_20200926_spu_18_355nm_AN_30km.webp": {
+              "key": "spu/2020/09/20200926/rcs_20200926_spu_18_355nm_AN_30km.webp",
+              "sha256": "3cc2ebfc505962cea4aba7663eb7650d22cf092e90f7d5f63bc13886b6c5b54c",
+              "size": 82252
+            },
+            "rcs_20200926_spu_18_355nm_AN_5km.webp": {
+              "key": "spu/2020/09/20200926/rcs_20200926_spu_18_355nm_AN_5km.webp",
+              "sha256": "e78cdf71d339d32295ea8c563a238c807b7e3c82f68a0eea798fad8fc06f305c",
+              "size": 55486
+            },
+            "rcs_20200926_spu_18_355nm_PC_15km.webp": {
+              "key": "spu/2020/09/20200926/rcs_20200926_spu_18_355nm_PC_15km.webp",
+              "sha256": "8d0f80c068011a744a14f70ac6c45ca81e9f77b5cbbd7c6317971eade4cf5fda",
+              "size": 68844
+            },
+            "rcs_20200926_spu_18_355nm_PC_30km.webp": {
+              "key": "spu/2020/09/20200926/rcs_20200926_spu_18_355nm_PC_30km.webp",
+              "sha256": "968b007182eaf4b5724fc5d286e9bdbeba5d1dcf5cbf5323a703ec7073ae66b6",
+              "size": 67764
+            },
+            "rcs_20200926_spu_18_355nm_PC_5km.webp": {
+              "key": "spu/2020/09/20200926/rcs_20200926_spu_18_355nm_PC_5km.webp",
+              "sha256": "00bfc60587c7cfdbe896d65460bafbf6bf243c6354437b40bf54e164ccf0866c",
+              "size": 61098
+            },
+            "rcs_20200926_spu_18_532nm_AN_15km.webp": {
+              "key": "spu/2020/09/20200926/rcs_20200926_spu_18_532nm_AN_15km.webp",
+              "sha256": "f35c42acdf34cd09bfa892b24ad92e943ad06dc309afeb2c09958712c8dc5e49",
+              "size": 70186
+            },
+            "rcs_20200926_spu_18_532nm_AN_30km.webp": {
+              "key": "spu/2020/09/20200926/rcs_20200926_spu_18_532nm_AN_30km.webp",
+              "sha256": "5f81a9f6095f7e5ebb2467c687f1451f3c2e40770678c4e07ffb05cba88ee8fb",
+              "size": 82010
+            },
+            "rcs_20200926_spu_18_532nm_AN_5km.webp": {
+              "key": "spu/2020/09/20200926/rcs_20200926_spu_18_532nm_AN_5km.webp",
+              "sha256": "aa3b1185c0521415df379b292558da720d9949c814739f76ff0ff818c0171128",
+              "size": 54834
+            },
+            "rcs_20200926_spu_18_532nm_PC_15km.webp": {
+              "key": "spu/2020/09/20200926/rcs_20200926_spu_18_532nm_PC_15km.webp",
+              "sha256": "df92f1f6b85d445701ac586e5119fb98e7c36d032501f03c767257c2c4bba44c",
+              "size": 66978
+            },
+            "rcs_20200926_spu_18_532nm_PC_30km.webp": {
+              "key": "spu/2020/09/20200926/rcs_20200926_spu_18_532nm_PC_30km.webp",
+              "sha256": "bbd0a6f8ace43f317abe06f59f726f9a7b3166a3dbd7287a76f72184da20eeb7",
+              "size": 67308
+            },
+            "rcs_20200926_spu_18_532nm_PC_5km.webp": {
+              "key": "spu/2020/09/20200926/rcs_20200926_spu_18_532nm_PC_5km.webp",
+              "sha256": "1887cb81d9e3dc914dd7ea889253891efc126c0ece5f706d2d96bbb79639bc33",
+              "size": 60020
+            }
+          },
+          "publication_window_id": "20200926_spu_18",
+          "r2_bucket": "spu-ql",
+          "scientific_netcdf_split": false,
+          "scientific_sessions_merged": false,
+          "source_fingerprint": "43c05612bc1ae375295de6f7533f53b42e5a884dd200cb0f3bb06cc24556c28b",
+          "source_level1_files": [
+            "spu_20200926-1404Z_20200926-2132Z_L1.nc"
+          ],
+          "source_level2_files": [],
+          "source_sessions": [
+            "spu_20200926-1404Z_20200926-2132Z"
+          ],
+          "visualization_only_session_concatenation": false
+        }
+      }
+    },
+    "20201002": {
+      "publication_windows": {
+        "06": {
+          "assets": {
+            "rcs_20201002_spu_06_1064nm_AN_15km.webp": {
+              "key": "spu/2020/10/20201002/rcs_20201002_spu_06_1064nm_AN_15km.webp",
+              "sha256": "e11f8127d603c620b8dbc2c58cdcb8128755898dd656747e12a41758e3f76796",
+              "size": 250560
+            },
+            "rcs_20201002_spu_06_1064nm_AN_30km.webp": {
+              "key": "spu/2020/10/20201002/rcs_20201002_spu_06_1064nm_AN_30km.webp",
+              "sha256": "cbe6e0f7c88e1f0589e09326c385a0fb3981591b69729bb595431519ef038b30",
+              "size": 231848
+            },
+            "rcs_20201002_spu_06_1064nm_AN_5km.webp": {
+              "key": "spu/2020/10/20201002/rcs_20201002_spu_06_1064nm_AN_5km.webp",
+              "sha256": "4b982e2e795c51ae7ad2c8c8ddfb0eef4cb338b2588c55a51bd26dd93aff5268",
+              "size": 158414
+            },
+            "rcs_20201002_spu_06_355nm_AN_15km.webp": {
+              "key": "spu/2020/10/20201002/rcs_20201002_spu_06_355nm_AN_15km.webp",
+              "sha256": "6b517bca5e3d6205ccac318d6b41f9887cc7ea912cfe492ad44369b28dbcd6de",
+              "size": 222894
+            },
+            "rcs_20201002_spu_06_355nm_AN_30km.webp": {
+              "key": "spu/2020/10/20201002/rcs_20201002_spu_06_355nm_AN_30km.webp",
+              "sha256": "2942ff20b1a9732cd1702787ef3dea0119cc4d35522b9d424dcfc3d12408930b",
+              "size": 236386
+            },
+            "rcs_20201002_spu_06_355nm_AN_5km.webp": {
+              "key": "spu/2020/10/20201002/rcs_20201002_spu_06_355nm_AN_5km.webp",
+              "sha256": "b6594ae86f2a51d46a69b990f3e96e0aef512c939d5accdc575e8aba065b1237",
+              "size": 126558
+            },
+            "rcs_20201002_spu_06_355nm_PC_15km.webp": {
+              "key": "spu/2020/10/20201002/rcs_20201002_spu_06_355nm_PC_15km.webp",
+              "sha256": "7fc208e2603eb813b96ee97d9cee5004544ff96b14a10c1f25fc8fa906755648",
+              "size": 261310
+            },
+            "rcs_20201002_spu_06_355nm_PC_30km.webp": {
+              "key": "spu/2020/10/20201002/rcs_20201002_spu_06_355nm_PC_30km.webp",
+              "sha256": "69e37c5d85558232056651ad484e566f9a157afa6e07de9a223b60f0eb4978cc",
+              "size": 240118
+            },
+            "rcs_20201002_spu_06_355nm_PC_5km.webp": {
+              "key": "spu/2020/10/20201002/rcs_20201002_spu_06_355nm_PC_5km.webp",
+              "sha256": "93caaf0cca72b511667b40b95de5bc8d19dfd69820561a9390ee6cf072eb3d86",
+              "size": 184558
+            },
+            "rcs_20201002_spu_06_532nm_AN_15km.webp": {
+              "key": "spu/2020/10/20201002/rcs_20201002_spu_06_532nm_AN_15km.webp",
+              "sha256": "fc1561ef3b1e7c1dd3131ddd046ab16fc98b7d5cdf7b342425a93fcc64abdd0b",
+              "size": 234672
+            },
+            "rcs_20201002_spu_06_532nm_AN_30km.webp": {
+              "key": "spu/2020/10/20201002/rcs_20201002_spu_06_532nm_AN_30km.webp",
+              "sha256": "e723010763f498981e790b9cb86fa2c383acd10657e9ea1111304969eea321ff",
+              "size": 242046
+            },
+            "rcs_20201002_spu_06_532nm_AN_5km.webp": {
+              "key": "spu/2020/10/20201002/rcs_20201002_spu_06_532nm_AN_5km.webp",
+              "sha256": "7a01b770fa45ce6118f0a438361e66127254ae00dfc7860cb736ea7a45d11994",
+              "size": 146944
+            },
+            "rcs_20201002_spu_06_532nm_PC_15km.webp": {
+              "key": "spu/2020/10/20201002/rcs_20201002_spu_06_532nm_PC_15km.webp",
+              "sha256": "875eb77016b4adaa23e06907b9feb2b349faeb1b1f03023bf937dc1e777d5c00",
+              "size": 244742
+            },
+            "rcs_20201002_spu_06_532nm_PC_30km.webp": {
+              "key": "spu/2020/10/20201002/rcs_20201002_spu_06_532nm_PC_30km.webp",
+              "sha256": "60821e81fe76e60cffd1dbd03ec16bc6d2370e4180a4fdb18b1b1de2f095a707",
+              "size": 244016
+            },
+            "rcs_20201002_spu_06_532nm_PC_5km.webp": {
+              "key": "spu/2020/10/20201002/rcs_20201002_spu_06_532nm_PC_5km.webp",
+              "sha256": "2372845c775842a7eccb9aea7100afeb20fd21d2da775eeaca6b8fbbc6788777",
+              "size": 163110
+            }
+          },
+          "publication_window_id": "20201002_spu_06",
+          "r2_bucket": "spu-ql",
+          "scientific_netcdf_split": false,
+          "scientific_sessions_merged": false,
+          "source_fingerprint": "8358ef9d9b38361a7450e17242682a41b9ff7ecbc84a85e390bf459186345967",
+          "source_level1_files": [
+            "spu_20201002-1126Z_20201002-2246Z_L1.nc"
+          ],
+          "source_level2_files": [],
+          "source_sessions": [
+            "spu_20201002-1126Z_20201002-2246Z"
+          ],
+          "visualization_only_session_concatenation": false
+        },
+        "12": {
+          "assets": {
+            "rcs_20201002_spu_12_1064nm_AN_15km.webp": {
+              "key": "spu/2020/10/20201002/rcs_20201002_spu_12_1064nm_AN_15km.webp",
+              "sha256": "d33cab480573350529d9f9dff12fb5517b8f7c200b4a6040ec353a23fd2978b8",
+              "size": 389692
+            },
+            "rcs_20201002_spu_12_1064nm_AN_30km.webp": {
+              "key": "spu/2020/10/20201002/rcs_20201002_spu_12_1064nm_AN_30km.webp",
+              "sha256": "5b41379766d3bc13e9485ae678729d890f193b4199345d809f479b081b787299",
+              "size": 364966
+            },
+            "rcs_20201002_spu_12_1064nm_AN_5km.webp": {
+              "key": "spu/2020/10/20201002/rcs_20201002_spu_12_1064nm_AN_5km.webp",
+              "sha256": "eb1c873201fa881f36c6435acb6dc818031ec7bda1872e3a0403f380f36ef011",
+              "size": 201672
+            },
+            "rcs_20201002_spu_12_355nm_AN_15km.webp": {
+              "key": "spu/2020/10/20201002/rcs_20201002_spu_12_355nm_AN_15km.webp",
+              "sha256": "94b8aa31abe4471e210f66a0de6b4cf899b039290f6c69449cd0eeca3ba3f022",
+              "size": 327864
+            },
+            "rcs_20201002_spu_12_355nm_AN_30km.webp": {
+              "key": "spu/2020/10/20201002/rcs_20201002_spu_12_355nm_AN_30km.webp",
+              "sha256": "ccb4ea51f85bcf8a1fd3b6dc5e3ec72e1a35487033d52fb66de7fbeac83f56e7",
+              "size": 362498
+            },
+            "rcs_20201002_spu_12_355nm_AN_5km.webp": {
+              "key": "spu/2020/10/20201002/rcs_20201002_spu_12_355nm_AN_5km.webp",
+              "sha256": "47767f1a9f382cf123f9f7553713b661282c88f71f4d76b7ac995d508c5969a3",
+              "size": 184844
+            },
+            "rcs_20201002_spu_12_355nm_PC_15km.webp": {
+              "key": "spu/2020/10/20201002/rcs_20201002_spu_12_355nm_PC_15km.webp",
+              "sha256": "6accd3dd5819c614fc46710ecff40a33b5b5e23ed6e741dd63e2e98aa0d4dc7b",
+              "size": 379354
+            },
+            "rcs_20201002_spu_12_355nm_PC_30km.webp": {
+              "key": "spu/2020/10/20201002/rcs_20201002_spu_12_355nm_PC_30km.webp",
+              "sha256": "ddfa1d402f8ed5bb7147b1871a43af2d9b48a0d703a5dfd2a0afd2190bfecdc0",
+              "size": 358630
+            },
+            "rcs_20201002_spu_12_355nm_PC_5km.webp": {
+              "key": "spu/2020/10/20201002/rcs_20201002_spu_12_355nm_PC_5km.webp",
+              "sha256": "d08aa87087c712e63cf397339d0b13847d3a8ab21d91249f025ca83217f19efa",
+              "size": 264854
+            },
+            "rcs_20201002_spu_12_532nm_AN_15km.webp": {
+              "key": "spu/2020/10/20201002/rcs_20201002_spu_12_532nm_AN_15km.webp",
+              "sha256": "73af12086ca0123f7c36952a5b36a86671b48f8b227db8c40a483c89de045e45",
+              "size": 316472
+            },
+            "rcs_20201002_spu_12_532nm_AN_30km.webp": {
+              "key": "spu/2020/10/20201002/rcs_20201002_spu_12_532nm_AN_30km.webp",
+              "sha256": "e6dc425f79ec3fd5fc328cc1e331c34bd0277e4a75a68782ebbb7cc3c5891415",
+              "size": 382080
+            },
+            "rcs_20201002_spu_12_532nm_AN_5km.webp": {
+              "key": "spu/2020/10/20201002/rcs_20201002_spu_12_532nm_AN_5km.webp",
+              "sha256": "449d8090452584dc26bb6770fc85abc64114d47a054a038d593313c8ffdc1708",
+              "size": 176532
+            },
+            "rcs_20201002_spu_12_532nm_PC_15km.webp": {
+              "key": "spu/2020/10/20201002/rcs_20201002_spu_12_532nm_PC_15km.webp",
+              "sha256": "dcd0e204b2541d0e9b98beb494f605db9d4f946a10641bfe433eaeae2b7ab96d",
+              "size": 353686
+            },
+            "rcs_20201002_spu_12_532nm_PC_30km.webp": {
+              "key": "spu/2020/10/20201002/rcs_20201002_spu_12_532nm_PC_30km.webp",
+              "sha256": "772875d352722e3ee2ae81f3aca2797c4625a8158571bae3dce97b632ca5b066",
+              "size": 374786
+            },
+            "rcs_20201002_spu_12_532nm_PC_5km.webp": {
+              "key": "spu/2020/10/20201002/rcs_20201002_spu_12_532nm_PC_5km.webp",
+              "sha256": "20a3438a6ac3922e82c44996703c1f32fc4b95d8926612a5be6785fa84174984",
+              "size": 239576
+            }
+          },
+          "publication_window_id": "20201002_spu_12",
+          "r2_bucket": "spu-ql",
+          "scientific_netcdf_split": false,
+          "scientific_sessions_merged": false,
+          "source_fingerprint": "bd9880f5d56e9c2af3cb3d6a0b5b0ab23dfe01ba186668be4dfd0285df2d0fd2",
+          "source_level1_files": [
+            "spu_20201002-1126Z_20201002-2246Z_L1.nc"
+          ],
+          "source_level2_files": [],
+          "source_sessions": [
+            "spu_20201002-1126Z_20201002-2246Z"
+          ],
+          "visualization_only_session_concatenation": false
+        },
+        "18": {
+          "assets": {
+            "rcs_20201002_spu_18_1064nm_AN_15km.webp": {
+              "key": "spu/2020/10/20201002/rcs_20201002_spu_18_1064nm_AN_15km.webp",
+              "sha256": "c731b0f75e46f7de9bf59e763d03aaa56910d84c3e52abacc0217bedf926949c",
+              "size": 139386
+            },
+            "rcs_20201002_spu_18_1064nm_AN_30km.webp": {
+              "key": "spu/2020/10/20201002/rcs_20201002_spu_18_1064nm_AN_30km.webp",
+              "sha256": "79cb191c78f6c16fd74d720ec5cc57771e0aaa4282508f20a0828f3596df2d66",
+              "size": 140392
+            },
+            "rcs_20201002_spu_18_1064nm_AN_5km.webp": {
+              "key": "spu/2020/10/20201002/rcs_20201002_spu_18_1064nm_AN_5km.webp",
+              "sha256": "d6c75678fcf7972d845f130317ac58dc697440287a20b4f148abfed076daf651",
+              "size": 77114
+            },
+            "rcs_20201002_spu_18_355nm_AN_15km.webp": {
+              "key": "spu/2020/10/20201002/rcs_20201002_spu_18_355nm_AN_15km.webp",
+              "sha256": "e4b04fb66d3eb985a70c17d5a2372c51902f7b6175e487536518fbd7f38385fa",
+              "size": 116900
+            },
+            "rcs_20201002_spu_18_355nm_AN_30km.webp": {
+              "key": "spu/2020/10/20201002/rcs_20201002_spu_18_355nm_AN_30km.webp",
+              "sha256": "0669d4db654c68ab20293a1a5d1c2f4fd9600820399a1a5fc2bf8e028110540a",
+              "size": 141704
+            },
+            "rcs_20201002_spu_18_355nm_AN_5km.webp": {
+              "key": "spu/2020/10/20201002/rcs_20201002_spu_18_355nm_AN_5km.webp",
+              "sha256": "88f75d36c404d40b0dff1fbe145d3359d1181441d4e8a8bd5a72e268d91aa05a",
+              "size": 74962
+            },
+            "rcs_20201002_spu_18_355nm_PC_15km.webp": {
+              "key": "spu/2020/10/20201002/rcs_20201002_spu_18_355nm_PC_15km.webp",
+              "sha256": "104a76c0d0b714ad61a5e4a7970c1f943589ca07a86c0e1010a76478431245df",
+              "size": 92688
+            },
+            "rcs_20201002_spu_18_355nm_PC_30km.webp": {
+              "key": "spu/2020/10/20201002/rcs_20201002_spu_18_355nm_PC_30km.webp",
+              "sha256": "58b0dae125cffedb78da7ac7b4c6e6bf10b755b22c6d8dc2783711c99113d4c7",
+              "size": 85738
+            },
+            "rcs_20201002_spu_18_355nm_PC_5km.webp": {
+              "key": "spu/2020/10/20201002/rcs_20201002_spu_18_355nm_PC_5km.webp",
+              "sha256": "9f36b23fe7d860b72bbe69a03f62207c70b3ecfec9d51766655611c82c65a575",
+              "size": 100864
+            },
+            "rcs_20201002_spu_18_532nm_AN_15km.webp": {
+              "key": "spu/2020/10/20201002/rcs_20201002_spu_18_532nm_AN_15km.webp",
+              "sha256": "4156d251535d9c9813e7850327b4581ed44f2872210de67abf267f2c32b96bc1",
+              "size": 85892
+            },
+            "rcs_20201002_spu_18_532nm_AN_30km.webp": {
+              "key": "spu/2020/10/20201002/rcs_20201002_spu_18_532nm_AN_30km.webp",
+              "sha256": "ecdaa2a6e37c1c752af6ef8b41c76962be5b019d5fac2cf05b23bd8a96843914",
+              "size": 133760
+            },
+            "rcs_20201002_spu_18_532nm_AN_5km.webp": {
+              "key": "spu/2020/10/20201002/rcs_20201002_spu_18_532nm_AN_5km.webp",
+              "sha256": "155dac7e190ded6257dff5864e0d7fedc1ee3548e5d886076e95036582e2a91f",
+              "size": 66358
+            },
+            "rcs_20201002_spu_18_532nm_PC_15km.webp": {
+              "key": "spu/2020/10/20201002/rcs_20201002_spu_18_532nm_PC_15km.webp",
+              "sha256": "3f4115074839a06de8d5fc3a3887f5e4b3a652a2f44d0e5a76b74cbaad136ee1",
+              "size": 85372
+            },
+            "rcs_20201002_spu_18_532nm_PC_30km.webp": {
+              "key": "spu/2020/10/20201002/rcs_20201002_spu_18_532nm_PC_30km.webp",
+              "sha256": "9b482cad1cae08e9efaa26d655982a8c6ccb6b8b5957c6668d4af17a43d6b6cf",
+              "size": 84538
+            },
+            "rcs_20201002_spu_18_532nm_PC_5km.webp": {
+              "key": "spu/2020/10/20201002/rcs_20201002_spu_18_532nm_PC_5km.webp",
+              "sha256": "32aec5d54cf725a24a074c6c9da1ac81840a5b02b8cdf1e6be2b0d77b7024896",
+              "size": 96104
+            }
+          },
+          "publication_window_id": "20201002_spu_18",
+          "r2_bucket": "spu-ql",
+          "scientific_netcdf_split": false,
+          "scientific_sessions_merged": false,
+          "source_fingerprint": "4d56760906b12997319751681419117d9483763ca2b3a746c4782997fad31cf8",
+          "source_level1_files": [
+            "spu_20201002-1126Z_20201002-2246Z_L1.nc"
+          ],
+          "source_level2_files": [],
+          "source_sessions": [
+            "spu_20201002-1126Z_20201002-2246Z"
+          ],
+          "visualization_only_session_concatenation": false
+        }
+      }
+    },
+    "20201019": {
+      "publication_windows": {
+        "12": {
+          "assets": {
+            "rcs_20201019_spu_12_1064nm_AN_15km.webp": {
+              "key": "spu/2020/10/20201019/rcs_20201019_spu_12_1064nm_AN_15km.webp",
+              "sha256": "0305aa4323233cb9e8f5dd92cccd7f95d33f8699a1f25d9b993dfe2be02d1671",
+              "size": 39072
+            },
+            "rcs_20201019_spu_12_1064nm_AN_30km.webp": {
+              "key": "spu/2020/10/20201019/rcs_20201019_spu_12_1064nm_AN_30km.webp",
+              "sha256": "e9f0a9d9afe89355a880b3d6da938a9c8e81c2a6337bac5562cdba8e3cb7c067",
+              "size": 42370
+            },
+            "rcs_20201019_spu_12_1064nm_AN_5km.webp": {
+              "key": "spu/2020/10/20201019/rcs_20201019_spu_12_1064nm_AN_5km.webp",
+              "sha256": "e28bf151b702ef93f82fdf75e65b460adb8fadcdbbb3cb0fdc6989c5c5424d06",
+              "size": 35140
+            },
+            "rcs_20201019_spu_12_355nm_AN_15km.webp": {
+              "key": "spu/2020/10/20201019/rcs_20201019_spu_12_355nm_AN_15km.webp",
+              "sha256": "64b8b99db2a7e7361ee09ade2102ba4e7ec7acb90087154c35bedc1e659e4250",
+              "size": 39712
+            },
+            "rcs_20201019_spu_12_355nm_AN_30km.webp": {
+              "key": "spu/2020/10/20201019/rcs_20201019_spu_12_355nm_AN_30km.webp",
+              "sha256": "45ab7c1cda7a1df5446d588cf381a08532c7e99c79911d7d07c5f772ac3ec1da",
+              "size": 44826
+            },
+            "rcs_20201019_spu_12_355nm_AN_5km.webp": {
+              "key": "spu/2020/10/20201019/rcs_20201019_spu_12_355nm_AN_5km.webp",
+              "sha256": "babc69a29d740ccb22189fbf9b6cc8b025af4e9bbf2e863af9907f17f0461c48",
+              "size": 36404
+            },
+            "rcs_20201019_spu_12_355nm_PC_15km.webp": {
+              "key": "spu/2020/10/20201019/rcs_20201019_spu_12_355nm_PC_15km.webp",
+              "sha256": "85b67837b47bd9f8a54f7dde840fc35466bdcb068bf53fc48be42e71da85a9c6",
+              "size": 42714
+            },
+            "rcs_20201019_spu_12_355nm_PC_30km.webp": {
+              "key": "spu/2020/10/20201019/rcs_20201019_spu_12_355nm_PC_30km.webp",
+              "sha256": "4b16874845c725390f10c96703e4c09531649576e469507df0e326240c978779",
+              "size": 48870
+            },
+            "rcs_20201019_spu_12_355nm_PC_5km.webp": {
+              "key": "spu/2020/10/20201019/rcs_20201019_spu_12_355nm_PC_5km.webp",
+              "sha256": "828a4bb02aa7041d836e20d719efdfe790093a05ad7062d9c8ac8a9bcb312513",
+              "size": 41106
+            },
+            "rcs_20201019_spu_12_532nm_AN_15km.webp": {
+              "key": "spu/2020/10/20201019/rcs_20201019_spu_12_532nm_AN_15km.webp",
+              "sha256": "1a995c53f2082edf733f80a3c50cc8e6cc425c39c2442cc17a5e35bec7ba274b",
+              "size": 42916
+            },
+            "rcs_20201019_spu_12_532nm_AN_30km.webp": {
+              "key": "spu/2020/10/20201019/rcs_20201019_spu_12_532nm_AN_30km.webp",
+              "sha256": "1633fba68d8b212561159e29e1bf5bb7532f4f8d830c87e808cecb2afa38c287",
+              "size": 43664
+            },
+            "rcs_20201019_spu_12_532nm_AN_5km.webp": {
+              "key": "spu/2020/10/20201019/rcs_20201019_spu_12_532nm_AN_5km.webp",
+              "sha256": "cd8922d3894f415b6ec4a4e48dd76fb83d12d7e4e252769fc22d67db05775800",
+              "size": 39036
+            },
+            "rcs_20201019_spu_12_532nm_PC_15km.webp": {
+              "key": "spu/2020/10/20201019/rcs_20201019_spu_12_532nm_PC_15km.webp",
+              "sha256": "d008a6331b95e5d37afc069f620ea7472e067b81188b39cb6684c82422c4b281",
+              "size": 40200
+            },
+            "rcs_20201019_spu_12_532nm_PC_30km.webp": {
+              "key": "spu/2020/10/20201019/rcs_20201019_spu_12_532nm_PC_30km.webp",
+              "sha256": "73320ebd4c5150c990f123bd2313c95a2a2f24b85e0e0b7f9b9ead7bafe6e478",
+              "size": 42264
+            },
+            "rcs_20201019_spu_12_532nm_PC_5km.webp": {
+              "key": "spu/2020/10/20201019/rcs_20201019_spu_12_532nm_PC_5km.webp",
+              "sha256": "32c7d73d3fbf720ab37eeb783f86b85b893074b6fc7b66740ff39d10b494904a",
+              "size": 38644
+            }
+          },
+          "publication_window_id": "20201019_spu_12",
+          "r2_bucket": "spu-ql",
+          "scientific_netcdf_split": false,
+          "scientific_sessions_merged": false,
+          "source_fingerprint": "1074ddf1a5a68b48fdf7b5bc4a752e99433845e243ce520e5ed1d1f8d4a472b2",
+          "source_level1_files": [
+            "spu_20201019-1515Z_20201019-1517Z_L1.nc"
+          ],
+          "source_level2_files": [],
+          "source_sessions": [
+            "spu_20201019-1515Z_20201019-1517Z"
+          ],
+          "visualization_only_session_concatenation": false
+        }
+      }
+    },
+    "20201127": {
+      "publication_windows": {
+        "12": {
+          "assets": {
+            "rcs_20201127_spu_12_1064nm_AN_15km.webp": {
+              "key": "spu/2020/11/20201127/rcs_20201127_spu_12_1064nm_AN_15km.webp",
+              "sha256": "aab5a3f2e430d29ab3b9a5be10fb32d77aa2d0fa526903e52b198661bb71e02c",
+              "size": 139008
+            },
+            "rcs_20201127_spu_12_1064nm_AN_30km.webp": {
+              "key": "spu/2020/11/20201127/rcs_20201127_spu_12_1064nm_AN_30km.webp",
+              "sha256": "4a391e9be1d53e610a5e7959e5614ad22accacc79a7be3a3341902b7b76095a0",
+              "size": 142868
+            },
+            "rcs_20201127_spu_12_1064nm_AN_5km.webp": {
+              "key": "spu/2020/11/20201127/rcs_20201127_spu_12_1064nm_AN_5km.webp",
+              "sha256": "62d060844b57101d81ef83cff731a9faa4ef061b111d1470e53d7cf7ddf3881b",
+              "size": 54804
+            },
+            "rcs_20201127_spu_12_355nm_AN_15km.webp": {
+              "key": "spu/2020/11/20201127/rcs_20201127_spu_12_355nm_AN_15km.webp",
+              "sha256": "c9586809abfb8f09d32ce62b46fffe5a6bb450b2e34acdc93cf9b656f43f9122",
+              "size": 111854
+            },
+            "rcs_20201127_spu_12_355nm_AN_30km.webp": {
+              "key": "spu/2020/11/20201127/rcs_20201127_spu_12_355nm_AN_30km.webp",
+              "sha256": "446b44c2d0f4a35e0405b4a93740c62c565b735954834bd9751a89711376bda0",
+              "size": 144280
+            },
+            "rcs_20201127_spu_12_355nm_AN_5km.webp": {
+              "key": "spu/2020/11/20201127/rcs_20201127_spu_12_355nm_AN_5km.webp",
+              "sha256": "75a87c57d3404d969143b545639ae67c28d73bd931f00410d7575a88edb7a457",
+              "size": 65610
+            },
+            "rcs_20201127_spu_12_355nm_PC_15km.webp": {
+              "key": "spu/2020/11/20201127/rcs_20201127_spu_12_355nm_PC_15km.webp",
+              "sha256": "a3f8f4f748f8e7a854b3bd56172d5c48410f463b232381af73edf2dda8ba6264",
+              "size": 137470
+            },
+            "rcs_20201127_spu_12_355nm_PC_30km.webp": {
+              "key": "spu/2020/11/20201127/rcs_20201127_spu_12_355nm_PC_30km.webp",
+              "sha256": "6367ed17c2e8a3f2a503366ac2ab59edc2a98cf6d111e9b195a1f0fdf42be004",
+              "size": 151808
+            },
+            "rcs_20201127_spu_12_355nm_PC_5km.webp": {
+              "key": "spu/2020/11/20201127/rcs_20201127_spu_12_355nm_PC_5km.webp",
+              "sha256": "2446c3c1c9c3c5d3df5b8e8c34c02df3ffa7ef862729f4b77397ff5ae27d3b21",
+              "size": 94528
+            },
+            "rcs_20201127_spu_12_532nm_AN_15km.webp": {
+              "key": "spu/2020/11/20201127/rcs_20201127_spu_12_532nm_AN_15km.webp",
+              "sha256": "81e025bcec80b3ee1ba68683a2e5bf65d3fb9880f3dce4de469ade9d8cc9a519",
+              "size": 105648
+            },
+            "rcs_20201127_spu_12_532nm_AN_30km.webp": {
+              "key": "spu/2020/11/20201127/rcs_20201127_spu_12_532nm_AN_30km.webp",
+              "sha256": "e4936dd9666e7afd44f18eb003a517e2a0a5c9162123a00a8c8e4649794650a7",
+              "size": 145558
+            },
+            "rcs_20201127_spu_12_532nm_AN_5km.webp": {
+              "key": "spu/2020/11/20201127/rcs_20201127_spu_12_532nm_AN_5km.webp",
+              "sha256": "51fdc5b00dcbb0fd9a7f61570e24733ff0372e668c9e890c3b86966338d9c45f",
+              "size": 59730
+            },
+            "rcs_20201127_spu_12_532nm_PC_15km.webp": {
+              "key": "spu/2020/11/20201127/rcs_20201127_spu_12_532nm_PC_15km.webp",
+              "sha256": "8a74d9906aebf07c70a82d399dbb4d17cd111ced59c01aa7172d1a009eee8a55",
+              "size": 119084
+            },
+            "rcs_20201127_spu_12_532nm_PC_30km.webp": {
+              "key": "spu/2020/11/20201127/rcs_20201127_spu_12_532nm_PC_30km.webp",
+              "sha256": "5660ff2f7348e8ed4963d9d7600d7132d912e451bd4143823028bf6203115618",
+              "size": 144686
+            },
+            "rcs_20201127_spu_12_532nm_PC_5km.webp": {
+              "key": "spu/2020/11/20201127/rcs_20201127_spu_12_532nm_PC_5km.webp",
+              "sha256": "b92241aa41d9651f80335e7dcd7a1e66b674a01525ccf8528f1ef9f9eac8c24f",
+              "size": 48612
+            }
+          },
+          "publication_window_id": "20201127_spu_12",
+          "r2_bucket": "spu-ql",
+          "scientific_netcdf_split": false,
+          "scientific_sessions_merged": false,
+          "source_fingerprint": "5eb261e916445ceb2e4b95adb64ea14db7641c7455348c4ef50a8c2933a71b53",
+          "source_level1_files": [
+            "spu_20201127-1804Z_20201127-1958Z_L1.nc"
+          ],
+          "source_level2_files": [],
+          "source_sessions": [
+            "spu_20201127-1804Z_20201127-1958Z"
+          ],
+          "visualization_only_session_concatenation": false
+        }
+      }
+    },
+    "20201204": {
+      "publication_windows": {
+        "06": {
+          "assets": {
+            "rcs_20201204_spu_06_1064nm_AN_15km.webp": {
+              "key": "spu/2020/12/20201204/rcs_20201204_spu_06_1064nm_AN_15km.webp",
+              "sha256": "6243d57d3d284591f472e9581f7d7eda6ff40ea36ab58bb561983429e1cf082f",
+              "size": 96996
+            },
+            "rcs_20201204_spu_06_1064nm_AN_30km.webp": {
+              "key": "spu/2020/12/20201204/rcs_20201204_spu_06_1064nm_AN_30km.webp",
+              "sha256": "9173a87563e528464ed065ff89eaf4e5d2b4ea2ace2b46cb46c229bfc7c66dc4",
+              "size": 95124
+            },
+            "rcs_20201204_spu_06_1064nm_AN_5km.webp": {
+              "key": "spu/2020/12/20201204/rcs_20201204_spu_06_1064nm_AN_5km.webp",
+              "sha256": "599f679738faec444c28587329a3f324d3464fe78533ca2a31907c00e53c37b9",
+              "size": 95128
+            },
+            "rcs_20201204_spu_06_355nm_AN_15km.webp": {
+              "key": "spu/2020/12/20201204/rcs_20201204_spu_06_355nm_AN_15km.webp",
+              "sha256": "88539a56cd6e9d68830486fa854ab53c6aa17648906a58a1dc2e012c1ba4df60",
+              "size": 105828
+            },
+            "rcs_20201204_spu_06_355nm_AN_30km.webp": {
+              "key": "spu/2020/12/20201204/rcs_20201204_spu_06_355nm_AN_30km.webp",
+              "sha256": "463269da624959f1cf5e3a52984cb4210526000bb6a9f5b27e60fe10c12ff959",
+              "size": 102668
+            },
+            "rcs_20201204_spu_06_355nm_AN_5km.webp": {
+              "key": "spu/2020/12/20201204/rcs_20201204_spu_06_355nm_AN_5km.webp",
+              "sha256": "e56b35bba1ae6cdfd9a53922ba18f3e3fff55728d3a06cd2b217984dc6fd3940",
+              "size": 74542
+            },
+            "rcs_20201204_spu_06_355nm_PC_15km.webp": {
+              "key": "spu/2020/12/20201204/rcs_20201204_spu_06_355nm_PC_15km.webp",
+              "sha256": "fdb32311fc1aca84dca4d4fdcab04528943c88d88f6e3ae6692f90afb6fd3970",
+              "size": 110474
+            },
+            "rcs_20201204_spu_06_355nm_PC_30km.webp": {
+              "key": "spu/2020/12/20201204/rcs_20201204_spu_06_355nm_PC_30km.webp",
+              "sha256": "fc51ff652a7c6778240a3bac13e654fa9e00dea338fcff40c7da0acbbf6020a7",
+              "size": 104196
+            },
+            "rcs_20201204_spu_06_355nm_PC_5km.webp": {
+              "key": "spu/2020/12/20201204/rcs_20201204_spu_06_355nm_PC_5km.webp",
+              "sha256": "43b20351d7abd891eb60b7b93828af10c191cd2f47234337a546f4fb3dad6c8b",
+              "size": 83516
+            },
+            "rcs_20201204_spu_06_532nm_AN_15km.webp": {
+              "key": "spu/2020/12/20201204/rcs_20201204_spu_06_532nm_AN_15km.webp",
+              "sha256": "c3fca1b6a0a60e3d12f5374ee5109217900219004c8a5c49a30159ee933278a7",
+              "size": 105126
+            },
+            "rcs_20201204_spu_06_532nm_AN_30km.webp": {
+              "key": "spu/2020/12/20201204/rcs_20201204_spu_06_532nm_AN_30km.webp",
+              "sha256": "21f8cb22db977312ba11dd8442a78a042f3f9527c907e48536cb0bc69d677f2f",
+              "size": 101042
+            },
+            "rcs_20201204_spu_06_532nm_AN_5km.webp": {
+              "key": "spu/2020/12/20201204/rcs_20201204_spu_06_532nm_AN_5km.webp",
+              "sha256": "17e7749239e7117e35320e275adf54374771b839c387ad67b96c4e5feb24c072",
+              "size": 71960
+            },
+            "rcs_20201204_spu_06_532nm_PC_15km.webp": {
+              "key": "spu/2020/12/20201204/rcs_20201204_spu_06_532nm_PC_15km.webp",
+              "sha256": "45433524ce25b60ce77725c94b647bcb68875a71473cdf5b81d783179e418e81",
+              "size": 105518
+            },
+            "rcs_20201204_spu_06_532nm_PC_30km.webp": {
+              "key": "spu/2020/12/20201204/rcs_20201204_spu_06_532nm_PC_30km.webp",
+              "sha256": "d549ca9d32bf92f56ff4a8cca4a4440397ad65adb66a91f0c7ab07837c936a14",
+              "size": 99630
+            },
+            "rcs_20201204_spu_06_532nm_PC_5km.webp": {
+              "key": "spu/2020/12/20201204/rcs_20201204_spu_06_532nm_PC_5km.webp",
+              "sha256": "26262a80a6475ae7b8f20e37ea426cb091f9ac2190d2894e139b10a80be70ab3",
+              "size": 78230
+            }
+          },
+          "publication_window_id": "20201204_spu_06",
+          "r2_bucket": "spu-ql",
+          "scientific_netcdf_split": false,
+          "scientific_sessions_merged": false,
+          "source_fingerprint": "f196241f463b419d929c0e67aff760e253acb66fe54f98e5ecdf596c995fd0bc",
+          "source_level1_files": [
+            "spu_20201204-1309Z_20201204-1408Z_L1.nc"
+          ],
+          "source_level2_files": [],
+          "source_sessions": [
+            "spu_20201204-1309Z_20201204-1408Z"
+          ],
+          "visualization_only_session_concatenation": false
         }
       }
     }
