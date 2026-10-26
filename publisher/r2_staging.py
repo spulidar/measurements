@@ -5,35 +5,61 @@ No deletion, promotion, production-key write or public-site publication API exis
 from __future__ import annotations
 
 from hashlib import sha256
+import logging
+import time
+from botocore.exceptions import ReadTimeoutError, ConnectTimeoutError, ConnectionClosedError, EndpointConnectionError
 from pathlib import Path
 from typing import Any
 
 from .published import validate_publication_object
 
 
-def _remote_digest(client: Any, bucket: str, key: str) -> tuple[int, str] | None:
-    """Hash the actual downloaded bytes, not just self-declared upload metadata."""
+def _remote_digest_once(client: Any, bucket: str, key: str) -> tuple[int, str] | None:
+    """Compute a fresh SHA-256 over every remote response, closing the stream."""
     try:
         response = client.get_object(Bucket=bucket, Key=key)
     except Exception as exc:
         code = getattr(exc, "response", {}).get("Error", {}).get("Code", "")
         if str(code) in {"404", "NoSuchKey", "NotFound"}:
             return None
-        raise RuntimeError(f"Cannot read R2 object {key}: {exc}") from exc
-
+        raise
     body = response["Body"]
     digest = sha256()
     size = 0
     try:
-        for chunk in body.iter_chunks(chunk_size=1024 * 1024):
+        for chunk in body.iter_chunks(chunk_size=256 * 1024):
             if chunk:
                 size += len(chunk)
                 digest.update(chunk)
     finally:
         body.close()
     if int(response.get("ContentLength", size)) != size:
-        raise RuntimeError(f"Incomplete R2 object response for {key}")
+        raise IncompleteR2Read(f"Incomplete R2 response for {key}")
     return size, digest.hexdigest()
+
+
+class IncompleteR2Read(RuntimeError):
+    pass
+
+
+def _remote_digest(client: Any, bucket: str, key: str) -> tuple[int, str] | None:
+    """Retry transient streaming read errors; never trust a partial digest."""
+    retryable = (ReadTimeoutError, ConnectTimeoutError, ConnectionClosedError,
+                 EndpointConnectionError, TimeoutError, ConnectionError, IncompleteR2Read)
+    for attempt in range(1, 6):
+        try:
+            return _remote_digest_once(client, bucket, key)
+        except retryable as exc:
+            if attempt == 5:
+                raise RuntimeError(f"R2 read failed for {key} after 5 attempts; cache retained") from exc
+            delay = 2 ** (attempt - 1)
+            logging.getLogger("milgrau-publish").warning(
+                "R2 read retry %d/5 for %s after %s; retrying in %ds",
+                attempt + 1, key, type(exc).__name__, delay,
+            )
+            time.sleep(delay)
+    raise AssertionError("Unreachable")
+
 
 
 def previous_backup_key(key: str, old_sha256: str) -> str:
